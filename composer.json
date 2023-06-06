@@ -34,7 +34,6 @@
         "phpdocumentor/reflection-docblock": "^5.2",
         "phpdocumentor/type-resolver": ">1.4.0,<1.6.0",
         "psr/log": "^1.0 || ^2.0 || ^3.0",
-        "skillshare/apollo-federation-php": "^1.7",
         "symfony/config": "^5.4 || ^6.0",
         "symfony/dependency-injection": "^5.4 || ^6.0",
         "symfony/event-dispatcher": "^5.4 || ^6.0",

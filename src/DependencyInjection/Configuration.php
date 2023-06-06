@@ -50,6 +50,9 @@ class Configuration implements ConfigurationInterface
         // @phpstan-ignore-next-line
         $rootNode
             ->children()
+                ->booleanNode('federation')
+                    ->defaultFalse()
+                ->end()
                 ->append($this->batchingMethodSection())
                 ->append($this->definitionsSection())
                 ->append($this->errorsHandlerSection())
