@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Error;
+namespace Redeye\GraphQLBundle\Tests\Error;
 
 use Exception;
 use GraphQL\Error\Error as GraphQLError;
 use GraphQL\Error\UserError as GraphQLUserError;
 use GraphQL\Executor\ExecutionResult;
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Error\ErrorHandler;
-use Overblog\GraphQLBundle\Error\ExceptionConverter;
-use Overblog\GraphQLBundle\Error\ExceptionConverterInterface;
-use Overblog\GraphQLBundle\Error\UserError;
-use Overblog\GraphQLBundle\Error\UserErrors;
-use Overblog\GraphQLBundle\Error\UserWarning;
+use Redeye\GraphQLBundle\Error\ErrorHandler;
+use Redeye\GraphQLBundle\Error\ExceptionConverter;
+use Redeye\GraphQLBundle\Error\ExceptionConverterInterface;
+use Redeye\GraphQLBundle\Error\UserError;
+use Redeye\GraphQLBundle\Error\UserErrors;
+use Redeye\GraphQLBundle\Error\UserWarning;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use function is_array;

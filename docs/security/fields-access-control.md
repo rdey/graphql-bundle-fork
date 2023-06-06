@@ -46,7 +46,7 @@ Human:
 
 namespace AppBundle;
 
-use Overblog\GraphQLBundle\Annotation as GQL;
+use Redeye\GraphQLBundle\Annotation as GQL;
 
 /**
  * @GQL\Type(interfaces={"Character"}, description="A humanoid creature in the Star Wars universe.")

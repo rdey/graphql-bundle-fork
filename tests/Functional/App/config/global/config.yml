@@ -2,15 +2,15 @@ imports:
     - { resource: ../config.yml }
 
 services:
-    overblog_graphql.test.resolver.global:
-        class: Overblog\GraphQLBundle\Tests\Functional\App\Resolver\GlobalResolver
+    redeye_graphql.test.resolver.global:
+        class: Redeye\GraphQLBundle\Tests\Functional\App\Resolver\GlobalResolver
         public: true
         arguments:
-            - "@overblog_graphql.type_resolver"
+            - "@redeye_graphql.type_resolver"
 
-overblog_graphql:
+redeye_graphql:
     definitions:
-        class_namespace: "Overblog\\GraphQLBundle\\RelayGlobal\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\RelayGlobal\\__DEFINITIONS__"
         config_validation: false
         schema:
             query: Query

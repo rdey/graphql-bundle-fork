@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Relay\Connection;
+namespace Redeye\GraphQLBundle\Tests\Relay\Connection;
 
 use Exception;
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Relay\Connection\ConnectionBuilder;
-use Overblog\GraphQLBundle\Relay\Connection\ConnectionInterface;
+use Redeye\GraphQLBundle\Relay\Connection\ConnectionBuilder;
+use Redeye\GraphQLBundle\Relay\Connection\ConnectionInterface;
 use React\Promise\ExtendedPromiseInterface;
 use React\Promise\FulfilledPromise;
 use React\Promise\Promise;

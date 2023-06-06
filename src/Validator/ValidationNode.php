@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Validator;
+namespace Redeye\GraphQLBundle\Validator;
 
 use GraphQL\Type\Definition\InputObjectType;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
-use Overblog\GraphQLBundle\Definition\Argument;
-use Overblog\GraphQLBundle\Definition\ResolverArgs;
+use Redeye\GraphQLBundle\Definition\Argument;
+use Redeye\GraphQLBundle\Definition\ResolverArgs;
 use function in_array;
 
 /**

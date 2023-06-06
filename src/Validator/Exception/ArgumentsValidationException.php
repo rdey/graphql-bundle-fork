@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Validator\Exception;
+namespace Redeye\GraphQLBundle\Validator\Exception;
 
 use Exception;
 use GraphQL\Error\ClientAware;

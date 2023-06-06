@@ -7,7 +7,7 @@ To use annotations, You must install `symfony/cache` and `doctrine/annotation` a
 
 ```yaml
 # config/packages/graphql.yaml
-overblog_graphql:
+redeye_graphql:
   definitions:
     mappings:
       types:
@@ -19,7 +19,7 @@ To use attributes, use the `attribute` mapping type.
 
 ```yaml
 # config/packages/graphql.yaml
-overblog_graphql:
+redeye_graphql:
   definitions:
     mappings:
       types:
@@ -34,7 +34,7 @@ The annotations & attributes are equivalent and are used in the same way. They s
 
 Example with annotations:
 ```php
-use Overblog\GraphQLBundle\Annotation as GQL;
+use Redeye\GraphQLBundle\Annotation as GQL;
 
 /**
  * @GQL\Type
@@ -49,7 +49,7 @@ class MyType {
 
 Example with attributes:
 ```php
-use Overblog\GraphQLBundle\Annotation as GQL;
+use Redeye\GraphQLBundle\Annotation as GQL;
 
 #[GQL\Type]
 class MyType {
@@ -65,7 +65,7 @@ If you only use annotations as mappings you need to add an empty `RootQuery` typ
 Your config should look like this:
 ```yaml
 # config/packages/graphql.yaml
-overblog_graphql:
+redeye_graphql:
   definitions:
     schema:
       query: RootQuery
@@ -230,7 +230,7 @@ For example:
 
 
 ```yaml (graphql.yaml)
-overblog_graphql:
+redeye_graphql:
     ...
     doctrine:
         types_mapping:

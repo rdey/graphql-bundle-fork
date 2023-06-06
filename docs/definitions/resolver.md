@@ -12,11 +12,11 @@ Resolvers can be defined in 2 different ways:
 ## The PHP way
 
 
-You can declare a resolver (any class that implements `Overblog\GraphQLBundle\Definition\Resolver\QueryInterface` or `Overblog\GraphQLBundle\Definition\Resolver\MutationInterface`) in `src/*Bundle/GraphQL` or `app/GraphQL` and they will be auto discovered.
+You can declare a resolver (any class that implements `Redeye\GraphQLBundle\Definition\Resolver\QueryInterface` or `Redeye\GraphQLBundle\Definition\Resolver\MutationInterface`) in `src/*Bundle/GraphQL` or `app/GraphQL` and they will be auto discovered.
 Auto map classes method are accessible by:
 * double-colon (::) to separate service id (class name) and the method names
 (example: `AppBunble\GraphQL\CustomResolver::myMethod`)
-* for callable classes you can use the service id (example: `AppBunble\GraphQL\InvokeResolver` for a resolver implementing the `__invoke` method) you can also alias a type by implementing `Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface` which returns a map of method/alias. The service created will autowire the `__construct` and `Symfony\Component\DependencyInjection\ContainerAwareInterface::setContainer` methods.
+* for callable classes you can use the service id (example: `AppBunble\GraphQL\InvokeResolver` for a resolver implementing the `__invoke` method) you can also alias a type by implementing `Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface` which returns a map of method/alias. The service created will autowire the `__construct` and `Symfony\Component\DependencyInjection\ContainerAwareInterface::setContainer` methods.
 
 **Note:**
 * When using service id as FQCN in yaml or annotation definition, backslashes must be correctly escaped, here an example:
@@ -35,8 +35,8 @@ resolve: '@=query("say_hello", args["name"])'
 # src/GraphQL/Resolver/Greetings.php
 namespace App\GraphQL\Resolver;
 
-use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\QueryInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\QueryInterface;
 
 class Greetings implements QueryInterface, AliasedInterface
 {
@@ -67,7 +67,7 @@ Note: backslashes must be correctly escaped and respect the use of single and do
 # src/GraphQL/Resolver/Greetings.php
 namespace App\GraphQL\Resolver;
 
-use Overblog\GraphQLBundle\Definition\Resolver\QueryInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\QueryInterface;
 
 class Greetings implements QueryInterface
 {
@@ -88,7 +88,7 @@ resolve: '@=query("App\\GraphQL\\Resolver\\Greetings", args["name"])'
 # src/GraphQL/Resolver/Greetings.php
 namespace App\GraphQL\Resolver;
 
-use Overblog\GraphQLBundle\Definition\Resolver\QueryInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\QueryInterface;
 
 class Greetings implements QueryInterface
 {
@@ -121,7 +121,7 @@ MyType:
 namespace App\GraphQL\Resolver;
 
 use GraphQL\Type\Definition\ResolveInfo;
-use Overblog\GraphQLBundle\Definition\Resolver\QueryInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\QueryInterface;
 
 class Greetings implements QueryInterface
 {
@@ -147,8 +147,8 @@ class Greetings implements QueryInterface
 # src/GraphQL/Mutation/CalcMutation.php
 namespace App\GraphQL\Mutation;
 
-use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\MutationInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\MutationInterface;
 
 class CalcMutation implements MutationInterface, AliasedInterface
 {
@@ -178,14 +178,14 @@ services:
     _defaults:
         autoconfigure: true
 
-    Overblog\GraphQLBundle\GraphQL\Relay\:
+    Redeye\GraphQLBundle\GraphQL\Relay\:
         resource: ../../GraphQL/Relay/{Mutation,Node}
 ```
 
 ## The service way
 
-Creating a service tagged `overblog_graphql.query` for queries
-or `overblog_graphql.mutation` for mutations.
+Creating a service tagged `redeye_graphql.query` for queries
+or `redeye_graphql.mutation` for mutations.
 
 Using the php way examples:
 
@@ -195,8 +195,8 @@ services:
         # only for sf < 3.3
         #class: App\GraphQL\Resolver\Greetings
         tags:
-            - { name: overblog_graphql.query, method: sayHello, alias: say_hello } # add alias say_hello
-            - { name: overblog_graphql.query, method: sayHello } # add service id "App\GraphQL\Resolver\Greetings"
+            - { name: redeye_graphql.query, method: sayHello, alias: say_hello } # add alias say_hello
+            - { name: redeye_graphql.query, method: sayHello } # add service id "App\GraphQL\Resolver\Greetings"
 ```
 
 `SayHello` resolver can be access by using `App\GraphQL\Resolver\Greetings::sayHello` or
@@ -210,7 +210,7 @@ services:
         # only for sf < 3.3
         #class: App\GraphQL\Resolver\Greetings
         tags:
-            - { name: overblog_graphql.query }
+            - { name: redeye_graphql.query }
 ```
 
 This way resolver can be accessed with service id `App\GraphQL\Resolver\Greetings`.
@@ -223,7 +223,7 @@ services:
         # only for sf < 3.3
         #class: App\GraphQL\Mutation\CalcMutation
         tags:
-            - { name: overblog_graphql.mutation, method: addition, alias: add }
+            - { name: redeye_graphql.mutation, method: addition, alias: add }
 ```
 `addition` mutation can be access by using `App\GraphQL\Mutation\CalcMutation::addition` or
 `add` alias.
@@ -233,7 +233,7 @@ services:
 The default field resolver can be define using config:
 
 ```yaml
-overblog_graphql:
+redeye_graphql:
     definitions:
        default_field_resolver: 'my_default_field_resolver_service'
 ```

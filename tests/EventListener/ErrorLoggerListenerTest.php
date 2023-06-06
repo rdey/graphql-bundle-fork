@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\EventListener;
+namespace Redeye\GraphQLBundle\Tests\EventListener;
 
 use Exception;
 use Generator;
 use GraphQL\Error\Error;
-use Overblog\GraphQLBundle\Error\UserError;
-use Overblog\GraphQLBundle\Error\UserWarning;
-use Overblog\GraphQLBundle\Event\ErrorFormattingEvent;
-use Overblog\GraphQLBundle\EventListener\ErrorLoggerListener;
+use Redeye\GraphQLBundle\Error\UserError;
+use Redeye\GraphQLBundle\Error\UserWarning;
+use Redeye\GraphQLBundle\Event\ErrorFormattingEvent;
+use Redeye\GraphQLBundle\EventListener\ErrorLoggerListener;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\MockObject\Rule\InvokedCount;
 use PHPUnit\Framework\TestCase;

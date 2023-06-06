@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Config\Parser;
+namespace Redeye\GraphQLBundle\Tests\Config\Parser;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;

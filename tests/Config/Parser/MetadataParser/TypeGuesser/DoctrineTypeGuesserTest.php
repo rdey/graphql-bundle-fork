@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Config\Parser;
+namespace Redeye\GraphQLBundle\Tests\Config\Parser;
 
 use Doctrine\ORM\Mapping\Column;
 use Exception;
-use Overblog\GraphQLBundle\Config\Parser\MetadataParser\ClassesTypesMap;
-use Overblog\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser\DoctrineTypeGuesser;
-use Overblog\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser\TypeGuessingException;
+use Redeye\GraphQLBundle\Config\Parser\MetadataParser\ClassesTypesMap;
+use Redeye\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser\DoctrineTypeGuesser;
+use Redeye\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser\TypeGuessingException;
 use ReflectionClass;
 
 class DoctrineTypeGuesserTest extends TestCase

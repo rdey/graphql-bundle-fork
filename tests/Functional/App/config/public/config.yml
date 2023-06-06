@@ -1,9 +1,9 @@
 imports:
     - { resource: ../config.yml }
 
-overblog_graphql:
+redeye_graphql:
     definitions:
-        class_namespace: "Overblog\\GraphQLBundle\\PublicField\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\PublicField\\__DEFINITIONS__"
         schema:
             query: RootQuery
         mappings:

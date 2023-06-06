@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\DependencyInjection;
+namespace Redeye\GraphQLBundle\DependencyInjection;
 
 use GraphQL\Executor\Promise\Adapter\SyncPromiseAdapter;
 use GraphQL\Validator\Rules\QueryComplexity;
 use GraphQL\Validator\Rules\QueryDepth;
-use Overblog\GraphQLBundle\Definition\Argument;
-use Overblog\GraphQLBundle\DependencyInjection\Compiler\ConfigParserPass;
-use Overblog\GraphQLBundle\Error\ErrorHandler;
-use Overblog\GraphQLBundle\EventListener\ErrorLoggerListener;
-use Overblog\GraphQLBundle\Executor\Executor;
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionLanguage;
-use Overblog\GraphQLBundle\Resolver\FieldResolver;
+use Redeye\GraphQLBundle\Definition\Argument;
+use Redeye\GraphQLBundle\DependencyInjection\Compiler\ConfigParserPass;
+use Redeye\GraphQLBundle\Error\ErrorHandler;
+use Redeye\GraphQLBundle\EventListener\ErrorLoggerListener;
+use Redeye\GraphQLBundle\Executor\Executor;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionLanguage;
+use Redeye\GraphQLBundle\Resolver\FieldResolver;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\EnumNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\ScalarNodeDefinition;
@@ -29,7 +29,7 @@ use function sprintf;
 
 class Configuration implements ConfigurationInterface
 {
-    public const NAME = 'overblog_graphql';
+    public const NAME = 'redeye_graphql';
 
     private bool $debug;
 
@@ -128,7 +128,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('argument_class')->defaultValue(Argument::class)->end()
                 ->scalarNode('use_experimental_executor')->defaultFalse()->end()
                 ->scalarNode('default_field_resolver')->defaultValue(FieldResolver::class)->end()
-                ->scalarNode('class_namespace')->defaultValue('Overblog\\GraphQLBundle\\__DEFINITIONS__')->end()
+                ->scalarNode('class_namespace')->defaultValue('Redeye\\GraphQLBundle\\__DEFINITIONS__')->end()
                 ->scalarNode('cache_dir')->defaultNull()->end()
                 ->scalarNode('cache_dir_permissions')->defaultNull()->end()
                 ->booleanNode('use_classloader_listener')->defaultTrue()->end()
@@ -208,12 +208,12 @@ class Configuration implements ConfigurationInterface
 
         if (Kernel::VERSION_ID >= 50100) {
             $deprecatedArgs = [
-                'overblog/graphql-bundle',
+                'redeye/graphql-bundle',
                 '0.13',
-                'The "%path%.%node%" configuration is deprecated and will be removed in 1.0. Add the "overblog_graphql.resolver_map" tag to the services instead.',
+                'The "%path%.%node%" configuration is deprecated and will be removed in 1.0. Add the "redeye_graphql.resolver_map" tag to the services instead.',
             ];
         } else {
-            $deprecatedArgs = ['The "%path%.%node%" configuration is deprecated since version 0.13 and will be removed in 1.0. Add the "overblog_graphql.resolver_map" tag to the services instead.'];
+            $deprecatedArgs = ['The "%path%.%node%" configuration is deprecated since version 0.13 and will be removed in 1.0. Add the "redeye_graphql.resolver_map" tag to the services instead.'];
         }
 
         // @phpstan-ignore-next-line

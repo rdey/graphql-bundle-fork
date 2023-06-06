@@ -1,5 +1,5 @@
-overblog_graphql_endpoint:
-    resource: "@OverblogGraphQLBundle/Resources/config/routing/graphql.yml"
+redeye_graphql_endpoint:
+    resource: "@RedeyeGraphQLBundle/Resources/config/routing/graphql.yml"
 
 _wdt:
     path: /_wdt/{token}

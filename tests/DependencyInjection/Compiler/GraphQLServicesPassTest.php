@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\DependencyInjection\Compiler;
+namespace Redeye\GraphQLBundle\Tests\DependencyInjection\Compiler;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\DependencyInjection\Compiler\GraphQLServicesPass;
+use Redeye\GraphQLBundle\DependencyInjection\Compiler\GraphQLServicesPass;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use stdClass;
@@ -29,7 +29,7 @@ class GraphQLServicesPassTest extends TestCase
         // remove start
         $container->expects($this->exactly(2))
             ->method('findTaggedServiceIds')
-            ->withConsecutive(['overblog_graphql.service'], ['overblog_graphql.global_variable'])
+            ->withConsecutive(['redeye_graphql.service'], ['redeye_graphql.global_variable'])
             ->willReturnOnConsecutiveCalls(
                 [
                     'my-id' => [
@@ -53,7 +53,7 @@ class GraphQLServicesPassTest extends TestCase
 //            ]);
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Service "my-id" tagged "overblog_graphql.service" should have a valid "alias" attribute.');
+        $this->expectExceptionMessage('Service "my-id" tagged "redeye_graphql.service" should have a valid "alias" attribute.');
 
         (new GraphQLServicesPass())->process($container);
     }

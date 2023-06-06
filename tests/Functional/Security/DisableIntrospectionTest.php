@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\Security;
+namespace Redeye\GraphQLBundle\Tests\Functional\Security;
 
-use Overblog\GraphQLBundle\Tests\Functional\TestCase;
+use Redeye\GraphQLBundle\Tests\Functional\TestCase;
 
 class DisableIntrospectionTest extends TestCase
 {

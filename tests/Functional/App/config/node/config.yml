@@ -3,15 +3,15 @@ imports:
 
 services:
     node_resolver:
-        class: Overblog\GraphQLBundle\Tests\Functional\App\Resolver\NodeResolver
+        class: Redeye\GraphQLBundle\Tests\Functional\App\Resolver\NodeResolver
         tags:
-            - { name: "overblog_graphql.resolver", method: "typeResolver" }
-            - { name: "overblog_graphql.resolver", alias: "node_id_fetcher", method: "idFetcher" }
-            - { name: "overblog_graphql.query", alias: "resolve_photo_field", method: "resolvePhotoField" }
+            - { name: "redeye_graphql.resolver", method: "typeResolver" }
+            - { name: "redeye_graphql.resolver", alias: "node_id_fetcher", method: "idFetcher" }
+            - { name: "redeye_graphql.query", alias: "resolve_photo_field", method: "resolvePhotoField" }
 
-overblog_graphql:
+redeye_graphql:
     definitions:
-        class_namespace: "Overblog\\GraphQLBundle\\Node\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\Node\\__DEFINITIONS__"
         schema:
             query: Query
             mutation: ~

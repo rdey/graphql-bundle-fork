@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Config\Processor;
+namespace Redeye\GraphQLBundle\Config\Processor;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Definition\Builder\MappingInterface;
-use Overblog\GraphQLBundle\Relay\Builder\RelayConnectionFieldsBuilder;
-use Overblog\GraphQLBundle\Relay\Builder\RelayEdgeFieldsBuilder;
-use Overblog\GraphQLBundle\Relay\Connection\BackwardConnectionArgsDefinition;
-use Overblog\GraphQLBundle\Relay\Connection\ConnectionArgsDefinition;
-use Overblog\GraphQLBundle\Relay\Connection\ForwardConnectionArgsDefinition;
-use Overblog\GraphQLBundle\Relay\Mutation\MutationFieldDefinition;
-use Overblog\GraphQLBundle\Relay\Node\GlobalIdFieldDefinition;
-use Overblog\GraphQLBundle\Relay\Node\NodeFieldDefinition;
-use Overblog\GraphQLBundle\Relay\Node\PluralIdentifyingRootFieldDefinition;
+use Redeye\GraphQLBundle\Definition\Builder\MappingInterface;
+use Redeye\GraphQLBundle\Relay\Builder\RelayConnectionFieldsBuilder;
+use Redeye\GraphQLBundle\Relay\Builder\RelayEdgeFieldsBuilder;
+use Redeye\GraphQLBundle\Relay\Connection\BackwardConnectionArgsDefinition;
+use Redeye\GraphQLBundle\Relay\Connection\ConnectionArgsDefinition;
+use Redeye\GraphQLBundle\Relay\Connection\ForwardConnectionArgsDefinition;
+use Redeye\GraphQLBundle\Relay\Mutation\MutationFieldDefinition;
+use Redeye\GraphQLBundle\Relay\Node\GlobalIdFieldDefinition;
+use Redeye\GraphQLBundle\Relay\Node\NodeFieldDefinition;
+use Redeye\GraphQLBundle\Relay\Node\PluralIdentifyingRootFieldDefinition;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use function array_combine;
 use function array_fill;

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Resolver;
+namespace Redeye\GraphQLBundle\Tests\Resolver;
 
-use Overblog\GraphQLBundle\Resolver\MutationResolver;
+use Redeye\GraphQLBundle\Resolver\MutationResolver;
 
 class MutationResolverTest extends AbstractProxyResolverTest
 {

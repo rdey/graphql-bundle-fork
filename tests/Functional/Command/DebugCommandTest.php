@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\Command;
+namespace Redeye\GraphQLBundle\Tests\Functional\Command;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Command\DebugCommand;
-use Overblog\GraphQLBundle\Tests\Functional\TestCase;
+use Redeye\GraphQLBundle\Command\DebugCommand;
+use Redeye\GraphQLBundle\Tests\Functional\TestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 use function file_get_contents;
 use function sprintf;

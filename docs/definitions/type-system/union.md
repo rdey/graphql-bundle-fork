@@ -23,7 +23,7 @@ Note: With annotations, you can omit the `types` parameter. If so, the system wi
 
 namespace AppBundle;
 
-use Overblog\GraphQLBundle\Annotation as GQL;
+use Redeye\GraphQLBundle\Annotation as GQL;
 
 /**
  * @GQL\Union(types={"Human", "Droid"})

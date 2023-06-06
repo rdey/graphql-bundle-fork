@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Generator\Converter;
+namespace Redeye\GraphQLBundle\Generator\Converter;
 
 use Murtukov\PHPCodeGenerator\ConverterInterface;
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionLanguage;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionLanguage;
 
 class ExpressionConverter implements ConverterInterface
 {

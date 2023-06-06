@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Definition\Builder;
+namespace Redeye\GraphQLBundle\Definition\Builder;
 
 use GraphQL\Type\Definition\Type;
-use Overblog\GraphQLBundle\Definition\ConfigProcessor;
-use Overblog\GraphQLBundle\Definition\GraphQLServices;
+use Redeye\GraphQLBundle\Definition\ConfigProcessor;
+use Redeye\GraphQLBundle\Definition\GraphQLServices;
 
 final class TypeFactory
 {

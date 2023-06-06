@@ -3,13 +3,13 @@ imports:
 
 services:
     plural_resolver:
-        class: Overblog\GraphQLBundle\Tests\Functional\App\Resolver\PluralResolver
+        class: Redeye\GraphQLBundle\Tests\Functional\App\Resolver\PluralResolver
         tags:
-            - { name: "overblog_graphql.query" }
+            - { name: "redeye_graphql.query" }
 
-overblog_graphql:
+redeye_graphql:
     definitions:
-        class_namespace: "Overblog\\GraphQLBundle\\Plural\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\Plural\\__DEFINITIONS__"
         schema:
             query: Query
             mutation: ~

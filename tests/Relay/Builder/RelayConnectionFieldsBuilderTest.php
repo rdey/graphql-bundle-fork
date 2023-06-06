@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Relay\Builder;
+namespace Redeye\GraphQLBundle\Tests\Relay\Builder;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Relay\Builder\RelayConnectionFieldsBuilder;
+use Redeye\GraphQLBundle\Relay\Builder\RelayConnectionFieldsBuilder;
 use PHPUnit\Framework\TestCase;
 
 class RelayConnectionFieldsBuilderTest extends TestCase

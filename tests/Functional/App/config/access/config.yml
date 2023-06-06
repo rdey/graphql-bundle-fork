@@ -3,10 +3,10 @@ imports:
     - { resource: ../connection/services.yml }
     - { resource: ../mutation/services.yml }
 
-overblog_graphql:
+redeye_graphql:
     definitions:
         use_classloader_listener: false
-        class_namespace: "Overblog\\GraphQLBundle\\Access\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\Access\\__DEFINITIONS__"
         schema:
             query: RootQuery
             mutation: RootMutation
@@ -21,8 +21,8 @@ overblog_graphql:
                     dir: "%kernel.project_dir%/config/access/mapping"
 
 services:
-    overblog_graphql.test.private:
-        class: Overblog\GraphQLBundle\Tests\Functional\App\Service\PrivateService
+    redeye_graphql.test.private:
+        class: Redeye\GraphQLBundle\Tests\Functional\App\Service\PrivateService
         public: false
         tags:
-            - { name: "overblog_graphql.service", alias: "private_service" }
+            - { name: "redeye_graphql.service", alias: "private_service" }

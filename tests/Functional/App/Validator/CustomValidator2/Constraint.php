@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\App\Validator\CustomValidator2;
+namespace Redeye\GraphQLBundle\Tests\Functional\App\Validator\CustomValidator2;
 
-use Overblog\GraphQLBundle\Tests\Functional\App\Validator\MockValidator;
+use Redeye\GraphQLBundle\Tests\Functional\App\Validator\MockValidator;
 use Symfony\Component\Validator\Constraint as BaseConstraint;
 
 /**

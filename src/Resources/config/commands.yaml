@@ -2,29 +2,29 @@ services:
     _defaults:
         public: true
 
-    Overblog\GraphQLBundle\Command\GraphQLDumpSchemaCommand:
+    Redeye\GraphQLBundle\Command\GraphQLDumpSchemaCommand:
         arguments:
             - "%kernel.cache_dir%/../.."
-            - '@Overblog\GraphQLBundle\Request\Executor'
+            - '@Redeye\GraphQLBundle\Request\Executor'
         tags:
             - { name: console.command, command: graphql:dump-schema, alias: "graph:dump-schema" }
 
-    Overblog\GraphQLBundle\Command\DebugCommand:
+    Redeye\GraphQLBundle\Command\DebugCommand:
         arguments:
-            - '@Overblog\GraphQLBundle\Resolver\TypeResolver'
-            - '@Overblog\GraphQLBundle\Resolver\MutationResolver'
-            - '@Overblog\GraphQLBundle\Resolver\QueryResolver'
+            - '@Redeye\GraphQLBundle\Resolver\TypeResolver'
+            - '@Redeye\GraphQLBundle\Resolver\MutationResolver'
+            - '@Redeye\GraphQLBundle\Resolver\QueryResolver'
         tags:
             - { name: console.command, command: graphql:debug, alias: "debug:graphql" }
 
-    Overblog\GraphQLBundle\Command\CompileCommand:
+    Redeye\GraphQLBundle\Command\CompileCommand:
         arguments:
-            - '@Overblog\GraphQLBundle\Generator\TypeGenerator'
+            - '@Redeye\GraphQLBundle\Generator\TypeGenerator'
         tags:
             - { name: console.command, command: graphql:compile }
 
-    Overblog\GraphQLBundle\Command\ValidateCommand:
+    Redeye\GraphQLBundle\Command\ValidateCommand:
         arguments:
-            - '@Overblog\GraphQLBundle\Request\Executor'
+            - '@Redeye\GraphQLBundle\Request\Executor'
         tags:
             - { name: console.command, command: graphql:validate }

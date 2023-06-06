@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\Controller;
+namespace Redeye\GraphQLBundle\Tests\Functional\Controller;
 
-use Overblog\GraphQLBundle\Tests\Functional\TestCase;
+use Redeye\GraphQLBundle\Tests\Functional\TestCase;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;

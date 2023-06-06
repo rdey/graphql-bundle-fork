@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\DependencyInjection\Compiler;
+namespace Redeye\GraphQLBundle\DependencyInjection\Compiler;
 
 class TypeTaggedServiceMappingPass extends TaggedServiceMappingPass
 {
-    public const TAG_NAME = 'overblog_graphql.type';
+    public const TAG_NAME = 'redeye_graphql.type';
 
     protected function getTagName(): string
     {
@@ -15,6 +15,6 @@ class TypeTaggedServiceMappingPass extends TaggedServiceMappingPass
 
     protected function getResolverServiceID(): string
     {
-        return 'overblog_graphql.type_resolver';
+        return 'redeye_graphql.type_resolver';
     }
 }

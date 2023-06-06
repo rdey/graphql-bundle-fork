@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL;
+namespace Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction;
 
 /**
- * @deprecated since 0.14 and will be removed in 1.0. Use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL\Query instead.
+ * @deprecated since 0.14 and will be removed in 1.0. Use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL\Query instead.
  */
 final class Resolver extends ExpressionFunction
 {
@@ -17,7 +17,7 @@ final class Resolver extends ExpressionFunction
             $name,
             function (string $alias, string $args = '[]') {
                 @trigger_error(
-                    "The 'resolver' expression function is deprecated since 0.14 and will be removed in 1.0. Use 'query' instead. For more info visit: https://github.com/overblog/GraphQLBundle/issues/775",
+                    "The 'resolver' expression function is deprecated since 0.14 and will be removed in 1.0. Use 'query' instead. For more info visit: https://github.com/redeye/GraphQLBundle/issues/775",
                     E_USER_DEPRECATED
                 );
 

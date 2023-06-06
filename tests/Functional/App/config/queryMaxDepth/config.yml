@@ -2,11 +2,11 @@ imports:
     - { resource: ../config.yml }
     - { resource: ../connection/services.yml }
 
-overblog_graphql:
+redeye_graphql:
     security:
         query_max_depth: '3'
     definitions:
-        class_namespace: "Overblog\\GraphQLBundle\\QueryComplexity\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\QueryComplexity\\__DEFINITIONS__"
         schema:
             query: Query
             mutation: ~

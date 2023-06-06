@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Error;
+namespace Redeye\GraphQLBundle\Error;
 
 use Exception;
 use GraphQL\Error\UserError as GraphQLUserError;

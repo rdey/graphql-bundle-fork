@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\Security;
+namespace Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\Security;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction;
-use Overblog\GraphQLBundle\Generator\TypeGenerator;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction;
+use Redeye\GraphQLBundle\Generator\TypeGenerator;
 
 final class IsFullyAuthenticated extends ExpressionFunction
 {

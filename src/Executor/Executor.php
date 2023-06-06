@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Executor;
+namespace Redeye\GraphQLBundle\Executor;
 
 use GraphQL\Executor\ExecutionResult;
 use GraphQL\Executor\Promise\PromiseAdapter;
 use GraphQL\GraphQL;
 use GraphQL\Type\Schema;
-use Overblog\GraphQLBundle\Executor\Promise\PromiseAdapterInterface;
+use Redeye\GraphQLBundle\Executor\Promise\PromiseAdapterInterface;
 use RuntimeException;
 use function func_get_args;
 use function method_exists;

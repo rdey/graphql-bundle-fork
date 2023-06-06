@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Definition;
+namespace Redeye\GraphQLBundle\Tests\Definition;
 
-use Overblog\GraphQLBundle\Definition\Argument;
+use Redeye\GraphQLBundle\Definition\Argument;
 use PHPUnit\Framework\TestCase;
 
 class ArgumentTest extends TestCase

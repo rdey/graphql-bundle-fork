@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Executor\Promise\Adapter;
+namespace Redeye\GraphQLBundle\Tests\Executor\Promise\Adapter;
 
 use Exception;
 use GraphQL\Executor\ExecutionResult;
 use GraphQL\Executor\Promise\Promise;
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Executor\Promise\Adapter\ReactPromiseAdapter;
+use Redeye\GraphQLBundle\Executor\Promise\Adapter\ReactPromiseAdapter;
 use PHPUnit\Framework\TestCase;
 use React\Promise\FulfilledPromise;
 use stdClass;

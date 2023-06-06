@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\Command;
+namespace Redeye\GraphQLBundle\Tests\Functional\Command;
 
 use GraphQL\Error\InvariantViolation;
-use Overblog\GraphQLBundle\Command\ValidateCommand;
-use Overblog\GraphQLBundle\Definition\Type\ExtensibleSchema;
-use Overblog\GraphQLBundle\Request\Executor;
-use Overblog\GraphQLBundle\Tests\Functional\TestCase;
+use Redeye\GraphQLBundle\Command\ValidateCommand;
+use Redeye\GraphQLBundle\Definition\Type\ExtensibleSchema;
+use Redeye\GraphQLBundle\Request\Executor;
+use Redeye\GraphQLBundle\Tests\Functional\TestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 use function trim;
 

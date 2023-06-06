@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL\Relay;
+namespace Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL\Relay;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction;
-use Overblog\GraphQLBundle\Relay\Node\GlobalId as GlobalIdHelper;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction;
+use Redeye\GraphQLBundle\Relay\Node\GlobalId as GlobalIdHelper;
 use function sprintf;
 
 final class GlobalID extends ExpressionFunction

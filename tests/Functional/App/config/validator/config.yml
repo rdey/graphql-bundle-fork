@@ -7,10 +7,10 @@ framework:
         enabled: true
         enable_annotations: true
 
-overblog_graphql:
+redeye_graphql:
     definitions:
         config_validation: false
-        class_namespace: "Overblog\\GraphQLBundle\\Validator\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\Validator\\__DEFINITIONS__"
         schema:
             query: Mutation
             mutation: Mutation
@@ -21,22 +21,22 @@ overblog_graphql:
 
 services:
     validator.expression:
-        class: Overblog\GraphQLBundle\Validator\Constraints\ExpressionValidator
+        class: Redeye\GraphQLBundle\Validator\Constraints\ExpressionValidator
         arguments:
-            - '@Overblog\GraphQLBundle\ExpressionLanguage\ExpressionLanguage'
-            - '@Overblog\GraphQLBundle\Definition\GraphQLServices'
+            - '@Redeye\GraphQLBundle\ExpressionLanguage\ExpressionLanguage'
+            - '@Redeye\GraphQLBundle\Definition\GraphQLServices'
         tags:
             - name: validator.constraint_validator
               alias: validator.expression
 
-    Overblog\GraphQLBundle\Tests\Functional\Validator\ServiceValidator:
+    Redeye\GraphQLBundle\Tests\Functional\Validator\ServiceValidator:
         tags:
-            # TODO: replace the tag with 'overblog_graphql.service' in 1.0
-            - { name: overblog_graphql.global_variable, alias: service_validator }
+            # TODO: replace the tag with 'redeye_graphql.service' in 1.0
+            - { name: redeye_graphql.global_variable, alias: service_validator }
 
-    Overblog\GraphQLBundle\Tests\Functional\App\Mutation\InputValidatorMutation:
+    Redeye\GraphQLBundle\Tests\Functional\App\Mutation\InputValidatorMutation:
         tags:
-            - { name: "overblog_graphql.mutation", alias: "mutation_mock", method: "mutationMock" }
-            - { name: "overblog_graphql.mutation", alias: "mutation_errors", method: "mutationErrors" }
-            - { name: "overblog_graphql.mutation", alias: "no_validation", method: "noValidation" }
+            - { name: "redeye_graphql.mutation", alias: "mutation_mock", method: "mutationMock" }
+            - { name: "redeye_graphql.mutation", alias: "mutation_errors", method: "mutationErrors" }
+            - { name: "redeye_graphql.mutation", alias: "no_validation", method: "noValidation" }
 

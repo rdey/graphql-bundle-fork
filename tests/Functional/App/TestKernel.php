@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\App;
+namespace Redeye\GraphQLBundle\Tests\Functional\App;
 
-use Overblog\GraphQLBundle\OverblogGraphQLBundle;
+use Redeye\GraphQLBundle\RedeyeGraphQLBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\MonologBundle\MonologBundle;
 use Symfony\Bundle\SecurityBundle\SecurityBundle;
@@ -27,7 +27,7 @@ final class TestKernel extends Kernel implements CompilerPassInterface
         yield new FrameworkBundle();
         yield new SecurityBundle();
         yield new MonologBundle();
-        yield new OverblogGraphQLBundle();
+        yield new RedeyeGraphQLBundle();
     }
 
     public function __construct(string $environment, bool $debug, string $testCase = null)
@@ -90,6 +90,6 @@ final class TestKernel extends Kernel implements CompilerPassInterface
 
     private function basePath(): string
     {
-        return sys_get_temp_dir().'/OverblogGraphQLBundle/'.Kernel::VERSION.'/'.($this->testCase ? $this->testCase.'/' : '');
+        return sys_get_temp_dir().'/RedeyeGraphQLBundle/'.Kernel::VERSION.'/'.($this->testCase ? $this->testCase.'/' : '');
     }
 }

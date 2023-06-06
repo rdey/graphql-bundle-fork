@@ -1,5 +1,5 @@
 services:
-    overblog_graphql.test.exception:
-        class: Overblog\GraphQLBundle\Tests\Functional\App\Exception\ExampleException
+    redeye_graphql.test.exception:
+        class: Redeye\GraphQLBundle\Tests\Functional\App\Exception\ExampleException
         tags:
-            - { name: "overblog_graphql.query", alias: "example_exception" }
+            - { name: "redeye_graphql.query", alias: "example_exception" }

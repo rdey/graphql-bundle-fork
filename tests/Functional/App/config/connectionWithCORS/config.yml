@@ -1,8 +1,8 @@
 imports:
     - { resource: ../connection/config.yml }
 
-overblog_graphql:
+redeye_graphql:
     definitions:
-        class_namespace: "Overblog\\GraphQLBundle\\ConnectionWithCORSPreflightOptions\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\ConnectionWithCORSPreflightOptions\\__DEFINITIONS__"
     security:
         handle_cors: true

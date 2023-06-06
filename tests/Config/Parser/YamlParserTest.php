@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Config\Parser;
+namespace Redeye\GraphQLBundle\Tests\Config\Parser;
 
-use Overblog\GraphQLBundle\Config\Parser\YamlParser;
+use Redeye\GraphQLBundle\Config\Parser\YamlParser;
 use SplFileInfo;
 use const DIRECTORY_SEPARATOR;
 

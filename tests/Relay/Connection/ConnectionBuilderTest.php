@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Relay\Connection;
+namespace Redeye\GraphQLBundle\Tests\Relay\Connection;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Relay\Connection\ConnectionBuilder;
-use Overblog\GraphQLBundle\Relay\Connection\Cursor\CursorEncoderInterface;
-use Overblog\GraphQLBundle\Relay\Connection\Output\Connection;
-use Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo;
+use Redeye\GraphQLBundle\Relay\Connection\ConnectionBuilder;
+use Redeye\GraphQLBundle\Relay\Connection\Cursor\CursorEncoderInterface;
+use Redeye\GraphQLBundle\Relay\Connection\Output\Connection;
+use Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo;
 use function array_slice;
 use function call_user_func;
 use function func_get_args;

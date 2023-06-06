@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\DefaultValue;
+namespace Redeye\GraphQLBundle\Tests\Functional\DefaultValue;
 
-use Overblog\GraphQLBundle\Tests\Functional\TestCase;
+use Redeye\GraphQLBundle\Tests\Functional\TestCase;
 
 class DefaultValueTest extends TestCase
 {

@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\ExpressionLanguage\ExpressionFunction\GraphQL;
+namespace Redeye\GraphQLBundle\Tests\ExpressionLanguage\ExpressionFunction\GraphQL;
 
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Schema;
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL\Arguments;
-use Overblog\GraphQLBundle\Generator\TypeGenerator;
-use Overblog\GraphQLBundle\Tests\ExpressionLanguage\TestCase;
-use Overblog\GraphQLBundle\Tests\Transformer\ArgumentsTransformerTest;
-use Overblog\GraphQLBundle\Tests\Transformer\Enum1;
-use Overblog\GraphQLBundle\Tests\Transformer\InputType1;
-use Overblog\GraphQLBundle\Tests\Transformer\InputType2;
-use Overblog\GraphQLBundle\Transformer\ArgumentsTransformer;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL\Arguments;
+use Redeye\GraphQLBundle\Generator\TypeGenerator;
+use Redeye\GraphQLBundle\Tests\ExpressionLanguage\TestCase;
+use Redeye\GraphQLBundle\Tests\Transformer\ArgumentsTransformerTest;
+use Redeye\GraphQLBundle\Tests\Transformer\Enum1;
+use Redeye\GraphQLBundle\Tests\Transformer\InputType1;
+use Redeye\GraphQLBundle\Tests\Transformer\InputType2;
+use Redeye\GraphQLBundle\Transformer\ArgumentsTransformer;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\RecursiveValidator;
@@ -75,15 +75,15 @@ class ArgumentsTest extends TestCase
 
         $transformer = $this->getTransformer(
             [
-                'InputType1' => ['type' => 'input', 'class' => 'Overblog\GraphQLBundle\Tests\Transformer\InputType1'],
-                'InputType2' => ['type' => 'input', 'class' => 'Overblog\GraphQLBundle\Tests\Transformer\InputType2'],
-                'Enum1' => ['type' => 'enum', 'class' => 'Overblog\GraphQLBundle\Tests\Transformer\Enum1'],
+                'InputType1' => ['type' => 'input', 'class' => 'Redeye\GraphQLBundle\Tests\Transformer\InputType1'],
+                'InputType2' => ['type' => 'input', 'class' => 'Redeye\GraphQLBundle\Tests\Transformer\InputType2'],
+                'Enum1' => ['type' => 'enum', 'class' => 'Redeye\GraphQLBundle\Tests\Transformer\Enum1'],
             ]
         );
 
         $services = $this->createGraphQLServices(
             [
-                'container' => $this->getDIContainerMock(['overblog_graphql.arguments_transformer' => $transformer]),
+                'container' => $this->getDIContainerMock(['redeye_graphql.arguments_transformer' => $transformer]),
             ]
         );
 

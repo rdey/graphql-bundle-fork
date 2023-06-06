@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Relay\Node;
+namespace Redeye\GraphQLBundle\Tests\Relay\Node;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Relay\Node\NodeFieldDefinition;
+use Redeye\GraphQLBundle\Relay\Node\NodeFieldDefinition;
 use PHPUnit\Framework\TestCase;
 
 class NodeFieldDefinitionTest extends TestCase

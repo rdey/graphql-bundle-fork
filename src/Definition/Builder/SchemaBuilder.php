@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Definition\Builder;
+namespace Redeye\GraphQLBundle\Definition\Builder;
 
 use Closure;
 use GraphQL\Type\Definition\Type;
-use Overblog\GraphQLBundle\Definition\Type\ExtensibleSchema;
-use Overblog\GraphQLBundle\Definition\Type\SchemaExtension\ValidatorExtension;
-use Overblog\GraphQLBundle\Resolver\TypeResolver;
+use Redeye\GraphQLBundle\Definition\Type\ExtensibleSchema;
+use Redeye\GraphQLBundle\Definition\Type\SchemaExtension\ValidatorExtension;
+use Redeye\GraphQLBundle\Resolver\TypeResolver;
 use function array_map;
 
 class SchemaBuilder

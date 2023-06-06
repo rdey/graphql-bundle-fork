@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\DependencyInjection\Compiler;
+namespace Redeye\GraphQLBundle\Tests\DependencyInjection\Compiler;
 
 use GraphQL\Error\UserError;
-use Overblog\GraphQLBundle\Config\Processor\InheritanceProcessor;
-use Overblog\GraphQLBundle\DependencyInjection\Compiler\ConfigParserPass;
-use Overblog\GraphQLBundle\DependencyInjection\OverblogGraphQLExtension;
-use Overblog\GraphQLBundle\Error\ExceptionConverter;
-use Overblog\GraphQLBundle\Error\UserWarning;
-use Overblog\GraphQLBundle\Tests\Config\Parser\MetadataParserTest;
-use Overblog\GraphQLBundle\Tests\DependencyInjection\Builder\BoxFields;
-use Overblog\GraphQLBundle\Tests\DependencyInjection\Builder\MutationField;
-use Overblog\GraphQLBundle\Tests\DependencyInjection\Builder\PagerArgs;
-use Overblog\GraphQLBundle\Tests\DependencyInjection\Builder\RawIdField;
-use Overblog\GraphQLBundle\Tests\DependencyInjection\Builder\TimestampFields;
+use Redeye\GraphQLBundle\Config\Processor\InheritanceProcessor;
+use Redeye\GraphQLBundle\DependencyInjection\Compiler\ConfigParserPass;
+use Redeye\GraphQLBundle\DependencyInjection\RedeyeGraphQLExtension;
+use Redeye\GraphQLBundle\Error\ExceptionConverter;
+use Redeye\GraphQLBundle\Error\UserWarning;
+use Redeye\GraphQLBundle\Tests\Config\Parser\MetadataParserTest;
+use Redeye\GraphQLBundle\Tests\DependencyInjection\Builder\BoxFields;
+use Redeye\GraphQLBundle\Tests\DependencyInjection\Builder\MutationField;
+use Redeye\GraphQLBundle\Tests\DependencyInjection\Builder\PagerArgs;
+use Redeye\GraphQLBundle\Tests\DependencyInjection\Builder\RawIdField;
+use Redeye\GraphQLBundle\Tests\DependencyInjection\Builder\TimestampFields;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -56,7 +56,7 @@ class ConfigParserPassTest extends TestCase
             $this->markTestSkipped('doctrine/annotations not installed. Skipping test.');
         }
         $this->expectException(InvalidConfigurationException::class);
-        $this->expectExceptionMessage('The path "overblog_graphql_types.Type._object_config.fields" should have at least 1 element(s) defined.');
+        $this->expectExceptionMessage('The path "redeye_graphql_types.Type._object_config.fields" should have at least 1 element(s) defined.');
         $this->processCompilerPass($this->getMappingConfig('annotation'));
     }
 
@@ -80,7 +80,7 @@ class ConfigParserPassTest extends TestCase
      */
     public function testFieldBuilderTypeOverrideNotAllowed(array $builders, array $configs, string $exceptionClass, string $exceptionMessage): void
     {
-        $ext = new OverblogGraphQLExtension();
+        $ext = new RedeyeGraphQLExtension();
         $ext->load(
             [
                 ['definitions' => ['builders' => $builders]],
@@ -99,7 +99,7 @@ class ConfigParserPassTest extends TestCase
      */
     public function testCustomExceptions(): void
     {
-        $ext = new OverblogGraphQLExtension();
+        $ext = new RedeyeGraphQLExtension();
         $ext->load(
             [
                 [
@@ -133,7 +133,7 @@ class ConfigParserPassTest extends TestCase
      */
     public function testCustomBuilders(): void
     {
-        $ext = new OverblogGraphQLExtension();
+        $ext = new RedeyeGraphQLExtension();
         $ext->load(
             [
                 [
@@ -565,7 +565,7 @@ class ConfigParserPassTest extends TestCase
     {
         $container ??= $this->container;
         $compilerPass ??= $this->compilerPass;
-        $container->setParameter('overblog_graphql.config', $configs);
+        $container->setParameter('redeye_graphql.config', $configs);
         $compilerPass->process($container);
     }
 }

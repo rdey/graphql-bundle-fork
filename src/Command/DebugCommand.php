@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Command;
+namespace Redeye\GraphQLBundle\Command;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Resolver\FluentResolverInterface;
+use Redeye\GraphQLBundle\Resolver\FluentResolverInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;

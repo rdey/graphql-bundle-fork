@@ -1,11 +1,11 @@
-overblog_graphql_endpoint:
+redeye_graphql_endpoint:
     path: /
     defaults:
-        _controller: Overblog\GraphQLBundle\Controller\GraphController::endpointAction
+        _controller: Redeye\GraphQLBundle\Controller\GraphController::endpointAction
         _format: "json"
 
-overblog_graphql_batch_endpoint:
+redeye_graphql_batch_endpoint:
     path: /batch
     defaults:
-        _controller: Overblog\GraphQLBundle\Controller\GraphController::batchEndpointAction
+        _controller: Redeye\GraphQLBundle\Controller\GraphController::batchEndpointAction
         _format: "json"

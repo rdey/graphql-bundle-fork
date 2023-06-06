@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\EventListener;
+namespace Redeye\GraphQLBundle\Tests\EventListener;
 
 use Closure;
 use GraphQL\Type\Definition\EnumType;
@@ -12,12 +12,12 @@ use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\UnionType;
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Definition\Argument;
-use Overblog\GraphQLBundle\Definition\ArgumentFactory;
-use Overblog\GraphQLBundle\Definition\Type\CustomScalarType;
-use Overblog\GraphQLBundle\EventListener\TypeDecoratorListener;
-use Overblog\GraphQLBundle\Resolver\ResolverMap;
-use Overblog\GraphQLBundle\Resolver\ResolverMapInterface;
+use Redeye\GraphQLBundle\Definition\Argument;
+use Redeye\GraphQLBundle\Definition\ArgumentFactory;
+use Redeye\GraphQLBundle\Definition\Type\CustomScalarType;
+use Redeye\GraphQLBundle\EventListener\TypeDecoratorListener;
+use Redeye\GraphQLBundle\Resolver\ResolverMap;
+use Redeye\GraphQLBundle\Resolver\ResolverMapInterface;
 use PHPUnit\Framework\TestCase;
 use function substr;
 
@@ -165,7 +165,7 @@ class TypeDecoratorListenerTest extends TestCase
                 ],
             ],
             InvalidArgumentException::class,
-            '"Foo".{"baz"} defined in resolverMap, but only "Overblog\GraphQLBundle\Resolver\ResolverMapInterface::RESOLVE_TYPE" is allowed.'
+            '"Foo".{"baz"} defined in resolverMap, but only "Redeye\GraphQLBundle\Resolver\ResolverMapInterface::RESOLVE_TYPE" is allowed.'
         );
     }
 
@@ -181,7 +181,7 @@ class TypeDecoratorListenerTest extends TestCase
                 ],
             ],
             InvalidArgumentException::class,
-            '"Foo".{"baz"} defined in resolverMap, but only "Overblog\GraphQLBundle\Resolver\ResolverMapInterface::RESOLVE_TYPE" is allowed.'
+            '"Foo".{"baz"} defined in resolverMap, but only "Redeye\GraphQLBundle\Resolver\ResolverMapInterface::RESOLVE_TYPE" is allowed.'
         );
     }
 
@@ -197,7 +197,7 @@ class TypeDecoratorListenerTest extends TestCase
                 ],
             ],
             InvalidArgumentException::class,
-            '"Foo".{"baz"} defined in resolverMap, but only "Overblog\GraphQLBundle\Resolver\ResolverMapInterface::{SCALAR_TYPE, SERIALIZE, PARSE_VALUE, PARSE_LITERAL}" is allowed.'
+            '"Foo".{"baz"} defined in resolverMap, but only "Redeye\GraphQLBundle\Resolver\ResolverMapInterface::{SCALAR_TYPE, SERIALIZE, PARSE_VALUE, PARSE_LITERAL}" is allowed.'
         );
     }
 

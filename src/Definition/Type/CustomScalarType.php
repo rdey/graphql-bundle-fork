@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Definition\Type;
+namespace Redeye\GraphQLBundle\Definition\Type;
 
 use GraphQL\Type\Definition\CustomScalarType as BaseCustomScalarType;
 use GraphQL\Type\Definition\ScalarType;

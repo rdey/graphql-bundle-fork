@@ -8,43 +8,43 @@ This collection of functions is called the "resolver map".
 Specification
 --------------
 
-A `resolverMap` is simple an object implementing `Overblog\GraphQLBundle\Resolver\ResolverMapInterface`
-you can also just extend the concrete class `Overblog\GraphQLBundle\Resolver\ResolverMap`
+A `resolverMap` is simple an object implementing `Redeye\GraphQLBundle\Resolver\ResolverMapInterface`
+you can also just extend the concrete class `Redeye\GraphQLBundle\Resolver\ResolverMap`
 and override `map` method and return an `array` or any `ArrayAccess` and `Traversable` implementation.
 
 ### Resolving from a resolverMap
 
-* The `Overblog\GraphQLBundle\Resolver\ResolverMapInterface` exposes three methods: 
+* The `Redeye\GraphQLBundle\Resolver\ResolverMapInterface` exposes three methods: 
  `resolve`, `isResolvable` and `covered`.
  It also exposes constants representing some specials config fields.
 * `resolve` takes two mandatory parameters: the type name and the config field name to resolve,
   which MUST be strings. `resolve` can return anything (a mixed value),
-  or throw a `Overblog\GraphQLBundle\UnresolvableException` if the resolver for type name and config field name
+  or throw a `Redeye\GraphQLBundle\UnresolvableException` if the resolver for type name and config field name
   is not known to the resolverMap.
 * `isResolvable` takes two parameters: the type name and the config field name to resolve,
   which MUST be strings.
   `isResolvable` MUST return true if the resolver for type name and config field name is known to
   the resolverMap and false if it is not. If `isResolvable($typeName, $fieldName)` returns false,
-  `resolve($typeName, $fieldName)` MUST throw a `Overblog\GraphQLBundle\UnresolvableException`.
+  `resolve($typeName, $fieldName)` MUST throw a `Redeye\GraphQLBundle\UnresolvableException`.
 * `covered` takes unique optional parameter: the type name to resolve,
   which MUST be strings.
   `covered` MUST return an array of the names of the types covered if `$typeName`
   equal to null or return the type fields covered.
   If `covered($typeName)` returns an empty array or/and the fieldName is not present in array,
-  `resolve($typeName, $fieldName)` MUST throw a `Overblog\GraphQLBundle\UnresolvableException`.
+  `resolve($typeName, $fieldName)` MUST throw a `Redeye\GraphQLBundle\UnresolvableException`.
 * constants (specials config fields):
   * [Union](type-system/union.md) and [Interface](type-system/interface.md) types
-    - `Overblog\GraphQLBundle\Resolver\ResolverMapInterface::RESOLVE_TYPE` equivalent to `resolveType`.
+    - `Redeye\GraphQLBundle\Resolver\ResolverMapInterface::RESOLVE_TYPE` equivalent to `resolveType`.
   * [Object](type-system/object.md) type
-    - `Overblog\GraphQLBundle\Resolver\ResolverMapInterface::RESOLVE_FIELD` equivalent to `resolveField`.
-    - `Overblog\GraphQLBundle\Resolver\ResolverMapInterface::IS_TYPE_OF` equivalent to `isTypeOf`.
+    - `Redeye\GraphQLBundle\Resolver\ResolverMapInterface::RESOLVE_FIELD` equivalent to `resolveField`.
+    - `Redeye\GraphQLBundle\Resolver\ResolverMapInterface::IS_TYPE_OF` equivalent to `isTypeOf`.
   * [Custom scalar](type-system/scalars.md#custom-scalar) type
     - Direct usage:
-      - `Overblog\GraphQLBundle\Resolver\ResolverMapInterface::SERIALIZE` equivalent to `serialize`
-      - `Overblog\GraphQLBundle\Resolver\ResolverMapInterface::PARSE_VALUE` equivalent to `parseValue`
-      - `Overblog\GraphQLBundle\Resolver\ResolverMapInterface::PARSE_LITERAL` equivalent to `parseLiteral`
+      - `Redeye\GraphQLBundle\Resolver\ResolverMapInterface::SERIALIZE` equivalent to `serialize`
+      - `Redeye\GraphQLBundle\Resolver\ResolverMapInterface::PARSE_VALUE` equivalent to `parseValue`
+      - `Redeye\GraphQLBundle\Resolver\ResolverMapInterface::PARSE_LITERAL` equivalent to `parseLiteral`
     - Reusing an existing scalar type
-      - `Overblog\GraphQLBundle\Resolver\ResolverMapInterface::SCALAR_TYPE` equivalent to `scalarType`
+      - `Redeye\GraphQLBundle\Resolver\ResolverMapInterface::SCALAR_TYPE` equivalent to `scalarType`
 
 Usage
 -----
@@ -60,8 +60,8 @@ namespace App\Resolver;
 use GraphQL\Error\Error;
 use GraphQL\Language\AST\StringValueNode;
 use GraphQL\Type\Definition\ResolveInfo;
-use Overblog\GraphQLBundle\Definition\ArgumentInterface;
-use Overblog\GraphQLBundle\Resolver\ResolverMap;
+use Redeye\GraphQLBundle\Definition\ArgumentInterface;
+use Redeye\GraphQLBundle\Resolver\ResolverMap;
 
 class MyResolverMap extends ResolverMap
 {
@@ -118,7 +118,7 @@ class MyResolverMap extends ResolverMap
 }
 ```
 
-Each resolver map must be tagged with the `overblog_graphql.resolver_map` tag
+Each resolver map must be tagged with the `redeye_graphql.resolver_map` tag
 that defines at which priority it should run for the given schema. The priority
 is an optional attribute and it has a default value of 0. The higher the number,
 the earlier the resolver map is executed.
@@ -128,11 +128,11 @@ the earlier the resolver map is executed.
 services:
     App\Resolver\MyResolverMap1:
         tags:
-            - { name: overblog_graphql.resolver_map, schema: default }
+            - { name: redeye_graphql.resolver_map, schema: default }
     
     App\Resolver\MyResolverMap2:
         tags:
-            - { name: overblog_graphql.resolver_map, schema: default, priority: 10 }
+            - { name: redeye_graphql.resolver_map, schema: default, priority: 10 }
 ```
 
 **Notes:**

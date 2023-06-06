@@ -7,7 +7,7 @@ but we recommend using [NelmioCorsBundle](https://github.com/nelmio/NelmioCorsBu
 The handler is disabled by default. To enable it:
 
 ```yaml
-overblog_graphql:
+redeye_graphql:
     # ...
     security:
         handle_cors: true

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\Security;
+namespace Redeye\GraphQLBundle\Tests\Functional\Security;
 
 use Closure;
 use Error;
-use Overblog\GraphQLBundle\Tests\Functional\App\Mutation\SimpleMutationWithThunkFieldsMutation;
-use Overblog\GraphQLBundle\Tests\Functional\TestCase;
+use Redeye\GraphQLBundle\Tests\Functional\App\Mutation\SimpleMutationWithThunkFieldsMutation;
+use Redeye\GraphQLBundle\Tests\Functional\TestCase;
 use Symfony\Component\HttpKernel\Kernel;
 use function file_exists;
 use function preg_match;
@@ -53,8 +53,8 @@ class AccessTest extends TestCase
         parent::setUp();
         // load types
         $this->loader = function ($class): void {
-            if (preg_match('@^'.preg_quote('Overblog\GraphQLBundle\Access\__DEFINITIONS__\\').'(.*)$@', $class, $matches)) {
-                $file = sys_get_temp_dir().'/OverblogGraphQLBundle/'.Kernel::VERSION.'/access/cache/testaccess/overblog/graphql-bundle/__definitions__/'.$matches[1].'.php';
+            if (preg_match('@^'.preg_quote('Redeye\GraphQLBundle\Access\__DEFINITIONS__\\').'(.*)$@', $class, $matches)) {
+                $file = sys_get_temp_dir().'/RedeyeGraphQLBundle/'.Kernel::VERSION.'/access/cache/testaccess/redeye/graphql-bundle/__definitions__/'.$matches[1].'.php';
                 if (file_exists($file)) {
                     require $file;
                 }
@@ -67,9 +67,9 @@ class AccessTest extends TestCase
     {
         $this->expectException(Error::class);
         if ((int) phpversion() <= 7) {
-            $this->expectExceptionMessage('Class \'Overblog\GraphQLBundle\Access\__DEFINITIONS__\RootQueryType\' not found');
+            $this->expectExceptionMessage('Class \'Redeye\GraphQLBundle\Access\__DEFINITIONS__\RootQueryType\' not found');
         } else {
-            $this->expectExceptionMessage('Class "Overblog\GraphQLBundle\Access\__DEFINITIONS__\RootQueryType" not found');
+            $this->expectExceptionMessage('Class "Redeye\GraphQLBundle\Access\__DEFINITIONS__\RootQueryType" not found');
         }
         spl_autoload_unregister($this->loader);
         $this->assertResponse($this->userNameQuery, [], static::ANONYMOUS_USER, 'access');

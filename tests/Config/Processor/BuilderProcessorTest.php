@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Config\Processor;
+namespace Redeye\GraphQLBundle\Tests\Config\Processor;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Config\Processor\BuilderProcessor;
+use Redeye\GraphQLBundle\Config\Processor\BuilderProcessor;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
@@ -46,9 +46,9 @@ class BuilderProcessorTest extends TestCase
         return [
             ['foo', BuilderProcessor::BUILDER_FIELD_TYPE, 'Fake\Foo', InvalidArgumentException::class, 'Field builder class "Fake\Foo" not found.'],
             ['foo', BuilderProcessor::BUILDER_FIELDS_TYPE, 'Fake\Foo', InvalidArgumentException::class, 'Fields builder class "Fake\Foo" not found.'],
-            ['foo', BuilderProcessor::BUILDER_FIELD_TYPE, stdClass::class, InvalidArgumentException::class, 'Field builder class should implement "Overblog\GraphQLBundle\Definition\Builder\MappingInterface", but "stdClass" given.'],
-            ['foo', BuilderProcessor::BUILDER_FIELDS_TYPE, stdClass::class, InvalidArgumentException::class, 'Fields builder class should implement "Overblog\GraphQLBundle\Definition\Builder\MappingInterface", but "stdClass" given.'],
-            ['foo', BuilderProcessor::BUILDER_ARGS_TYPE, stdClass::class, InvalidArgumentException::class, 'Args builder class should implement "Overblog\GraphQLBundle\Definition\Builder\MappingInterface", but "stdClass" given.'],
+            ['foo', BuilderProcessor::BUILDER_FIELD_TYPE, stdClass::class, InvalidArgumentException::class, 'Field builder class should implement "Redeye\GraphQLBundle\Definition\Builder\MappingInterface", but "stdClass" given.'],
+            ['foo', BuilderProcessor::BUILDER_FIELDS_TYPE, stdClass::class, InvalidArgumentException::class, 'Fields builder class should implement "Redeye\GraphQLBundle\Definition\Builder\MappingInterface", but "stdClass" given.'],
+            ['foo', BuilderProcessor::BUILDER_ARGS_TYPE, stdClass::class, InvalidArgumentException::class, 'Args builder class should implement "Redeye\GraphQLBundle\Definition\Builder\MappingInterface", but "stdClass" given.'],
         ];
     }
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\Validator;
+namespace Redeye\GraphQLBundle\Tests\Functional\Validator;
 
 use DateTime;
 use Exception;

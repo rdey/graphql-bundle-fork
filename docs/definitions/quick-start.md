@@ -4,14 +4,14 @@ Quick start
 1. Install the bundle ([more details](../index.md))
 
 ```bash
-composer require overblog/graphql-bundle
+composer require redeye/graphql-bundle
 ```
 
 2. Configure the bundle to accept `graphql` format ([more details](graphql-schema-language.md))
 
 ```diff
 # config/packages/graphql.yaml
-overblog_graphql:
+redeye_graphql:
     definitions:
         schema:
             query: Query
@@ -36,7 +36,7 @@ in files `config/graphql/types/*.graphql`
 // src/Resolver/MyResolverMap.php
 namespace App\Resolver;
 
-use Overblog\GraphQLBundle\Resolver\ResolverMap;
+use Redeye\GraphQLBundle\Resolver\ResolverMap;
 
 class MyResolverMap extends ResolverMap
 {

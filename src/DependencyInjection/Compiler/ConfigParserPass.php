@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\DependencyInjection\Compiler;
+namespace Redeye\GraphQLBundle\DependencyInjection\Compiler;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Config\Parser\AnnotationParser;
-use Overblog\GraphQLBundle\Config\Parser\AttributeParser;
-use Overblog\GraphQLBundle\Config\Parser\GraphQLParser;
-use Overblog\GraphQLBundle\Config\Parser\PreParserInterface;
-use Overblog\GraphQLBundle\Config\Parser\YamlParser;
-use Overblog\GraphQLBundle\DependencyInjection\TypesConfiguration;
-use Overblog\GraphQLBundle\OverblogGraphQLBundle;
+use Redeye\GraphQLBundle\Config\Parser\AnnotationParser;
+use Redeye\GraphQLBundle\Config\Parser\AttributeParser;
+use Redeye\GraphQLBundle\Config\Parser\GraphQLParser;
+use Redeye\GraphQLBundle\Config\Parser\PreParserInterface;
+use Redeye\GraphQLBundle\Config\Parser\YamlParser;
+use Redeye\GraphQLBundle\DependencyInjection\TypesConfiguration;
+use Redeye\GraphQLBundle\RedeyeGraphQLBundle;
 use ReflectionClass;
 use ReflectionException;
 use Symfony\Component\Config\Definition\Exception\ForbiddenOverwriteException;
@@ -83,8 +83,8 @@ class ConfigParserPass implements CompilerPassInterface
 
     private function getConfigs(ContainerBuilder $container): array
     {
-        $config = $container->getParameterBag()->resolveValue($container->getParameter('overblog_graphql.config'));
-        $container->getParameterBag()->remove('overblog_graphql.config');
+        $config = $container->getParameterBag()->resolveValue($container->getParameter('redeye_graphql.config'));
+        $container->getParameterBag()->remove('redeye_graphql.config');
         $container->setParameter($this->getAlias().'.classes_map', []);
         $typesMappings = $this->mappingConfig($config, $container);
         // reset treated files
@@ -186,7 +186,7 @@ class ConfigParserPass implements CompilerPassInterface
         }
         if ($mappingConfig['auto_discover']['built_in']) {
             $typesMappings[] = [
-                'dir' => $this->bundleDir(OverblogGraphQLBundle::class).'/Resources/config/graphql',
+                'dir' => $this->bundleDir(RedeyeGraphQLBundle::class).'/Resources/config/graphql',
                 'types' => ['yaml'],
             ];
         }
@@ -220,7 +220,7 @@ class ConfigParserPass implements CompilerPassInterface
         // auto detect from bundle
         foreach ($bundles as $class) {
             // skip this bundle
-            if (OverblogGraphQLBundle::class === $class) {
+            if (RedeyeGraphQLBundle::class === $class) {
                 continue;
             }
 
@@ -280,7 +280,7 @@ class ConfigParserPass implements CompilerPassInterface
 
     private function getAliasPrefix(): string
     {
-        return 'overblog_graphql';
+        return 'redeye_graphql';
     }
 
     private function getAlias(): string

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Definition\Resolver;
+namespace Redeye\GraphQLBundle\Definition\Resolver;
 
 interface MutationInterface
 {

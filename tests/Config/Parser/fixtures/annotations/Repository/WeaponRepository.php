@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Config\Parser\fixtures\annotations\Repository;
+namespace Redeye\GraphQLBundle\Tests\Config\Parser\fixtures\annotations\Repository;
 
-use Overblog\GraphQLBundle\Annotation as GQL;
+use Redeye\GraphQLBundle\Annotation as GQL;
 
 /**
  * @GQL\Provider(targetQueryTypes={"RootQuery2"}, targetMutationTypes="RootMutation2")

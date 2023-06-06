@@ -6,13 +6,13 @@ Then you can switch between implementations in your configuration like so:
 
 For Relay (default value):
 ```yaml
-overblog_graphql:
+redeye_graphql:
     batching_method: "relay"
 ```
 
 For Apollo:
 ```yaml
-overblog_graphql:
+redeye_graphql:
     batching_method: "apollo"
 ```
 

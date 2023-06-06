@@ -1,1 +1,1 @@
-value: !php/const Overblog\GraphQLBundle\Tests\Config\Parser\Constants::TWILEK
+value: !php/const Redeye\GraphQLBundle\Tests\Config\Parser\Constants::TWILEK

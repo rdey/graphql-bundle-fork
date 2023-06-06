@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Validator;
+namespace Redeye\GraphQLBundle\Tests\Validator;
 
 use ArrayObject;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\ResolveInfo;
-use Overblog\GraphQLBundle\Definition\Argument;
-use Overblog\GraphQLBundle\Definition\ResolverArgs;
-use Overblog\GraphQLBundle\Validator\ValidationNode;
+use Redeye\GraphQLBundle\Definition\Argument;
+use Redeye\GraphQLBundle\Definition\ResolverArgs;
+use Redeye\GraphQLBundle\Validator\ValidationNode;
 use PHPUnit\Framework\TestCase;
 
 class ValidationNodeTest extends TestCase

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Relay\Connection;
+namespace Redeye\GraphQLBundle\Tests\Relay\Connection;
 
 use GraphQL\Executor\Promise\Promise;
-use Overblog\GraphQLBundle\Definition\Argument;
-use Overblog\GraphQLBundle\Relay\Connection\ConnectionInterface;
-use Overblog\GraphQLBundle\Relay\Connection\Output\Connection;
-use Overblog\GraphQLBundle\Relay\Connection\Paginator;
+use Redeye\GraphQLBundle\Definition\Argument;
+use Redeye\GraphQLBundle\Relay\Connection\ConnectionInterface;
+use Redeye\GraphQLBundle\Relay\Connection\Output\Connection;
+use Redeye\GraphQLBundle\Relay\Connection\Paginator;
 use PHPUnit\Framework\TestCase;
 use function array_slice;
 use function base64_encode;

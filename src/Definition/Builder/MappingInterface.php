@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Definition\Builder;
+namespace Redeye\GraphQLBundle\Definition\Builder;
 
 interface MappingInterface
 {

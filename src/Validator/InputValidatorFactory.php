@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Validator;
+namespace Redeye\GraphQLBundle\Validator;
 
-use Overblog\GraphQLBundle\Definition\ResolverArgs;
+use Redeye\GraphQLBundle\Definition\ResolverArgs;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\Validator\ConstraintValidatorFactoryInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;

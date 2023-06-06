@@ -2,27 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\DependencyInjection;
+namespace Redeye\GraphQLBundle\DependencyInjection;
 
 use Closure;
 use GraphQL\Error\UserError;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Schema;
-use Overblog\GraphQLBundle\CacheWarmer\CompileCacheWarmer;
-use Overblog\GraphQLBundle\Config\Processor\BuilderProcessor;
-use Overblog\GraphQLBundle\Definition\Builder\SchemaBuilder;
-use Overblog\GraphQLBundle\Definition\Resolver\MutationInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\QueryInterface;
-use Overblog\GraphQLBundle\Error\ErrorHandler;
-use Overblog\GraphQLBundle\Error\ExceptionConverter;
-use Overblog\GraphQLBundle\Error\ExceptionConverterInterface;
-use Overblog\GraphQLBundle\Error\UserWarning;
-use Overblog\GraphQLBundle\Event\Events;
-use Overblog\GraphQLBundle\EventListener\ClassLoaderListener;
-use Overblog\GraphQLBundle\EventListener\DebugListener;
-use Overblog\GraphQLBundle\EventListener\ErrorHandlerListener;
-use Overblog\GraphQLBundle\EventListener\ErrorLoggerListener;
-use Overblog\GraphQLBundle\Request\Executor;
+use Redeye\GraphQLBundle\CacheWarmer\CompileCacheWarmer;
+use Redeye\GraphQLBundle\Config\Processor\BuilderProcessor;
+use Redeye\GraphQLBundle\Definition\Builder\SchemaBuilder;
+use Redeye\GraphQLBundle\Definition\Resolver\MutationInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\QueryInterface;
+use Redeye\GraphQLBundle\Error\ErrorHandler;
+use Redeye\GraphQLBundle\Error\ExceptionConverter;
+use Redeye\GraphQLBundle\Error\ExceptionConverterInterface;
+use Redeye\GraphQLBundle\Error\UserWarning;
+use Redeye\GraphQLBundle\Event\Events;
+use Redeye\GraphQLBundle\EventListener\ClassLoaderListener;
+use Redeye\GraphQLBundle\EventListener\DebugListener;
+use Redeye\GraphQLBundle\EventListener\ErrorHandlerListener;
+use Redeye\GraphQLBundle\EventListener\ErrorLoggerListener;
+use Redeye\GraphQLBundle\Request\Executor;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -34,7 +34,7 @@ use function array_fill_keys;
 use function realpath;
 use function sprintf;
 
-class OverblogGraphQLExtension extends Extension
+class RedeyeGraphQLExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container): void
     {
@@ -91,13 +91,13 @@ class OverblogGraphQLExtension extends Extension
     private function registerForAutoconfiguration(ContainerBuilder $container): void
     {
         $container->registerForAutoconfiguration(MutationInterface::class)
-            ->addTag('overblog_graphql.mutation');
+            ->addTag('redeye_graphql.mutation');
 
         $container->registerForAutoconfiguration(QueryInterface::class)
-            ->addTag('overblog_graphql.query');
+            ->addTag('redeye_graphql.query');
 
         $container->registerForAutoconfiguration(Type::class)
-            ->addTag('overblog_graphql.type');
+            ->addTag('redeye_graphql.type');
     }
 
     private function setDefaultFieldResolver(array $config, ContainerBuilder $container): void
@@ -239,7 +239,7 @@ class OverblogGraphQLExtension extends Extension
             // builder
             $schemaBuilderID = sprintf('%s.schema_builder_%s', $this->getAlias(), $schemaName);
             $definition = $container->register($schemaBuilderID, Closure::class);
-            $definition->setFactory([new Reference('overblog_graphql.schema_builder'), 'getBuilder']);
+            $definition->setFactory([new Reference('redeye_graphql.schema_builder'), 'getBuilder']);
             $definition->setArguments([
                 $schemaName,
                 $schemaConfig['query'],

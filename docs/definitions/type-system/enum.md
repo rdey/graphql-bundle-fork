@@ -37,7 +37,7 @@ Note: At the moment, doctrine annotations on constants are not supported. So if 
 namespace AppBundle;
 
 use App\StarWars\Movies;
-use Overblog\GraphQLBundle\Annotation as GQL;
+use Redeye\GraphQLBundle\Annotation as GQL;
 
 /**
  * @GQL\Enum(values={

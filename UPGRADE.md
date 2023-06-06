@@ -9,7 +9,7 @@ UPGRADE FROM 0.13 to 0.14
 - [Annotations - Flattened annotations](#annotations---flattened-annotations)
 - [Annotations - Attributes changed](#annotations---attributes-changed)
 - [Rename `GlobalVariables` to `GraphQLServices`](#rename-globalvariables-to-graphqlservices)
-- [Replace `overblog_graphql.global_variable` tag](#replace-overblog_graphqlglobal_variable-tag)
+- [Replace `redeye_graphql.global_variable` tag](#replace-redeye_graphqlglobal_variable-tag)
 - [Replace `resolver` expression function](#replace-resolver-expression-function)
 - [Rename `ResolverInterface` to `QueryInterface`](#rename-resolverinterface-to-queryinterface)
 - [Remove Argument deprecated method](#remove-argument-deprecated-method)
@@ -44,7 +44,7 @@ $connectionBuilder = new ConnectionBuilder(
 
 ### Change arguments of `TypeGenerator` class
 
-The `Overblog\GraphQLBundle\Generator\TypeGenerator` service is used internally for compilation of GraphQL types. If you 
+The `Redeye\GraphQLBundle\Generator\TypeGenerator` service is used internally for compilation of GraphQL types. If you 
 overrode the service definition, please take into account the new constructor signature:
 
 ```php
@@ -55,8 +55,8 @@ public function __construct(
    TypeGeneratorOptions $options
 )
 ```
-`TypeBuilder` here is a new service `Overblog\GraphQLBundle\Generator\TypeBuilder`, which is also used internally.
-The rest of the arguments were moved into the separate class `Overblog\GraphQLBundle\Generator\TypeGeneratorOptions` 
+`TypeBuilder` here is a new service `Redeye\GraphQLBundle\Generator\TypeBuilder`, which is also used internally.
+The rest of the arguments were moved into the separate class `Redeye\GraphQLBundle\Generator\TypeGeneratorOptions` 
 with the following constructor signature:
 
 ```php
@@ -70,8 +70,8 @@ public function __construct(
 ```
 ### Add magic `__get` method to `ArgumentInterface` implementors
 
-The interface `Overblog\GraphQLBundle\Definition\ArgumentInterface` as well as implementing it class 
-`Overblog\GraphQLBundle\Definition\Argument` now have the magic `__get` method:
+The interface `Redeye\GraphQLBundle\Definition\ArgumentInterface` as well as implementing it class 
+`Redeye\GraphQLBundle\Definition\Argument` now have the magic `__get` method:
 
 ```diff
 interface ArgumentInterface extends ArrayAccess, Countable
@@ -170,10 +170,10 @@ The `GlobalVariables` class was renamed into `GraphQLServices` to better reflect
 passed to all generated GraphQL types.
 
 
-### Replace `overblog_graphql.global_variable` tag
+### Replace `redeye_graphql.global_variable` tag
 
-If you have any services tagged with `overblog_graphql.global_variable`, they should now be tagged with
-`overblog_graphql.service` instead.
+If you have any services tagged with `redeye_graphql.global_variable`, they should now be tagged with
+`redeye_graphql.service` instead.
 
 
 ### Replace `resolver` expression function
@@ -192,13 +192,13 @@ Example:
 
 ### Rename `ResolverInterface` to `QueryInterface`
 
-The `Overblog\GraphQLBundle\Definition\Resolver\ResolverInterface` interface is deprecated. Use
-`Overblog\GraphQLBundle\Definition\Resolver\QueryInterface` instead.
+The `Redeye\GraphQLBundle\Definition\Resolver\ResolverInterface` interface is deprecated. Use
+`Redeye\GraphQLBundle\Definition\Resolver\QueryInterface` instead.
 
 Example:
 ```diff
-- use Overblog\GraphQLBundle\Definition\Resolver\ResolverInterface;
-+ use Overblog\GraphQLBundle\Definition\Resolver\QueryInterface;
+- use Redeye\GraphQLBundle\Definition\Resolver\ResolverInterface;
++ use Redeye\GraphQLBundle\Definition\Resolver\QueryInterface;
 
 - class UserResolver implements ResolverInterface
 + class UserQuery implements QueryInterface
@@ -209,13 +209,13 @@ Example:
 
 ### Remove Argument deprecated method
 
-Method `Overblog\GraphQLBundle\Definition\Argument::getRawArguments` is replaced by
-`Overblog\GraphQLBundle\Definition\Argument::getArrayCopy`.
+Method `Redeye\GraphQLBundle\Definition\Argument::getRawArguments` is replaced by
+`Redeye\GraphQLBundle\Definition\Argument::getArrayCopy`.
 
 ### Remove ConnectionBuilder deprecated class
 
-Class `Overblog\GraphQLBundle\Relay\Connection\Output\ConnectionBuilder` is replaced by
-`Overblog\GraphQLBundle\Relay\Connection\ConnectionBuilder`.
+Class `Redeye\GraphQLBundle\Relay\Connection\Output\ConnectionBuilder` is replaced by
+`Redeye\GraphQLBundle\Relay\Connection\ConnectionBuilder`.
 
 ### Remove XML type configuration support
 
@@ -233,7 +233,7 @@ UPGRADE FROM 0.12 to 0.13
 ### Rename default_field config
 
 ```diff
-overblog_graphql:
+redeye_graphql:
     definitions:
 -       default_resolver: ~
 +       default_field_resolver: ~
@@ -254,7 +254,7 @@ please implement a custom resolver if these accessors are needed.
 Globally:
 
 ```yaml
-overblog_graphql:
+redeye_graphql:
     definitions:
         default_field_resolver: 'App\GraphQL\CustomResolver'
 ```
@@ -277,12 +277,12 @@ MyType:
 
 ### Use service tags to register resolver maps
 
-The resolver maps used to be configured using the `overblog_graphql.definitions.schema.resolver_maps`
+The resolver maps used to be configured using the `redeye_graphql.definitions.schema.resolver_maps`
 option. This has been deprecated in favour of using service tags to register them.
 
 ```diff
 # config/graphql.yaml
-overblog_graphql:
+redeye_graphql:
     definitions:
         schema:
              # ...
@@ -296,7 +296,7 @@ services:
 -    App\GraphQL\MyResolverMap: ~
 +    App\GraphQL\MyResolverMap:
 +        tags:
-+            - { name: overblog_graphql.resolver_map, schema: default }
++            - { name: redeye_graphql.resolver_map, schema: default }
 ```
 
 
@@ -317,7 +317,7 @@ UPGRADE FROM 0.11 to 0.12
 Upgrading:
 - Delete old configuration.
      ```diff
-     overblog_graphql:
+     redeye_graphql:
          definitions:
      -        auto_mapping: ~
      ```
@@ -363,7 +363,7 @@ Connection builder has been moved and it methods are no more accessible statical
 Before:
 
 ```php
-use Overblog\GraphQLBundle\Relay\Connection\Output\ConnectionBuilder;
+use Redeye\GraphQLBundle\Relay\Connection\Output\ConnectionBuilder;
 
 ConnectionBuilder::connectionFromArray([]);
 ```
@@ -371,7 +371,7 @@ ConnectionBuilder::connectionFromArray([]);
 After:
 
 ```php
-use Overblog\GraphQLBundle\Relay\Connection\ConnectionBuilder;
+use Redeye\GraphQLBundle\Relay\Connection\ConnectionBuilder;
 
 $connectionBuilder = new ConnectionBuilder();
 $connectionBuilder->connectionFromArray([]);
@@ -410,12 +410,12 @@ This section is only for users using custom executor.
 The interface move to be look a little be more to `GraphQL\GraphQL`
 `promiseToExecute` method.
 
-In `Overblog\GraphQLBundle\Executor\ExecutorInterface`
+In `Redeye\GraphQLBundle\Executor\ExecutorInterface`
 `setPromiseAdapter` and `setDefaultFieldResolver` has been removed.
 
 Promise adapter is now the first argument (`$promiseAdapter`)
 and default field resolver the 7th argument (`$fieldResolver`) of
-`Overblog\GraphQLBundle\Executor\ExecutorInterface::execute` method.
+`Redeye\GraphQLBundle\Executor\ExecutorInterface::execute` method.
 
 
 UPGRADE FROM 0.10 to 0.11
@@ -440,22 +440,22 @@ Upgrading:
 - Remove the graphiql route from your application
     - For standard Symfony installation: `/app/config/routing_dev.yml`
     - For Symfony Flex: `/config/routes/dev/graphql_graphiql.yaml`
-- Installing OverblogGraphiQLBundle
-    - `composer require --dev overblog/graphiql-bundle`
-    - Follow instructions at https://github.com/overblog/GraphiQLBundle
+- Installing RedeyeGraphiQLBundle
+    - `composer require --dev redeye/graphiql-bundle`
+    - Follow instructions at https://github.com/redeye/GraphiQLBundle
 - In case you have defined the `versions` in your configuration
-    - Remove it from `overblog_graphql`
+    - Remove it from `redeye_graphql`
         ```diff
-        overblog_graphql:
+        redeye_graphql:
         -    versions:
         -        graphiql: "0.11"
         -        react: "15.6"
         -        fetch: "2.0"
         -        relay: "classic"
         ```
-    - Add it to `overblog_graphiql`
+    - Add it to `redeye_graphiql`
         ```diff
-        overblog_graphiql:
+        redeye_graphiql:
         +    javascript_libraries:
         +        graphiql: "0.11"
         +        react: "15.6"
@@ -475,7 +475,7 @@ Upgrading:
 Upgrading:
 - Delete configuration to override base user exception classes.
      ```diff
-     overblog_graphql:
+     redeye_graphql:
          definitions:
              exceptions:
      -           types:
@@ -485,7 +485,7 @@ Upgrading:
 - Move `internal_error_message`, `map_exceptions_to_parent` and `exceptions` configurations
   from `definitions` to new dedicated `error_handler` section.
      ```diff
-     overblog_graphql:
+     redeye_graphql:
          definitions:
      -       internal_error_message: ~
      -       map_exceptions_to_parent: ~
@@ -499,7 +499,7 @@ Upgrading:
 
 ### Promise adapter interface
 
-* Changed the promise adapter interface (`Overblog\GraphQLBundle\Executor\ExecutorInterface`)
+* Changed the promise adapter interface (`Redeye\GraphQLBundle\Executor\ExecutorInterface`)
   as the promiseAdapter is not nullable in the bundle context.
 
 Upgrading:
@@ -555,7 +555,7 @@ Upgrading your schema configuration:
 ### Type autoMapping and Symfony DI `autoconfigure`
 
 When using these functionalities, type will be accessible only by FQCN in schema definition
-(if class doesn't implement `Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface`).
+(if class doesn't implement `Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface`).
 So if you want to use the `true` type name don't forget to declare it as an alias using interface.
 This change is to increase performance, types are lazy-loaded.
 
@@ -586,7 +586,7 @@ Here is how this can be done in 0.11:
    namespace App\GraphQL\Type;
 
    use GraphQL\Type\Definition\ScalarType;
-   use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
+   use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
 
    class DateTimeType extends ScalarType implements AliasedInterface
    {
@@ -651,7 +651,7 @@ an `GraphQL\Error\InvariantViolation` exception will be thrown with the followin
 Here is how this can be fixed:
 
    ```yaml
-   overblog_graphql:
+   redeye_graphql:
       definitions:
          schema:
             query: Query
@@ -660,7 +660,7 @@ Here is how this can be fixed:
 
 ### Events
 
-`Overblog\GraphQLBundle\Event\ExecutorContextEvent::setExecutorContext` method has been removed as `context`
+`Redeye\GraphQLBundle\Event\ExecutorContextEvent::setExecutorContext` method has been removed as `context`
 is now an `ArrayObject`. When using `graphql.executor.context` listener the value will now be accessible only
 in `context` variables and not in `rootValue`. `context` and `rootValue` have been separated, if you need to
 use `rootValue` see [event documentation for more details](Resources/doc/events/index.md).
@@ -678,7 +678,7 @@ Uploaded files is no longer accessible under `$info->rootValue['request_files']`
 ### Change fluent resolvers id
 
 The use of class name as prefix of fluent resolver id removes the possibility to use same class as 2 different services.
-See issue [#296](https://github.com/overblog/GraphQLBundle/issues/296) for more detail
+See issue [#296](https://github.com/redeye/GraphQLBundle/issues/296) for more detail
 Because of this, in v0.11 we are using service id as prefix (like in Symfony 4.1)...
 
 Example:
@@ -687,8 +687,8 @@ Example:
       app.resolver.greetings:
           class: App\GraphQL\Resolver\Greetings
           tags:
-              - { name: overblog_graphql.resolver, method: __invoke, alias: say_hello }
-              - { name: overblog_graphql.resolver }
+              - { name: redeye_graphql.resolver, method: __invoke, alias: say_hello }
+              - { name: redeye_graphql.resolver }
   ```
 
 **Before 0.11**: `'@=resolver("App\\GraphQL\\Resolver\\Greetings", [args['name']])'`

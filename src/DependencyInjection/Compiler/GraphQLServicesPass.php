@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\DependencyInjection\Compiler;
+namespace Redeye\GraphQLBundle\DependencyInjection\Compiler;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Definition\GraphQLServices;
-use Overblog\GraphQLBundle\Generator\TypeGenerator;
+use Redeye\GraphQLBundle\Definition\GraphQLServices;
+use Redeye\GraphQLBundle\Generator\TypeGenerator;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -20,12 +20,12 @@ final class GraphQLServicesPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container): void
     {
-        $taggedServices = $container->findTaggedServiceIds('overblog_graphql.service', true);
+        $taggedServices = $container->findTaggedServiceIds('redeye_graphql.service', true);
 
         // TODO: remove following if-block in 1.0
-        if (count($deprecatedTaggedServices = $container->findTaggedServiceIds('overblog_graphql.global_variable', true)) > 0) {
+        if (count($deprecatedTaggedServices = $container->findTaggedServiceIds('redeye_graphql.global_variable', true)) > 0) {
             @trigger_error(
-                "The tag 'overblog_graphql.global_variable' is deprecated since 0.14 and will be removed in 1.0. Use 'overblog_graphql.service' instead. For more info visit: https://github.com/overblog/GraphQLBundle/issues/775",
+                "The tag 'redeye_graphql.global_variable' is deprecated since 0.14 and will be removed in 1.0. Use 'redeye_graphql.service' instead. For more info visit: https://github.com/redeye/GraphQLBundle/issues/775",
                 E_USER_DEPRECATED
             );
 
@@ -33,13 +33,13 @@ final class GraphQLServicesPass implements CompilerPassInterface
         }
 
         $locateableServices = [];
-        $expressionLanguageDefinition = $container->findDefinition('overblog_graphql.expression_language');
+        $expressionLanguageDefinition = $container->findDefinition('redeye_graphql.expression_language');
 
         foreach ($taggedServices as $id => $tags) {
             foreach ($tags as $attributes) {
                 if (empty($attributes['alias']) || !is_string($attributes['alias'])) {
                     throw new InvalidArgumentException(
-                        sprintf('Service "%s" tagged "overblog_graphql.service" should have a valid "alias" attribute.', $id)
+                        sprintf('Service "%s" tagged "redeye_graphql.service" should have a valid "alias" attribute.', $id)
                     );
                 }
                 $locateableServices[$attributes['alias']] = new Reference($id);

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\DependencyInjection;
+namespace Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\DependencyInjection;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction;
-use Overblog\GraphQLBundle\Generator\TypeGenerator;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction;
+use Redeye\GraphQLBundle\Generator\TypeGenerator;
 
 final class Service extends ExpressionFunction
 {

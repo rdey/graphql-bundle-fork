@@ -20,8 +20,8 @@ Mutation:
                     test2:
                         type: "String"
                         validation:
-                            -   Overblog\GraphQLBundle\Tests\Functional\App\Validator\CustomValidator1\Constraint: ~
+                            -   Redeye\GraphQLBundle\Tests\Functional\App\Validator\CustomValidator1\Constraint: ~
                     test3:
                         type: "String"
                         validation:
-                            -   Overblog\GraphQLBundle\Tests\Functional\App\Validator\CustomValidator2\Constraint: ~
+                            -   Redeye\GraphQLBundle\Tests\Functional\App\Validator\CustomValidator2\Constraint: ~

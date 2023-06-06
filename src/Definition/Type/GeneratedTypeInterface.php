@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Definition\Type;
+namespace Redeye\GraphQLBundle\Definition\Type;
 
 interface GeneratedTypeInterface
 {

@@ -84,7 +84,7 @@ Note: With annotations, you can omit the `interfaces` option. If so, the system 
 
 namespace AppBundle;
 
-use Overblog\GraphQLBundle\Annotation as GQL;
+use Redeye\GraphQLBundle\Annotation as GQL;
 
 /**
  * @GQL\Type(interfaces={"Character"})

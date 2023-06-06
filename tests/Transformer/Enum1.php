@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Transformer;
+namespace Redeye\GraphQLBundle\Tests\Transformer;
 
 class Enum1
 {

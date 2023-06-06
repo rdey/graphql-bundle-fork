@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Relay\Mutation;
+namespace Redeye\GraphQLBundle\Tests\Relay\Mutation;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Relay\Mutation\MutationFieldDefinition;
+use Redeye\GraphQLBundle\Relay\Mutation\MutationFieldDefinition;
 use PHPUnit\Framework\TestCase;
 
 class MutationFieldDefinitionTest extends TestCase

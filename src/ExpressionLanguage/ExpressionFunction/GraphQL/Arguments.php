@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL;
+namespace Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction;
-use Overblog\GraphQLBundle\Generator\TypeGenerator;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction;
+use Redeye\GraphQLBundle\Generator\TypeGenerator;
 
 final class Arguments extends ExpressionFunction
 {
@@ -13,8 +13,8 @@ final class Arguments extends ExpressionFunction
     {
         parent::__construct(
             'arguments',
-            fn ($mapping, $data) => "$this->gqlServices->get('container')->get('overblog_graphql.arguments_transformer')->getArguments($mapping, $data, \$info)",
-            static fn (array $arguments, $mapping, $data) => $arguments[TypeGenerator::GRAPHQL_SERVICES]->get('container')->get('overblog_graphql.arguments_transformer')->getArguments($mapping, $data, $arguments['info'])
+            fn ($mapping, $data) => "$this->gqlServices->get('container')->get('redeye_graphql.arguments_transformer')->getArguments($mapping, $data, \$info)",
+            static fn (array $arguments, $mapping, $data) => $arguments[TypeGenerator::GRAPHQL_SERVICES]->get('container')->get('redeye_graphql.arguments_transformer')->getArguments($mapping, $data, $arguments['info'])
         );
     }
 }

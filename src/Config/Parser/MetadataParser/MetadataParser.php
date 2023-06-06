@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Config\Parser\MetadataParser;
+namespace Redeye\GraphQLBundle\Config\Parser\MetadataParser;
 
 use Doctrine\Common\Annotations\AnnotationException;
-use Overblog\GraphQLBundle\Annotation\Annotation as Meta;
-use Overblog\GraphQLBundle\Annotation as Metadata;
-use Overblog\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser\DocBlockTypeGuesser;
-use Overblog\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser\DoctrineTypeGuesser;
-use Overblog\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser\TypeGuessingException;
-use Overblog\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser\TypeHintTypeGuesser;
-use Overblog\GraphQLBundle\Config\Parser\PreParserInterface;
-use Overblog\GraphQLBundle\Relay\Connection\ConnectionInterface;
-use Overblog\GraphQLBundle\Relay\Connection\EdgeInterface;
+use Redeye\GraphQLBundle\Annotation\Annotation as Meta;
+use Redeye\GraphQLBundle\Annotation as Metadata;
+use Redeye\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser\DocBlockTypeGuesser;
+use Redeye\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser\DoctrineTypeGuesser;
+use Redeye\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser\TypeGuessingException;
+use Redeye\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser\TypeHintTypeGuesser;
+use Redeye\GraphQLBundle\Config\Parser\PreParserInterface;
+use Redeye\GraphQLBundle\Relay\Connection\ConnectionInterface;
+use Redeye\GraphQLBundle\Relay\Connection\EdgeInterface;
 use ReflectionClass;
 use ReflectionClassConstant;
 use ReflectionException;
@@ -44,7 +44,7 @@ use function trim;
 
 abstract class MetadataParser implements PreParserInterface
 {
-    public const ANNOTATION_NAMESPACE = 'Overblog\GraphQLBundle\Annotation\\';
+    public const ANNOTATION_NAMESPACE = 'Redeye\GraphQLBundle\Annotation\\';
     public const METADATA_FORMAT = '%s';
 
     private static ClassesTypesMap $map;
@@ -73,7 +73,7 @@ abstract class MetadataParser implements PreParserInterface
      */
     public static function preParse(SplFileInfo $file, ContainerBuilder $container, array $configs = []): void
     {
-        $container->setParameter('overblog_graphql_types.classes_map', self::processFile($file, $container, $configs, true));
+        $container->setParameter('redeye_graphql_types.classes_map', self::processFile($file, $container, $configs, true));
     }
 
     /**
@@ -495,7 +495,7 @@ abstract class MetadataParser implements PreParserInterface
             if ($reflectionClass->hasMethod('resolveType')) {
                 $method = $reflectionClass->getMethod('resolveType');
                 if ($method->isStatic() && $method->isPublic()) {
-                    $unionConfiguration['resolveType'] = self::formatExpression(sprintf("@=call('%s::%s', [service('overblog_graphql.type_resolver'), value], true)", self::formatNamespaceForExpression($reflectionClass->getName()), 'resolveType'));
+                    $unionConfiguration['resolveType'] = self::formatExpression(sprintf("@=call('%s::%s', [service('redeye_graphql.type_resolver'), value], true)", self::formatNamespaceForExpression($reflectionClass->getName()), 'resolveType'));
                 } else {
                     throw new InvalidArgumentException(sprintf('The "resolveType()" method on class must be static and public. Or you must define a "resolveType" attribute on the %s metadata.', self::formatMetadata('Union')));
                 }

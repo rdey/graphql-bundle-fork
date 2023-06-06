@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Relay\Node;
+namespace Redeye\GraphQLBundle\Tests\Relay\Node;
 
-use Overblog\GraphQLBundle\Relay\Node\GlobalId;
+use Redeye\GraphQLBundle\Relay\Node\GlobalId;
 use PHPUnit\Framework\TestCase;
 use function base64_decode;
 use function base64_encode;

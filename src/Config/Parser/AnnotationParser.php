@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Config\Parser;
+namespace Redeye\GraphQLBundle\Config\Parser;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use Doctrine\Common\Annotations\PsrCachedReader;
 use Doctrine\Common\Annotations\Reader;
-use Overblog\GraphQLBundle\Config\Parser\MetadataParser\MetadataParser;
+use Redeye\GraphQLBundle\Config\Parser\MetadataParser\MetadataParser;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;

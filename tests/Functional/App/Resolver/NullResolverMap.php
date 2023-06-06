@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\App\Resolver;
+namespace Redeye\GraphQLBundle\Tests\Functional\App\Resolver;
 
-use Overblog\GraphQLBundle\Resolver\ResolverMap;
+use Redeye\GraphQLBundle\Resolver\ResolverMap;
 
 class NullResolverMap extends ResolverMap
 {

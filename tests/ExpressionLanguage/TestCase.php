@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\ExpressionLanguage;
+namespace Redeye\GraphQLBundle\Tests\ExpressionLanguage;
 
-use Overblog\GraphQLBundle\Definition\GraphQLServices;
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionLanguage;
-use Overblog\GraphQLBundle\Generator\TypeGenerator;
-use Overblog\GraphQLBundle\Resolver\MutationResolver;
-use Overblog\GraphQLBundle\Resolver\TypeResolver;
-use Overblog\GraphQLBundle\Security\Security;
-use Overblog\GraphQLBundle\Tests\DIContainerMockTrait;
+use Redeye\GraphQLBundle\Definition\GraphQLServices;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionLanguage;
+use Redeye\GraphQLBundle\Generator\TypeGenerator;
+use Redeye\GraphQLBundle\Resolver\MutationResolver;
+use Redeye\GraphQLBundle\Resolver\TypeResolver;
+use Redeye\GraphQLBundle\Security\Security;
+use Redeye\GraphQLBundle\Tests\DIContainerMockTrait;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\MockObject\Rule\AnyInvokedCount;
 use PHPUnit\Framework\MockObject\Rule\InvokedCount;

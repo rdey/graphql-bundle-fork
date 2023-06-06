@@ -6,11 +6,11 @@ framework:
         enabled: true
         enable_annotations: true
 
-overblog_graphql:
+redeye_graphql:
     errors_handler:
         debug: true
     definitions:
-        class_namespace: "Overblog\\GraphQLBundle\\TypeShorthand\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\TypeShorthand\\__DEFINITIONS__"
         schema:
             query: RootQuery
         mappings:

@@ -4,5 +4,5 @@ services:
         public: true
         autoconfigure: true
 
-    Overblog\GraphQLBundle\GraphQL\Relay\:
+    Redeye\GraphQLBundle\GraphQL\Relay\:
         resource: ../../GraphQL/Relay/{Mutation,Node}

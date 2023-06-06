@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\ExpressionLanguage\ExpressionFunction\GraphQL\Relay;
+namespace Redeye\GraphQLBundle\Tests\ExpressionLanguage\ExpressionFunction\GraphQL\Relay;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL\Relay\FromGlobalID;
-use Overblog\GraphQLBundle\Tests\ExpressionLanguage\TestCase;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL\Relay\FromGlobalID;
+use Redeye\GraphQLBundle\Tests\ExpressionLanguage\TestCase;
 
 class FromGlobalIDTest extends TestCase
 {

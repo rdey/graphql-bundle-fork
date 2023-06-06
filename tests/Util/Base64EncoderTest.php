@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Util;
+namespace Redeye\GraphQLBundle\Tests\Util;
 
 use Generator;
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Util\Base64Encoder;
+use Redeye\GraphQLBundle\Util\Base64Encoder;
 use PHPUnit\Framework\TestCase;
 
 final class Base64EncoderTest extends TestCase

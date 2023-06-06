@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Definition\Type;
+namespace Redeye\GraphQLBundle\Definition\Type;
 
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Schema;
 use GraphQL\Type\SchemaConfig;
-use Overblog\GraphQLBundle\Definition\Type\SchemaExtension\SchemaExtensionInterface;
-use Overblog\GraphQLBundle\Resolver\UnresolvableException;
+use Redeye\GraphQLBundle\Definition\Type\SchemaExtension\SchemaExtensionInterface;
+use Redeye\GraphQLBundle\Resolver\UnresolvableException;
 
 class ExtensibleSchema extends Schema
 {

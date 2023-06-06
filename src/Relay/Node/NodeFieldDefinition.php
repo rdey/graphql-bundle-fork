@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Relay\Node;
+namespace Redeye\GraphQLBundle\Relay\Node;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Definition\Builder\MappingInterface;
+use Redeye\GraphQLBundle\Definition\Builder\MappingInterface;
 use function is_string;
 use function substr;
 

@@ -33,7 +33,7 @@ Example:
 
   namespace App\EventListener;
 
-  use Overblog\GraphQLBundle\Event\ExecutorArgumentsEvent;
+  use Redeye\GraphQLBundle\Event\ExecutorArgumentsEvent;
   use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
   class RootValueInitialization
@@ -74,13 +74,13 @@ Example:
 
   namespace App\EventListener;
 
-  use Overblog\GraphQLBundle\Event\ExecutorResultEvent;
+  use Redeye\GraphQLBundle\Event\ExecutorResultEvent;
 
   class Credits
   {
       public function onPostExecutor(ExecutorResultEvent $event)
       {
-          $event->getResult()->extensions['credits'] = 'This api was powered by "OverblogGraphQLBundle".';
+          $event->getResult()->extensions['credits'] = 'This api was powered by "RedeyeGraphQLBundle".';
       }
   }
   ```
@@ -90,7 +90,7 @@ Example:
   {
     "data": {"foo": "bar"},
     "extensions": {
-      "credits": "This api was powered by \"OverblogGraphQLBundle\"."
+      "credits": "This api was powered by \"RedeyeGraphQLBundle\"."
     }
   }
   ```
@@ -119,7 +119,7 @@ Example:
 
   namespace App\EventListener;
 
-  use Overblog\GraphQLBundle\Event\ErrorFormattingEvent;
+  use Redeye\GraphQLBundle\Event\ErrorFormattingEvent;
 
   class ErrorCode
   {
@@ -175,7 +175,7 @@ App\EventListener\TypeDecorator:
 
 namespace App\EventListener;
 
-use Overblog\GraphQLBundle\Event\TypeLoadedEvent;
+use Redeye\GraphQLBundle\Event\TypeLoadedEvent;
 
 class TypeDecorator
 {
@@ -190,7 +190,7 @@ class TypeDecorator
 Schema Compiled
 ----------------
 
-*Event:* `Overblog\GraphQLBundle\Event\SchemaCompiledEvent`
+*Event:* `Redeye\GraphQLBundle\Event\SchemaCompiledEvent`
 
 Used to be notified when the schema has been newly compiled.
 
@@ -202,9 +202,9 @@ Example:
 namespace App\Infra\GraphQL\CacheWarmer;
 
 use GraphQL\Utils\SchemaPrinter;
-use Overblog\GraphQLBundle\Event\SchemaCompiledEvent;
-use Overblog\GraphQLBundle\Request\Executor as RequestExecutor;
-use Overblog\GraphQLBundle\Request\ParserInterface;
+use Redeye\GraphQLBundle\Event\SchemaCompiledEvent;
+use Redeye\GraphQLBundle\Request\Executor as RequestExecutor;
+use Redeye\GraphQLBundle\Request\ParserInterface;
 use Symfony\Component\Console\Event\ConsoleCommandEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;

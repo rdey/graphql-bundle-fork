@@ -142,9 +142,9 @@ return [
         'type' => 'custom-scalar',
         'config' => [
             'description' => null,
-            'serialize' => [\Overblog\GraphQLBundle\Config\Parser\GraphQL\ASTConverter\CustomScalarNode::class, 'mustOverrideConfig'],
-            'parseValue' => [\Overblog\GraphQLBundle\Config\Parser\GraphQL\ASTConverter\CustomScalarNode::class, 'mustOverrideConfig'],
-            'parseLiteral' => [\Overblog\GraphQLBundle\Config\Parser\GraphQL\ASTConverter\CustomScalarNode::class, 'mustOverrideConfig'],
+            'serialize' => [\Redeye\GraphQLBundle\Config\Parser\GraphQL\ASTConverter\CustomScalarNode::class, 'mustOverrideConfig'],
+            'parseValue' => [\Redeye\GraphQLBundle\Config\Parser\GraphQL\ASTConverter\CustomScalarNode::class, 'mustOverrideConfig'],
+            'parseLiteral' => [\Redeye\GraphQLBundle\Config\Parser\GraphQL\ASTConverter\CustomScalarNode::class, 'mustOverrideConfig'],
         ],
     ],
 ];

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Definition;
+namespace Redeye\GraphQLBundle\Definition;
 
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
-use Overblog\GraphQLBundle\Validator\InputValidator;
+use Redeye\GraphQLBundle\Validator\InputValidator;
 use Symfony\Component\DependencyInjection\ServiceLocator;
 
 /**

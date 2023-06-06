@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Request;
+namespace Redeye\GraphQLBundle\Tests\Request;
 
 use GraphQL\Executor\Promise\Adapter\ReactPromiseAdapter;
 use GraphQL\Type\Schema;
-use Overblog\GraphQLBundle\Executor\Executor;
-use Overblog\GraphQLBundle\Request\Executor as RequestExecutor;
+use Redeye\GraphQLBundle\Executor\Executor;
+use Redeye\GraphQLBundle\Request\Executor as RequestExecutor;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;

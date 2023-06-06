@@ -1,123 +1,123 @@
 parameters:
-    overblog_graphql_types.config: []
+    redeye_graphql_types.config: []
 
 services:
-    Overblog\GraphQLBundle\Executor\Executor: ~
-    Overblog\GraphQLBundle\Request\Parser: ~
-    Overblog\GraphQLBundle\Request\BatchParser: ~
+    Redeye\GraphQLBundle\Executor\Executor: ~
+    Redeye\GraphQLBundle\Request\Parser: ~
+    Redeye\GraphQLBundle\Request\BatchParser: ~
     GraphQL\Executor\Promise\Adapter\SyncPromiseAdapter: ~
-    Overblog\GraphQLBundle\Executor\Promise\Adapter\ReactPromiseAdapter: ~
-    Overblog\GraphQLBundle\Resolver\FieldResolver: ~
+    Redeye\GraphQLBundle\Executor\Promise\Adapter\ReactPromiseAdapter: ~
+    Redeye\GraphQLBundle\Resolver\FieldResolver: ~
 
-    Overblog\GraphQLBundle\Definition\GraphQLServices:
+    Redeye\GraphQLBundle\Definition\GraphQLServices:
         tags: ['container.service_locator']
 
-    Overblog\GraphQLBundle\Request\Executor:
+    Redeye\GraphQLBundle\Request\Executor:
         arguments:
-            - "@overblog_graphql.executor"
-            - "@overblog_graphql.promise_adapter"
+            - "@redeye_graphql.executor"
+            - "@redeye_graphql.promise_adapter"
             - "@event_dispatcher"
-            - '@overblog_graphql.default_field_resolver'
-            - "%overblog_graphql.use_experimental_executor%"
+            - '@redeye_graphql.default_field_resolver'
+            - "%redeye_graphql.use_experimental_executor%"
         calls:
-            - ["setMaxQueryComplexity", ["%overblog_graphql.query_max_complexity%"]]
-            - ["setMaxQueryDepth", ["%overblog_graphql.query_max_depth%"]]
+            - ["setMaxQueryComplexity", ["%redeye_graphql.query_max_complexity%"]]
+            - ["setMaxQueryDepth", ["%redeye_graphql.query_max_depth%"]]
 
-    Overblog\GraphQLBundle\Definition\Builder\SchemaBuilder:
+    Redeye\GraphQLBundle\Definition\Builder\SchemaBuilder:
         arguments:
-            - '@Overblog\GraphQLBundle\Resolver\TypeResolver'
+            - '@Redeye\GraphQLBundle\Resolver\TypeResolver'
             - false
 
-    Overblog\GraphQLBundle\Definition\Builder\TypeFactory:
+    Redeye\GraphQLBundle\Definition\Builder\TypeFactory:
         arguments:
-            - '@Overblog\GraphQLBundle\Definition\ConfigProcessor'
-            - '@Overblog\GraphQLBundle\Definition\GraphQLServices'
+            - '@Redeye\GraphQLBundle\Definition\ConfigProcessor'
+            - '@Redeye\GraphQLBundle\Definition\GraphQLServices'
 
-    Overblog\GraphQLBundle\Resolver\TypeResolver:
+    Redeye\GraphQLBundle\Resolver\TypeResolver:
         calls:
             - ['setDispatcher', ['@event_dispatcher']]
         tags:
-            - { name: overblog_graphql.service, alias: typeResolver }
+            - { name: redeye_graphql.service, alias: typeResolver }
 
-    Overblog\GraphQLBundle\Transformer\ArgumentsTransformer:
+    Redeye\GraphQLBundle\Transformer\ArgumentsTransformer:
         arguments:
             - '@?validator'
-            - '%overblog_graphql_types.classes_map%'
+            - '%redeye_graphql_types.classes_map%'
 
-    Overblog\GraphQLBundle\Resolver\QueryResolver:
+    Redeye\GraphQLBundle\Resolver\QueryResolver:
         tags:
-            - { name: overblog_graphql.service, alias: queryResolver }
+            - { name: redeye_graphql.service, alias: queryResolver }
 
-    Overblog\GraphQLBundle\Resolver\MutationResolver:
+    Redeye\GraphQLBundle\Resolver\MutationResolver:
         tags:
-            - { name: overblog_graphql.service, alias: mutationResolver }
+            - { name: redeye_graphql.service, alias: mutationResolver }
 
-    Overblog\GraphQLBundle\Resolver\AccessResolver:
+    Redeye\GraphQLBundle\Resolver\AccessResolver:
         arguments:
-            - '@overblog_graphql.promise_adapter'
+            - '@redeye_graphql.promise_adapter'
 
-    Overblog\GraphQLBundle\ExpressionLanguage\ExpressionLanguage:
+    Redeye\GraphQLBundle\ExpressionLanguage\ExpressionLanguage:
         arguments:
-            - '@?overblog_graphql.cache_expression_language_parser'
+            - '@?redeye_graphql.cache_expression_language_parser'
 
-    Overblog\GraphQLBundle\Generator\TypeGenerator:
+    Redeye\GraphQLBundle\Generator\TypeGenerator:
         arguments:
-            - '%overblog_graphql_types.config%'
-            - '@Overblog\GraphQLBundle\Generator\TypeBuilder'
+            - '%redeye_graphql_types.config%'
+            - '@Redeye\GraphQLBundle\Generator\TypeBuilder'
             - '@Symfony\Contracts\EventDispatcher\EventDispatcherInterface'
             - !service
-                class: Overblog\GraphQLBundle\Generator\TypeGeneratorOptions
+                class: Redeye\GraphQLBundle\Generator\TypeGeneratorOptions
                 arguments:
-                    - '%overblog_graphql.class_namespace%'
-                    - '%overblog_graphql.cache_dir%'
-                    - '%overblog_graphql.use_classloader_listener%'
+                    - '%redeye_graphql.class_namespace%'
+                    - '%redeye_graphql.cache_dir%'
+                    - '%redeye_graphql.use_classloader_listener%'
                     - '%kernel.cache_dir%'
-                    - '%overblog_graphql.cache_dir_permissions%'
+                    - '%redeye_graphql.cache_dir_permissions%'
 
-    Overblog\GraphQLBundle\Definition\ArgumentFactory:
+    Redeye\GraphQLBundle\Definition\ArgumentFactory:
         arguments:
-            - '%overblog_graphql.argument_class%'
+            - '%redeye_graphql.argument_class%'
         tags:
-            - { name: overblog_graphql.service, alias: argumentFactory }
+            - { name: redeye_graphql.service, alias: argumentFactory }
 
-    Overblog\GraphQLBundle\Controller\GraphController:
+    Redeye\GraphQLBundle\Controller\GraphController:
         public: true
         arguments:
-            - '@Overblog\GraphQLBundle\Request\BatchParser'
-            - '@Overblog\GraphQLBundle\Request\Executor'
-            - '@Overblog\GraphQLBundle\Request\Parser'
-            - "%overblog_graphql.handle_cors%"
-            - "%overblog_graphql.batching_method%"
+            - '@Redeye\GraphQLBundle\Request\BatchParser'
+            - '@Redeye\GraphQLBundle\Request\Executor'
+            - '@Redeye\GraphQLBundle\Request\Parser'
+            - "%redeye_graphql.handle_cors%"
+            - "%redeye_graphql.batching_method%"
 
-    Overblog\GraphQLBundle\Definition\ConfigProcessor:
+    Redeye\GraphQLBundle\Definition\ConfigProcessor:
         arguments:
-            - !tagged_iterator 'overblog_graphql.definition_config_processor'
+            - !tagged_iterator 'redeye_graphql.definition_config_processor'
 
-    GraphQL\Executor\Promise\PromiseAdapter: "@overblog_graphql.promise_adapter"
+    GraphQL\Executor\Promise\PromiseAdapter: "@redeye_graphql.promise_adapter"
 
-    Overblog\GraphQLBundle\Validator\Formatter:
+    Redeye\GraphQLBundle\Validator\Formatter:
         tags:
             - { name: kernel.event_listener, event: graphql.error_formatting, method: onErrorFormatting }
 
-    Overblog\GraphQLBundle\Security\Security:
+    Redeye\GraphQLBundle\Security\Security:
         arguments:
             - '@?security.helper'
         tags:
-            - { name: overblog_graphql.service, alias: security, public: false }
+            - { name: redeye_graphql.service, alias: security, public: false }
 
-    Overblog\GraphQLBundle\Generator\Converter\ExpressionConverter:
+    Redeye\GraphQLBundle\Generator\Converter\ExpressionConverter:
         arguments:
-            - '@Overblog\GraphQLBundle\ExpressionLanguage\ExpressionLanguage'
+            - '@Redeye\GraphQLBundle\ExpressionLanguage\ExpressionLanguage'
 
-    Overblog\GraphQLBundle\Generator\TypeBuilder:
+    Redeye\GraphQLBundle\Generator\TypeBuilder:
         arguments:
-            - '@Overblog\GraphQLBundle\Generator\Converter\ExpressionConverter'
-            - '%overblog_graphql.class_namespace%'
+            - '@Redeye\GraphQLBundle\Generator\Converter\ExpressionConverter'
+            - '%redeye_graphql.class_namespace%'
 
-    Overblog\GraphQLBundle\Validator\InputValidatorFactory:
+    Redeye\GraphQLBundle\Validator\InputValidatorFactory:
         arguments:
             - '@?validator.validator_factory'
             - '@?validator'
             - '@?translator.default'
         tags:
-            - { name: overblog_graphql.service, alias: input_validator_factory, public: false }
+            - { name: redeye_graphql.service, alias: input_validator_factory, public: false }

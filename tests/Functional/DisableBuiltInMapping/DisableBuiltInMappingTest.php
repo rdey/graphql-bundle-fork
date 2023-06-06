@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\DisableBuiltInMapping;
+namespace Redeye\GraphQLBundle\Tests\Functional\DisableBuiltInMapping;
 
 use GraphQL\Type\Definition\Type;
-use Overblog\GraphQLBundle\Resolver\UnresolvableException;
-use Overblog\GraphQLBundle\Tests\Functional\TestCase;
+use Redeye\GraphQLBundle\Resolver\UnresolvableException;
+use Redeye\GraphQLBundle\Tests\Functional\TestCase;
 
 class DisableBuiltInMappingTest extends TestCase
 {
@@ -26,6 +26,6 @@ class DisableBuiltInMappingTest extends TestCase
     private function getType(string $type): ?Type
     {
         // @phpstan-ignore-next-line
-        return $this->getContainer()->get('overblog_graphql.type_resolver')->resolve($type);
+        return $this->getContainer()->get('redeye_graphql.type_resolver')->resolve($type);
     }
 }

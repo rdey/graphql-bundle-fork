@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Error;
+namespace Redeye\GraphQLBundle\Error;
 
 use Closure;
 use Error;
@@ -12,8 +12,8 @@ use GraphQL\Error\Error as GraphQLError;
 use GraphQL\Error\FormattedError;
 use GraphQL\Error\UserError as GraphQLUserError;
 use GraphQL\Executor\ExecutionResult;
-use Overblog\GraphQLBundle\Event\ErrorFormattingEvent;
-use Overblog\GraphQLBundle\Event\Events;
+use Redeye\GraphQLBundle\Event\ErrorFormattingEvent;
+use Redeye\GraphQLBundle\Event\Events;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use function array_map;
 

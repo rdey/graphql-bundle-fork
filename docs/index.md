@@ -1,4 +1,4 @@
-OverblogGraphQLBundle
+RedeyeGraphQLBundle
 ======================
 
 This Symfony bundle provides integration of [GraphQL](https://facebook.github.io/graphql/) using [webonyx/graphql-php](https://github.com/webonyx/graphql-php)
@@ -10,14 +10,14 @@ Versions requirements
 
 | Version                                                         | PHP        | Symfony          | Support        |
 | --------------------------------------------------------------: | ---------: | ---------------: | -------------: |
-| [`1.0`](https://github.com/overblog/GraphQLBundle/tree/master)  | `>= 8.0`   | `>= 5.3.7`       | DEV            |
-| [`0.14`](https://github.com/overblog/GraphQLBundle/tree/0.14)   | `>= 7.4`   | `>= 4.4.30`      | Active support |
-| [`0.13`](https://github.com/overblog/GraphQLBundle/tree/0.13)   | `>= 7.2`   | `>= 4.3`         | Active support |
-| [`0.12`](https://github.com/overblog/GraphQLBundle/tree/0.12)   | `>= 7.1`   | `>= 3.4, <4.4`   | Security       |
-| [`0.11`](https://github.com/overblog/GraphQLBundle/tree/0.11)   | `>= 5.6`   | `>= 3.1, <=4.3`  | End of life    |
-| [`0.10`](https://github.com/overblog/GraphQLBundle/tree/0.10)   | `>= 5.5.9` | `>= 2.8, <= 3.1` | End of life    |
-| [`0.9`](https://github.com/overblog/GraphQLBundle/tree/0.9)     | `>= 5.5.9` | `>= 2.8, <= 3.1` | End of life    |
-| [`0.8`](https://github.com/overblog/GraphQLBundle/tree/0.8)     | `>= 5.4 `  | `>= 2.7, <= 3.1` | End of life    |
+| [`1.0`](https://github.com/redeye/GraphQLBundle/tree/master)  | `>= 8.0`   | `>= 5.3.7`       | DEV            |
+| [`0.14`](https://github.com/redeye/GraphQLBundle/tree/0.14)   | `>= 7.4`   | `>= 4.4.30`      | Active support |
+| [`0.13`](https://github.com/redeye/GraphQLBundle/tree/0.13)   | `>= 7.2`   | `>= 4.3`         | Active support |
+| [`0.12`](https://github.com/redeye/GraphQLBundle/tree/0.12)   | `>= 7.1`   | `>= 3.4, <4.4`   | Security       |
+| [`0.11`](https://github.com/redeye/GraphQLBundle/tree/0.11)   | `>= 5.6`   | `>= 3.1, <=4.3`  | End of life    |
+| [`0.10`](https://github.com/redeye/GraphQLBundle/tree/0.10)   | `>= 5.5.9` | `>= 2.8, <= 3.1` | End of life    |
+| [`0.9`](https://github.com/redeye/GraphQLBundle/tree/0.9)     | `>= 5.5.9` | `>= 2.8, <= 3.1` | End of life    |
+| [`0.8`](https://github.com/redeye/GraphQLBundle/tree/0.8)     | `>= 5.4 `  | `>= 2.7, <= 3.1` | End of life    |
 
 After installation
 ------------
@@ -27,20 +27,20 @@ Define your [GraphQL schema](definitions/index.md).
 Symfony Flex installation
 ------------
 
-**Note:** OverblogGraphQLBundle only supports Symfony Flex from version 0.9.0 onwards
+**Note:** RedeyeGraphQLBundle only supports Symfony Flex from version 0.9.0 onwards
 
 **a)** Download the bundle
 
 In the project directory:
 
 ```bash
-composer require overblog/graphql-bundle
+composer require redeye/graphql-bundle
 ```
 
 **b)** Accept the contrib recipes installation from Symfony Flex
 
 ```
--  WARNING  overblog/graphql-bundle (0.9): From github.com/symfony/recipes-contrib
+-  WARNING  redeye/graphql-bundle (0.9): From github.com/symfony/recipes-contrib
     The recipe for this package comes from the "contrib" repository, which is open to community contributions.
     Do you want to execute this recipe?
     [y] Yes
@@ -53,7 +53,7 @@ composer require overblog/graphql-bundle
 **c)** If you want to run GraphiQL interface we have a bundle:
 
  ```bash
- composer require --dev overblog/graphiql-bundle
+ composer require --dev redeye/graphiql-bundle
  ```
 
 Manual installation
@@ -64,7 +64,7 @@ Manual installation
 In the project directory:
 
 ```bash
-composer require overblog/graphql-bundle
+composer require redeye/graphql-bundle
 ```
 
 **b)** Enable the bundle
@@ -77,7 +77,7 @@ class AppKernel extends Kernel
     {
         $bundles = [
             // ...
-            new Overblog\GraphQLBundle\OverblogGraphQLBundle(),
+            new Redeye\GraphQLBundle\RedeyeGraphQLBundle(),
         ];
 
         // ...
@@ -89,8 +89,8 @@ class AppKernel extends Kernel
 
 ```yaml
 # in app/config/routing.yml
-overblog_graphql_single_endpoint:
-    resource: "@OverblogGraphQLBundle/Resources/config/routing/single.yaml"
+redeye_graphql_single_endpoint:
+    resource: "@RedeyeGraphQLBundle/Resources/config/routing/single.yaml"
     prefix: /
 ```
 
@@ -98,8 +98,8 @@ To use multiple schemas:
 
 ```yaml
 # in app/config/routing.yml
-overblog_graphql_multiple_endpoint:
-    resource: "@OverblogGraphQLBundle/Resources/config/routing/multiple.yaml"
+redeye_graphql_multiple_endpoint:
+    resource: "@RedeyeGraphQLBundle/Resources/config/routing/multiple.yaml"
     prefix: /graphql
 ```
 
@@ -123,7 +123,7 @@ in production environment...
 First start by some configuration:
 
 ```yaml
-overblog_graphql:
+redeye_graphql:
     definitions:
         # disable listener the bundle out of box classLoader
         use_classloader_listener: false
@@ -133,7 +133,7 @@ overblog_graphql:
         # change classes cache dir (recommends using a directory that will be committed)
         cache_dir: "/my/path/to/my/generated/classes"
         # Can also change the namespace
-        #class_namespace: "Overblog\\GraphQLBundle\\__DEFINITIONS__"
+        #class_namespace: "Redeye\\GraphQLBundle\\__DEFINITIONS__"
 ```
 
 then enable composer autoloader in project `composer.json`:
@@ -142,7 +142,7 @@ then enable composer autoloader in project `composer.json`:
 {
     "autoload": {
         "psr-4": {
-            "Overblog\\GraphQLBundle\\__DEFINITIONS__\\": "my/path/to/my/generated/classes/"
+            "Redeye\\GraphQLBundle\\__DEFINITIONS__\\": "my/path/to/my/generated/classes/"
         }
     }
 }

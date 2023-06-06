@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Upload\Type;
+namespace Redeye\GraphQLBundle\Tests\Upload\Type;
 
 use Generator;
 use GraphQL\Error\Error;
 use GraphQL\Error\InvariantViolation;
-use Overblog\GraphQLBundle\Upload\Type\GraphQLUploadType;
+use Redeye\GraphQLBundle\Upload\Type\GraphQLUploadType;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use function sprintf;

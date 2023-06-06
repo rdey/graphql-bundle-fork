@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Event;
+namespace Redeye\GraphQLBundle\Event;
 
 use ArrayObject;
-use Overblog\GraphQLBundle\Definition\Type\ExtensibleSchema;
+use Redeye\GraphQLBundle\Definition\Type\ExtensibleSchema;
 use Symfony\Contracts\EventDispatcher\Event;
 use function microtime;
 

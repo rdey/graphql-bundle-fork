@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Relay\Connection;
+namespace Redeye\GraphQLBundle\Relay\Connection;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Definition\ArgumentInterface;
-use Overblog\GraphQLBundle\Relay\Connection\Cursor\Base64CursorEncoder;
-use Overblog\GraphQLBundle\Relay\Connection\Cursor\CursorEncoderInterface;
-use Overblog\GraphQLBundle\Relay\Connection\Output\Connection;
-use Overblog\GraphQLBundle\Relay\Connection\Output\Edge;
-use Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo;
+use Redeye\GraphQLBundle\Definition\ArgumentInterface;
+use Redeye\GraphQLBundle\Relay\Connection\Cursor\Base64CursorEncoder;
+use Redeye\GraphQLBundle\Relay\Connection\Cursor\CursorEncoderInterface;
+use Redeye\GraphQLBundle\Relay\Connection\Output\Connection;
+use Redeye\GraphQLBundle\Relay\Connection\Output\Edge;
+use Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo;
 use function array_slice;
 use function count;
 use function end;

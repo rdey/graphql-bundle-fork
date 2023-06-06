@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Config\Parser;
+namespace Redeye\GraphQLBundle\Tests\Config\Parser;
 
-use Overblog\GraphQLBundle\Config\Parser\AttributeParser;
+use Redeye\GraphQLBundle\Config\Parser\AttributeParser;
 
 /**
  * @group legacy

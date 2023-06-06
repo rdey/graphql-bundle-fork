@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Resolver;
+namespace Redeye\GraphQLBundle\Tests\Resolver;
 
 use ArrayAccess;
 use ArrayObject;
 use Closure;
-use Overblog\GraphQLBundle\Resolver\ResolverMap;
-use Overblog\GraphQLBundle\Resolver\UnresolvableException;
+use Redeye\GraphQLBundle\Resolver\ResolverMap;
+use Redeye\GraphQLBundle\Resolver\UnresolvableException;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;

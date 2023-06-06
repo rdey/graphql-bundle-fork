@@ -1,11 +1,11 @@
 services:
-    overblog_graphql.test.resolver.node:
-        class: Overblog\GraphQLBundle\Tests\Functional\App\Resolver\ConnectionResolver
+    redeye_graphql.test.resolver.node:
+        class: Redeye\GraphQLBundle\Tests\Functional\App\Resolver\ConnectionResolver
         arguments:
-            - "@overblog_graphql.promise_adapter"
+            - "@redeye_graphql.promise_adapter"
         tags:
-            - { name: "overblog_graphql.resolver", alias: "friends", method: "friendsResolver" }
-            - { name: "overblog_graphql.query", alias: "node", method: "resolveNode" }
-            - { name: "overblog_graphql.query", alias: "query", method: "resolveQuery" }
-            - { name: "overblog_graphql.query", alias: "connection", method: "resolveConnection" }
-            - { name: "overblog_graphql.query", alias: "promise", method: "resolvePromiseFullFilled" }
+            - { name: "redeye_graphql.resolver", alias: "friends", method: "friendsResolver" }
+            - { name: "redeye_graphql.query", alias: "node", method: "resolveNode" }
+            - { name: "redeye_graphql.query", alias: "query", method: "resolveQuery" }
+            - { name: "redeye_graphql.query", alias: "connection", method: "resolveConnection" }
+            - { name: "redeye_graphql.query", alias: "promise", method: "resolvePromiseFullFilled" }

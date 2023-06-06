@@ -5,10 +5,10 @@ By default in no debug mode all errors will be logged and replace by a generic e
 Only query parsed error won't be replaced.
 If you want to send explicit error or warnings messages to your users you can use exceptions:
 
-1- **Overblog\\GraphQLBundle\\Error\\UserError** to send unique error
+1- **Redeye\\GraphQLBundle\\Error\\UserError** to send unique error
 
 ```php
-use Overblog\GraphQLBundle\Error\UserError;
+use Redeye\GraphQLBundle\Error\UserError;
 
 class CharacterResolver
 {
@@ -27,11 +27,11 @@ class CharacterResolver
 }
 ```
 
-2- **Overblog\\GraphQLBundle\\Error\\UserErrors** to send multiple errors
+2- **Redeye\\GraphQLBundle\\Error\\UserErrors** to send multiple errors
 
 ```php
-use Overblog\GraphQLBundle\Error\UserError;
-use Overblog\GraphQLBundle\Error\UserErrors;
+use Redeye\GraphQLBundle\Error\UserError;
+use Redeye\GraphQLBundle\Error\UserErrors;
 
 class CharacterResolver
 {
@@ -65,10 +65,10 @@ class CharacterResolver
 }
 ```
 
-3- **Overblog\\GraphQLBundle\\Error\\UserWarning** to send unique warning
+3- **Redeye\\GraphQLBundle\\Error\\UserWarning** to send unique warning
 
 ```php
-use Overblog\GraphQLBundle\Error\UserWarning;
+use Redeye\GraphQLBundle\Error\UserWarning;
 
 class CharacterResolver
 {
@@ -93,7 +93,7 @@ If you want to map your own exceptions to warnings and errors you can
 define a custom exception mapping:
 
 ```yaml
-overblog_graphql:
+redeye_graphql:
     #... 
     errors_handler:
         #...
@@ -107,16 +107,16 @@ overblog_graphql:
                 - "InvalidArgumentException"
 ```
 
-The mapping is handled inside the `Overblog\GraphQLBundle\Error\ErrorHandler`
-class using an instance of the `Overblog\GraphQLBundle\Error\ExceptionConverter`
+The mapping is handled inside the `Redeye\GraphQLBundle\Error\ErrorHandler`
+class using an instance of the `Redeye\GraphQLBundle\Error\ExceptionConverter`
 class. Since this class implements an interface and is registered as a service
 in the dependency container, you can easily swap it and customize the logic.
 
 ```php
 namespace App\Error;
 
-use Overblog\GraphQLBundle\Error\ExceptionConverterInterface;
-use Overblog\GraphQLBundle\Error\UserError;
+use Redeye\GraphQLBundle\Error\ExceptionConverterInterface;
+use Redeye\GraphQLBundle\Error\UserError;
 
 final class ExceptionConverter implements ExceptionConverterInterface
 {
@@ -130,14 +130,14 @@ final class ExceptionConverter implements ExceptionConverterInterface
 ```yaml
 App\Error\ExceptionConverter: ~
 
-Overblog\GraphQLBundle\Error\ExceptionConverterInterface:
+Redeye\GraphQLBundle\Error\ExceptionConverterInterface:
     alias: '@App\Error\ExceptionConverter'
 ```
 
 You can custom the default errors handler using configuration:
 
 ```yaml
-overblog_graphql:
+redeye_graphql:
     errors_handler:
         enabled: true # false will totally disabled errors handling
         internal_error_message: ~ # custom generic error message
@@ -161,7 +161,7 @@ Custom error handling / formatting
 This can also be done by using events.
 * First totally disable default errors handler:
     ```yaml
-    overblog_graphql:
+    redeye_graphql:
         errors_handler: false
     ```
 * Listen to [executor result event](../events/index.md#executor-result)
@@ -178,7 +178,7 @@ This can also be done by using events.
 
   use GraphQL\Error\Error;
   use GraphQL\Error\FormattedError;
-  use Overblog\GraphQLBundle\Event\ExecutorResultEvent;
+  use Redeye\GraphQLBundle\Event\ExecutorResultEvent;
 
   class MyErrorHandler
   {

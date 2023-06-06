@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Relay\Connection\Output;
+namespace Redeye\GraphQLBundle\Tests\Relay\Connection\Output;
 
-use Overblog\GraphQLBundle\Relay\Connection\Output\Connection;
-use Overblog\GraphQLBundle\Relay\Connection\Output\Edge;
-use Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo;
+use Redeye\GraphQLBundle\Relay\Connection\Output\Connection;
+use Redeye\GraphQLBundle\Relay\Connection\Output\Edge;
+use Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo;
 use PHPUnit\Framework\TestCase;
 
 class DeprecatedPropertyPublicAccessTraitTest extends TestCase
@@ -14,14 +14,14 @@ class DeprecatedPropertyPublicAccessTraitTest extends TestCase
     /**
      * @group legacy
      *
-     * @expectedDeprecation Getting directly property Overblog\GraphQLBundle\Relay\Connection\Output\Connection::$edges value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Overblog\GraphQLBundle\Relay\Connection\Output\Connection::getEdges.
-     * @expectedDeprecation Getting directly property Overblog\GraphQLBundle\Relay\Connection\Output\Connection::$pageInfo value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Overblog\GraphQLBundle\Relay\Connection\Output\Connection::getPageInfo.
-     * @expectedDeprecation Getting directly property Overblog\GraphQLBundle\Relay\Connection\Output\Edge::$cursor value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Overblog\GraphQLBundle\Relay\Connection\Output\Edge::getCursor.
-     * @expectedDeprecation Getting directly property Overblog\GraphQLBundle\Relay\Connection\Output\Edge::$node value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Overblog\GraphQLBundle\Relay\Connection\Output\Edge::getNode.
-     * @expectedDeprecation Getting directly property Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo::$startCursor value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo::getStartCursor.
-     * @expectedDeprecation Getting directly property Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo::$endCursor value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo::getEndCursor.
-     * @expectedDeprecation Getting directly property Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo::$hasPreviousPage value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo::getHasPreviousPage.
-     * @expectedDeprecation Getting directly property Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo::$hasNextPage value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo::getHasNextPage.
+     * @expectedDeprecation Getting directly property Redeye\GraphQLBundle\Relay\Connection\Output\Connection::$edges value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Redeye\GraphQLBundle\Relay\Connection\Output\Connection::getEdges.
+     * @expectedDeprecation Getting directly property Redeye\GraphQLBundle\Relay\Connection\Output\Connection::$pageInfo value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Redeye\GraphQLBundle\Relay\Connection\Output\Connection::getPageInfo.
+     * @expectedDeprecation Getting directly property Redeye\GraphQLBundle\Relay\Connection\Output\Edge::$cursor value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Redeye\GraphQLBundle\Relay\Connection\Output\Edge::getCursor.
+     * @expectedDeprecation Getting directly property Redeye\GraphQLBundle\Relay\Connection\Output\Edge::$node value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Redeye\GraphQLBundle\Relay\Connection\Output\Edge::getNode.
+     * @expectedDeprecation Getting directly property Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo::$startCursor value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo::getStartCursor.
+     * @expectedDeprecation Getting directly property Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo::$endCursor value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo::getEndCursor.
+     * @expectedDeprecation Getting directly property Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo::$hasPreviousPage value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo::getHasPreviousPage.
+     * @expectedDeprecation Getting directly property Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo::$hasNextPage value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo::getHasNextPage.
      */
     public function testProtectedPropertyReadAccess(): void
     {
@@ -43,14 +43,14 @@ class DeprecatedPropertyPublicAccessTraitTest extends TestCase
     /**
      * @group legacy
      *
-     * @expectedDeprecation Setting directly property Overblog\GraphQLBundle\Relay\Connection\Output\Connection::$edges value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Overblog\GraphQLBundle\Relay\Connection\Output\Connection::setEdges.
-     * @expectedDeprecation Setting directly property Overblog\GraphQLBundle\Relay\Connection\Output\Connection::$pageInfo value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Overblog\GraphQLBundle\Relay\Connection\Output\Connection::setPageInfo.
-     * @expectedDeprecation Setting directly property Overblog\GraphQLBundle\Relay\Connection\Output\Edge::$cursor value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Overblog\GraphQLBundle\Relay\Connection\Output\Edge::setCursor.
-     * @expectedDeprecation Setting directly property Overblog\GraphQLBundle\Relay\Connection\Output\Edge::$node value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Overblog\GraphQLBundle\Relay\Connection\Output\Edge::setNode.
-     * @expectedDeprecation Setting directly property Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo::$startCursor value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo::setStartCursor.
-     * @expectedDeprecation Setting directly property Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo::$endCursor value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo::setEndCursor.
-     * @expectedDeprecation Setting directly property Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo::$hasPreviousPage value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo::setHasPreviousPage.
-     * @expectedDeprecation Setting directly property Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo::$hasNextPage value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo::setHasNextPage.
+     * @expectedDeprecation Setting directly property Redeye\GraphQLBundle\Relay\Connection\Output\Connection::$edges value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Redeye\GraphQLBundle\Relay\Connection\Output\Connection::setEdges.
+     * @expectedDeprecation Setting directly property Redeye\GraphQLBundle\Relay\Connection\Output\Connection::$pageInfo value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Redeye\GraphQLBundle\Relay\Connection\Output\Connection::setPageInfo.
+     * @expectedDeprecation Setting directly property Redeye\GraphQLBundle\Relay\Connection\Output\Edge::$cursor value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Redeye\GraphQLBundle\Relay\Connection\Output\Edge::setCursor.
+     * @expectedDeprecation Setting directly property Redeye\GraphQLBundle\Relay\Connection\Output\Edge::$node value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Redeye\GraphQLBundle\Relay\Connection\Output\Edge::setNode.
+     * @expectedDeprecation Setting directly property Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo::$startCursor value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo::setStartCursor.
+     * @expectedDeprecation Setting directly property Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo::$endCursor value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo::setEndCursor.
+     * @expectedDeprecation Setting directly property Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo::$hasPreviousPage value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo::setHasPreviousPage.
+     * @expectedDeprecation Setting directly property Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo::$hasNextPage value is deprecated as of 0.12 and will be removed in 0.13. You should now use method Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo::setHasNextPage.
      */
     public function testProtectedPropertyWriteAccess(): void
     {

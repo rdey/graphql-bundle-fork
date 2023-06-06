@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Relay\Connection\Output;
+namespace Redeye\GraphQLBundle\Relay\Connection\Output;
 
-use Overblog\GraphQLBundle\Relay\Connection\EdgeInterface;
+use Redeye\GraphQLBundle\Relay\Connection\EdgeInterface;
 
 class Edge implements EdgeInterface
 {

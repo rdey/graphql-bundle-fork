@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser;
+namespace Redeye\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser;
 
 use Doctrine\ORM\Mapping\Annotation as MappingAnnotation;
 use Doctrine\ORM\Mapping\Column;
@@ -11,8 +11,8 @@ use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\OneToOne;
-use Overblog\GraphQLBundle\Config\Parser\AnnotationParser;
-use Overblog\GraphQLBundle\Config\Parser\MetadataParser\ClassesTypesMap;
+use Redeye\GraphQLBundle\Config\Parser\AnnotationParser;
+use Redeye\GraphQLBundle\Config\Parser\MetadataParser\ClassesTypesMap;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;

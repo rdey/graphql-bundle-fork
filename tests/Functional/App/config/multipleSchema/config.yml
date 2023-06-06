@@ -1,10 +1,10 @@
 imports:
     - { resource: ../config.yml }
 
-overblog_graphql:
+redeye_graphql:
     definitions:
         config_validation: false
-        class_namespace: "Overblog\\GraphQLBundle\\MultipleSchema\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\MultipleSchema\\__DEFINITIONS__"
         schema:
             public:
                 query: PublicQuery

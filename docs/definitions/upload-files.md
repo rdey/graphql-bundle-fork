@@ -12,7 +12,7 @@ The bundle comes of the box with a server compatible with
     MyUpload:
         type: custom-scalar
         config:
-            scalarType: '@=newObject("Overblog\\GraphQLBundle\\Upload\\Type\\GraphQLUploadType")'
+            scalarType: '@=newObject("Redeye\\GraphQLBundle\\Upload\\Type\\GraphQLUploadType")'
     ```
 
     or with GraphQL schema language
@@ -26,8 +26,8 @@ The bundle comes of the box with a server compatible with
 
     namespace App\Resolver;
 
-    use Overblog\GraphQLBundle\Resolver\ResolverMap;
-    use Overblog\GraphQLBundle\Upload\Type\GraphQLUploadType;
+    use Redeye\GraphQLBundle\Resolver\ResolverMap;
+    use Redeye\GraphQLBundle\Upload\Type\GraphQLUploadType;
 
     class MyResolverMap extends ResolverMap
     {
@@ -104,7 +104,7 @@ here an example of how uploading can be done using this bundle
     
     namespace App\GraphQL\Mutation;
     
-    use Overblog\GraphQLBundle\Error\UserError;
+    use Redeye\GraphQLBundle\Error\UserError;
     use Symfony\Component\HttpFoundation\Request;
     
     class UploadMutation

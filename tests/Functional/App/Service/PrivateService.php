@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\App\Service;
+namespace Redeye\GraphQLBundle\Tests\Functional\App\Service;
 
 class PrivateService
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Command;
+namespace Redeye\GraphQLBundle\Command;
 
 use GraphQL\Error\InvariantViolation;
 use GraphQL\Error\Warning;
-use Overblog\GraphQLBundle\Request\Executor as RequestExecutor;
+use Redeye\GraphQLBundle\Request\Executor as RequestExecutor;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;

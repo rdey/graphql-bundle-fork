@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Validator\Mapping;
+namespace Redeye\GraphQLBundle\Tests\Validator\Mapping;
 
 use GraphQL\Type\Definition\ObjectType;
-use Overblog\GraphQLBundle\Validator\Mapping\MetadataFactory;
-use Overblog\GraphQLBundle\Validator\Mapping\ObjectMetadata;
-use Overblog\GraphQLBundle\Validator\ValidationNode;
+use Redeye\GraphQLBundle\Validator\Mapping\MetadataFactory;
+use Redeye\GraphQLBundle\Validator\Mapping\ObjectMetadata;
+use Redeye\GraphQLBundle\Validator\ValidationNode;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use Symfony\Component\Validator\Exception\NoSuchMetadataException;

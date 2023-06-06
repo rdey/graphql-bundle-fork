@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Validator;
+namespace Redeye\GraphQLBundle\Validator;
 
 use Closure;
 use GraphQL\Type\Definition\InputObjectType;
@@ -11,11 +11,11 @@ use GraphQL\Type\Definition\NonNull;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
-use Overblog\GraphQLBundle\Definition\ResolverArgs;
-use Overblog\GraphQLBundle\Definition\Type\GeneratedTypeInterface;
-use Overblog\GraphQLBundle\Validator\Exception\ArgumentsValidationException;
-use Overblog\GraphQLBundle\Validator\Mapping\MetadataFactory;
-use Overblog\GraphQLBundle\Validator\Mapping\ObjectMetadata;
+use Redeye\GraphQLBundle\Definition\ResolverArgs;
+use Redeye\GraphQLBundle\Definition\Type\GeneratedTypeInterface;
+use Redeye\GraphQLBundle\Validator\Exception\ArgumentsValidationException;
+use Redeye\GraphQLBundle\Validator\Mapping\MetadataFactory;
+use Redeye\GraphQLBundle\Validator\Mapping\ObjectMetadata;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints\GroupSequence;
 use Symfony\Component\Validator\Constraints\Valid;

@@ -1,7 +1,7 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Abstract class Overblog\\\\GraphQLBundle\\\\Annotation\\\\Builder cannot be an Attribute class\\.$#"
+			message: "#^Abstract class Redeye\\\\GraphQLBundle\\\\Annotation\\\\Builder cannot be an Attribute class\\.$#"
 			count: 1
 			path: src/Annotation/Builder.php
 
@@ -21,7 +21,7 @@ parameters:
 			path: src/Config/Parser/GraphQL/ASTConverter/EnumNode.php
 
 		-
-			message: "#^Parameter \\#1 \\$node of static method Overblog\\\\GraphQLBundle\\\\Config\\\\Parser\\\\GraphQL\\\\ASTConverter\\\\FieldsNode\\:\\:toConfig\\(\\) expects GraphQL\\\\Language\\\\AST\\\\Node, object given\\.$#"
+			message: "#^Parameter \\#1 \\$node of static method Redeye\\\\GraphQLBundle\\\\Config\\\\Parser\\\\GraphQL\\\\ASTConverter\\\\FieldsNode\\:\\:toConfig\\(\\) expects GraphQL\\\\Language\\\\AST\\\\Node, object given\\.$#"
 			count: 1
 			path: src/Config/Parser/GraphQL/ASTConverter/FieldsNode.php
 
@@ -51,7 +51,7 @@ parameters:
 			path: src/Config/Parser/GraphQLParser.php
 
 		-
-			message: "#^Dead catch \\- Overblog\\\\GraphQLBundle\\\\Config\\\\Parser\\\\MetadataParser\\\\TypeGuesser\\\\TypeGuessingException is never thrown in the try block\\.$#"
+			message: "#^Dead catch \\- Redeye\\\\GraphQLBundle\\\\Config\\\\Parser\\\\MetadataParser\\\\TypeGuesser\\\\TypeGuessingException is never thrown in the try block\\.$#"
 			count: 3
 			path: src/Config/Parser/MetadataParser/MetadataParser.php
 
@@ -81,17 +81,17 @@ parameters:
 			path: src/Config/Parser/YamlParser.php
 
 		-
-			message: "#^Method Overblog\\\\GraphQLBundle\\\\Config\\\\Processor\\\\BuilderProcessor\\:\\:getBuilder\\(\\) should return Overblog\\\\GraphQLBundle\\\\Definition\\\\Builder\\\\MappingInterface but returns object\\.$#"
+			message: "#^Method Redeye\\\\GraphQLBundle\\\\Config\\\\Processor\\\\BuilderProcessor\\:\\:getBuilder\\(\\) should return Redeye\\\\GraphQLBundle\\\\Definition\\\\Builder\\\\MappingInterface but returns object\\.$#"
 			count: 1
 			path: src/Config/Processor/BuilderProcessor.php
 
 		-
-			message: "#^Method Overblog\\\\GraphQLBundle\\\\Definition\\\\Builder\\\\TypeFactory\\:\\:create\\(\\) should return GraphQL\\\\Type\\\\Definition\\\\Type but returns object\\.$#"
+			message: "#^Method Redeye\\\\GraphQLBundle\\\\Definition\\\\Builder\\\\TypeFactory\\:\\:create\\(\\) should return GraphQL\\\\Type\\\\Definition\\\\Type but returns object\\.$#"
 			count: 1
 			path: src/Definition/Builder/TypeFactory.php
 
 		-
-			message: "#^PHPDoc tag @var for constant Overblog\\\\GraphQLBundle\\\\DependencyInjection\\\\Compiler\\\\ConfigParserPass\\:\\:PARSERS with type array\\<string, class\\-string\\<Overblog\\\\GraphQLBundle\\\\Config\\\\Parser\\\\PreParserInterface\\>\\> is not subtype of value array\\{yaml\\: 'Overblog…', graphql\\: 'Overblog…', annotation\\: 'Overblog…', attribute\\: 'Overblog…'\\}\\.$#"
+			message: "#^PHPDoc tag @var for constant Redeye\\\\GraphQLBundle\\\\DependencyInjection\\\\Compiler\\\\ConfigParserPass\\:\\:PARSERS with type array\\<string, class\\-string\\<Redeye\\\\GraphQLBundle\\\\Config\\\\Parser\\\\PreParserInterface\\>\\> is not subtype of value array\\{yaml\\: 'Redeye…', graphql\\: 'Redeye…', annotation\\: 'Redeye…', attribute\\: 'Redeye…'\\}\\.$#"
 			count: 1
 			path: src/DependencyInjection/Compiler/ConfigParserPass.php
 
@@ -101,17 +101,17 @@ parameters:
 			path: src/DependencyInjection/Compiler/ConfigParserPass.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\DependencyInjection\\\\Compiler\\\\ConfigParserPass\\:\\:\\$preTreatedFiles is never read, only written\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\DependencyInjection\\\\Compiler\\\\ConfigParserPass\\:\\:\\$preTreatedFiles is never read, only written\\.$#"
 			count: 1
 			path: src/DependencyInjection/Compiler/ConfigParserPass.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\DependencyInjection\\\\Compiler\\\\ConfigParserPass\\:\\:\\$treatedFiles is never read, only written\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\DependencyInjection\\\\Compiler\\\\ConfigParserPass\\:\\:\\$treatedFiles is never read, only written\\.$#"
 			count: 1
 			path: src/DependencyInjection/Compiler/ConfigParserPass.php
 
 		-
-			message: "#^Trying to invoke array\\{'Overblog…'\\|'Overblog…'\\|'Overblog…'\\|'Overblog…', 'parse'\\|'preParse'\\} but it might not be a callable\\.$#"
+			message: "#^Trying to invoke array\\{'Redeye…'\\|'Redeye…'\\|'Redeye…'\\|'Redeye…', 'parse'\\|'preParse'\\} but it might not be a callable\\.$#"
 			count: 1
 			path: src/DependencyInjection/Compiler/ConfigParserPass.php
 
@@ -126,47 +126,47 @@ parameters:
 			path: src/DependencyInjection/Compiler/ResolverMapTaggedServiceMappingPass.php
 
 		-
-			message: "#^Parameter \\#1 \\$namespace of class Overblog\\\\GraphQLBundle\\\\Generator\\\\TypeGeneratorOptions constructor expects string, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$namespace of class Redeye\\\\GraphQLBundle\\\\Generator\\\\TypeGeneratorOptions constructor expects string, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
 			count: 1
 			path: src/DependencyInjection/Compiler/TypeGeneratorPass.php
 
 		-
-			message: "#^Parameter \\#1 \\$typeConfigs of class Overblog\\\\GraphQLBundle\\\\Generator\\\\TypeGenerator constructor expects array, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$typeConfigs of class Redeye\\\\GraphQLBundle\\\\Generator\\\\TypeGenerator constructor expects array, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
 			count: 1
 			path: src/DependencyInjection/Compiler/TypeGeneratorPass.php
 
 		-
-			message: "#^Parameter \\#2 \\$cacheDir of class Overblog\\\\GraphQLBundle\\\\Generator\\\\TypeGeneratorOptions constructor expects string\\|null, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
+			message: "#^Parameter \\#2 \\$cacheDir of class Redeye\\\\GraphQLBundle\\\\Generator\\\\TypeGeneratorOptions constructor expects string\\|null, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
 			count: 1
 			path: src/DependencyInjection/Compiler/TypeGeneratorPass.php
 
 		-
-			message: "#^Parameter \\#2 \\$namespace of class Overblog\\\\GraphQLBundle\\\\Generator\\\\TypeBuilder constructor expects string, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
+			message: "#^Parameter \\#2 \\$namespace of class Redeye\\\\GraphQLBundle\\\\Generator\\\\TypeBuilder constructor expects string, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
 			count: 1
 			path: src/DependencyInjection/Compiler/TypeGeneratorPass.php
 
 		-
-			message: "#^Parameter \\#3 \\$useClassMap of class Overblog\\\\GraphQLBundle\\\\Generator\\\\TypeGeneratorOptions constructor expects bool, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
+			message: "#^Parameter \\#3 \\$useClassMap of class Redeye\\\\GraphQLBundle\\\\Generator\\\\TypeGeneratorOptions constructor expects bool, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
 			count: 1
 			path: src/DependencyInjection/Compiler/TypeGeneratorPass.php
 
 		-
-			message: "#^Parameter \\#4 \\$cacheBaseDir of class Overblog\\\\GraphQLBundle\\\\Generator\\\\TypeGeneratorOptions constructor expects string\\|null, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
+			message: "#^Parameter \\#4 \\$cacheBaseDir of class Redeye\\\\GraphQLBundle\\\\Generator\\\\TypeGeneratorOptions constructor expects string\\|null, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
 			count: 1
 			path: src/DependencyInjection/Compiler/TypeGeneratorPass.php
 
 		-
-			message: "#^Parameter \\#5 \\$cacheDirMask of class Overblog\\\\GraphQLBundle\\\\Generator\\\\TypeGeneratorOptions constructor expects int\\|null, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
+			message: "#^Parameter \\#5 \\$cacheDirMask of class Redeye\\\\GraphQLBundle\\\\Generator\\\\TypeGeneratorOptions constructor expects int\\|null, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
 			count: 1
 			path: src/DependencyInjection/Compiler/TypeGeneratorPass.php
 
 		-
-			message: "#^Method Overblog\\\\GraphQLBundle\\\\Error\\\\ExceptionConverter\\:\\:convertException\\(\\) should return Throwable but returns object\\.$#"
+			message: "#^Method Redeye\\\\GraphQLBundle\\\\Error\\\\ExceptionConverter\\:\\:convertException\\(\\) should return Throwable but returns object\\.$#"
 			count: 1
 			path: src/Error/ExceptionConverter.php
 
 		-
-			message: "#^Array \\(array\\<Overblog\\\\GraphQLBundle\\\\Error\\\\UserError\\>\\) does not accept GraphQL\\\\Error\\\\UserError\\.$#"
+			message: "#^Array \\(array\\<Redeye\\\\GraphQLBundle\\\\Error\\\\UserError\\>\\) does not accept GraphQL\\\\Error\\\\UserError\\.$#"
 			count: 1
 			path: src/Error/UserErrors.php
 
@@ -191,7 +191,7 @@ parameters:
 			path: src/Generator/TypeGenerator.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\Connection\\:\\:\\$edges \\(array\\<Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\>\\) does not accept iterable\\<Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\>\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\Connection\\:\\:\\$edges \\(array\\<Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\>\\) does not accept iterable\\<Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\>\\.$#"
 			count: 1
 			path: src/Relay/Connection/Output/Connection.php
 
@@ -201,7 +201,7 @@ parameters:
 			path: src/Relay/Mutation/InputDefinition.php
 
 		-
-			message: "#^Method Overblog\\\\GraphQLBundle\\\\Relay\\\\Mutation\\\\MutationFieldDefinition\\:\\:cleanMutateAndGetPayload\\(\\) should return string but returns string\\|false\\.$#"
+			message: "#^Method Redeye\\\\GraphQLBundle\\\\Relay\\\\Mutation\\\\MutationFieldDefinition\\:\\:cleanMutateAndGetPayload\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: src/Relay/Mutation/MutationFieldDefinition.php
 
@@ -211,7 +211,7 @@ parameters:
 			path: src/Relay/Mutation/PayloadDefinition.php
 
 		-
-			message: "#^Unsafe access to private constant Overblog\\\\GraphQLBundle\\\\Resolver\\\\FieldResolver\\:\\:PREFIXES through static\\:\\:\\.$#"
+			message: "#^Unsafe access to private constant Redeye\\\\GraphQLBundle\\\\Resolver\\\\FieldResolver\\:\\:PREFIXES through static\\:\\:\\.$#"
 			count: 1
 			path: src/Resolver/FieldResolver.php
 
@@ -221,7 +221,7 @@ parameters:
 			path: src/Resolver/TypeResolver.php
 
 		-
-			message: "#^Method Overblog\\\\GraphQLBundle\\\\Validator\\\\Constraints\\\\ExpressionValidator\\:\\:validate\\(\\) has parameter \\$value with no type specified\\.$#"
+			message: "#^Method Redeye\\\\GraphQLBundle\\\\Validator\\\\Constraints\\\\ExpressionValidator\\:\\:validate\\(\\) has parameter \\$value with no type specified\\.$#"
 			count: 1
 			path: src/Validator/Constraints/ExpressionValidator.php
 
@@ -236,27 +236,27 @@ parameters:
 			path: src/Validator/InputValidator.php
 
 		-
-			message: "#^Unsafe call to private method Overblog\\\\GraphQLBundle\\\\Validator\\\\InputValidator\\:\\:isListOfType\\(\\) through static\\:\\:\\.$#"
+			message: "#^Unsafe call to private method Redeye\\\\GraphQLBundle\\\\Validator\\\\InputValidator\\:\\:isListOfType\\(\\) through static\\:\\:\\.$#"
 			count: 1
 			path: src/Validator/InputValidator.php
 
 		-
-			message: "#^Method Overblog\\\\GraphQLBundle\\\\Validator\\\\Mapping\\\\MetadataFactory\\:\\:getMetadataFor\\(\\) has parameter \\$object with no type specified\\.$#"
+			message: "#^Method Redeye\\\\GraphQLBundle\\\\Validator\\\\Mapping\\\\MetadataFactory\\:\\:getMetadataFor\\(\\) has parameter \\$object with no type specified\\.$#"
 			count: 1
 			path: src/Validator/Mapping/MetadataFactory.php
 
 		-
-			message: "#^Method Overblog\\\\GraphQLBundle\\\\Validator\\\\Mapping\\\\MetadataFactory\\:\\:hasMetadataFor\\(\\) has parameter \\$object with no type specified\\.$#"
+			message: "#^Method Redeye\\\\GraphQLBundle\\\\Validator\\\\Mapping\\\\MetadataFactory\\:\\:hasMetadataFor\\(\\) has parameter \\$object with no type specified\\.$#"
 			count: 1
 			path: src/Validator/Mapping/MetadataFactory.php
 
 		-
-			message: "#^Array \\(array\\<Symfony\\\\Component\\\\Validator\\\\Mapping\\\\PropertyMetadata\\>\\) does not accept Overblog\\\\GraphQLBundle\\\\Validator\\\\Mapping\\\\PropertyMetadata\\.$#"
+			message: "#^Array \\(array\\<Symfony\\\\Component\\\\Validator\\\\Mapping\\\\PropertyMetadata\\>\\) does not accept Redeye\\\\GraphQLBundle\\\\Validator\\\\Mapping\\\\PropertyMetadata\\.$#"
 			count: 1
 			path: src/Validator/Mapping/ObjectMetadata.php
 
 		-
-			message: "#^PHPDoc tag @return with type Overblog\\\\GraphQLBundle\\\\Validator\\\\Mapping\\\\ObjectMetadata is not subtype of native type static\\(Overblog\\\\GraphQLBundle\\\\Validator\\\\Mapping\\\\ObjectMetadata\\)\\.$#"
+			message: "#^PHPDoc tag @return with type Redeye\\\\GraphQLBundle\\\\Validator\\\\Mapping\\\\ObjectMetadata is not subtype of native type static\\(Redeye\\\\GraphQLBundle\\\\Validator\\\\Mapping\\\\ObjectMetadata\\)\\.$#"
 			count: 1
 			path: src/Validator/Mapping/ObjectMetadata.php
 
@@ -266,12 +266,12 @@ parameters:
 			path: src/Validator/Mapping/PropertyMetadata.php
 
 		-
-			message: "#^Method Overblog\\\\GraphQLBundle\\\\Validator\\\\Mapping\\\\PropertyMetadata\\:\\:getPropertyValue\\(\\) has parameter \\$object with no type specified\\.$#"
+			message: "#^Method Redeye\\\\GraphQLBundle\\\\Validator\\\\Mapping\\\\PropertyMetadata\\:\\:getPropertyValue\\(\\) has parameter \\$object with no type specified\\.$#"
 			count: 1
 			path: src/Validator/Mapping/PropertyMetadata.php
 
 		-
-			message: "#^Method Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Invalid\\\\InvalidPrivateMethod\\:\\:gql\\(\\) is unused\\.$#"
+			message: "#^Method Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Invalid\\\\InvalidPrivateMethod\\:\\:gql\\(\\) is unused\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Invalid/InvalidPrivateMethod.php
 
@@ -281,92 +281,92 @@ parameters:
 			path: tests/Config/Parser/fixtures/annotations/Scalar/GalaxyCoordinates.php
 
 		-
-			message: "#^Method Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Scalar\\\\GalaxyCoordinates\\:\\:parseLiteral\\(\\) should return DateTimeInterface but returns array\\<int, string\\>\\.$#"
+			message: "#^Method Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Scalar\\\\GalaxyCoordinates\\:\\:parseLiteral\\(\\) should return DateTimeInterface but returns array\\<int, string\\>\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Scalar/GalaxyCoordinates.php
 
 		-
-			message: "#^Method Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Scalar\\\\GalaxyCoordinates\\:\\:parseValue\\(\\) should return DateTimeInterface but returns array\\<int, string\\>\\.$#"
+			message: "#^Method Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Scalar\\\\GalaxyCoordinates\\:\\:parseValue\\(\\) should return DateTimeInterface but returns array\\<int, string\\>\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Scalar/GalaxyCoordinates.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Animal\\:\\:\\$lives is unused\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Animal\\:\\:\\$lives is unused\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Type/Animal.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Animal\\:\\:\\$name is unused\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Animal\\:\\:\\$name is unused\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Type/Animal.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$battles has no typehint specified\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$battles has no typehint specified\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Type/Lightsaber.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$bool has no typehint specified\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$bool has no typehint specified\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Type/Lightsaber.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$boolean has no typehint specified\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$boolean has no typehint specified\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Type/Lightsaber.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$color has no typehint specified\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$color has no typehint specified\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Type/Lightsaber.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$creator has no typehint specified\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$creator has no typehint specified\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Type/Lightsaber.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$crystal has no typehint specified\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$crystal has no typehint specified\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Type/Lightsaber.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$currentHolder has no typehint specified\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$currentHolder has no typehint specified\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Type/Lightsaber.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$decimal has no typehint specified\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$decimal has no typehint specified\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Type/Lightsaber.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$float has no typehint specified\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$float has no typehint specified\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Type/Lightsaber.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$holders has no typehint specified\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$holders has no typehint specified\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Type/Lightsaber.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$size has no typehint specified\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$size has no typehint specified\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Type/Lightsaber.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$string has no typehint specified\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$string has no typehint specified\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Type/Lightsaber.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$text has no typehint specified\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Type\\\\Lightsaber\\:\\:\\$text has no typehint specified\\.$#"
 			count: 1
 			path: tests/Config/Parser/fixtures/annotations/Type/Lightsaber.php
 
 		-
-			message: "#^Parameter \\#1 \\$exceptionMap of class Overblog\\\\GraphQLBundle\\\\Error\\\\ExceptionConverter constructor expects array\\<string, string\\>, array\\<string, array\\<string\\>\\> given\\.$#"
+			message: "#^Parameter \\#1 \\$exceptionMap of class Redeye\\\\GraphQLBundle\\\\Error\\\\ExceptionConverter constructor expects array\\<string, string\\>, array\\<string, array\\<string\\>\\> given\\.$#"
 			count: 1
 			path: tests/Error/ExceptionConverterTest.php
 
@@ -426,7 +426,7 @@ parameters:
 			path: tests/Functional/Command/ValidateCommandTest.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Functional\\\\Command\\\\ValidateCommandTest\\:\\:\\$command \\(Overblog\\\\GraphQLBundle\\\\Command\\\\ValidateCommand\\) does not accept object\\|null\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Functional\\\\Command\\\\ValidateCommandTest\\:\\:\\$command \\(Redeye\\\\GraphQLBundle\\\\Command\\\\ValidateCommand\\) does not accept object\\|null\\.$#"
 			count: 1
 			path: tests/Functional/Command/ValidateCommandTest.php
 
@@ -441,7 +441,7 @@ parameters:
 			path: tests/Functional/Controller/GraphControllerTest.php
 
 		-
-			message: "#^Method Overblog\\\\GraphQLBundle\\\\Tests\\\\Functional\\\\TestCase\\:\\:createKernel\\(\\) should return Symfony\\\\Component\\\\HttpKernel\\\\KernelInterface but returns object\\.$#"
+			message: "#^Method Redeye\\\\GraphQLBundle\\\\Tests\\\\Functional\\\\TestCase\\:\\:createKernel\\(\\) should return Symfony\\\\Component\\\\HttpKernel\\\\KernelInterface but returns object\\.$#"
 			count: 1
 			path: tests/Functional/TestCase.php
 
@@ -466,121 +466,121 @@ parameters:
 			path: tests/Functional/Upload/UploadTest.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Functional\\\\Validator\\\\DummyEntity\\:\\:\\$string1 is never written, only read\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Functional\\\\Validator\\\\DummyEntity\\:\\:\\$string1 is never written, only read\\.$#"
 			count: 1
 			path: tests/Functional/Validator/DummyEntity.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Functional\\\\Validator\\\\DummyEntity\\:\\:\\$string2 is never written, only read\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Functional\\\\Validator\\\\DummyEntity\\:\\:\\$string2 is never written, only read\\.$#"
 			count: 1
 			path: tests/Functional/Validator/DummyEntity.php
 
 		-
-			message: "#^Property Overblog\\\\GraphQLBundle\\\\Tests\\\\Functional\\\\Validator\\\\DummyEntity\\:\\:\\$string3 is never written, only read\\.$#"
+			message: "#^Property Redeye\\\\GraphQLBundle\\\\Tests\\\\Functional\\\\Validator\\\\DummyEntity\\:\\:\\$string3 is never written, only read\\.$#"
 			count: 1
 			path: tests/Functional/Validator/DummyEntity.php
 
 		-
-			message: "#^Cannot access offset mixed on iterable\\<Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\>\\.$#"
+			message: "#^Cannot access offset mixed on iterable\\<Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\>\\.$#"
 			count: 2
 			path: tests/Relay/Connection/AbstractConnectionBuilderTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, iterable\\<Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\> given\\.$#"
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, iterable\\<Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\> given\\.$#"
 			count: 1
 			path: tests/Relay/Connection/AbstractConnectionBuilderTest.php
 
 		-
-			message: "#^Cannot access offset 0 on iterable\\<Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\>\\.$#"
+			message: "#^Cannot access offset 0 on iterable\\<Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\>\\.$#"
 			count: 4
 			path: tests/Relay/Connection/ConnectionBuilderTest.php
 
 		-
-			message: "#^Cannot access offset 1 on iterable\\<Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\>\\.$#"
+			message: "#^Cannot access offset 1 on iterable\\<Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\>\\.$#"
 			count: 4
 			path: tests/Relay/Connection/ConnectionBuilderTest.php
 
 		-
-			message: "#^Cannot access offset 2 on iterable\\<Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\>\\.$#"
+			message: "#^Cannot access offset 2 on iterable\\<Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\>\\.$#"
 			count: 1
 			path: tests/Relay/Connection/ConnectionBuilderTest.php
 
 		-
-			message: "#^Cannot access offset 3 on iterable\\<Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\>\\.$#"
+			message: "#^Cannot access offset 3 on iterable\\<Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\>\\.$#"
 			count: 1
 			path: tests/Relay/Connection/ConnectionBuilderTest.php
 
 		-
-			message: "#^Access to an undefined property Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\:\\:\\$cursor\\.$#"
+			message: "#^Access to an undefined property Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\:\\:\\$cursor\\.$#"
 			count: 1
 			path: tests/Relay/Connection/Output/DeprecatedPropertyPublicAccessTraitTest.php
 
 		-
-			message: "#^Access to an undefined property Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\:\\:\\$node\\.$#"
+			message: "#^Access to an undefined property Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\EdgeInterface\\:\\:\\$node\\.$#"
 			count: 1
 			path: tests/Relay/Connection/Output/DeprecatedPropertyPublicAccessTraitTest.php
 
 		-
-			message: "#^Access to an undefined property Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\Connection\\:\\:\\$extra\\.$#"
+			message: "#^Access to an undefined property Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\Connection\\:\\:\\$extra\\.$#"
 			count: 1
 			path: tests/Relay/Connection/Output/DeprecatedPropertyPublicAccessTraitTest.php
 
 		-
-			message: "#^Access to an undefined property Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\PageInfoInterface\\:\\:\\$endCursor\\.$#"
+			message: "#^Access to an undefined property Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\PageInfoInterface\\:\\:\\$endCursor\\.$#"
 			count: 1
 			path: tests/Relay/Connection/Output/DeprecatedPropertyPublicAccessTraitTest.php
 
 		-
-			message: "#^Access to an undefined property Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\PageInfoInterface\\:\\:\\$hasNextPage\\.$#"
+			message: "#^Access to an undefined property Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\PageInfoInterface\\:\\:\\$hasNextPage\\.$#"
 			count: 1
 			path: tests/Relay/Connection/Output/DeprecatedPropertyPublicAccessTraitTest.php
 
 		-
-			message: "#^Access to an undefined property Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\PageInfoInterface\\:\\:\\$hasPreviousPage\\.$#"
+			message: "#^Access to an undefined property Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\PageInfoInterface\\:\\:\\$hasPreviousPage\\.$#"
 			count: 1
 			path: tests/Relay/Connection/Output/DeprecatedPropertyPublicAccessTraitTest.php
 
 		-
-			message: "#^Access to an undefined property Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\PageInfoInterface\\:\\:\\$startCursor\\.$#"
+			message: "#^Access to an undefined property Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\PageInfoInterface\\:\\:\\$startCursor\\.$#"
 			count: 1
 			path: tests/Relay/Connection/Output/DeprecatedPropertyPublicAccessTraitTest.php
 
 		-
-			message: "#^Access to protected property Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\Connection\\:\\:\\$edges\\.$#"
+			message: "#^Access to protected property Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\Connection\\:\\:\\$edges\\.$#"
 			count: 2
 			path: tests/Relay/Connection/Output/DeprecatedPropertyPublicAccessTraitTest.php
 
 		-
-			message: "#^Access to protected property Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\Connection\\:\\:\\$pageInfo\\.$#"
+			message: "#^Access to protected property Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\Connection\\:\\:\\$pageInfo\\.$#"
 			count: 2
 			path: tests/Relay/Connection/Output/DeprecatedPropertyPublicAccessTraitTest.php
 
 		-
-			message: "#^Access to protected property Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\Edge\\:\\:\\$cursor\\.$#"
+			message: "#^Access to protected property Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\Edge\\:\\:\\$cursor\\.$#"
 			count: 1
 			path: tests/Relay/Connection/Output/DeprecatedPropertyPublicAccessTraitTest.php
 
 		-
-			message: "#^Access to protected property Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\Edge\\:\\:\\$node\\.$#"
+			message: "#^Access to protected property Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\Edge\\:\\:\\$node\\.$#"
 			count: 1
 			path: tests/Relay/Connection/Output/DeprecatedPropertyPublicAccessTraitTest.php
 
 		-
-			message: "#^Access to protected property Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\PageInfo\\:\\:\\$endCursor\\.$#"
+			message: "#^Access to protected property Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\PageInfo\\:\\:\\$endCursor\\.$#"
 			count: 1
 			path: tests/Relay/Connection/Output/DeprecatedPropertyPublicAccessTraitTest.php
 
 		-
-			message: "#^Access to protected property Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\PageInfo\\:\\:\\$hasNextPage\\.$#"
+			message: "#^Access to protected property Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\PageInfo\\:\\:\\$hasNextPage\\.$#"
 			count: 1
 			path: tests/Relay/Connection/Output/DeprecatedPropertyPublicAccessTraitTest.php
 
 		-
-			message: "#^Access to protected property Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\PageInfo\\:\\:\\$hasPreviousPage\\.$#"
+			message: "#^Access to protected property Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\PageInfo\\:\\:\\$hasPreviousPage\\.$#"
 			count: 1
 			path: tests/Relay/Connection/Output/DeprecatedPropertyPublicAccessTraitTest.php
 
 		-
-			message: "#^Access to protected property Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\PageInfo\\:\\:\\$startCursor\\.$#"
+			message: "#^Access to protected property Redeye\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\PageInfo\\:\\:\\$startCursor\\.$#"
 			count: 1
 			path: tests/Relay/Connection/Output/DeprecatedPropertyPublicAccessTraitTest.php

@@ -22,7 +22,7 @@ Types can be define 3 different ways:
 
     You can also define custom dirs using config:
     ```yaml
-    overblog_graphql:
+    redeye_graphql:
         definitions:
             mappings:
                 # auto_discover: false # to disable bundles and root dir auto discover
@@ -42,7 +42,7 @@ Types can be define 3 different ways:
     in `src/*Bundle/GraphQL` or `app/GraphQL`
     they will be auto discover (thanks to auto mapping). Auto map classes are accessible by service id
     (example: `AppBunble\GraphQL\Type\DateTimeType`), you can also alias a type by
-    implementing `Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface`
+    implementing `Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface`
     that returns an array of aliases.
 
     here an example:
@@ -52,7 +52,7 @@ Types can be define 3 different ways:
 
     namespace App\GraphQL\Type;
 
-    use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
+    use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
     use GraphQL\Type\Definition\ScalarType;
 
     class DateTimeType extends ScalarType implements AliasedInterface
@@ -86,12 +86,12 @@ Types can be define 3 different ways:
 
 3. **The service way**
 
-    Creating a service tagged `overblog_graphql.type`
+    Creating a service tagged `redeye_graphql.type`
     ```yaml
     services:
         AppBundle\GraphQL\Type\DateTime:
             # only for sf < 3.3
             #class: AppBundle\GraphQL\Type\DateTime
             tags:
-                - { name: overblog_graphql.type, alias: DateTime }
+                - { name: redeye_graphql.type, alias: DateTime }
     ```

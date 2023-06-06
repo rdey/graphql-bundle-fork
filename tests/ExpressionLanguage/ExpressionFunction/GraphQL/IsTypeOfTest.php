@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\ExpressionLanguage\ExpressionFunction\GraphQL;
+namespace Redeye\GraphQLBundle\Tests\ExpressionLanguage\ExpressionFunction\GraphQL;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL\IsTypeOf;
-use Overblog\GraphQLBundle\Tests\ExpressionLanguage\TestCase;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL\IsTypeOf;
+use Redeye\GraphQLBundle\Tests\ExpressionLanguage\TestCase;
 use stdClass;
 
 class IsTypeOfTest extends TestCase

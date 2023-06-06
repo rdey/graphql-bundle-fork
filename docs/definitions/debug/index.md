@@ -9,7 +9,7 @@ To enabled or disabled debug information:
 ```yaml
 # app/config/config.yml
 
-overblog_graphql:
+redeye_graphql:
     definitions:
         show_debug_info: true # Debug info is disabled by default
 ```
@@ -34,7 +34,7 @@ Enabled or disabled the config validation (this should be limited to debug envir
 ```yaml
 #app/config/config.yml
 
-overblog_graphql:
+redeye_graphql:
     definitions:
         config_validation: %kernel.debug%
 ```

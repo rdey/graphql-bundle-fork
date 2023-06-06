@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\EventListener;
+namespace Redeye\GraphQLBundle\EventListener;
 
-use Overblog\GraphQLBundle\Event\ExecutorContextEvent;
+use Redeye\GraphQLBundle\Event\ExecutorContextEvent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 

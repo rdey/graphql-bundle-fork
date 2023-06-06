@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser;
+namespace Redeye\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser;
 
 abstract class PhpTypeGuesser extends TypeGuesser
 {

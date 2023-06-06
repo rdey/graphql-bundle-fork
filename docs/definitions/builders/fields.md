@@ -6,7 +6,7 @@ Define your custom fields builder
 
 ```yaml
 #app/config/config.yml
-overblog_graphql:
+redeye_graphql:
     #...
     definitions:
         #...
@@ -16,14 +16,14 @@ overblog_graphql:
                   class: "MyBundle\\GraphQL\\Fields\\TimestampFields"
 ```
 
-Builder class must implement `Overblog\GraphQLBundle\Definition\Builder\MappingInterface`
+Builder class must implement `Redeye\GraphQLBundle\Definition\Builder\MappingInterface`
 
 ```php
 <?php
 
 namespace MyBundle\GraphQL\Field;
 
-use Overblog\GraphQLBundle\Definition\Builder\MappingInterface;
+use Redeye\GraphQLBundle\Definition\Builder\MappingInterface;
 
 class TimestampFields implements MappingInterface
 {
@@ -112,9 +112,9 @@ Example implementation fields builder with new types:
 ```php
 <?php
 
-namespace Overblog\GraphQLBundle\Tests\DependencyInjection\Builder;
+namespace Redeye\GraphQLBundle\Tests\DependencyInjection\Builder;
 
-use Overblog\GraphQLBundle\Definition\Builder\MappingInterface;
+use Redeye\GraphQLBundle\Definition\Builder\MappingInterface;
 
 class BoxFields implements MappingInterface
 {

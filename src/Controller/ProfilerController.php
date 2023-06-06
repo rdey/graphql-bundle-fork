@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Controller;
+namespace Redeye\GraphQLBundle\Controller;
 
 use GraphQL\Utils\SchemaPrinter;
-use Overblog\GraphQLBundle\Request\Executor as RequestExecutor;
+use Redeye\GraphQLBundle\Request\Executor as RequestExecutor;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,7 +29,7 @@ class ProfilerController
     {
         $this->profiler = $profiler;
         $this->twig = $twig;
-        $this->endpointUrl = $router->generate('overblog_graphql_endpoint');
+        $this->endpointUrl = $router->generate('redeye_graphql_endpoint');
         $this->requestExecutor = $requestExecutor;
         $this->queryMatch = $queryMatch;
     }
@@ -68,7 +68,7 @@ class ProfilerController
             $schemas[$schemaName] = SchemaPrinter::doPrint($this->requestExecutor->getSchema($schemaName));
         }
 
-        return new Response($this->twig->render('@OverblogGraphQL/profiler/graphql.html.twig', [
+        return new Response($this->twig->render('@RedeyeGraphQL/profiler/graphql.html.twig', [
             'request' => $request,
             'profile' => $profile,
             'tokens' => array_filter($tokens),

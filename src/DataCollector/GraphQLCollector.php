@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\DataCollector;
+namespace Redeye\GraphQLBundle\DataCollector;
 
 use GraphQL\Error\SyntaxError;
 use GraphQL\Language\AST\DocumentNode;
 use GraphQL\Language\AST\FieldNode;
 use GraphQL\Language\AST\OperationDefinitionNode;
 use GraphQL\Language\Parser;
-use Overblog\GraphQLBundle\Event\ExecutorResultEvent;
+use Redeye\GraphQLBundle\Event\ExecutorResultEvent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;

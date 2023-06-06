@@ -1,9 +1,9 @@
 imports:
     - { resource: ../config.yml }
 
-overblog_graphql:
+redeye_graphql:
     definitions:
-        class_namespace: "Overblog\\GraphQLBundle\\SchemaLanguage\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\SchemaLanguage\\__DEFINITIONS__"
         schema:
             main:
                 query: Query
@@ -18,14 +18,14 @@ overblog_graphql:
                     suffix: ~
 
 services:
-    Overblog\GraphQLBundle\Tests\Functional\App\Resolver\NullResolverMap:
+    Redeye\GraphQLBundle\Tests\Functional\App\Resolver\NullResolverMap:
         tags:
-            - { name: overblog_graphql.resolver_map, schema: empty }
+            - { name: redeye_graphql.resolver_map, schema: empty }
 
-    Overblog\GraphQLBundle\Tests\Functional\App\Resolver\SchemaLanguageQueryResolverMap:
+    Redeye\GraphQLBundle\Tests\Functional\App\Resolver\SchemaLanguageQueryResolverMap:
         tags:
-            - { name: overblog_graphql.resolver_map, schema: main, priority: 10 }
+            - { name: redeye_graphql.resolver_map, schema: main, priority: 10 }
 
-    Overblog\GraphQLBundle\Tests\Functional\App\Resolver\SchemaLanguageMutationResolverMap:
+    Redeye\GraphQLBundle\Tests\Functional\App\Resolver\SchemaLanguageMutationResolverMap:
         tags:
-            - { name: overblog_graphql.resolver_map, schema: main }
+            - { name: redeye_graphql.resolver_map, schema: main }

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\ExpressionLanguage;
+namespace Redeye\GraphQLBundle\ExpressionLanguage;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\Exception\EvaluatorIsNotAllowedException;
-use Overblog\GraphQLBundle\Generator\TypeGenerator;
+use Redeye\GraphQLBundle\ExpressionLanguage\Exception\EvaluatorIsNotAllowedException;
+use Redeye\GraphQLBundle\Generator\TypeGenerator;
 use Symfony\Component\ExpressionLanguage\ExpressionFunction as BaseExpressionFunction;
 
 class ExpressionFunction extends BaseExpressionFunction

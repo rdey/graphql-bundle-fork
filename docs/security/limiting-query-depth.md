@@ -6,7 +6,7 @@ Introspection query with description max depth is **7**.
 
 ```yaml
 #app/config/config.yml
-overblog_graphql:
+redeye_graphql:
     security:
         query_max_depth: 10
 ```

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\DependencyInjection\Compiler;
+namespace Redeye\GraphQLBundle\DependencyInjection\Compiler;
 
-use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\MutationInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\QueryInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\ResolverInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\MutationInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\QueryInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\ResolverInterface;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
@@ -18,9 +18,9 @@ use Symfony\Component\DependencyInjection\Definition;
 final class ResolverMethodAliasesPass implements CompilerPassInterface
 {
     private const SERVICE_SUBCLASS_TAG_MAPPING = [
-        MutationInterface::class => 'overblog_graphql.mutation',
-        QueryInterface::class => 'overblog_graphql.query',
-        ResolverInterface::class => 'overblog_graphql.resolver',
+        MutationInterface::class => 'redeye_graphql.mutation',
+        QueryInterface::class => 'redeye_graphql.query',
+        ResolverInterface::class => 'redeye_graphql.resolver',
     ];
 
     /**

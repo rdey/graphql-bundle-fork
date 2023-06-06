@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Relay\Node;
+namespace Redeye\GraphQLBundle\Relay\Node;
 
 use function array_pad;
 use function base64_decode;

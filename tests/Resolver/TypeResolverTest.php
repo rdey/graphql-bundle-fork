@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Resolver;
+namespace Redeye\GraphQLBundle\Tests\Resolver;
 
 use GraphQL\Type\Definition\ObjectType;
-use Overblog\GraphQLBundle\Resolver\TypeResolver;
-use Overblog\GraphQLBundle\Resolver\UnresolvableException;
+use Redeye\GraphQLBundle\Resolver\TypeResolver;
+use Redeye\GraphQLBundle\Resolver\UnresolvableException;
 
 class TypeResolverTest extends AbstractResolverTest
 {

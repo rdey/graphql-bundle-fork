@@ -1,6 +1,6 @@
 imports:
     - { resource: ../connection/config.yml }
 
-overblog_graphql:
+redeye_graphql:
     definitions:
         auto_compile: false

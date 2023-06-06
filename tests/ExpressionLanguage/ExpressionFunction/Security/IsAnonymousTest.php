@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\ExpressionLanguage\ExpressionFunction\Security;
+namespace Redeye\GraphQLBundle\Tests\ExpressionLanguage\ExpressionFunction\Security;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\Security\IsAnonymous;
-use Overblog\GraphQLBundle\Generator\TypeGenerator;
-use Overblog\GraphQLBundle\Tests\ExpressionLanguage\TestCase;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\Security\IsAnonymous;
+use Redeye\GraphQLBundle\Generator\TypeGenerator;
+use Redeye\GraphQLBundle\Tests\ExpressionLanguage\TestCase;
 
 class IsAnonymousTest extends TestCase
 {

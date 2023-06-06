@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Validator\Mapping;
+namespace Redeye\GraphQLBundle\Validator\Mapping;
 
-use Overblog\GraphQLBundle\Validator\ValidationNode;
+use Redeye\GraphQLBundle\Validator\ValidationNode;
 use Symfony\Component\Validator\Exception\NoSuchMetadataException;
 use Symfony\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
 

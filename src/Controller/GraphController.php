@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Controller;
+namespace Redeye\GraphQLBundle\Controller;
 
-use Overblog\GraphQLBundle\Request\BatchParser;
-use Overblog\GraphQLBundle\Request\Executor;
-use Overblog\GraphQLBundle\Request\Parser;
+use Redeye\GraphQLBundle\Request\BatchParser;
+use Redeye\GraphQLBundle\Request\Executor;
+use Redeye\GraphQLBundle\Request\Parser;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

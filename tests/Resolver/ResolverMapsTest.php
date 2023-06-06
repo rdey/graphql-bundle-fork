@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Resolver;
+namespace Redeye\GraphQLBundle\Tests\Resolver;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Resolver\ResolverMapInterface;
-use Overblog\GraphQLBundle\Resolver\ResolverMaps;
-use Overblog\GraphQLBundle\Resolver\UnresolvableException;
+use Redeye\GraphQLBundle\Resolver\ResolverMapInterface;
+use Redeye\GraphQLBundle\Resolver\ResolverMaps;
+use Redeye\GraphQLBundle\Resolver\UnresolvableException;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use function sprintf;

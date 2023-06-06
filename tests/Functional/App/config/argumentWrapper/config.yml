@@ -1,11 +1,11 @@
 imports:
     - { resource: ../config.yml }
 
-overblog_graphql:
+redeye_graphql:
     errors_handler:
             debug: true
     definitions:
-        class_namespace: "Overblog\\GraphQLBundle\\ArgumentWrapper\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\ArgumentWrapper\\__DEFINITIONS__"
         schema:
             query: RootQuery
         mappings:
@@ -16,14 +16,14 @@ overblog_graphql:
 services:
     expression_function_instance_of:
         class: Symfony\Component\ExpressionLanguage\ExpressionFunction
-        factory: Overblog\GraphQLBundle\Tests\Functional\TestCase::expressionFunctionFromPhp
+        factory: Redeye\GraphQLBundle\Tests\Functional\TestCase::expressionFunctionFromPhp
         arguments: ['is_a']
         tags:
-            - { name: overblog_graphql.expression_function }
+            - { name: redeye_graphql.expression_function }
 
     expression_function_json_encode:
         class: Symfony\Component\ExpressionLanguage\ExpressionFunction
-        factory: Overblog\GraphQLBundle\Tests\Functional\TestCase::expressionFunctionFromPhp
+        factory: Redeye\GraphQLBundle\Tests\Functional\TestCase::expressionFunctionFromPhp
         arguments: ['json_encode']
         tags:
-            - { name: overblog_graphql.expression_function }
+            - { name: redeye_graphql.expression_function }

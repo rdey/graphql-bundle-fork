@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Controller;
+namespace Redeye\GraphQLBundle\Tests\Controller;
 
 use GraphQL\Type\Schema;
-use Overblog\GraphQLBundle\Controller\ProfilerController;
-use Overblog\GraphQLBundle\DataCollector\GraphQLCollector;
-use Overblog\GraphQLBundle\Request\Executor;
+use Redeye\GraphQLBundle\Controller\ProfilerController;
+use Redeye\GraphQLBundle\DataCollector\GraphQLCollector;
+use Redeye\GraphQLBundle\Request\Executor;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
@@ -98,7 +98,7 @@ class ProfilerControllerTest extends TestCase
         $profilerMock->expects($this->exactly(2))->method('loadProfile')->willReturn($profileMock);
 
         $request = new Request();
-        $twigMock->expects($this->once())->method('render')->with('@OverblogGraphQL/profiler/graphql.html.twig', [
+        $twigMock->expects($this->once())->method('render')->with('@RedeyeGraphQL/profiler/graphql.html.twig', [
             'request' => $request,
             'profile' => $profileMock,
             'tokens' => [['token' => 'token', 'graphql' => $graphQLCollector]],

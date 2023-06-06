@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\App\Mutation;
+namespace Redeye\GraphQLBundle\Tests\Functional\App\Mutation;
 
-use Overblog\GraphQLBundle\Definition\ArgumentInterface;
+use Redeye\GraphQLBundle\Definition\ArgumentInterface;
 
 class SimpleMutationWithThunkFieldsMutation
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Relay\Connection;
+namespace Redeye\GraphQLBundle\Relay\Connection;
 
 interface EdgeInterface
 {

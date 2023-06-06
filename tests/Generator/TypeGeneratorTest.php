@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Generator;
+namespace Redeye\GraphQLBundle\Tests\Generator;
 
 use Generator;
-use Overblog\GraphQLBundle\Event\SchemaCompiledEvent;
-use Overblog\GraphQLBundle\Generator\TypeBuilder;
-use Overblog\GraphQLBundle\Generator\TypeGenerator;
-use Overblog\GraphQLBundle\Generator\TypeGeneratorOptions;
+use Redeye\GraphQLBundle\Event\SchemaCompiledEvent;
+use Redeye\GraphQLBundle\Generator\TypeBuilder;
+use Redeye\GraphQLBundle\Generator\TypeGenerator;
+use Redeye\GraphQLBundle\Generator\TypeGeneratorOptions;
 use PHPUnit\Framework\TestCase;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 

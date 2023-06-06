@@ -7,7 +7,7 @@ Define your custom args builder:
 
 ```yaml
 #app/config/config.yml
-overblog_graphql:
+redeye_graphql:
     #...
     definitions:
         #...
@@ -20,14 +20,14 @@ overblog_graphql:
 #               Pager: "MyBundle\\GraphQL\\Args\\Pager"
 ```
 
-Builder class must implement `Overblog\GraphQLBundle\Definition\Builder\MappingInterface`
+Builder class must implement `Redeye\GraphQLBundle\Definition\Builder\MappingInterface`
 
 ```php
 <?php
 
 namespace MyBundle\GraphQL\Args;
 
-use Overblog\GraphQLBundle\Definition\Builder\MappingInterface;
+use Redeye\GraphQLBundle\Definition\Builder\MappingInterface;
 
 class Pager implements MappingInterface
 {

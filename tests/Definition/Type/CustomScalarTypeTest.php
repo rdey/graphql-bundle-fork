@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Definition\Type;
+namespace Redeye\GraphQLBundle\Tests\Definition\Type;
 
 use Exception;
 use Generator;
@@ -10,8 +10,8 @@ use GraphQL\Error\InvariantViolation;
 use GraphQL\Language\AST\ScalarTypeDefinitionNode;
 use GraphQL\Language\AST\StringValueNode;
 use GraphQL\Type\Definition\ScalarType;
-use Overblog\GraphQLBundle\Definition\Type\CustomScalarType;
-use Overblog\GraphQLBundle\Tests\Functional\App\Type\YearScalarType;
+use Redeye\GraphQLBundle\Definition\Type\CustomScalarType;
+use Redeye\GraphQLBundle\Tests\Functional\App\Type\YearScalarType;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use function sprintf;

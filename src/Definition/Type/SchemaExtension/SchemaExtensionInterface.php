@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Definition\Type\SchemaExtension;
+namespace Redeye\GraphQLBundle\Definition\Type\SchemaExtension;
 
 use GraphQL\Type\Schema;
 

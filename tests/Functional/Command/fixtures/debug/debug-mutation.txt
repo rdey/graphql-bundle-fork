@@ -2,12 +2,12 @@
 GraphQL Mutation Services
 =========================
 
- ----------------------------------------------------------------- ----------------------------------- 
-  solution id                                                       aliases                            
- ----------------------------------------------------------------- ----------------------------------- 
-  overblog_graphql.test.simple_mutation_with_thunk_fields::mutate   simple_mutation_with_thunk_fields  
-  overblog_graphql.test.simple_promise_mutation::mutate             simple_promise_mutation            
- ----------------------------------------------------------------- ----------------------------------- 
+ ----------------------------------------------------------------- -----------------------------------
+  solution id                                                       aliases
+ ----------------------------------------------------------------- -----------------------------------
+  redeye_graphql.test.simple_mutation_with_thunk_fields::mutate   simple_mutation_with_thunk_fields
+  redeye_graphql.test.simple_promise_mutation::mutate             simple_promise_mutation
+ ----------------------------------------------------------------- -----------------------------------
 
 
 

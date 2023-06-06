@@ -2,9 +2,9 @@ DateTime:
     type: custom-scalar
     config:
         description: "The DateTime type"
-        serialize: ['Overblog\GraphQLBundle\Tests\Functional\Type\DateTimeType', "serialize"]
-        parseValue: ['Overblog\GraphQLBundle\Tests\Functional\Type\DateTimeType', "parseValue"]
-        parseLiteral: 'Overblog\GraphQLBundle\Tests\Functional\Type\DateTimeType::parseLiteral'
+        serialize: ['Redeye\GraphQLBundle\Tests\Functional\Type\DateTimeType', "serialize"]
+        parseValue: ['Redeye\GraphQLBundle\Tests\Functional\Type\DateTimeType', "parseValue"]
+        parseLiteral: 'Redeye\GraphQLBundle\Tests\Functional\Type\DateTimeType::parseLiteral'
 
 Query:
     type: object
@@ -14,4 +14,4 @@ Query:
                 type: DateTime!
                 args:
                     dateTime: DateTime
-                resolve: ['Overblog\GraphQLBundle\Tests\Functional\Type\DateTimeType', "getDateTime"]
+                resolve: ['Redeye\GraphQLBundle\Tests\Functional\Type\DateTimeType', "getDateTime"]

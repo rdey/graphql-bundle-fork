@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block toolbar %}
-    {% set icon %}        
+    {% set icon %}
         {{ block('svg')}}
         <span class="sf-toolbar-value">GraphQL</span>
     {% endset %}
@@ -22,5 +22,5 @@
 {% endblock %}
 
 {% block panel %}
-    {{ render(controller('Overblog\\GraphQLBundle\\Controller\\ProfilerController', {token: token})) }}
+    {{ render(controller('Redeye\\GraphQLBundle\\Controller\\ProfilerController', {token: token})) }}
 {% endblock %}

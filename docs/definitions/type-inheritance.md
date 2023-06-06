@@ -127,9 +127,9 @@ CharacterWizard:
             magicPoints: {type: Int!}
 ```
 
-Make sure to register `CharacterWarrior` and `CharacterWizard` as types in your `overblog_graphql` configuration, otherwise it cannot be found:
+Make sure to register `CharacterWarrior` and `CharacterWizard` as types in your `redeye_graphql` configuration, otherwise it cannot be found:
 ```yaml
-overblog_graphql:
+redeye_graphql:
    definitions:
       schema:
          query: Query

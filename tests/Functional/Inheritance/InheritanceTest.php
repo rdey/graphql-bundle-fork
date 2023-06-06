@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\Inheritance;
+namespace Redeye\GraphQLBundle\Tests\Functional\Inheritance;
 
-use Overblog\GraphQLBundle\Config\Processor\InheritanceProcessor;
-use Overblog\GraphQLBundle\Tests\Functional\TestCase;
+use Redeye\GraphQLBundle\Config\Processor\InheritanceProcessor;
+use Redeye\GraphQLBundle\Tests\Functional\TestCase;
 
 class InheritanceTest extends TestCase
 {
@@ -17,7 +17,7 @@ class InheritanceTest extends TestCase
         parent::setUp();
 
         static::bootKernel(['test_case' => 'inheritance']);
-        $this->config = (array) static::$kernel->getContainer()->getParameter('overblog_graphql_types.config');
+        $this->config = (array) static::$kernel->getContainer()->getParameter('redeye_graphql_types.config');
     }
 
     public function testObjectInheritance(): void

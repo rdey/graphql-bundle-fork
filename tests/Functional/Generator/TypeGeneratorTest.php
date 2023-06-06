@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\Generator;
+namespace Redeye\GraphQLBundle\Tests\Functional\Generator;
 
-use Overblog\GraphQLBundle\Generator\Exception\GeneratorException;
-use Overblog\GraphQLBundle\Tests\Functional\App\Validator;
-use Overblog\GraphQLBundle\Tests\Functional\TestCase;
+use Redeye\GraphQLBundle\Generator\Exception\GeneratorException;
+use Redeye\GraphQLBundle\Tests\Functional\App\Validator;
+use Redeye\GraphQLBundle\Tests\Functional\TestCase;
 use Symfony\Component\Validator\Validation;
 use function json_decode;
 
@@ -132,7 +132,7 @@ class TypeGeneratorTest extends TestCase
 
         // Validate definition file
         /** @var string $definitionFile */
-        $definitionFile = file_get_contents($kernel->getCacheDir().'/overblog/graphql-bundle/__definitions__/MutationType.php');
+        $definitionFile = file_get_contents($kernel->getCacheDir().'/redeye/graphql-bundle/__definitions__/MutationType.php');
 
         $this->assertStringContainsString(
             'use Symfony\Component\Validator\Constraints as SymfonyConstraints;',

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\App\Resolver;
+namespace Redeye\GraphQLBundle\Tests\Functional\App\Resolver;
 
 use function array_filter;
 

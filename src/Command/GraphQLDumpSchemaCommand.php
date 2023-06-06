@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Command;
+namespace Redeye\GraphQLBundle\Command;
 
 use GraphQL\Type\Introspection;
 use GraphQL\Utils\SchemaPrinter;
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Request\Executor as RequestExecutor;
+use Redeye\GraphQLBundle\Request\Executor as RequestExecutor;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;

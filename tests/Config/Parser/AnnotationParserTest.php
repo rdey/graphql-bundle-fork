@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Config\Parser;
+namespace Redeye\GraphQLBundle\Tests\Config\Parser;
 
-use Overblog\GraphQLBundle\Config\Parser\AnnotationParser;
+use Redeye\GraphQLBundle\Config\Parser\AnnotationParser;
 use SplFileInfo;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;

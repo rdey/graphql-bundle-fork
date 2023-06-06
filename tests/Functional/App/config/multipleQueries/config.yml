@@ -2,9 +2,9 @@ imports:
     - { resource: ../config.yml }
     - { resource: ../exception/services.yml }
 
-overblog_graphql:
+redeye_graphql:
     definitions:
-        class_namespace: "Overblog\\GraphQLBundle\\MultipleQueries\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\MultipleQueries\\__DEFINITIONS__"
         schema:
             query: RootQuery
             mutation: RootQuery

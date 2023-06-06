@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Resolver;
+namespace Redeye\GraphQLBundle\Resolver;
 
 use InvalidArgumentException;
 use function array_merge;

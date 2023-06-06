@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Annotation;
+namespace Redeye\GraphQLBundle\Annotation;
 
 use Attribute;
 use Doctrine\Common\Annotations\Annotation\NamedArgumentConstructor;
@@ -30,7 +30,7 @@ class Field extends Annotation
     /**
      * Field arguments.
      *
-     * @var array<\Overblog\GraphQLBundle\Annotation\Arg>
+     * @var array<\Redeye\GraphQLBundle\Annotation\Arg>
      *
      * @deprecated
      */

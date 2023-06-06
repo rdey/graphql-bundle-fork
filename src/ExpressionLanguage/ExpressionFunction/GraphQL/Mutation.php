@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL;
+namespace Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction;
 
 final class Mutation extends ExpressionFunction
 {

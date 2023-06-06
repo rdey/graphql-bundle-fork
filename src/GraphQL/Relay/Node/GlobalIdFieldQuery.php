@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\GraphQL\Relay\Node;
+namespace Redeye\GraphQLBundle\GraphQL\Relay\Node;
 
 use GraphQL\Type\Definition\ResolveInfo;
-use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\QueryInterface;
-use Overblog\GraphQLBundle\Relay\Node\GlobalId;
-use Overblog\GraphQLBundle\Resolver\FieldResolver;
+use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\QueryInterface;
+use Redeye\GraphQLBundle\Relay\Node\GlobalId;
+use Redeye\GraphQLBundle\Resolver\FieldResolver;
 
 final class GlobalIdFieldQuery implements QueryInterface, AliasedInterface
 {

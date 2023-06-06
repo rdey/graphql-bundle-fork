@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\App\GraphQL\HelloWord\Mutation;
+namespace Redeye\GraphQLBundle\Tests\Functional\App\GraphQL\HelloWord\Mutation;
 
-use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\MutationInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\MutationInterface;
 
 final class CalcMutation implements MutationInterface, AliasedInterface
 {

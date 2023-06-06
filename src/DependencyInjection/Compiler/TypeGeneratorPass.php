@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\DependencyInjection\Compiler;
+namespace Redeye\GraphQLBundle\DependencyInjection\Compiler;
 
 use Exception;
-use Overblog\GraphQLBundle\Definition\Builder\TypeFactory;
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionLanguage;
-use Overblog\GraphQLBundle\Generator\Converter\ExpressionConverter;
-use Overblog\GraphQLBundle\Generator\TypeBuilder;
-use Overblog\GraphQLBundle\Generator\TypeGenerator;
-use Overblog\GraphQLBundle\Generator\TypeGeneratorOptions;
+use Redeye\GraphQLBundle\Definition\Builder\TypeFactory;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionLanguage;
+use Redeye\GraphQLBundle\Generator\Converter\ExpressionConverter;
+use Redeye\GraphQLBundle\Generator\TypeBuilder;
+use Redeye\GraphQLBundle\Generator\TypeGenerator;
+use Redeye\GraphQLBundle\Generator\TypeGeneratorOptions;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -28,20 +28,20 @@ class TypeGeneratorPass implements CompilerPassInterface
     {
         // We construct the TypeGenerator manually so that we don't have to boot the container
         // while we are in compilation phase.
-        // See https://github.com/overblog/GraphQLBundle/issues/899
+        // See https://github.com/redeye/GraphQLBundle/issues/899
         $typeGenerator = new TypeGenerator(
-            $container->getParameter('overblog_graphql_types.config'),
+            $container->getParameter('redeye_graphql_types.config'),
             new TypeBuilder(
                 new ExpressionConverter(new ExpressionLanguage()),
-                $container->getParameter('overblog_graphql.class_namespace')
+                $container->getParameter('redeye_graphql.class_namespace')
             ),
             new EventDispatcher(),
             new TypeGeneratorOptions(
-                $container->getParameter('overblog_graphql.class_namespace'),
-                $container->getParameter('overblog_graphql.cache_dir'),
-                $container->getParameter('overblog_graphql.use_classloader_listener'),
+                $container->getParameter('redeye_graphql.class_namespace'),
+                $container->getParameter('redeye_graphql.cache_dir'),
+                $container->getParameter('redeye_graphql.use_classloader_listener'),
                 $container->getParameter('kernel.cache_dir'),
-                $container->getParameter('overblog_graphql.cache_dir_permissions'),
+                $container->getParameter('redeye_graphql.cache_dir_permissions'),
             )
         );
 

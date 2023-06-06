@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Security;
+namespace Redeye\GraphQLBundle\Security;
 
 use LogicException;
 use Symfony\Component\Security\Core\Security as CoreSecurity;

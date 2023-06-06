@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\App\GraphQL\HelloWord\Type;
+namespace Redeye\GraphQLBundle\Tests\Functional\App\GraphQL\HelloWord\Type;
 
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
-use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
-use Overblog\GraphQLBundle\Resolver\MutationResolver;
+use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
+use Redeye\GraphQLBundle\Resolver\MutationResolver;
 
 final class MutationType extends ObjectType implements AliasedInterface
 {

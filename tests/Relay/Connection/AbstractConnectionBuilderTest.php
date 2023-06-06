@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Relay\Connection;
+namespace Redeye\GraphQLBundle\Tests\Relay\Connection;
 
-use Overblog\GraphQLBundle\Relay\Connection\ConnectionInterface;
-use Overblog\GraphQLBundle\Relay\Connection\Output\Connection;
-use Overblog\GraphQLBundle\Relay\Connection\Output\Edge;
-use Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo;
+use Redeye\GraphQLBundle\Relay\Connection\ConnectionInterface;
+use Redeye\GraphQLBundle\Relay\Connection\Output\Connection;
+use Redeye\GraphQLBundle\Relay\Connection\Output\Edge;
+use Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo;
 use PHPUnit\Framework\TestCase;
 use function array_flip;
 use function array_intersect_key;

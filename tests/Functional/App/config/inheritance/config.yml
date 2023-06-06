@@ -1,9 +1,9 @@
 imports:
     - { resource: ../config.yml }
 
-overblog_graphql:
+redeye_graphql:
     definitions:
-        class_namespace: "Overblog\\GraphQLBundle\\Inheritance\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\Inheritance\\__DEFINITIONS__"
         schema:
             query: Query
             mutation: ~

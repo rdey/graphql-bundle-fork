@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Config\Parser;
+namespace Redeye\GraphQLBundle\Config\Parser;
 
 use Exception;
 use GraphQL\Language\AST\DefinitionNode;
@@ -11,7 +11,7 @@ use GraphQL\Language\AST\InputObjectTypeDefinitionNode;
 use GraphQL\Language\AST\NodeKind;
 use GraphQL\Language\AST\ObjectTypeDefinitionNode;
 use GraphQL\Language\Parser;
-use Overblog\GraphQLBundle\Config\Parser\GraphQL\ASTConverter\NodeInterface;
+use Redeye\GraphQLBundle\Config\Parser\GraphQL\ASTConverter\NodeInterface;
 use SplFileInfo;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

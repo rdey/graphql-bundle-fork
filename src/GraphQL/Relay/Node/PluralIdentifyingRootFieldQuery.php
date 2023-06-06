@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\GraphQL\Relay\Node;
+namespace Redeye\GraphQLBundle\GraphQL\Relay\Node;
 
 use GraphQL\Executor\Promise\Promise;
 use GraphQL\Executor\Promise\PromiseAdapter;
 use GraphQL\Type\Definition\ResolveInfo;
-use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\QueryInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\QueryInterface;
 use function call_user_func_array;
 
 final class PluralIdentifyingRootFieldQuery implements QueryInterface, AliasedInterface

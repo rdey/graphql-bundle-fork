@@ -11,7 +11,7 @@ If you are not planning to expose your API to the general public, it makes sense
 
 ```yaml
 #app/config/config.yml
-overblog_graphql:
+redeye_graphql:
     security:
         enable_introspection: '%kernel.debug%'
 ```

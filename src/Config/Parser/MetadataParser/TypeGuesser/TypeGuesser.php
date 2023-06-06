@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser;
+namespace Redeye\GraphQLBundle\Config\Parser\MetadataParser\TypeGuesser;
 
-use Overblog\GraphQLBundle\Config\Parser\MetadataParser\ClassesTypesMap;
+use Redeye\GraphQLBundle\Config\Parser\MetadataParser\ClassesTypesMap;
 use ReflectionClass;
 use Reflector;
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\DependencyInjection\Compiler;
+namespace Redeye\GraphQLBundle\DependencyInjection\Compiler;
 
-use Overblog\GraphQLBundle\EventListener\TypeDecoratorListener;
+use Redeye\GraphQLBundle\EventListener\TypeDecoratorListener;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
@@ -17,7 +17,7 @@ use function sprintf;
 
 final class ResolverMapTaggedServiceMappingPass implements CompilerPassInterface
 {
-    private const SERVICE_TAG = 'overblog_graphql.resolver_map';
+    private const SERVICE_TAG = 'redeye_graphql.resolver_map';
 
     /**
      * {@inheritdoc}
@@ -28,12 +28,12 @@ final class ResolverMapTaggedServiceMappingPass implements CompilerPassInterface
         $typeDecoratorListenerDefinition = $container->getDefinition(TypeDecoratorListener::class);
 
         /** @var array $resolverMapsBySchemas */
-        $resolverMapsBySchemas = $container->getParameter('overblog_graphql.resolver_maps');
+        $resolverMapsBySchemas = $container->getParameter('redeye_graphql.resolver_maps');
 
         foreach ($container->findTaggedServiceIds(self::SERVICE_TAG, true) as $serviceId => $tags) {
             foreach ($tags as $tag) {
                 if (!isset($tag['schema'])) {
-                    throw new RuntimeException(sprintf('The "schema" attribute on the "overblog_graphql.resolver_map" tag of the "%s" service is required.', $serviceId));
+                    throw new RuntimeException(sprintf('The "schema" attribute on the "redeye_graphql.resolver_map" tag of the "%s" service is required.', $serviceId));
                 }
 
                 if (!isset($resolverMapsBySchemas[$tag['schema']])) {
@@ -65,6 +65,6 @@ final class ResolverMapTaggedServiceMappingPass implements CompilerPassInterface
             ]);
         }
 
-        $container->getParameterBag()->remove('overblog_graphql.resolver_maps');
+        $container->getParameterBag()->remove('redeye_graphql.resolver_maps');
     }
 }

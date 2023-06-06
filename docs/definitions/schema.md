@@ -65,7 +65,7 @@ Query:
 
  
 ```yaml
-overblog_graphql:
+redeye_graphql:
     definitions:
         schema:
             query: Query
@@ -85,7 +85,7 @@ The default route of batching is `/batch`.
 ## Multiple schema endpoint
 
 ```yaml
-overblog_graphql:
+redeye_graphql:
     definitions:
         schema:
             foo:
@@ -115,4 +115,4 @@ overblog_graphql:
 
 The schema considered as the default is the one with the name `default` if it exists, otherwise, it will be the first one defined.  
 
-\* `/graphiql` depends on [OverblogGraphiQLBundle](https://github.com/overblog/GraphiQLBundle)
+\* `/graphiql` depends on [RedeyeGraphiQLBundle](https://github.com/redeye/GraphiQLBundle)

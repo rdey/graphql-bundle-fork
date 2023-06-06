@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Relay\Connection;
+namespace Redeye\GraphQLBundle\Relay\Connection;
 
-use Overblog\GraphQLBundle\Definition\Builder\MappingInterface;
+use Redeye\GraphQLBundle\Definition\Builder\MappingInterface;
 
 final class ConnectionArgsDefinition implements MappingInterface
 {

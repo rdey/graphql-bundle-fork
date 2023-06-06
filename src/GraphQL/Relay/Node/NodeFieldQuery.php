@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\GraphQL\Relay\Node;
+namespace Redeye\GraphQLBundle\GraphQL\Relay\Node;
 
 use Closure;
 use GraphQL\Type\Definition\ResolveInfo;
-use Overblog\GraphQLBundle\Definition\ArgumentInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\QueryInterface;
+use Redeye\GraphQLBundle\Definition\ArgumentInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\QueryInterface;
 
 final class NodeFieldQuery implements QueryInterface, AliasedInterface
 {

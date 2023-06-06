@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Upload\Type;
+namespace Redeye\GraphQLBundle\Upload\Type;
 
 use GraphQL\Error\InvariantViolation;
 use GraphQL\Type\Definition\ScalarType;

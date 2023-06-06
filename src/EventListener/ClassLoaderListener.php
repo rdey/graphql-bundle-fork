@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\EventListener;
+namespace Redeye\GraphQLBundle\EventListener;
 
-use Overblog\GraphQLBundle\Generator\TypeGenerator;
+use Redeye\GraphQLBundle\Generator\TypeGenerator;
 
 final class ClassLoaderListener
 {

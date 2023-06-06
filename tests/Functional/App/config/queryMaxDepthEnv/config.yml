@@ -5,11 +5,11 @@ imports:
 parameters:
     env(GRAPHQL_QUERY_MAX_DEPTH): "3"
 
-overblog_graphql:
+redeye_graphql:
     security:
         query_max_depth: '%env(int:GRAPHQL_QUERY_MAX_DEPTH)%'
     definitions:
-        class_namespace: "Overblog\\GraphQLBundle\\QueryComplexity\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\QueryComplexity\\__DEFINITIONS__"
         schema:
             query: Query
             mutation: ~

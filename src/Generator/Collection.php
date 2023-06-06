@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Generator;
+namespace Redeye\GraphQLBundle\Generator;
 
 use Murtukov\PHPCodeGenerator\Collection as BaseCollection;
-use Overblog\GraphQLBundle\Generator\Converter\ExpressionConverter;
+use Redeye\GraphQLBundle\Generator\Converter\ExpressionConverter;
 
 /**
  * Extends the default Collection to properly convert expressions.

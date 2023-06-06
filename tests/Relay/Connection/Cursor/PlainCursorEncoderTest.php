@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Relay\Connection\Cursor;
+namespace Redeye\GraphQLBundle\Tests\Relay\Connection\Cursor;
 
-use Overblog\GraphQLBundle\Relay\Connection\Cursor\PlainCursorEncoder;
+use Redeye\GraphQLBundle\Relay\Connection\Cursor\PlainCursorEncoder;
 use PHPUnit\Framework\TestCase;
 
 final class PlainCursorEncoderTest extends TestCase

@@ -1,17 +1,17 @@
 services:
-    Overblog\GraphQLBundle\Definition\ConfigProcessor\PublicFieldsFilterConfigProcessor:
+    Redeye\GraphQLBundle\Definition\ConfigProcessor\PublicFieldsFilterConfigProcessor:
         tags:
-            - { name: overblog_graphql.definition_config_processor, priority: 2048 }
+            - { name: redeye_graphql.definition_config_processor, priority: 2048 }
 
-    Overblog\GraphQLBundle\Definition\ConfigProcessor\AclConfigProcessor:
+    Redeye\GraphQLBundle\Definition\ConfigProcessor\AclConfigProcessor:
         arguments:
-            - '@Overblog\GraphQLBundle\Resolver\AccessResolver'
-            - "@overblog_graphql.default_field_resolver"
+            - '@Redeye\GraphQLBundle\Resolver\AccessResolver'
+            - "@redeye_graphql.default_field_resolver"
         tags:
-            - { name: overblog_graphql.definition_config_processor, priority: 512 }
+            - { name: redeye_graphql.definition_config_processor, priority: 512 }
 
-    Overblog\GraphQLBundle\Definition\ConfigProcessor\WrapArgumentConfigProcessor:
+    Redeye\GraphQLBundle\Definition\ConfigProcessor\WrapArgumentConfigProcessor:
         arguments:
-            - '@Overblog\GraphQLBundle\Definition\ArgumentFactory'
+            - '@Redeye\GraphQLBundle\Definition\ArgumentFactory'
         tags:
-            - { name: overblog_graphql.definition_config_processor }
+            - { name: redeye_graphql.definition_config_processor }

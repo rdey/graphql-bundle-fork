@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\CacheWarmer;
+namespace Redeye\GraphQLBundle\CacheWarmer;
 
-use Overblog\GraphQLBundle\Generator\TypeGenerator;
+use Redeye\GraphQLBundle\Generator\TypeGenerator;
 use Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerInterface;
 
 class CompileCacheWarmer implements CacheWarmerInterface

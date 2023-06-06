@@ -27,7 +27,7 @@ With Input type, the `@Field` annotation on methods are ignored, so is the annot
 
 namespace AppBundle;
 
-use Overblog\GraphQLBundle\Annotation as GQL;
+use Redeye\GraphQLBundle\Annotation as GQL;
 
 /**
  * @GQL\Input

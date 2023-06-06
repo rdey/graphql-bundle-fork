@@ -83,7 +83,7 @@ For example:
 
 namespace AppBundle;
 
-use Overblog\GraphQLBundle\Annotation as GQL;
+use Redeye\GraphQLBundle\Annotation as GQL;
 
 /**
  * Class DatetimeType

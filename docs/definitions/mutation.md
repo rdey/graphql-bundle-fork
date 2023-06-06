@@ -42,8 +42,8 @@ implements `MutationInterface` and `AliasedInterface` interfaces.
 # src/GraphQL/Mutation/ShipMutation.php
 namespace App\GraphQL\Mutation;
 
-use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\MutationInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\MutationInterface;
 
 class ShipMutation implements MutationInterface, AliasedInterface
 {

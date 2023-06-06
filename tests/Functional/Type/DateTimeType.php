@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\Type;
+namespace Redeye\GraphQLBundle\Tests\Functional\Type;
 
 use DateTime;
 use Exception;
 use GraphQL\Language\AST\StringValueNode;
-use Overblog\GraphQLBundle\Definition\ArgumentInterface;
+use Redeye\GraphQLBundle\Definition\ArgumentInterface;
 
 class DateTimeType
 {

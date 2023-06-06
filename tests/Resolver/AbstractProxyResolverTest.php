@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Resolver;
+namespace Redeye\GraphQLBundle\Tests\Resolver;
 
 use Generator;
-use Overblog\GraphQLBundle\Resolver\UnresolvableException;
+use Redeye\GraphQLBundle\Resolver\UnresolvableException;
 
 abstract class AbstractProxyResolverTest extends AbstractResolverTest
 {

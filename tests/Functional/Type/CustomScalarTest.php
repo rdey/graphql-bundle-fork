@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\Type;
+namespace Redeye\GraphQLBundle\Tests\Functional\Type;
 
-use Overblog\GraphQLBundle\Tests\Functional\TestCase;
+use Redeye\GraphQLBundle\Tests\Functional\TestCase;
 
 class CustomScalarTest extends TestCase
 {
@@ -36,7 +36,7 @@ class CustomScalarTest extends TestCase
     public function testDateTimeTypeDescription(): void
     {
         // @phpstan-ignore-next-line
-        $dateTimeType = static::$kernel->getContainer()->get('overblog_graphql.type_resolver')->resolve('DateTime');
+        $dateTimeType = static::$kernel->getContainer()->get('redeye_graphql.type_resolver')->resolve('DateTime');
         $this->assertSame('The DateTime type', $dateTimeType->description);
     }
 }

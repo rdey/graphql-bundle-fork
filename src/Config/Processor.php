@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Config;
+namespace Redeye\GraphQLBundle\Config;
 
-use Overblog\GraphQLBundle\Config\Processor\BuilderProcessor;
-use Overblog\GraphQLBundle\Config\Processor\InheritanceProcessor;
-use Overblog\GraphQLBundle\Config\Processor\NamedConfigProcessor;
-use Overblog\GraphQLBundle\Config\Processor\ProcessorInterface;
-use Overblog\GraphQLBundle\Config\Processor\RelayProcessor;
+use Redeye\GraphQLBundle\Config\Processor\BuilderProcessor;
+use Redeye\GraphQLBundle\Config\Processor\InheritanceProcessor;
+use Redeye\GraphQLBundle\Config\Processor\NamedConfigProcessor;
+use Redeye\GraphQLBundle\Config\Processor\ProcessorInterface;
+use Redeye\GraphQLBundle\Config\Processor\RelayProcessor;
 
 class Processor implements ProcessorInterface
 {

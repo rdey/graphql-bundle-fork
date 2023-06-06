@@ -10,15 +10,15 @@ Query:
                 builder: "Relay::Node"
                 builderConfig:
                     nodeInterfaceType: NodeInterface
-                    idFetcher: '@=service("overblog_graphql.test.resolver.global").idFetcher(value)'
+                    idFetcher: '@=service("redeye_graphql.test.resolver.global").idFetcher(value)'
             allObjects:
                 type: '[NodeInterface]'
-                resolve: '@=service("overblog_graphql.test.resolver.global").resolveAllObjects()'
+                resolve: '@=service("redeye_graphql.test.resolver.global").resolveAllObjects()'
 
 NodeInterface:
     type: relay-node
     config:
-        resolveType: '@=service("overblog_graphql.test.resolver.global").typeResolver(value)'
+        resolveType: '@=service("redeye_graphql.test.resolver.global").typeResolver(value)'
 
 User:
     type: object

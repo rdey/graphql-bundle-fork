@@ -43,7 +43,7 @@ static schema analysis. That the reason why their should be explicitly declare
 in schema definition:
 
 ```yaml
-overblog_graphql:
+redeye_graphql:
     definitions:
         schema:
             query: Query

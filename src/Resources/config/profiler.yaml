@@ -1,17 +1,17 @@
 services:
-    Overblog\GraphQLBundle\Controller\ProfilerController:
+    Redeye\GraphQLBundle\Controller\ProfilerController:
         public: true
         arguments:
             - "@?profiler"
             - "@?twig"
             - "@router"
-            - '@Overblog\GraphQLBundle\Request\Executor'
-            - "%overblog_graphql.profiler.query_match%"
+            - '@Redeye\GraphQLBundle\Request\Executor'
+            - "%redeye_graphql.profiler.query_match%"
 
-    Overblog\GraphQLBundle\DataCollector\GraphQLCollector:
+    Redeye\GraphQLBundle\DataCollector\GraphQLCollector:
         public: false
         tags:
             - name: data_collector
-              template: "@OverblogGraphQL/profiler/panel.html.twig"
+              template: "@RedeyeGraphQL/profiler/panel.html.twig"
               id: graphql
             - { name: kernel.event_listener, event: graphql.post_executor, method: onPostExecutor }

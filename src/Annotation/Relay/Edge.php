@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Annotation\Relay;
+namespace Redeye\GraphQLBundle\Annotation\Relay;
 
 use Attribute;
 use Doctrine\Common\Annotations\Annotation\NamedArgumentConstructor;
-use Overblog\GraphQLBundle\Annotation\Annotation;
-use Overblog\GraphQLBundle\Annotation\Type;
+use Redeye\GraphQLBundle\Annotation\Annotation;
+use Redeye\GraphQLBundle\Annotation\Type;
 
 /**
  * Annotation for GraphQL connection edge.

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\ExpressionLanguage;
+namespace Redeye\GraphQLBundle\Tests\ExpressionLanguage;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionLanguage;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionLanguage;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\ExpressionLanguage\Expression;
 

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Relay\Connection;
+namespace Redeye\GraphQLBundle\Relay\Connection;
 
 use GraphQL\Executor\Promise\Promise;
-use Overblog\GraphQLBundle\Definition\ArgumentInterface;
-use Overblog\GraphQLBundle\Relay\Connection\Output\Connection;
+use Redeye\GraphQLBundle\Definition\ArgumentInterface;
+use Redeye\GraphQLBundle\Relay\Connection\Output\Connection;
 use function call_user_func;
 use function call_user_func_array;
 use function count;

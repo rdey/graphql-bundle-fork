@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\AutoConfigure;
+namespace Redeye\GraphQLBundle\Tests\Functional\AutoConfigure;
 
 use Doctrine\Common\Annotations\Reader;
-use Overblog\GraphQLBundle\Tests\Functional\TestCase;
+use Redeye\GraphQLBundle\Tests\Functional\TestCase;
 use Symfony\Component\Validator\Validation;
 
 class TypeShorthandTest extends TestCase

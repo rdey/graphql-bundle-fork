@@ -2,23 +2,23 @@
 GraphQL Type Services
 =====================
 
- ------------------------------------------------------------------------------------------ -------------------------------------- 
-  solution id                                                                                aliases                               
- ------------------------------------------------------------------------------------------ -------------------------------------- 
-  Overblog\GraphQLBundle\Mutation\__DEFINITIONS__\PageInfoType                               PageInfo                              
-  Overblog\GraphQLBundle\Mutation\__DEFINITIONS__\RootMutationType                           RootMutation                          
-  Overblog\GraphQLBundle\Mutation\__DEFINITIONS__\simpleMutationInputType                    simpleMutationInput                   
-  Overblog\GraphQLBundle\Mutation\__DEFINITIONS__\simpleMutationPayloadType                  simpleMutationPayload                 
-  Overblog\GraphQLBundle\Mutation\__DEFINITIONS__\simpleMutationWithThunkFieldsInputType     simpleMutationWithThunkFieldsInput    
-  Overblog\GraphQLBundle\Mutation\__DEFINITIONS__\simpleMutationWithThunkFieldsPayloadType   simpleMutationWithThunkFieldsPayload  
-  Overblog\GraphQLBundle\Mutation\__DEFINITIONS__\simplePromiseMutationInputType             simplePromiseMutationInput            
-  Overblog\GraphQLBundle\Mutation\__DEFINITIONS__\simplePromiseMutationPayloadType           simplePromiseMutationPayload          
-  overblog_graphql.definition.boolean_type                                                   Boolean                               
-  overblog_graphql.definition.float_type                                                     Float                                 
-  overblog_graphql.definition.id_type                                                        ID                                    
-  overblog_graphql.definition.int_type                                                       Int                                   
-  overblog_graphql.definition.string_type                                                    String                                
- ------------------------------------------------------------------------------------------ -------------------------------------- 
+ ------------------------------------------------------------------------------------------ --------------------------------------
+  solution id                                                                                aliases
+ ------------------------------------------------------------------------------------------ --------------------------------------
+  Redeye\GraphQLBundle\Mutation\__DEFINITIONS__\PageInfoType                               PageInfo
+  Redeye\GraphQLBundle\Mutation\__DEFINITIONS__\RootMutationType                           RootMutation
+  Redeye\GraphQLBundle\Mutation\__DEFINITIONS__\simpleMutationInputType                    simpleMutationInput
+  Redeye\GraphQLBundle\Mutation\__DEFINITIONS__\simpleMutationPayloadType                  simpleMutationPayload
+  Redeye\GraphQLBundle\Mutation\__DEFINITIONS__\simpleMutationWithThunkFieldsInputType     simpleMutationWithThunkFieldsInput
+  Redeye\GraphQLBundle\Mutation\__DEFINITIONS__\simpleMutationWithThunkFieldsPayloadType   simpleMutationWithThunkFieldsPayload
+  Redeye\GraphQLBundle\Mutation\__DEFINITIONS__\simplePromiseMutationInputType             simplePromiseMutationInput
+  Redeye\GraphQLBundle\Mutation\__DEFINITIONS__\simplePromiseMutationPayloadType           simplePromiseMutationPayload
+  redeye_graphql.definition.boolean_type                                                   Boolean
+  redeye_graphql.definition.float_type                                                     Float
+  redeye_graphql.definition.id_type                                                        ID
+  redeye_graphql.definition.int_type                                                       Int
+  redeye_graphql.definition.string_type                                                    String
+ ------------------------------------------------------------------------------------------ --------------------------------------
 
 
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Resolver;
+namespace Redeye\GraphQLBundle\Tests\Resolver;
 
-use Overblog\GraphQLBundle\Resolver\QueryResolver;
+use Redeye\GraphQLBundle\Resolver\QueryResolver;
 
 class ResolverResolverTest extends AbstractProxyResolverTest
 {

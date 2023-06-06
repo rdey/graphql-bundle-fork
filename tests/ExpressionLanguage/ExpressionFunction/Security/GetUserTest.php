@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\ExpressionLanguage\ExpressionFunction\Security;
+namespace Redeye\GraphQLBundle\Tests\ExpressionLanguage\ExpressionFunction\Security;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\Security\GetUser;
-use Overblog\GraphQLBundle\Generator\TypeGenerator;
-use Overblog\GraphQLBundle\Security\Security;
-use Overblog\GraphQLBundle\Tests\ExpressionLanguage\TestCase;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\Security\GetUser;
+use Redeye\GraphQLBundle\Generator\TypeGenerator;
+use Redeye\GraphQLBundle\Security\Security;
+use Redeye\GraphQLBundle\Tests\ExpressionLanguage\TestCase;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Security as CoreSecurity;

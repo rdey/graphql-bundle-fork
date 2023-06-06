@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\App\Type;
+namespace Redeye\GraphQLBundle\Tests\Functional\App\Type;
 
 use GraphQL\Error\Error;
 use GraphQL\Language\AST\StringValueNode;

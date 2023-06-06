@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\DependencyInjection\Compiler;
+namespace Redeye\GraphQLBundle\DependencyInjection\Compiler;
 
 use InvalidArgumentException;
 use function is_string;
@@ -15,14 +15,14 @@ use const E_USER_DEPRECATED;
 /**
  * TODO: remove this class in 1.0
  *
- * @deprecated since 0.14 and will be removed in 1.0. Use Overblog\GraphQLBundle\DependencyInjection\Compiler\QueryTaggedServiceMappingPass instead.
+ * @deprecated since 0.14 and will be removed in 1.0. Use Redeye\GraphQLBundle\DependencyInjection\Compiler\QueryTaggedServiceMappingPass instead.
  * @codeCoverageIgnore
  */
 class ResolverTaggedServiceMappingPass extends TaggedServiceMappingPass
 {
     protected function getTagName(): string
     {
-        return 'overblog_graphql.resolver';
+        return 'redeye_graphql.resolver';
     }
 
     protected function checkRequirements(string $id, array $tag): void
@@ -38,6 +38,6 @@ class ResolverTaggedServiceMappingPass extends TaggedServiceMappingPass
 
     protected function getResolverServiceID(): string
     {
-        return 'overblog_graphql.query_resolver';
+        return 'redeye_graphql.query_resolver';
     }
 }

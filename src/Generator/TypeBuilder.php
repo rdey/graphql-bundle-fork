@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Generator;
+namespace Redeye\GraphQLBundle\Generator;
 
 use GraphQL\Language\AST\NodeKind;
 use GraphQL\Language\Parser;
@@ -22,16 +22,16 @@ use Murtukov\PHPCodeGenerator\Instance;
 use Murtukov\PHPCodeGenerator\Literal;
 use Murtukov\PHPCodeGenerator\PhpFile;
 use Murtukov\PHPCodeGenerator\Utils;
-use Overblog\GraphQLBundle\Definition\ConfigProcessor;
-use Overblog\GraphQLBundle\Definition\GraphQLServices;
-use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
-use Overblog\GraphQLBundle\Definition\Type\CustomScalarType;
-use Overblog\GraphQLBundle\Definition\Type\GeneratedTypeInterface;
-use Overblog\GraphQLBundle\Error\ResolveErrors;
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionLanguage as EL;
-use Overblog\GraphQLBundle\Generator\Converter\ExpressionConverter;
-use Overblog\GraphQLBundle\Generator\Exception\GeneratorException;
-use Overblog\GraphQLBundle\Validator\InputValidator;
+use Redeye\GraphQLBundle\Definition\ConfigProcessor;
+use Redeye\GraphQLBundle\Definition\GraphQLServices;
+use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
+use Redeye\GraphQLBundle\Definition\Type\CustomScalarType;
+use Redeye\GraphQLBundle\Definition\Type\GeneratedTypeInterface;
+use Redeye\GraphQLBundle\Error\ResolveErrors;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionLanguage as EL;
+use Redeye\GraphQLBundle\Generator\Converter\ExpressionConverter;
+use Redeye\GraphQLBundle\Generator\Exception\GeneratorException;
+use Redeye\GraphQLBundle\Validator\InputValidator;
 use function array_map;
 use function class_exists;
 use function count;
@@ -430,7 +430,7 @@ class TypeBuilder
      *      }
      *
      * Render example (with validation, but errors are injected into the user-defined resolver):
-     * {@link https://github.com/overblog/GraphQLBundle/blob/master/docs/validation/index.md#injecting-errors}
+     * {@link https://github.com/redeye/GraphQLBundle/blob/master/docs/validation/index.md#injecting-errors}
      *
      *      function ($value, $args, $context, $info) use ($services) {
      *          $errors = new ResolveErrors();
@@ -709,7 +709,7 @@ class TypeBuilder
         $c = (object) $fieldConfig;
 
         // TODO(any): modify `InputValidator` and `TypeDecoratorListener` to support it before re-enabling this
-        // see https://github.com/overblog/GraphQLBundle/issues/973
+        // see https://github.com/redeye/GraphQLBundle/issues/973
         // If there is only 'type', use shorthand
         /*if (1 === count($fieldConfig) && isset($c->type)) {
             return $this->buildType($c->type);

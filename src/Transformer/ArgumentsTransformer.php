@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Transformer;
+namespace Redeye\GraphQLBundle\Transformer;
 
 use GraphQL\Type\Definition\EnumType;
 use GraphQL\Type\Definition\InputObjectType;
@@ -10,8 +10,8 @@ use GraphQL\Type\Definition\ListOfType;
 use GraphQL\Type\Definition\NonNull;
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
-use Overblog\GraphQLBundle\Error\InvalidArgumentError;
-use Overblog\GraphQLBundle\Error\InvalidArgumentsError;
+use Redeye\GraphQLBundle\Error\InvalidArgumentError;
+use Redeye\GraphQLBundle\Error\InvalidArgumentsError;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 use Symfony\Component\Validator\ConstraintViolationList;

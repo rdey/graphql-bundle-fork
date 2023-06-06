@@ -764,10 +764,10 @@ injected instance of the `InputValidator` class could be used in a resolver as f
 ```php
 namespace App\GraphQL\Mutation\Mutation
 
-use Overblog\GraphQLBundle\Definition\Argument;
-use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\MutationInterface;
-use Overblog\GraphQLBundle\Validator\InputValidator;
+use Redeye\GraphQLBundle\Definition\Argument;
+use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\MutationInterface;
+use Redeye\GraphQLBundle\Validator\InputValidator;
 
 class UserResolver implements MutationInterface, AliasedInterface
 {
@@ -866,10 +866,10 @@ resolver:
 ```php
 namespace App\GraphQL\Mutation\Mutation
 
-use Overblog\GraphQLBundle\Definition\Argument;
-use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\MutationInterface;
-use Overblog\GraphQLBundle\Validator\InputValidator;
+use Redeye\GraphQLBundle\Definition\Argument;
+use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\MutationInterface;
+use Redeye\GraphQLBundle\Validator\InputValidator;
 
 class UserResolver implements MutationInterface, AliasedInterface
 {
@@ -924,10 +924,10 @@ Mutation:
 ```php
 namespace App\GraphQL\Mutation\Mutation
 
-use Overblog\GraphQLBundle\Definition\Argument;
-use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\MutationInterface;
-use Overblog\GraphQLBundle\Error\ResolveErrors;
+use Redeye\GraphQLBundle\Definition\Argument;
+use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\MutationInterface;
+use Redeye\GraphQLBundle\Error\ResolveErrors;
 
 class UserResolver implements MutationInterface, AliasedInterface
 {
@@ -1002,7 +1002,7 @@ public function resolver(InputValidator $validator)
     ...
 }
 ```
-See more about [Error handling](https://github.com/overblog/GraphQLBundle/blob/master/docs/error-handling/index.md).
+See more about [Error handling](https://github.com/redeye/GraphQLBundle/blob/master/docs/error-handling/index.md).
 
 ## Translations
 
@@ -1069,7 +1069,7 @@ To translate into other languages just create additional  translation resource w
 ## Using built-in expression functions
 
 This bundle comes with built-in [ExpressionLanguage](#https://symfony.com/doc/current/components/expression_language.html) 
-instance and pre-registered [expression functions and variables](https://github.com/overblog/GraphQLBundle/blob/master/docs/definitions/expression-language.md). 
+instance and pre-registered [expression functions and variables](https://github.com/redeye/GraphQLBundle/blob/master/docs/definitions/expression-language.md). 
 By default the  [`Expression`](https://symfony.com/doc/current/reference/constraints/Expression.html) 
 constraint in your project has no access to these functions and variables, because it uses the default instance of the 
 `ExpressionLanguage` class. In order to _tell_ the `Expression` constraint to use the instance of this bundle, you need
@@ -1077,8 +1077,8 @@ to rewrite its service declaration. Add the following config to the `services.ya
 
 ```yaml
 validator.expression:  
-    class: Overblog\GraphQLBundle\Validator\Constraints\ExpressionValidator  
-    arguments: ['@Overblog\GraphQLBundle\ExpressionLanguage\ExpressionLanguage'] 
+    class: Redeye\GraphQLBundle\Validator\Constraints\ExpressionValidator  
+    arguments: ['@Redeye\GraphQLBundle\ExpressionLanguage\ExpressionLanguage'] 
     tags:  
         - name: validator.constraint_validator  
           alias: validator.expression
@@ -1205,7 +1205,7 @@ To find out which of 2 fields is being validated inside the method, we can use m
 ```php
 namespace App\Validation;  
 
-use Overblog\GraphQLBundle\Validator\ValidationNode;
+use Redeye\GraphQLBundle\Validator\ValidationNode;
 
 // ...
 
@@ -1230,9 +1230,9 @@ use Overblog\GraphQLBundle\Validator\ValidationNode;
 
 ### Annotations and GraphQL Schema language
 
-The current implementation of `InputValidator` works only for schema types declared in yaml files. Types declared with [annotations](https://github.com/overblog/GraphQLBundle/blob/master/docs/annotations/index.md) or with [GraphQL schema language](https://github.com/overblog/GraphQLBundle/blob/master/docs/definitions/graphql-schema-language.md) are not supported. This can be changed in the future versions.
+The current implementation of `InputValidator` works only for schema types declared in yaml files. Types declared with [annotations](https://github.com/redeye/GraphQLBundle/blob/master/docs/annotations/index.md) or with [GraphQL schema language](https://github.com/redeye/GraphQLBundle/blob/master/docs/definitions/graphql-schema-language.md) are not supported. This can be changed in the future versions.
 
-The annotations system of this bundle has its own limited validation implementation, see the [Arguments Transformer](https://github.com/overblog/GraphQLBundle/blob/master/docs/annotations/arguments-transformer.md) section for more details.
+The annotations system of this bundle has its own limited validation implementation, see the [Arguments Transformer](https://github.com/redeye/GraphQLBundle/blob/master/docs/annotations/arguments-transformer.md) section for more details.
 
 ### Unsupported/Irrelevant constraints
 These are the validation constraints, which are not currently supported or have no effect to the validation:

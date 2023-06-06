@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\Type;
+namespace Redeye\GraphQLBundle\Tests\Functional\Type;
 
 use GraphQL\Type\Definition\EnumType;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
-use Overblog\GraphQLBundle\Tests\Functional\TestCase;
+use Redeye\GraphQLBundle\Tests\Functional\TestCase;
 
 class DefinitionTest extends TestCase
 {
@@ -46,6 +46,6 @@ class DefinitionTest extends TestCase
     private function getType(string $type): ?Type
     {
         // @phpstan-ignore-next-line
-        return $this->getContainer()->get('overblog_graphql.type_resolver')->resolve($type);
+        return $this->getContainer()->get('redeye_graphql.type_resolver')->resolve($type);
     }
 }

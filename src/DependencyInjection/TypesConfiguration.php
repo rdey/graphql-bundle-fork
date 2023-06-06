@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\DependencyInjection;
+namespace Redeye\GraphQLBundle\DependencyInjection;
 
-use Overblog\GraphQLBundle\Config;
-use Overblog\GraphQLBundle\Config\Processor\InheritanceProcessor;
+use Redeye\GraphQLBundle\Config;
+use Redeye\GraphQLBundle\Config\Processor\InheritanceProcessor;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -32,7 +32,7 @@ class TypesConfiguration implements ConfigurationInterface
 
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('overblog_graphql_types');
+        $treeBuilder = new TreeBuilder('redeye_graphql_types');
 
         /** @var ArrayNodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();

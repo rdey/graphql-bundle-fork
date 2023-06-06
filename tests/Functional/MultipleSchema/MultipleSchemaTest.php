@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\MultipleSchema;
+namespace Redeye\GraphQLBundle\Tests\Functional\MultipleSchema;
 
 use GraphQL\Error\InvariantViolation;
-use Overblog\GraphQLBundle\Tests\Functional\TestCase;
+use Redeye\GraphQLBundle\Tests\Functional\TestCase;
 
 class MultipleSchemaTest extends TestCase
 {
@@ -77,7 +77,7 @@ class MultipleSchemaTest extends TestCase
     public function testUnknownTypeShouldNotInfinityLoop(): void
     {
         // @phpstan-ignore-next-line
-        $schema = $this->getContainer()->get('overblog_graphql.request_executor')->getSchema('public');
+        $schema = $this->getContainer()->get('redeye_graphql.request_executor')->getSchema('public');
         $this->expectException(InvariantViolation::class);
         $this->expectExceptionMessage('Type loader is expected to return a callable or valid type "unknown", but it returned null');
         $schema->getType('unknown');
@@ -86,7 +86,7 @@ class MultipleSchemaTest extends TestCase
     private function assertSchemaQueryTypeName(string $typeName): void
     {
         // @phpstan-ignore-next-line
-        $query = $this->getContainer()->get('overblog_graphql.type_resolver')->resolve($typeName);
+        $query = $this->getContainer()->get('redeye_graphql.type_resolver')->resolve($typeName);
         $this->assertSame('Query', $query->name);
     }
 }

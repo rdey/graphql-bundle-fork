@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Relay\Connection\Output;
+namespace Redeye\GraphQLBundle\Relay\Connection\Output;
 
 use function array_keys;
 use function get_object_vars;

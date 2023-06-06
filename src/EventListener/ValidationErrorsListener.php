@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\EventListener;
+namespace Redeye\GraphQLBundle\EventListener;
 
-use Overblog\GraphQLBundle\Error\InvalidArgumentsError;
-use Overblog\GraphQLBundle\Event\ErrorFormattingEvent;
+use Redeye\GraphQLBundle\Error\InvalidArgumentsError;
+use Redeye\GraphQLBundle\Event\ErrorFormattingEvent;
 
 final class ValidationErrorsListener
 {

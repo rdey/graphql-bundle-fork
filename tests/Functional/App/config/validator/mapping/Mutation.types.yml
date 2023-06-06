@@ -2,7 +2,7 @@ Mutation:
     type: object
     config:
         validation: # Applied to all fields
-            - Callback: [Overblog\GraphQLBundle\Tests\Functional\Validator\StaticValidator, alwaysTrue]
+            - Callback: [Redeye\GraphQLBundle\Tests\Functional\Validator\StaticValidator, alwaysTrue]
             - Expression:
                 expression: this.getFieldName() == this.getFieldName()
                 message: "parent"
@@ -38,19 +38,19 @@ Mutation:
                 type: Boolean
                 resolve: "@=m('mutation_mock', args, validator)"
                 validation:
-                    link: Overblog\GraphQLBundle\Tests\Functional\Validator\DummyEntity
+                    link: Redeye\GraphQLBundle\Tests\Functional\Validator\DummyEntity
                     constraints:
                         - Expression: "this.string2 == 'Dolor Sit Amet'"
                 args:
                     string1:
                         type: String!
-                        validation: Overblog\GraphQLBundle\Tests\Functional\Validator\DummyEntity::$string1
+                        validation: Redeye\GraphQLBundle\Tests\Functional\Validator\DummyEntity::$string1
                     string2:
                         type: String!
-                        validation: Overblog\GraphQLBundle\Tests\Functional\Validator\DummyEntity::string2()
+                        validation: Redeye\GraphQLBundle\Tests\Functional\Validator\DummyEntity::string2()
                     string3:
                         type: String!
-                        validation: Overblog\GraphQLBundle\Tests\Functional\Validator\DummyEntity::string3
+                        validation: Redeye\GraphQLBundle\Tests\Functional\Validator\DummyEntity::string3
 
             collectionValidation:
                 type: Boolean

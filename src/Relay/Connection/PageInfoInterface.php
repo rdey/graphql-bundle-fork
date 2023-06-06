@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Time: 19:05.
  */
 
-namespace Overblog\GraphQLBundle\Relay\Connection;
+namespace Redeye\GraphQLBundle\Relay\Connection;
 
 interface PageInfoInterface
 {

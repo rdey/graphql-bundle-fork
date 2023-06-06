@@ -5,7 +5,7 @@ Experimental coroutine executor
 can be enabled using configuration:
 
 ```yaml
-overblog_graphql:
+redeye_graphql:
     definitions:
         use_experimental_executor: true
 ```

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\App\Resolver;
+namespace Redeye\GraphQLBundle\Tests\Functional\App\Resolver;
 
 use GraphQL\Deferred;
 use GraphQL\Executor\Promise\Adapter\SyncPromiseAdapter;
 use GraphQL\Executor\Promise\Promise as GraphQLPromise;
 use GraphQL\Executor\Promise\PromiseAdapter;
-use Overblog\GraphQLBundle\Definition\ArgumentInterface;
-use Overblog\GraphQLBundle\Executor\Promise\Adapter\ReactPromiseAdapter;
-use Overblog\GraphQLBundle\Relay\Connection\ConnectionBuilder;
-use Overblog\GraphQLBundle\Relay\Connection\Output\Edge;
+use Redeye\GraphQLBundle\Definition\ArgumentInterface;
+use Redeye\GraphQLBundle\Executor\Promise\Adapter\ReactPromiseAdapter;
+use Redeye\GraphQLBundle\Relay\Connection\ConnectionBuilder;
+use Redeye\GraphQLBundle\Relay\Connection\Output\Edge;
 use React\Promise\Promise as ReactPromise;
 use function count;
 

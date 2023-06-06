@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\Validator;
+namespace Redeye\GraphQLBundle\Tests\Functional\Validator;
 
 use Doctrine\Common\Annotations\Reader;
-use Overblog\GraphQLBundle\Tests\Functional\TestCase;
+use Redeye\GraphQLBundle\Tests\Functional\TestCase;
 use Symfony\Component\Validator\Validation;
 use function class_exists;
 use function json_decode;

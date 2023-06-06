@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\App\Mutation;
+namespace Redeye\GraphQLBundle\Tests\Functional\App\Mutation;
 
 use Exception;
-use Overblog\GraphQLBundle\Definition\Argument;
-use Overblog\GraphQLBundle\Definition\Resolver\MutationInterface;
-use Overblog\GraphQLBundle\Error\ResolveErrors;
-use Overblog\GraphQLBundle\Validator\Exception\ArgumentsValidationException;
-use Overblog\GraphQLBundle\Validator\InputValidator;
+use Redeye\GraphQLBundle\Definition\Argument;
+use Redeye\GraphQLBundle\Definition\Resolver\MutationInterface;
+use Redeye\GraphQLBundle\Error\ResolveErrors;
+use Redeye\GraphQLBundle\Validator\Exception\ArgumentsValidationException;
+use Redeye\GraphQLBundle\Validator\InputValidator;
 
 class InputValidatorMutation implements MutationInterface
 {

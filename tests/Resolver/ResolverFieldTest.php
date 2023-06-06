@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Resolver;
+namespace Redeye\GraphQLBundle\Tests\Resolver;
 
 use GraphQL\Type\Definition\ResolveInfo;
-use Overblog\GraphQLBundle\Resolver\FieldResolver;
+use Redeye\GraphQLBundle\Resolver\FieldResolver;
 use PHPUnit\Framework\TestCase;
 
 class ResolverFieldTest extends TestCase

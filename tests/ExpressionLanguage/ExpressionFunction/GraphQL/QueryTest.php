@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\ExpressionLanguage\ExpressionFunction\GraphQL;
+namespace Redeye\GraphQLBundle\Tests\ExpressionLanguage\ExpressionFunction\GraphQL;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\Exception\EvaluatorIsNotAllowedException;
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL\Query;
-use Overblog\GraphQLBundle\Tests\ExpressionLanguage\TestCase;
+use Redeye\GraphQLBundle\ExpressionLanguage\Exception\EvaluatorIsNotAllowedException;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL\Query;
+use Redeye\GraphQLBundle\Tests\ExpressionLanguage\TestCase;
 
 class QueryTest extends TestCase
 {

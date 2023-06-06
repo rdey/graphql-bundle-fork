@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Error;
+namespace Redeye\GraphQLBundle\Tests\Error;
 
 use InvalidArgumentException;
 

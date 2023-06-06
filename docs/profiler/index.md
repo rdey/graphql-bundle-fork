@@ -7,12 +7,12 @@ This bundle provides a profiler to monitor your GraphQL queries and mutations.
 ## Configuration
 
 In order to display only GraphQL related requests, the profiler will filter requests based on the requested url.  
-By default, it will display requests matching the configured endpoint url (ie. The route `overblog_graphql_endpoint`).  
+By default, it will display requests matching the configured endpoint url (ie. The route `redeye_graphql_endpoint`).  
 
 If you need to change the behavior (for example if you have parameters in your endpoint url), you can change the matching with the following option:
 
 ```yaml
-overblog_graphql:
+redeye_graphql:
     profiler:
         query_match:  my_string_to_match
 ```

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\EventListener;
+namespace Redeye\GraphQLBundle\EventListener;
 
 use GraphQL\Type\Definition\EnumType;
 use GraphQL\Type\Definition\InterfaceType;
@@ -10,11 +10,11 @@ use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\UnionType;
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Definition\ArgumentFactory;
-use Overblog\GraphQLBundle\Definition\Type\CustomScalarType;
-use Overblog\GraphQLBundle\Event\TypeLoadedEvent;
-use Overblog\GraphQLBundle\Resolver\ResolverMapInterface;
-use Overblog\GraphQLBundle\Resolver\ResolverMaps;
+use Redeye\GraphQLBundle\Definition\ArgumentFactory;
+use Redeye\GraphQLBundle\Definition\Type\CustomScalarType;
+use Redeye\GraphQLBundle\Event\TypeLoadedEvent;
+use Redeye\GraphQLBundle\Resolver\ResolverMapInterface;
+use Redeye\GraphQLBundle\Resolver\ResolverMaps;
 use function array_diff;
 use function count;
 use function current;

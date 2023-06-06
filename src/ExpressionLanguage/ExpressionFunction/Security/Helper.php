@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\Security;
+namespace Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\Security;
 
-use Overblog\GraphQLBundle\Definition\GraphQLServices;
+use Redeye\GraphQLBundle\Definition\GraphQLServices;
 use Stringable;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\User\UserInterface;

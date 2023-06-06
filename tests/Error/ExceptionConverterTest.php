@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Error;
+namespace Redeye\GraphQLBundle\Tests\Error;
 
 use Exception;
 use Generator;
-use Overblog\GraphQLBundle\Error\ExceptionConverter;
-use Overblog\GraphQLBundle\Error\UserError;
+use Redeye\GraphQLBundle\Error\ExceptionConverter;
+use Redeye\GraphQLBundle\Error\UserError;
 use PHPUnit\Framework\TestCase;
 use Throwable;
 use function get_class;

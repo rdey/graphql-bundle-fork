@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\EventListener;
+namespace Redeye\GraphQLBundle\EventListener;
 
-use Overblog\GraphQLBundle\Error\ErrorHandler;
-use Overblog\GraphQLBundle\Event\ExecutorResultEvent;
+use Redeye\GraphQLBundle\Error\ErrorHandler;
+use Redeye\GraphQLBundle\Event\ExecutorResultEvent;
 
 final class ErrorHandlerListener
 {

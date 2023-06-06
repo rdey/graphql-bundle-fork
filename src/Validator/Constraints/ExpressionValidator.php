@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Validator\Constraints;
+namespace Redeye\GraphQLBundle\Validator\Constraints;
 
-use Overblog\GraphQLBundle\Definition\GraphQLServices;
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionLanguage;
-use Overblog\GraphQLBundle\Generator\TypeGenerator;
-use Overblog\GraphQLBundle\Validator\ValidationNode;
+use Redeye\GraphQLBundle\Definition\GraphQLServices;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionLanguage;
+use Redeye\GraphQLBundle\Generator\TypeGenerator;
+use Redeye\GraphQLBundle\Validator\ValidationNode;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints\Expression;

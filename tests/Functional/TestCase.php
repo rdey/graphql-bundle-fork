@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional;
+namespace Redeye\GraphQLBundle\Tests\Functional;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction;
-use Overblog\GraphQLBundle\Tests\Functional\App\TestKernel;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction;
+use Redeye\GraphQLBundle\Tests\Functional\App\TestKernel;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -63,7 +63,7 @@ abstract class TestCase extends WebTestCase
     public static function setUpBeforeClass(): void
     {
         $fs = new Filesystem();
-        $fs->remove(sys_get_temp_dir().'/OverblogGraphQLBundle/');
+        $fs->remove(sys_get_temp_dir().'/RedeyeGraphQLBundle/');
     }
 
     protected function tearDown(): void
@@ -77,9 +77,9 @@ abstract class TestCase extends WebTestCase
         $request->query->set('query', $query);
 
         // @phpstan-ignore-next-line
-        $req = static::getContainer()->get('overblog_graphql.request_parser')->parse($request);
+        $req = static::getContainer()->get('redeye_graphql.request_parser')->parse($request);
         // @phpstan-ignore-next-line
-        $res = static::getContainer()->get('overblog_graphql.request_executor')->execute($schemaName, $req, $rootValue);
+        $res = static::getContainer()->get('redeye_graphql.request_executor')->execute($schemaName, $req, $rootValue);
 
         return $res->toArray();
     }

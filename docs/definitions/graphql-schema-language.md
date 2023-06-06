@@ -9,7 +9,7 @@ or this [cheat sheet](https://github.com/sogko/graphql-shorthand-notation-cheat-
 #### Configuration
 
 ```
-overblog_graphql:
+redeye_graphql:
     definitions:
         schema:
             # ...
@@ -94,10 +94,10 @@ type RootQuery {
 }
 ```
 
-Do not forget to configure your schema **query** type, as described in the [schema documentation](https://github.com/overblog/GraphQLBundle/blob/master/Resources/doc/definitions/schema.md).
+Do not forget to configure your schema **query** type, as described in the [schema documentation](https://github.com/redeye/GraphQLBundle/blob/master/Resources/doc/definitions/schema.md).
 
 ```yml
-overblog_graphql:
+redeye_graphql:
     definitions:
         schema:
             query: RootQuery
@@ -122,10 +122,10 @@ type RootMutation {
 }
 ```
 
-Do not forget to configure your schema **mutation** type, as described in the [schema documentation](https://github.com/overblog/GraphQLBundle/blob/master/Resources/doc/definitions/schema.md).
+Do not forget to configure your schema **mutation** type, as described in the [schema documentation](https://github.com/redeye/GraphQLBundle/blob/master/Resources/doc/definitions/schema.md).
 
 ```yml
-overblog_graphql:
+redeye_graphql:
     definitions:
         schema:
             mutation: RootMutation

@@ -2,21 +2,21 @@ services:
     _defaults:
         public: true
 
-    overblog_graphql.type_resolver: '@Overblog\GraphQLBundle\Resolver\TypeResolver'
-    overblog_graphql.query_resolver: '@Overblog\GraphQLBundle\Resolver\QueryResolver'
-    overblog_graphql.mutation_resolver: '@Overblog\GraphQLBundle\Resolver\MutationResolver'
-    overblog_graphql.access_resolver: '@Overblog\GraphQLBundle\Resolver\AccessResolver'
-    overblog_graphql.cache_compiler: '@Overblog\GraphQLBundle\Generator\TypeGenerator'
-    overblog_graphql.react.promise_adapter: '@Overblog\GraphQLBundle\Executor\Promise\Adapter\ReactPromiseAdapter'
-    overblog_graphql.request_executor: '@Overblog\GraphQLBundle\Request\Executor'
-    overblog_graphql.request_parser: '@Overblog\GraphQLBundle\Request\Parser'
-    overblog_graphql.request_batch_parser: '@Overblog\GraphQLBundle\Request\BatchParser'
-    overblog_graphql.arguments_transformer: '@Overblog\GraphQLBundle\Transformer\ArgumentsTransformer'
+    redeye_graphql.type_resolver: '@Redeye\GraphQLBundle\Resolver\TypeResolver'
+    redeye_graphql.query_resolver: '@Redeye\GraphQLBundle\Resolver\QueryResolver'
+    redeye_graphql.mutation_resolver: '@Redeye\GraphQLBundle\Resolver\MutationResolver'
+    redeye_graphql.access_resolver: '@Redeye\GraphQLBundle\Resolver\AccessResolver'
+    redeye_graphql.cache_compiler: '@Redeye\GraphQLBundle\Generator\TypeGenerator'
+    redeye_graphql.react.promise_adapter: '@Redeye\GraphQLBundle\Executor\Promise\Adapter\ReactPromiseAdapter'
+    redeye_graphql.request_executor: '@Redeye\GraphQLBundle\Request\Executor'
+    redeye_graphql.request_parser: '@Redeye\GraphQLBundle\Request\Parser'
+    redeye_graphql.request_batch_parser: '@Redeye\GraphQLBundle\Request\BatchParser'
+    redeye_graphql.arguments_transformer: '@Redeye\GraphQLBundle\Transformer\ArgumentsTransformer'
 
-    overblog_graphql.schema_builder:
-        alias: 'Overblog\GraphQLBundle\Definition\Builder\SchemaBuilder'
+    redeye_graphql.schema_builder:
+        alias: 'Redeye\GraphQLBundle\Definition\Builder\SchemaBuilder'
         public: false
 
-    overblog_graphql.type_factory:
-        alias: 'Overblog\GraphQLBundle\Definition\Builder\TypeFactory'
+    redeye_graphql.type_factory:
+        alias: 'Redeye\GraphQLBundle\Definition\Builder\TypeFactory'
         public: false

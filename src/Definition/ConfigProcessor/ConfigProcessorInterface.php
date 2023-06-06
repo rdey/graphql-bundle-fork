@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Definition\ConfigProcessor;
+namespace Redeye\GraphQLBundle\Definition\ConfigProcessor;
 
 interface ConfigProcessorInterface
 {

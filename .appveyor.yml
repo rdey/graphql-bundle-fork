@@ -1,7 +1,7 @@
 build: false
 platform: x86
 clone_depth: 50
-clone_folder: c:\projects\overblog\graphql-bundle
+clone_folder: c:\projects\redeye\graphql-bundle
 
 cache:
     - '%LOCALAPPDATA%\Composer\files'

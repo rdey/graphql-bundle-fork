@@ -7,7 +7,7 @@ Query:
 Upload:
     type: custom-scalar
     config:
-        scalarType: '@=newObject("Overblog\\GraphQLBundle\\Upload\\Type\\GraphQLUploadType")'
+        scalarType: '@=newObject("Redeye\\GraphQLBundle\\Upload\\Type\\GraphQLUploadType")'
 
 Mutation:
     type: object

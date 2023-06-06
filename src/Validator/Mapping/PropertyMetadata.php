@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Validator\Mapping;
+namespace Redeye\GraphQLBundle\Validator\Mapping;
 
 use ReflectionException;
 use ReflectionProperty;

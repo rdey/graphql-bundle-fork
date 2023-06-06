@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Config\Processor;
+namespace Redeye\GraphQLBundle\Tests\Config\Processor;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Config\Processor\InheritanceProcessor;
+use Redeye\GraphQLBundle\Config\Processor\InheritanceProcessor;
 use PHPUnit\Framework\TestCase;
 
 class InheritanceProcessorTest extends TestCase

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Generator;
+namespace Redeye\GraphQLBundle\Generator;
 
 use Composer\Autoload\ClassLoader;
-use Overblog\GraphQLBundle\Config\Processor;
-use Overblog\GraphQLBundle\Event\SchemaCompiledEvent;
+use Redeye\GraphQLBundle\Config\Processor;
+use Redeye\GraphQLBundle\Event\SchemaCompiledEvent;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use function array_merge;
@@ -69,7 +69,7 @@ class TypeGenerator
             $content = "<?php\nreturn ".var_export($classes, true).';';
 
             // replaced hard-coded absolute paths by __DIR__
-            // (see https://github.com/overblog/GraphQLBundle/issues/167)
+            // (see https://github.com/redeye/GraphQLBundle/issues/167)
             $content = str_replace(" => '$cacheDir", " => __DIR__ . '", $content);
 
             file_put_contents($this->getClassesMap(), $content);
@@ -147,7 +147,7 @@ class TypeGenerator
 
     public function getCacheDirOrDefault(): string
     {
-        return $this->options->cacheDir ?? $this->options->cacheBaseDir.'/overblog/graphql-bundle/__definitions__';
+        return $this->options->cacheDir ?? $this->options->cacheBaseDir.'/redeye/graphql-bundle/__definitions__';
     }
 
     private function getClassesMap(): string

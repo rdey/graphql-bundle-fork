@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\Validator;
+namespace Redeye\GraphQLBundle\Tests\Functional\Validator;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class DummyEntity.
  *
- * @Assert\Callback({"Overblog\GraphQLBundle\Tests\Functional\Validator\StaticValidator", "validateClass"})
+ * @Assert\Callback({"Redeye\GraphQLBundle\Tests\Functional\Validator\StaticValidator", "validateClass"})
  */
 class DummyEntity
 {

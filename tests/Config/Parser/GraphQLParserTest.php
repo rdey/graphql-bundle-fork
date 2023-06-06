@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Config\Parser;
+namespace Redeye\GraphQLBundle\Tests\Config\Parser;
 
 use Exception;
-use Overblog\GraphQLBundle\Config\Parser\GraphQL\ASTConverter\CustomScalarNode;
-use Overblog\GraphQLBundle\Config\Parser\GraphQLParser;
+use Redeye\GraphQLBundle\Config\Parser\GraphQL\ASTConverter\CustomScalarNode;
+use Redeye\GraphQLBundle\Config\Parser\GraphQLParser;
 use SplFileInfo;
 use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 use function sprintf;

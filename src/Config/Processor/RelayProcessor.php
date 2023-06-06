@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Config\Processor;
+namespace Redeye\GraphQLBundle\Config\Processor;
 
 use Exception;
-use Overblog\GraphQLBundle\Definition\Builder\MappingInterface;
-use Overblog\GraphQLBundle\Relay\Connection\ConnectionDefinition;
-use Overblog\GraphQLBundle\Relay\Mutation\InputDefinition;
-use Overblog\GraphQLBundle\Relay\Mutation\PayloadDefinition;
-use Overblog\GraphQLBundle\Relay\Node\NodeDefinition;
+use Redeye\GraphQLBundle\Definition\Builder\MappingInterface;
+use Redeye\GraphQLBundle\Relay\Connection\ConnectionDefinition;
+use Redeye\GraphQLBundle\Relay\Mutation\InputDefinition;
+use Redeye\GraphQLBundle\Relay\Mutation\PayloadDefinition;
+use Redeye\GraphQLBundle\Relay\Node\NodeDefinition;
 use function array_replace;
 use function is_array;
 use function is_string;

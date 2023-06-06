@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Relay\Connection\Cursor;
+namespace Redeye\GraphQLBundle\Tests\Relay\Connection\Cursor;
 
 use Generator;
-use Overblog\GraphQLBundle\Relay\Connection\Cursor\Base64CursorEncoder;
+use Redeye\GraphQLBundle\Relay\Connection\Cursor\Base64CursorEncoder;
 use PHPUnit\Framework\TestCase;
 
 final class Base64CursorEncoderTest extends TestCase

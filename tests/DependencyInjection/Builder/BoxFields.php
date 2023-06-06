@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\DependencyInjection\Builder;
+namespace Redeye\GraphQLBundle\Tests\DependencyInjection\Builder;
 
-use Overblog\GraphQLBundle\Definition\Builder\MappingInterface;
+use Redeye\GraphQLBundle\Definition\Builder\MappingInterface;
 
 class BoxFields implements MappingInterface
 {

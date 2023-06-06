@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\ExpressionLanguage\ExpressionFunction;
+namespace Redeye\GraphQLBundle\Tests\ExpressionLanguage\ExpressionFunction;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\Call;
-use Overblog\GraphQLBundle\Tests\ExpressionLanguage\TestCase;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\Call;
+use Redeye\GraphQLBundle\Tests\ExpressionLanguage\TestCase;
 use function sprintf;
 use function str_replace;
 
@@ -30,7 +30,7 @@ class CallTest extends TestCase
     {
         // Compile
         $this->assertEquals('AA', eval('
-            $class = new '.self::class.'(); 
+            $class = new '.self::class.'();
             return '.$this->expressionLanguage->compile('call(class.method, ["A"])', ['class']).';
          '));
 

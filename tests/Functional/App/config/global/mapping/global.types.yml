@@ -1,7 +1,7 @@
 NodeInterface:
     type: relay-node
     config:
-        resolveType: '@=service("overblog_graphql.test.resolver.global").typeResolver(value)'
+        resolveType: '@=service("redeye_graphql.test.resolver.global").typeResolver(value)'
 
 Query:
     type: object
@@ -11,10 +11,10 @@ Query:
                 builder: "Relay::Node"
                 builderConfig:
                     nodeInterfaceType: NodeInterface
-                    idFetcher: '@=service("overblog_graphql.test.resolver.global").idFetcher(value)'
+                    idFetcher: '@=service("redeye_graphql.test.resolver.global").idFetcher(value)'
             allObjects:
                 type: '[NodeInterface]'
-                resolve: '@=service("overblog_graphql.test.resolver.global").resolveAllObjects()'
+                resolve: '@=service("redeye_graphql.test.resolver.global").resolveAllObjects()'
 
 User:
     type: object
@@ -51,7 +51,7 @@ PhotoAndPost:
     type: union
     config:
         types: [Photo, Post]
-        resolveType: '@=service("overblog_graphql.test.resolver.global").typeResolver(value)'
+        resolveType: '@=service("redeye_graphql.test.resolver.global").typeResolver(value)'
 
 PhotoInput:
     type: input-object

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Relay\Node;
+namespace Redeye\GraphQLBundle\Relay\Node;
 
-use Overblog\GraphQLBundle\Definition\Builder\MappingInterface;
+use Redeye\GraphQLBundle\Definition\Builder\MappingInterface;
 
 final class NodeDefinition implements MappingInterface
 {

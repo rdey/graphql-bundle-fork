@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional;
+namespace Redeye\GraphQLBundle\Tests\Functional;
 
 class BootTest extends TestCase
 {

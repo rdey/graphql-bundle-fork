@@ -2,31 +2,31 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle;
+namespace Redeye\GraphQLBundle;
 
-use Overblog\GraphQLBundle\DependencyInjection\Compiler\AliasedPass;
-use Overblog\GraphQLBundle\DependencyInjection\Compiler\ConfigParserPass;
-use Overblog\GraphQLBundle\DependencyInjection\Compiler\ExpressionFunctionPass;
-use Overblog\GraphQLBundle\DependencyInjection\Compiler\GraphQLServicesPass;
-use Overblog\GraphQLBundle\DependencyInjection\Compiler\MutationTaggedServiceMappingTaggedPass;
-use Overblog\GraphQLBundle\DependencyInjection\Compiler\QueryTaggedServiceMappingPass;
-use Overblog\GraphQLBundle\DependencyInjection\Compiler\ResolverMapTaggedServiceMappingPass;
-use Overblog\GraphQLBundle\DependencyInjection\Compiler\ResolverMethodAliasesPass;
-use Overblog\GraphQLBundle\DependencyInjection\Compiler\ResolverTaggedServiceMappingPass;
-use Overblog\GraphQLBundle\DependencyInjection\Compiler\TypeGeneratorPass;
-use Overblog\GraphQLBundle\DependencyInjection\Compiler\TypeTaggedServiceMappingPass;
-use Overblog\GraphQLBundle\DependencyInjection\OverblogGraphQLExtension;
+use Redeye\GraphQLBundle\DependencyInjection\Compiler\AliasedPass;
+use Redeye\GraphQLBundle\DependencyInjection\Compiler\ConfigParserPass;
+use Redeye\GraphQLBundle\DependencyInjection\Compiler\ExpressionFunctionPass;
+use Redeye\GraphQLBundle\DependencyInjection\Compiler\GraphQLServicesPass;
+use Redeye\GraphQLBundle\DependencyInjection\Compiler\MutationTaggedServiceMappingTaggedPass;
+use Redeye\GraphQLBundle\DependencyInjection\Compiler\QueryTaggedServiceMappingPass;
+use Redeye\GraphQLBundle\DependencyInjection\Compiler\ResolverMapTaggedServiceMappingPass;
+use Redeye\GraphQLBundle\DependencyInjection\Compiler\ResolverMethodAliasesPass;
+use Redeye\GraphQLBundle\DependencyInjection\Compiler\ResolverTaggedServiceMappingPass;
+use Redeye\GraphQLBundle\DependencyInjection\Compiler\TypeGeneratorPass;
+use Redeye\GraphQLBundle\DependencyInjection\Compiler\TypeTaggedServiceMappingPass;
+use Redeye\GraphQLBundle\DependencyInjection\RedeyeGraphQLExtension;
 use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class OverblogGraphQLBundle extends Bundle
+class RedeyeGraphQLBundle extends Bundle
 {
     public function boot(): void
     {
-        if ($this->container->has('overblog_graphql.cache_compiler')) {
-            $this->container->get('overblog_graphql.cache_compiler')->loadClasses(); // @phpstan-ignore-line
+        if ($this->container->has('redeye_graphql.cache_compiler')) {
+            $this->container->get('redeye_graphql.cache_compiler')->loadClasses(); // @phpstan-ignore-line
         }
     }
 
@@ -55,7 +55,7 @@ class OverblogGraphQLBundle extends Bundle
     public function getContainerExtension(): ?ExtensionInterface
     {
         if (!$this->extension instanceof ExtensionInterface) {
-            $this->extension = new OverblogGraphQLExtension();
+            $this->extension = new RedeyeGraphQLExtension();
         }
 
         return $this->extension;

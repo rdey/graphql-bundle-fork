@@ -27,7 +27,7 @@ security:
             http_basic: ~
             stateless: true
 
-overblog_graphql:
+redeye_graphql:
     errors_handler:
         debug: false
     definitions:

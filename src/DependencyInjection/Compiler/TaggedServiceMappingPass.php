@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\DependencyInjection\Compiler;
+namespace Redeye\GraphQLBundle\DependencyInjection\Compiler;
 
 use InvalidArgumentException;
 use Symfony\Component\DependencyInjection\Argument\ServiceClosureArgument;

@@ -1,12 +1,12 @@
-OverblogGraphQLBundle
+RedeyeGraphQLBundle
 ======================
 
-![CI](https://github.com/overblog/GraphQLBundle/workflows/CI/badge.svg?branch=0.14)
-[![Build status](https://ci.appveyor.com/api/projects/status/7ksxlcgwt40q74hv/branch/0.14?svg=true)](https://ci.appveyor.com/project/overblog/graphqlbundle/branch/0.14)
-[![Coverage Status](https://coveralls.io/repos/github/overblog/GraphQLBundle/badge.svg?branch=0.14)](https://coveralls.io/github/overblog/GraphQLBundle?branch=0.14)
-[![Latest Stable Version](https://poser.pugx.org/overblog/graphql-bundle/version)](https://packagist.org/packages/overblog/graphql-bundle)
-[![Latest Unstable Version](https://poser.pugx.org/overblog/graphql-bundle/v/unstable)](https://packagist.org/packages/overblog/graphql-bundle)
-[![Total Downloads](https://poser.pugx.org/overblog/graphql-bundle/downloads)](https://packagist.org/packages/overblog/graphql-bundle)
+![CI](https://github.com/redeye/GraphQLBundle/workflows/CI/badge.svg?branch=0.14)
+[![Build status](https://ci.appveyor.com/api/projects/status/7ksxlcgwt40q74hv/branch/0.14?svg=true)](https://ci.appveyor.com/project/redeye/graphqlbundle/branch/0.14)
+[![Coverage Status](https://coveralls.io/repos/github/redeye/GraphQLBundle/badge.svg?branch=0.14)](https://coveralls.io/github/redeye/GraphQLBundle?branch=0.14)
+[![Latest Stable Version](https://poser.pugx.org/redeye/graphql-bundle/version)](https://packagist.org/packages/redeye/graphql-bundle)
+[![Latest Unstable Version](https://poser.pugx.org/redeye/graphql-bundle/v/unstable)](https://packagist.org/packages/redeye/graphql-bundle)
+[![Total Downloads](https://poser.pugx.org/redeye/graphql-bundle/downloads)](https://packagist.org/packages/redeye/graphql-bundle)
 
 This Symfony bundle provides integration of [GraphQL](https://facebook.github.io/graphql/) using [webonyx/graphql-php](https://github.com/webonyx/graphql-php)
 and [GraphQL Relay](https://facebook.github.io/relay/docs/en/graphql-server-specification.html).
@@ -17,14 +17,14 @@ It also supports:
 
 Browse your version documentation:
 
-* [1.0 (DEV)](https://github.com/overblog/GraphQLBundle/blob/master/README.md)
-* [0.14 (STABLE)](https://github.com/overblog/GraphQLBundle/blob/0.14/README.md)
-* [0.13 (STABLE)](https://github.com/overblog/GraphQLBundle/blob/0.13/README.md)
-* [0.12 (DEPRECATE)](https://github.com/overblog/GraphQLBundle/blob/0.12/README.md)
-* [0.11 (OBSOLETE)](https://github.com/overblog/GraphQLBundle/blob/0.11/README.md)
-* [0.10 (OBSOLETE)](https://github.com/overblog/GraphQLBundle/blob/0.10/README.md)
-* [0.9  (OBSOLETE)](https://github.com/overblog/GraphQLBundle/blob/0.9/README.md)
-* [0.8  (OBSOLETE)](https://github.com/overblog/GraphQLBundle/blob/0.8/README.md)
+* [1.0 (DEV)](https://github.com/redeye/GraphQLBundle/blob/master/README.md)
+* [0.14 (STABLE)](https://github.com/redeye/GraphQLBundle/blob/0.14/README.md)
+* [0.13 (STABLE)](https://github.com/redeye/GraphQLBundle/blob/0.13/README.md)
+* [0.12 (DEPRECATE)](https://github.com/redeye/GraphQLBundle/blob/0.12/README.md)
+* [0.11 (OBSOLETE)](https://github.com/redeye/GraphQLBundle/blob/0.11/README.md)
+* [0.10 (OBSOLETE)](https://github.com/redeye/GraphQLBundle/blob/0.10/README.md)
+* [0.9  (OBSOLETE)](https://github.com/redeye/GraphQLBundle/blob/0.9/README.md)
+* [0.8  (OBSOLETE)](https://github.com/redeye/GraphQLBundle/blob/0.8/README.md)
 
 [Versions requirements](docs/index.md#versions-requirements)
 
@@ -33,7 +33,7 @@ Proof of Concept
 
 * [mcg-web/graphql-symfony-doctrine-sandbox](https://github.com/mcg-web/graphql-symfony-doctrine-sandbox)
 * [michaelperrin/blog-graphql-upload-demo](https://github.com/michaelperrin/blog-graphql-upload-demo)
-* [overblog/GraphQLBundleDemo](https://github.com/overblog/GraphQLBundleDemo)
+* [redeye/GraphQLBundleDemo](https://github.com/redeye/GraphQLBundleDemo)
 * [Samffy/graphql-poc](https://github.com/Samffy/graphql-poc)
 
 Documentation
@@ -104,7 +104,7 @@ Talks and slides to help you start
   - [Slides at https://cap-collectif.slides.com/spyl/web2day-2019](https://cap-collectif.slides.com/spyl/web2day-2019) `English`
 * Une API GraphQL: du hype à la prod *by Aurélien David* - [Twitter](https://twitter.com/spyl94), [GitHub](https://github.com/spyl94)
   - [Video at PHPTour 2017 Nantes](https://www.youtube.com/watch?v=xbipW6fgD6c) `French`
-* Introduction to Symfony Flex and setting up OverblogGraphQLBundle with it *by Renato Mendes Figueiredo* - [Twitter](https://twitter.com/renatomefi), [GitHub](https://github.com/renatomefi)
+* Introduction to Symfony Flex and setting up RedeyeGraphQLBundle with it *by Renato Mendes Figueiredo* - [Twitter](https://twitter.com/renatomefi), [GitHub](https://github.com/renatomefi)
   - [Slides at http://talks.mefi.in/symfony-flex-101-symfonycampua](http://talks.mefi.in/symfony-flex-101-symfonycampua/) `English`
   - [Video at Symfony Camp UA 2017](https://www.youtube.com/watch?v=lWweoiCI9Hk) `English`
 
@@ -112,12 +112,12 @@ Community
 ---------
 
 * Get support on [Symfony devs Slack](https://symfony.com/slack-invite)
-  on the dedicated channel **overblog-graphql**.
-* Get support in Telegram group [Overblog GraphQL](https://t.me/overblog_graphql)
-* Follow us on [GitHub](https://github.com/overblog)
+  on the dedicated channel **redeye-graphql**.
+* Get support in Telegram group [Redeye GraphQL](https://t.me/redeye_graphql)
+* Follow us on [GitHub](https://github.com/redeye)
 
 Contributing
 ------------
 
 * [See contributing documentation](CONTRIBUTING.md)
-* [Thanks to all contributors](https://github.com/overblog/GraphQLBundle/graphs/contributors)
+* [Thanks to all contributors](https://github.com/redeye/GraphQLBundle/graphs/contributors)

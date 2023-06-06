@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Executor;
+namespace Redeye\GraphQLBundle\Tests\Executor;
 
 use GraphQL\Executor\Promise\Adapter\ReactPromiseAdapter;
 use GraphQL\Executor\Promise\PromiseAdapter;
 use GraphQL\Type\Schema;
-use Overblog\GraphQLBundle\Executor\Executor;
-use Overblog\GraphQLBundle\Executor\Promise\PromiseAdapterInterface;
+use Redeye\GraphQLBundle\Executor\Executor;
+use Redeye\GraphQLBundle\Executor\Promise\PromiseAdapterInterface;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 use function sprintf;

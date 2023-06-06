@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Validator;
+namespace Redeye\GraphQLBundle\Validator;
 
-use Overblog\GraphQLBundle\Event\ErrorFormattingEvent;
-use Overblog\GraphQLBundle\Validator\Exception\ArgumentsValidationException;
+use Redeye\GraphQLBundle\Event\ErrorFormattingEvent;
+use Redeye\GraphQLBundle\Validator\Exception\ArgumentsValidationException;
 
 /**
  * Class Formatter.
  *
  * Adds validation errors to the response.
  *
- * @see https://github.com/overblog/GraphQLBundle/blob/master/docs/validation/index.md#error-messages
+ * @see https://github.com/redeye/GraphQLBundle/blob/master/docs/validation/index.md#error-messages
  */
 class Formatter
 {

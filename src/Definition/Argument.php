@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Definition;
+namespace Redeye\GraphQLBundle\Definition;
 
 use ReturnTypeWillChange;
 use function array_key_exists;

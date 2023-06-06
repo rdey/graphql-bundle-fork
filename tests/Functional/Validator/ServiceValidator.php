@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\Validator;
+namespace Redeye\GraphQLBundle\Tests\Functional\Validator;
 
 use GraphQL\Type\Definition\ResolveInfo;
-use Overblog\GraphQLBundle\Definition\ArgumentInterface;
+use Redeye\GraphQLBundle\Definition\ArgumentInterface;
 
 class ServiceValidator
 {

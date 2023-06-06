@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Definition\ConfigProcessor;
+namespace Redeye\GraphQLBundle\Definition\ConfigProcessor;
 
 use GraphQL\Type\Definition\ResolveInfo;
-use Overblog\GraphQLBundle\Error\UserWarning;
-use Overblog\GraphQLBundle\Resolver\AccessResolver;
+use Redeye\GraphQLBundle\Error\UserWarning;
+use Redeye\GraphQLBundle\Resolver\AccessResolver;
 use function is_array;
 use function is_callable;
 

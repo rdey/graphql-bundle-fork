@@ -86,7 +86,7 @@ Example:
 ### query
 **Signature**: <code><b>query</b>(string <b>$alias</b>, <b>...$args</b>): mixed</code> | **Alias**: `q`
 
-Calls a method on the tagged service `overblog_graphql.query` with `$args`
+Calls a method on the tagged service `redeye_graphql.query` with `$args`
 
 Examples:
 ```yaml
@@ -108,7 +108,7 @@ Examples:
 
 > This function is deprecated since version 0.14 and will be removed in 1.0. Use the [`query`](#query) function instead.
 
-Calls a method on the tagged service `overblog_graphql.resolver` with `$args`
+Calls a method on the tagged service `redeye_graphql.resolver` with `$args`
 
 Examples:
 ```yaml
@@ -132,7 +132,7 @@ Examples:
 > The old signature is <code><b>mutation</b>(string <b>$alias</b>, array <b>$args</b> = []): mixed</code>, which is not used anymore.
 > The alias is also changed from `mut` to `m`.
 
-Calls a method on the tagged service `overblog_graphql.mutation` passing `$args` as arguments.
+Calls a method on the tagged service `redeye_graphql.mutation` passing `$args` as arguments.
 
 Examples:
 ```yaml
@@ -152,7 +152,7 @@ Examples:
 ### arguments
 **Signature**: <code><b>arguments</b>(array <b>$mapping</b>, mixed <b> $data</b>): mixed</code>
 
-Transforms and validates a list of arguments. See the [Arguments Transformer](https://github.com/overblog/GraphQLBundle/blob/master/docs/annotations/arguments-transformer.md) section for more details.
+Transforms and validates a list of arguments. See the [Arguments Transformer](https://github.com/redeye/GraphQLBundle/blob/master/docs/annotations/arguments-transformer.md) section for more details.
 
 Example:
 ```yaml
@@ -352,7 +352,7 @@ Examples
 
 | Variable             | Description  | Scope|
 |:-------------------- |:------------ |:---- |
-| `typeResolver`       | An object of class `Overblog\GraphQLBundle\Resolver\TypeResolver`| global|
+| `typeResolver`       | An object of class `Redeye\GraphQLBundle\Resolver\TypeResolver`| global|
 | `object`             | Refers to the value of the field for which access is being requested. For array `object` will be each item of the array. For Relay connection `object` will be the node of each connection edges. | only available for `config.fields.*.access` with query operation or mutation payload type. |
 | `value`              | The value returned by a previous resolver | available in the `resolve` and `access` contexts |
 | `args`               | An array of argument values of current resolver | available in the `resolve` and `access` contexts |
@@ -366,7 +366,7 @@ Private services
 
 It is not possible to use private services with the [`service`](#service) function since this is equivalent to call the
 `get` method on the [Service Container](https://symfony.com/doc/current/service_container.html). In order to make 
-private services accessible, they must be tagged with `overblog_graphql.service`.
+private services accessible, they must be tagged with `redeye_graphql.service`.
 
 Example:
 
@@ -374,7 +374,7 @@ Example:
 App\MyPrivateService:
     public: false
     tags:
-        - { name: overblog_graphql.service, alias: my_private_service }
+        - { name: redeye_graphql.service, alias: my_private_service }
 ```
 
 Usage:
@@ -393,7 +393,7 @@ To use a vendor private services:
 
 ```php
 $vendorPrivateServiceDef = $container->findDefinition(\Vendor\PrivateService::class);
-$vendorPrivateServiceDef->addTag('overblog_graphql.service', ['alias' => 'vendor_private_service']);
+$vendorPrivateServiceDef->addTag('redeye_graphql.service', ['alias' => 'vendor_private_service']);
 ```
 
 Custom expression functions
@@ -410,7 +410,7 @@ Here is an example to add a custom expression equivalent to php `json_decode`:
 
 namespace App\ExpressionLanguage;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction;
 
 class JsonDecode extends ExpressionFunction
 {
@@ -430,7 +430,7 @@ now register your service:
 
 ```yaml
 App\ExpressionLanguage\JsonDecode:
-    tags: ['overblog_graphql.expression_function']
+    tags: ['redeye_graphql.expression_function']
 ```
 
 Now `json_decode` can be used in schema:

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Util;
+namespace Redeye\GraphQLBundle\Util;
 
 use InvalidArgumentException;
 use function base64_decode;

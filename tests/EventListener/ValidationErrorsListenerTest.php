@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\EventListener;
+namespace Redeye\GraphQLBundle\Tests\EventListener;
 
 use GraphQL\Error\Error;
-use Overblog\GraphQLBundle\Error\InvalidArgumentError;
-use Overblog\GraphQLBundle\Error\InvalidArgumentsError;
-use Overblog\GraphQLBundle\Event\ErrorFormattingEvent;
-use Overblog\GraphQLBundle\EventListener\ValidationErrorsListener;
+use Redeye\GraphQLBundle\Error\InvalidArgumentError;
+use Redeye\GraphQLBundle\Error\InvalidArgumentsError;
+use Redeye\GraphQLBundle\Event\ErrorFormattingEvent;
+use Redeye\GraphQLBundle\EventListener\ValidationErrorsListener;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;

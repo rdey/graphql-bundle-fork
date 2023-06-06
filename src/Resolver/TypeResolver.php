@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Resolver;
+namespace Redeye\GraphQLBundle\Resolver;
 
 use GraphQL\Type\Definition\Type;
-use Overblog\GraphQLBundle\Event\Events;
-use Overblog\GraphQLBundle\Event\TypeLoadedEvent;
+use Redeye\GraphQLBundle\Event\Events;
+use Redeye\GraphQLBundle\Event\TypeLoadedEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use function sprintf;
 

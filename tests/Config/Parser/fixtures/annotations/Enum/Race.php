@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Config\Parser\fixtures\annotations\Enum;
+namespace Redeye\GraphQLBundle\Tests\Config\Parser\fixtures\annotations\Enum;
 
-use Overblog\GraphQLBundle\Annotation as GQL;
-use Overblog\GraphQLBundle\Tests\Config\Parser\Constants;
+use Redeye\GraphQLBundle\Annotation as GQL;
+use Redeye\GraphQLBundle\Tests\Config\Parser\Constants;
 
 /**
  * @GQL\Enum

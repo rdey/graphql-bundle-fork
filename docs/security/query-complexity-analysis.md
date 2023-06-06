@@ -8,7 +8,7 @@ Define your max accepted complexity:
 
 ```yaml
 #app/config/config.yml
-overblog_graphql:
+redeye_graphql:
     security:
         query_max_complexity: 1000
 ```

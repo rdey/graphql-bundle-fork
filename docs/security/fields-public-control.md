@@ -27,7 +27,7 @@ AnObject:
 
 namespace App\Entity\GraphQLType;
 
-use Overblog\GraphQLBundle\Annotation as GQL;
+use Redeye\GraphQLBundle\Annotation as GQL;
 
 /**
  * Class FormErrorType

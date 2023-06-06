@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\DependencyInjection\Compiler;
+namespace Redeye\GraphQLBundle\DependencyInjection\Compiler;
 
 use InvalidArgumentException;
 use function is_string;
@@ -12,7 +12,7 @@ class QueryTaggedServiceMappingPass extends TaggedServiceMappingPass
 {
     protected function getTagName(): string
     {
-        return 'overblog_graphql.query';
+        return 'redeye_graphql.query';
     }
 
     protected function checkRequirements(string $id, array $tag): void
@@ -28,6 +28,6 @@ class QueryTaggedServiceMappingPass extends TaggedServiceMappingPass
 
     protected function getResolverServiceID(): string
     {
-        return 'overblog_graphql.query_resolver';
+        return 'redeye_graphql.query_resolver';
     }
 }

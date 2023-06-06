@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\App\IsolatedResolver;
+namespace Redeye\GraphQLBundle\Tests\Functional\App\IsolatedResolver;
 
-use Overblog\GraphQLBundle\Definition\Resolver\QueryInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\QueryInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 

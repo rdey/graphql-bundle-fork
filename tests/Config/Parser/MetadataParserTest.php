@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Config\Parser;
+namespace Redeye\GraphQLBundle\Tests\Config\Parser;
 
 use Doctrine\Common\Annotations\Reader;
 use Doctrine\ORM\Mapping\Column;
@@ -139,13 +139,13 @@ abstract class MetadataParserTest extends TestCase
                 'memory' => ['type' => 'Int!'],
                 'planet_allowedPlanets' => [
                     'type' => '[Planet]',
-                    'resolve' => '@=call(service(\'Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository\').getAllowedPlanetsForDroids, arguments({}, args))',
+                    'resolve' => '@=call(service(\'Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository\').getAllowedPlanetsForDroids, arguments({}, args))',
                     'access' => '@=override_access',
                     'public' => '@=default_public',
                 ],
                 'planet_armorResistance' => [
                     'type' => 'Int!',
-                    'resolve' => '@=call(service(\'Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository\').getArmorResistance, arguments({}, args))',
+                    'resolve' => '@=call(service(\'Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository\').getArmorResistance, arguments({}, args))',
                     'access' => '@=default_access',
                     'public' => '@=default_public',
                 ],
@@ -272,7 +272,7 @@ abstract class MetadataParserTest extends TestCase
 
         $this->expect('SearchResult2', 'union', [
             'types' => ['Hero', 'Droid', 'Sith'],
-            'resolveType' => "@=call('Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Union\\\\SearchResult2::resolveType', [service('overblog_graphql.type_resolver'), value], true)",
+            'resolveType' => "@=call('Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Union\\\\SearchResult2::resolveType', [service('redeye_graphql.type_resolver'), value], true)",
         ]);
     }
 
@@ -293,7 +293,7 @@ abstract class MetadataParserTest extends TestCase
                 'friends' => ['type' => '[Character]', 'description' => 'The friends of the character', 'resolve' => "@=resolver('App\\MyResolver::getFriends')"],
                 'planet_armorResistance' => [
                     'type' => 'Int!',
-                    'resolve' => '@=call(service(\'Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository\').getArmorResistance, arguments({}, args))',
+                    'resolve' => '@=call(service(\'Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository\').getArmorResistance, arguments({}, args))',
                     'access' => '@=default_access',
                     'public' => '@=default_public',
                 ],
@@ -304,9 +304,9 @@ abstract class MetadataParserTest extends TestCase
     public function testScalar(): void
     {
         $this->expect('GalaxyCoordinates', 'custom-scalar', [
-            'serialize' => ['Overblog\GraphQLBundle\Tests\Config\Parser\fixtures\\annotations\Scalar\GalaxyCoordinates', 'serialize'],
-            'parseValue' => ['Overblog\GraphQLBundle\Tests\Config\Parser\fixtures\\annotations\Scalar\GalaxyCoordinates', 'parseValue'],
-            'parseLiteral' => ['Overblog\GraphQLBundle\Tests\Config\Parser\fixtures\\annotations\Scalar\GalaxyCoordinates', 'parseLiteral'],
+            'serialize' => ['Redeye\GraphQLBundle\Tests\Config\Parser\fixtures\\annotations\Scalar\GalaxyCoordinates', 'serialize'],
+            'parseValue' => ['Redeye\GraphQLBundle\Tests\Config\Parser\fixtures\\annotations\Scalar\GalaxyCoordinates', 'parseValue'],
+            'parseLiteral' => ['Redeye\GraphQLBundle\Tests\Config\Parser\fixtures\\annotations\Scalar\GalaxyCoordinates', 'parseLiteral'],
             'description' => 'The galaxy coordinates scalar',
         ]);
     }
@@ -318,25 +318,25 @@ abstract class MetadataParserTest extends TestCase
                 'planet_searchPlanet' => [
                     'type' => '[Planet]',
                     'args' => ['keyword' => ['type' => 'String!']],
-                    'resolve' => "@=call(service('Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').searchPlanet, arguments({keyword: \"String!\"}, args))",
+                    'resolve' => "@=call(service('Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').searchPlanet, arguments({keyword: \"String!\"}, args))",
                     'access' => '@=default_access',
                     'public' => '@=default_public',
                 ],
                 'planet_isPlanetDestroyed' => [
                     'type' => 'Boolean!',
                     'args' => ['planetId' => ['type' => 'Int!']],
-                    'resolve' => "@=call(service('Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').isPlanetDestroyed, arguments({planetId: \"Int!\"}, args))",
+                    'resolve' => "@=call(service('Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').isPlanetDestroyed, arguments({planetId: \"Int!\"}, args))",
                     'access' => '@=default_access',
                     'public' => '@=default_public',
                 ],
                 'countSecretWeapons' => [
                     'type' => 'Int!',
-                    'resolve' => "@=call(service('Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\WeaponRepository').countSecretWeapons, arguments({}, args))",
+                    'resolve' => "@=call(service('Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\WeaponRepository').countSecretWeapons, arguments({}, args))",
                 ],
                 'planet_searchStar' => [
                     'type' => '[Planet]',
                     'args' => ['distance' => ['type' => 'Int!']],
-                    'resolve' => "@=call(service('Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').searchStar, arguments({distance: \"Int!\"}, args))",
+                    'resolve' => "@=call(service('Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').searchStar, arguments({distance: \"Int!\"}, args))",
                     'access' => '@=default_access',
                     'public' => '@=default_public',
                 ],
@@ -348,14 +348,14 @@ abstract class MetadataParserTest extends TestCase
                 'planet_createPlanet' => [
                     'type' => 'Planet',
                     'args' => ['planetInput' => ['type' => 'PlanetInput!']],
-                    'resolve' => "@=call(service('Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').createPlanet, arguments({planetInput: \"PlanetInput!\"}, args))",
+                    'resolve' => "@=call(service('Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').createPlanet, arguments({planetInput: \"PlanetInput!\"}, args))",
                     'access' => '@=default_access',
                     'public' => '@=override_public',
                 ],
                 'planet_destroyPlanet' => [
                     'type' => 'Boolean!',
                     'args' => ['planetId' => ['type' => 'Int!']],
-                    'resolve' => "@=call(service('Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').destroyPlanet, arguments({planetId: \"Int!\"}, args))",
+                    'resolve' => "@=call(service('Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').destroyPlanet, arguments({planetId: \"Int!\"}, args))",
                     'access' => '@=default_access',
                     'public' => '@=default_public',
                 ],
@@ -369,20 +369,20 @@ abstract class MetadataParserTest extends TestCase
             'fields' => [
                 'planet_getPlanetSchema2' => [
                     'type' => 'Planet',
-                    'resolve' => "@=call(service('Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').getPlanetSchema2, arguments({}, args))",
+                    'resolve' => "@=call(service('Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').getPlanetSchema2, arguments({}, args))",
                     'access' => '@=default_access',
                     'public' => '@=default_public',
                 ],
                 'planet_isPlanetDestroyed' => [
                     'type' => 'Boolean!',
                     'args' => ['planetId' => ['type' => 'Int!']],
-                    'resolve' => "@=call(service('Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').isPlanetDestroyed, arguments({planetId: \"Int!\"}, args))",
+                    'resolve' => "@=call(service('Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').isPlanetDestroyed, arguments({planetId: \"Int!\"}, args))",
                     'access' => '@=default_access',
                     'public' => '@=default_public',
                 ],
                 'hasSecretWeapons' => [
                     'type' => 'Boolean!',
-                    'resolve' => "@=call(service('Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\WeaponRepository').hasSecretWeapons, arguments({}, args))",
+                    'resolve' => "@=call(service('Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\WeaponRepository').hasSecretWeapons, arguments({}, args))",
                 ],
             ],
         ]);
@@ -392,20 +392,20 @@ abstract class MetadataParserTest extends TestCase
                 'planet_createPlanetSchema2' => [
                     'type' => 'Planet',
                     'args' => ['planetInput' => ['type' => 'PlanetInput!']],
-                    'resolve' => "@=call(service('Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').createPlanetSchema2, arguments({planetInput: \"PlanetInput!\"}, args))",
+                    'resolve' => "@=call(service('Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').createPlanetSchema2, arguments({planetInput: \"PlanetInput!\"}, args))",
                     'access' => '@=default_access',
                     'public' => '@=override_public',
                 ],
                 'planet_destroyPlanet' => [
                     'type' => 'Boolean!',
                     'args' => ['planetId' => ['type' => 'Int!']],
-                    'resolve' => "@=call(service('Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').destroyPlanet, arguments({planetId: \"Int!\"}, args))",
+                    'resolve' => "@=call(service('Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\PlanetRepository').destroyPlanet, arguments({planetId: \"Int!\"}, args))",
                     'access' => '@=default_access',
                     'public' => '@=default_public',
                 ],
                 'createLightsaber' => [
                     'type' => 'Boolean!',
-                    'resolve' => "@=call(service('Overblog\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\WeaponRepository').createLightsaber, arguments({}, args))",
+                    'resolve' => "@=call(service('Redeye\\\\GraphQLBundle\\\\Tests\\\\Config\\\\Parser\\\\fixtures\\\\annotations\\\\Repository\\\\WeaponRepository').createLightsaber, arguments({}, args))",
                 ],
             ],
         ]);

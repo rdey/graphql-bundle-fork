@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\Command;
+namespace Redeye\GraphQLBundle\Tests\Functional\Command;
 
-use Overblog\GraphQLBundle\Command\CompileCommand;
-use Overblog\GraphQLBundle\Generator\TypeGenerator;
-use Overblog\GraphQLBundle\Tests\Functional\TestCase;
+use Redeye\GraphQLBundle\Command\CompileCommand;
+use Redeye\GraphQLBundle\Generator\TypeGenerator;
+use Redeye\GraphQLBundle\Tests\Functional\TestCase;
 use Symfony\Component\Console\Output\Output;
 use Symfony\Component\Console\Tester\CommandTester;
 use function preg_quote;
@@ -28,11 +28,11 @@ class CompileCommandTest extends TestCase
         $command = static::$kernel->getContainer()->get(CompileCommand::class);
 
         // @phpstan-ignore-next-line
-        $this->typesMapping = static::$kernel->getContainer()->get('overblog_graphql.cache_compiler')
+        $this->typesMapping = static::$kernel->getContainer()->get('redeye_graphql.cache_compiler')
             ->compile(TypeGenerator::MODE_MAPPING_ONLY);
 
         /** @var TypeGenerator $generator */
-        $generator = static::$kernel->getContainer()->get('overblog_graphql.cache_compiler');
+        $generator = static::$kernel->getContainer()->get('redeye_graphql.cache_compiler');
         $this->cacheDir = $generator->getCacheDirOrDefault();
         $this->commandTester = new CommandTester($command);
     }
@@ -81,13 +81,13 @@ class CompileCommandTest extends TestCase
                  \-[\-]+\s+\-[\-]+\s
                   class\s+path\s*
                  \-[\-]+\s+\-[\-]+\s
-                  Overblog\\GraphQLBundle\\Connection\\__DEFINITIONS__\\QueryType              {{PATH}}/QueryType\.php
-                  Overblog\\GraphQLBundle\\Connection\\__DEFINITIONS__\\UserType               {{PATH}}/UserType\.php
-                  Overblog\\GraphQLBundle\\Connection\\__DEFINITIONS__\\friendConnectionType   {{PATH}}/friendConnectionType\.php
-                  Overblog\\GraphQLBundle\\Connection\\__DEFINITIONS__\\userConnectionType     {{PATH}}/userConnectionType\.php
-                  Overblog\\GraphQLBundle\\Connection\\__DEFINITIONS__\\PageInfoType           {{PATH}}/PageInfoType\.php
-                  Overblog\\GraphQLBundle\\Connection\\__DEFINITIONS__\\friendEdgeType         {{PATH}}/friendEdgeType\.php
-                  Overblog\\GraphQLBundle\\Connection\\__DEFINITIONS__\\userEdgeType           {{PATH}}/userEdgeType\.php
+                  Redeye\\GraphQLBundle\\Connection\\__DEFINITIONS__\\QueryType              {{PATH}}/QueryType\.php
+                  Redeye\\GraphQLBundle\\Connection\\__DEFINITIONS__\\UserType               {{PATH}}/UserType\.php
+                  Redeye\\GraphQLBundle\\Connection\\__DEFINITIONS__\\friendConnectionType   {{PATH}}/friendConnectionType\.php
+                  Redeye\\GraphQLBundle\\Connection\\__DEFINITIONS__\\userConnectionType     {{PATH}}/userConnectionType\.php
+                  Redeye\\GraphQLBundle\\Connection\\__DEFINITIONS__\\PageInfoType           {{PATH}}/PageInfoType\.php
+                  Redeye\\GraphQLBundle\\Connection\\__DEFINITIONS__\\friendEdgeType         {{PATH}}/friendEdgeType\.php
+                  Redeye\\GraphQLBundle\\Connection\\__DEFINITIONS__\\userEdgeType           {{PATH}}/userEdgeType\.php
                  \-[\-]+\s+\-[\-]+\s
                 OUTPUT;
 

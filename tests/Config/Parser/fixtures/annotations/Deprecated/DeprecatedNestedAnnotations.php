@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Config\Parser\fixtures\annotations\Deprecated;
+namespace Redeye\GraphQLBundle\Tests\Config\Parser\fixtures\annotations\Deprecated;
 
-use Overblog\GraphQLBundle\Annotation as GQL;
+use Redeye\GraphQLBundle\Annotation as GQL;
 
 /**
  * @GQL\Type(builders={@GQL\FieldsBuilder(name="MyFieldsBuilder", config={"param1": "val1"})})

@@ -6,7 +6,7 @@ Builder is a way to don't repeat field definition.
 Define your custom field builder
 ```yaml
 #app/config/config.yml
-overblog_graphql:
+redeye_graphql:
     #...
     definitions:
         #...
@@ -19,14 +19,14 @@ overblog_graphql:
 #               RawId: "MyBundle\\GraphQL\\Field\\RawIdField"
 ```
 
-Builder class must implement `Overblog\GraphQLBundle\Definition\Builder\MappingInterface`
+Builder class must implement `Redeye\GraphQLBundle\Definition\Builder\MappingInterface`
 
 ```php
 <?php
 
 namespace MyBundle\GraphQL\Field;
 
-use Overblog\GraphQLBundle\Definition\Builder\MappingInterface;
+use Redeye\GraphQLBundle\Definition\Builder\MappingInterface;
 
 class RawIdField implements MappingInterface
 {
@@ -124,9 +124,9 @@ Example implementation field builder with new types:
 ```php
 <?php
 
-namespace Overblog\GraphQLBundle\Tests\DependencyInjection\Builder;
+namespace Redeye\GraphQLBundle\Tests\DependencyInjection\Builder;
 
-use Overblog\GraphQLBundle\Definition\Builder\MappingInterface;
+use Redeye\GraphQLBundle\Definition\Builder\MappingInterface;
 
 class MutationField implements MappingInterface
 {

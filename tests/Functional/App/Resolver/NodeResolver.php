@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Functional\App\Resolver;
+namespace Redeye\GraphQLBundle\Tests\Functional\App\Resolver;
 
 use GraphQL\Type\Definition\ResolveInfo;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;

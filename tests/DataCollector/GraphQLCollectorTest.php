@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\DataCollector;
+namespace Redeye\GraphQLBundle\Tests\DataCollector;
 
 use ArrayObject;
 use GraphQL\Executor\ExecutionResult;
-use Overblog\GraphQLBundle\DataCollector\GraphQLCollector;
-use Overblog\GraphQLBundle\Definition\Type\ExtensibleSchema;
-use Overblog\GraphQLBundle\Event\ExecutorArgumentsEvent;
-use Overblog\GraphQLBundle\Event\ExecutorResultEvent;
+use Redeye\GraphQLBundle\DataCollector\GraphQLCollector;
+use Redeye\GraphQLBundle\Definition\Type\ExtensibleSchema;
+use Redeye\GraphQLBundle\Event\ExecutorArgumentsEvent;
+use Redeye\GraphQLBundle\Event\ExecutorResultEvent;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

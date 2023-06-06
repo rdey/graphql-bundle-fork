@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\GraphQL\Relay\Mutation;
+namespace Redeye\GraphQLBundle\GraphQL\Relay\Mutation;
 
 use Closure;
 use GraphQL\Executor\Promise\Promise;
 use GraphQL\Executor\Promise\PromiseAdapter;
 use GraphQL\Type\Definition\ResolveInfo;
-use Overblog\GraphQLBundle\Definition\ArgumentFactory;
-use Overblog\GraphQLBundle\Definition\ArgumentInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\QueryInterface;
+use Redeye\GraphQLBundle\Definition\ArgumentFactory;
+use Redeye\GraphQLBundle\Definition\ArgumentInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\QueryInterface;
 use function is_array;
 use function is_object;
 

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Executor\Promise\Adapter;
+namespace Redeye\GraphQLBundle\Executor\Promise\Adapter;
 
 use Exception;
 use GraphQL\Executor\ExecutionResult;
 use GraphQL\Executor\Promise\Adapter\ReactPromiseAdapter as BaseReactPromiseAdapter;
 use GraphQL\Executor\Promise\Promise;
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Executor\Promise\PromiseAdapterInterface;
+use Redeye\GraphQLBundle\Executor\Promise\PromiseAdapterInterface;
 use React\Promise\PromiseInterface;
 use function sprintf;
 use function usleep;

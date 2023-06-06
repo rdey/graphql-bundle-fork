@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Config\Parser\fixtures\annotations\Relay;
+namespace Redeye\GraphQLBundle\Tests\Config\Parser\fixtures\annotations\Relay;
 
-use Overblog\GraphQLBundle\Annotation as GQL;
-use Overblog\GraphQLBundle\Relay\Connection\Output\Connection;
+use Redeye\GraphQLBundle\Annotation as GQL;
+use Redeye\GraphQLBundle\Relay\Connection\Output\Connection;
 
 /**
  * @GQL\Relay\Connection(edge="FriendsConnectionEdge")

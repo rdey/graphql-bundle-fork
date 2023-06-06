@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\EventListener;
+namespace Redeye\GraphQLBundle\EventListener;
 
 use GraphQL\Error\UserError;
-use Overblog\GraphQLBundle\Error\UserWarning;
-use Overblog\GraphQLBundle\Event\ErrorFormattingEvent;
+use Redeye\GraphQLBundle\Error\UserWarning;
+use Redeye\GraphQLBundle\Event\ErrorFormattingEvent;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 use Psr\Log\NullLogger;

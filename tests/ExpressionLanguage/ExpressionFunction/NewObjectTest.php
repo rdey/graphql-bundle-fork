@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\ExpressionLanguage\ExpressionFunction;
+namespace Redeye\GraphQLBundle\Tests\ExpressionLanguage\ExpressionFunction;
 
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\NewObject;
-use Overblog\GraphQLBundle\Tests\ExpressionLanguage\TestCase;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\NewObject;
+use Redeye\GraphQLBundle\Tests\ExpressionLanguage\TestCase;
 
 class NewObjectTest extends TestCase
 {

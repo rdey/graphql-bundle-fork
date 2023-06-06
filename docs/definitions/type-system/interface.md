@@ -85,7 +85,7 @@ Note some important points:
 - Implementing types are required to include all fields of the interface with exact same types (including nonNull 
   specification) and arguments. The only exception is when object's field type is more specific than the corresponding 
   type of the interface. This applies for `nonNull` specs (field `appearsId` in this example) and for [covariant return types](https://webonyx.github.io/graphql-php/type-system/interfaces/#covariant-return-types-for-interface-fields).
-  If you would like to avoid repeating same fields in implementors you can use the [type inheritance](https://github.com/overblog/GraphQLBundle/blob/master/docs/definitions/type-inheritance.md)
+  If you would like to avoid repeating same fields in implementors you can use the [type inheritance](https://github.com/redeye/GraphQLBundle/blob/master/docs/definitions/type-inheritance.md)
   feature provided by this bundle, which automates this process.
 
 - The entry `resolveType` defines a method which receives a `value` from a parent resolver and based on it returns a 
@@ -137,7 +137,7 @@ RootQuery:
                 resolve: "@=res('all_characters')"
 ```
 > Note:
-> `res` is just an [alias](https://github.com/overblog/GraphQLBundle/blob/master/docs/definitions/expression-language.md#resolver) for `resolver`.
+> `res` is just an [alias](https://github.com/redeye/GraphQLBundle/blob/master/docs/definitions/expression-language.md#resolver) for `resolver`.
 
 
 Then our resolver could look like this:
@@ -149,10 +149,10 @@ namespace App\GraphQL;
 use App\Entity\Droid;
 use App\Entity\Human;
 use GraphQL\Type\Definition\ObjectType;
-use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
-use Overblog\GraphQLBundle\Definition\Resolver\QueryInterface;
-use Overblog\GraphQLBundle\Resolver\TypeResolver;
-use Overblog\GraphQLBundle\Resolver\UnresolvableException;
+use Redeye\GraphQLBundle\Definition\Resolver\AliasedInterface;
+use Redeye\GraphQLBundle\Definition\Resolver\QueryInterface;
+use Redeye\GraphQLBundle\Resolver\TypeResolver;
+use Redeye\GraphQLBundle\Resolver\UnresolvableException;
 
 class MyResolver implements QueryInterface, AliasedInterface
 {
@@ -200,7 +200,7 @@ class MyResolver implements QueryInterface, AliasedInterface
 
 Don't forget to explicitly declare the implementing types, because they won't be autodiscovered:
 ```yaml
-overblog_graphql:
+redeye_graphql:
     definitions:
         schema:
             types: [Human, Droid]
@@ -213,8 +213,8 @@ This happens because the types `Human` and `Droid` are never referenced in field
 
 If you omit the `resolveType` option (which is [not recommended](https://webonyx.github.io/graphql-php/type-system/interfaces/#interface-role-in-data-fetching)) 
 then you must define the `isTypeOf` option on each type implementing the interface. The value of the `isTypeOf` must be
-a `boolean`. You can use the [Expression Language](https://github.com/overblog/GraphQLBundle/blob/master/docs/definitions/expression-language.md) 
-to resolve a correct value, namely the [`isTypeOf`](https://github.com/overblog/GraphQLBundle/blob/master/docs/definitions/expression-language.md#istypeof) function which was create especially for this purpose: 
+a `boolean`. You can use the [Expression Language](https://github.com/redeye/GraphQLBundle/blob/master/docs/definitions/expression-language.md) 
+to resolve a correct value, namely the [`isTypeOf`](https://github.com/redeye/GraphQLBundle/blob/master/docs/definitions/expression-language.md#istypeof) function which was create especially for this purpose: 
 
 ```yaml
 # config/graphql/types/Human.yml
@@ -237,7 +237,7 @@ Droid:
 
 The system will loop through each implementing type, call it's `isTypeOf` and stop on the first type that returns `true`.
 
-The `isTypeOf` function is not required, you can use any of the [preregistered expression functions](https://github.com/overblog/GraphQLBundle/blob/master/docs/definitions/expression-language.md#registered-functions):
+The `isTypeOf` function is not required, you can use any of the [preregistered expression functions](https://github.com/redeye/GraphQLBundle/blob/master/docs/definitions/expression-language.md#registered-functions):
 ```yaml
 Human:
     type: object
@@ -249,7 +249,7 @@ Human:
         isTypeOf: '@=service("my_service").isTypeOfHuman(value)'
 ```
 
-All expression functions in the `isTypeOf` option have access to the [params](https://github.com/overblog/GraphQLBundle/blob/master/docs/definitions/expression-language.md#registered-variables): `value`, `context` and `info`.
+All expression functions in the `isTypeOf` option have access to the [params](https://github.com/redeye/GraphQLBundle/blob/master/docs/definitions/expression-language.md#registered-variables): `value`, `context` and `info`.
 
 ## With Annotations
 
@@ -258,7 +258,7 @@ All expression functions in the `isTypeOf` option have access to the [params](ht
 
 namespace AppBundle;
 
-use Overblog\GraphQLBundle\Annotation as GQL;
+use Redeye\GraphQLBundle\Annotation as GQL;
 
 /**
  * @GQL\TypeInterface(resolveType="@=query('character_type', value)")
@@ -297,13 +297,13 @@ abstract class Character
 services:
     my.graph.resolver.character:
         class: MyBundle\GraphQL\Resolver\CharacterResolver
-        arguments: ["@overblog_graphql.type_resolver"]
+        arguments: ["@redeye_graphql.type_resolver"]
         tags:
-            - { name: overblog_graphql.query, alias: "character_type", method: "resolveType" }
-            - { name: overblog_graphql.query, alias: "character_friends", method: "resolveFriends" }
-            - { name: overblog_graphql.query, alias: "character_hero", method: "resolveHero" }
-            - { name: overblog_graphql.query, alias: "character_human", method: "resolveHuman" }
-            - { name: overblog_graphql.query, alias: "character_droid", method: "resolveDroid" }
+            - { name: redeye_graphql.query, alias: "character_type", method: "resolveType" }
+            - { name: redeye_graphql.query, alias: "character_friends", method: "resolveFriends" }
+            - { name: redeye_graphql.query, alias: "character_hero", method: "resolveHero" }
+            - { name: redeye_graphql.query, alias: "character_human", method: "resolveHuman" }
+            - { name: redeye_graphql.query, alias: "character_droid", method: "resolveDroid" }
 ```
 
 ```php
@@ -314,7 +314,7 @@ namespace App\GraphQL\Resolver;
 require_once __DIR__ . '/../../../../vendor/webonyx/graphql-php/tests/StarWarsData.php';
 
 use GraphQL\Tests\StarWarsData;
-use Overblog\GraphQLBundle\Resolver\TypeResolver;
+use Redeye\GraphQLBundle\Resolver\TypeResolver;
 
 class CharacterResolver
 {

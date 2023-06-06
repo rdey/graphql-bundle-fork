@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\DependencyInjection\Compiler;
+namespace Redeye\GraphQLBundle\Tests\DependencyInjection\Compiler;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\DependencyInjection\Compiler\QueryTaggedServiceMappingPass;
-use Overblog\GraphQLBundle\Resolver\QueryResolver;
+use Redeye\GraphQLBundle\DependencyInjection\Compiler\QueryTaggedServiceMappingPass;
+use Redeye\GraphQLBundle\Resolver\QueryResolver;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -21,7 +21,7 @@ class ResolverTaggedServiceMappingPassTest extends TestCase
         $container = new ContainerBuilder();
         $container->setDefinition('injected_service', new Definition(FakeInjectedService::class));
 
-        $container->register('overblog_graphql.query_resolver', QueryResolver::class);
+        $container->register('redeye_graphql.query_resolver', QueryResolver::class);
 
         $this->container = $container;
     }
@@ -41,7 +41,7 @@ class ResolverTaggedServiceMappingPassTest extends TestCase
         $testResolver = new Definition(ResolverTestService::class);
         $testResolver
             ->setPublic(true)
-            ->addTag('overblog_graphql.query', [
+            ->addTag('redeye_graphql.query', [
                 'alias' => 'test_resolver', 'method' => 'doSomethingWithContainer',
             ]);
 
@@ -56,7 +56,7 @@ class ResolverTaggedServiceMappingPassTest extends TestCase
     {
         $testResolver = new Definition(ResolverTestService::class);
         $testResolver
-            ->addTag('overblog_graphql.query', [
+            ->addTag('redeye_graphql.query', [
                 'alias' => false, 'method' => 'doSomethingWithContainer',
             ]);
 
@@ -72,7 +72,7 @@ class ResolverTaggedServiceMappingPassTest extends TestCase
     {
         $testResolver = new Definition(ResolverTestService::class);
         $testResolver
-            ->addTag('overblog_graphql.query', [
+            ->addTag('redeye_graphql.query', [
                 'alias' => 'test_resolver', 'method' => false,
             ]);
 

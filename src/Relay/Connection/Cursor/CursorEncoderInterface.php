@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Relay\Connection\Cursor;
+namespace Redeye\GraphQLBundle\Relay\Connection\Cursor;
 
 /**
  * @phpstan-template T

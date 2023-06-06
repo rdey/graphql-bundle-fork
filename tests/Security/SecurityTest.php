@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Security;
+namespace Redeye\GraphQLBundle\Tests\Security;
 
 use LogicException;
-use Overblog\GraphQLBundle\Security\Security;
+use Redeye\GraphQLBundle\Security\Security;
 use PHPUnit\Framework\TestCase;
 
 class SecurityTest extends TestCase

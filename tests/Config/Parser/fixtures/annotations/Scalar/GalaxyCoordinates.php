@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Config\Parser\fixtures\annotations\Scalar;
+namespace Redeye\GraphQLBundle\Tests\Config\Parser\fixtures\annotations\Scalar;
 
 use DateTimeInterface;
 use GraphQL\Language\AST\Node;
-use Overblog\GraphQLBundle\Annotation as GQL;
+use Redeye\GraphQLBundle\Annotation as GQL;
 use function explode;
 use function implode;
 

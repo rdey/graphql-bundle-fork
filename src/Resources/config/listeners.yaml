@@ -1,18 +1,18 @@
 services:
-    Overblog\GraphQLBundle\EventListener\RequestFilesListener:
+    Redeye\GraphQLBundle\EventListener\RequestFilesListener:
         arguments:
             - "@request_stack"
         tags:
             - { name: kernel.event_listener, event: graphql.executor.context, method: onExecutorContextEvent }
 
-    Overblog\GraphQLBundle\EventListener\TypeDecoratorListener:
+    Redeye\GraphQLBundle\EventListener\TypeDecoratorListener:
         arguments:
-            - '@Overblog\GraphQLBundle\Definition\ArgumentFactory'
+            - '@Redeye\GraphQLBundle\Definition\ArgumentFactory'
         tags:
             - { name: kernel.event_listener, event: graphql.type_loaded, method: onTypeLoaded }
 
-    Overblog\GraphQLBundle\EventListener\ValidationErrorsListener:
+    Redeye\GraphQLBundle\EventListener\ValidationErrorsListener:
         tags:
             - name: kernel.event_listener
-              event: !php/const Overblog\GraphQLBundle\Event\Events::ERROR_FORMATTING
+              event: !php/const Redeye\GraphQLBundle\Event\Events::ERROR_FORMATTING
               method: onErrorFormatting

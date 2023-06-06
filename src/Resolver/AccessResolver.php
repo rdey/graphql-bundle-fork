@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Resolver;
+namespace Redeye\GraphQLBundle\Resolver;
 
 use GraphQL\Executor\Promise\Adapter\SyncPromise;
 use GraphQL\Executor\Promise\Promise;
 use GraphQL\Executor\Promise\PromiseAdapter;
 use GraphQL\Type\Definition\ListOfType;
 use GraphQL\Type\Definition\ResolveInfo;
-use Overblog\GraphQLBundle\Error\UserError;
-use Overblog\GraphQLBundle\Error\UserWarning;
-use Overblog\GraphQLBundle\Relay\Connection\Output\Connection;
-use Overblog\GraphQLBundle\Relay\Connection\Output\Edge;
+use Redeye\GraphQLBundle\Error\UserError;
+use Redeye\GraphQLBundle\Error\UserWarning;
+use Redeye\GraphQLBundle\Relay\Connection\Output\Connection;
+use Redeye\GraphQLBundle\Relay\Connection\Output\Edge;
 use function array_map;
 use function call_user_func_array;
 use function is_iterable;

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Relay\Mutation;
+namespace Redeye\GraphQLBundle\Relay\Mutation;
 
 use InvalidArgumentException;
-use Overblog\GraphQLBundle\Definition\Builder\MappingInterface;
-use Overblog\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL\Query;
+use Redeye\GraphQLBundle\Definition\Builder\MappingInterface;
+use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionFunction\GraphQL\Query;
 use function is_array;
 use function is_string;
 use function json_encode;

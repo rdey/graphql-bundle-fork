@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Relay\Connection\Output;
+namespace Redeye\GraphQLBundle\Relay\Connection\Output;
 
-use Overblog\GraphQLBundle\Relay\Connection\PageInfoInterface;
+use Redeye\GraphQLBundle\Relay\Connection\PageInfoInterface;
 
 class PageInfo implements PageInfoInterface
 {

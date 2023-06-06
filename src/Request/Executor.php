@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Request;
+namespace Redeye\GraphQLBundle\Request;
 
 use ArrayObject;
 use Closure;
@@ -14,11 +14,11 @@ use GraphQL\Validator\DocumentValidator;
 use GraphQL\Validator\Rules\DisableIntrospection;
 use GraphQL\Validator\Rules\QueryComplexity;
 use GraphQL\Validator\Rules\QueryDepth;
-use Overblog\GraphQLBundle\Event\Events;
-use Overblog\GraphQLBundle\Event\ExecutorArgumentsEvent;
-use Overblog\GraphQLBundle\Event\ExecutorContextEvent;
-use Overblog\GraphQLBundle\Event\ExecutorResultEvent;
-use Overblog\GraphQLBundle\Executor\ExecutorInterface;
+use Redeye\GraphQLBundle\Event\Events;
+use Redeye\GraphQLBundle\Event\ExecutorArgumentsEvent;
+use Redeye\GraphQLBundle\Event\ExecutorContextEvent;
+use Redeye\GraphQLBundle\Event\ExecutorResultEvent;
+use Redeye\GraphQLBundle\Executor\ExecutorInterface;
 use RuntimeException;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -28,7 +28,7 @@ use function sprintf;
 
 class Executor
 {
-    public const PROMISE_ADAPTER_SERVICE_ID = 'overblog_graphql.promise_adapter';
+    public const PROMISE_ADAPTER_SERVICE_ID = 'redeye_graphql.promise_adapter';
 
     private array $schemas = [];
     private EventDispatcherInterface $dispatcher;

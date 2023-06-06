@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Event;
+namespace Redeye\GraphQLBundle\Event;
 
 use GraphQL\Executor\ExecutionResult;
 use Symfony\Contracts\EventDispatcher\Event;

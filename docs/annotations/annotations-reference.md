@@ -1,6 +1,6 @@
 # Annotations reference
 
-In the following reference examples the line `use Overblog\GraphQLBundle\Annotation as GQL;` will be omitted.
+In the following reference examples the line `use Redeye\GraphQLBundle\Annotation as GQL;` will be omitted.
 
 ## Notes
 
@@ -456,7 +456,7 @@ The corresponding GraphQL field is added to the GraphQL type(s) following the lo
   or
 - The type(s) specified in the `targetMutationTypes` attribute of the `@Provider` annotation if it's defined.  
   or
-- The root Query type of the default schema (defined in configuration at key `overblog_graphql.definitions.schema.mutation` or `overblog_graphql.definitions.schema.default.mutation`).  
+- The root Query type of the default schema (defined in configuration at key `redeye_graphql.definitions.schema.mutation` or `redeye_graphql.definitions.schema.default.mutation`).  
   
 The class exposing the mutation(s) must be declared as a [service](https://symfony.com/doc/current/service_container.html).
 
@@ -513,7 +513,7 @@ The corresponding GraphQL field is added to the GraphQL type(s) following the lo
   or
 - The type(s) specified in the `targetQueryTypes` attribute of the `@Provider` annotation if it's defined.  
   or
-- The root Query type of the default schema (defined in configuration at key `overblog_graphql.definitions.schema.query` or `overblog_graphql.definitions.schema.default.query`).  
+- The root Query type of the default schema (defined in configuration at key `redeye_graphql.definitions.schema.query` or `redeye_graphql.definitions.schema.default.query`).  
   
 The class exposing the query(ies) must be declared as a [service](https://symfony.com/doc/current/service_container.html).
 

@@ -33,7 +33,7 @@ Example:
 
 ## Paginator
 
-See: `Overblog\GraphQLBundle\Relay\Connection\Paginator`
+See: `Redeye\GraphQLBundle\Relay\Connection\Paginator`
 
 The purpose of this helper is to provide an easy way to paginate in a data set provided by a backend.
 
@@ -46,8 +46,8 @@ When constructing the paginator, you need to pass a callable which will be respo
 ```php
 <?php
 
-use Overblog\GraphQLBundle\Definition\Argument;
-use Overblog\GraphQLBundle\Relay\Connection\Paginator;
+use Redeye\GraphQLBundle\Definition\Argument;
+use Redeye\GraphQLBundle\Relay\Connection\Paginator;
 
 function getData($offset = 0)
 {
@@ -69,28 +69,28 @@ Output
 ```
 array(4) {
   [0]=>
-  object(Overblog\GraphQLBundle\Relay\Connection\Output\Edge)#24 (2) {
+  object(Redeye\GraphQLBundle\Relay\Connection\Output\Edge)#24 (2) {
     ["cursor"]=>
     string(24) "YXJyYXljb25uZWN0aW9uOjA="
     ["node"]=>
     string(1) "A"
   }
   [1]=>
-  object(Overblog\GraphQLBundle\Relay\Connection\Output\Edge)#25 (2) {
+  object(Redeye\GraphQLBundle\Relay\Connection\Output\Edge)#25 (2) {
     ["cursor"]=>
     string(24) "YXJyYXljb25uZWN0aW9uOjE="
     ["node"]=>
     string(1) "B"
   }
   [2]=>
-  object(Overblog\GraphQLBundle\Relay\Connection\Output\Edge)#26 (2) {
+  object(Redeye\GraphQLBundle\Relay\Connection\Output\Edge)#26 (2) {
     ["cursor"]=>
     string(24) "YXJyYXljb25uZWN0aW9uOjI="
     ["node"]=>
     string(1) "C"
   }
   [3]=>
-  object(Overblog\GraphQLBundle\Relay\Connection\Output\Edge)#27 (2) {
+  object(Redeye\GraphQLBundle\Relay\Connection\Output\Edge)#27 (2) {
     ["cursor"]=>
     string(24) "YXJyYXljb25uZWN0aW9uOjM="
     ["node"]=>
@@ -105,8 +105,8 @@ Note: we want 1 item after `C` so the decoded cursor is `arrayconnection:2`
 ```php
 <?php
 
-use Overblog\GraphQLBundle\Definition\Argument;
-use Overblog\GraphQLBundle\Relay\Connection\Paginator;
+use Redeye\GraphQLBundle\Definition\Argument;
+use Redeye\GraphQLBundle\Relay\Connection\Paginator;
 
 function getData($offset = 0)
 {
@@ -135,7 +135,7 @@ Output
 ```
 array(1) {
   [0]=>
-  object(Overblog\GraphQLBundle\Relay\Connection\Output\Edge)#26 (2) {
+  object(Redeye\GraphQLBundle\Relay\Connection\Output\Edge)#26 (2) {
     ["cursor"]=>
     string(24) "YXJyYXljb25uZWN0aW9uOjM="
     ["node"]=>
@@ -158,8 +158,8 @@ And it must return at least `['C','D','E']`
 ```php
 <?php
 
-use Overblog\GraphQLBundle\Definition\Argument;
-use Overblog\GraphQLBundle\Relay\Connection\Paginator;
+use Redeye\GraphQLBundle\Definition\Argument;
+use Redeye\GraphQLBundle\Relay\Connection\Paginator;
 
 class DataBackend
 {
@@ -223,9 +223,9 @@ sayHello(first: 1, after: "YXJyYXljb25uZWN0aW9uOjI="){ # after: base64_encode('a
 
 namespace App\GraphQL\Resolver;
 
-use Overblog\GraphQLBundle\Definition\Argument;
-use Overblog\GraphQLBundle\Definition\Resolver\QueryInterface;
-use Overblog\GraphQLBundle\Relay\Connection\Paginator;
+use Redeye\GraphQLBundle\Definition\Argument;
+use Redeye\GraphQLBundle\Definition\Resolver\QueryInterface;
+use Redeye\GraphQLBundle\Relay\Connection\Paginator;
 
 class Greetings implements QueryInterface
 {
@@ -251,7 +251,7 @@ with the bundle. All you have to do is to toggle the `MODE_PROMISE` flag on and
 update your callback to return a `Executor/Promise/Promise` instance.
 
 ```php
-// Let's pretend we use dataloader ( https://github.com/overblog/dataloader-php )
+// Let's pretend we use dataloader ( https://github.com/redeye/dataloader-php )
 public function resolveList($args)
 {
     $pagination = new Paginator(function ($offset, $limit) {
@@ -268,8 +268,8 @@ public function resolveList($args)
 Sometimes, you want to add fields to your Connection or Edges. In order to do so, you'll have to pass a custom instance of `ConnectionBuilder` to your Paginator as follow:  
 
 ```php
-use Overblog\GraphQLBundle\Relay\Connection\ConnectionBuilder;
-use Overblog\GraphQLBundle\Relay\Connection\Cursor\Base64CursorEncoder;
+use Redeye\GraphQLBundle\Relay\Connection\ConnectionBuilder;
+use Redeye\GraphQLBundle\Relay\Connection\Cursor\Base64CursorEncoder;
 
 public function resolveSomething(Argument $args)
 {
@@ -299,10 +299,10 @@ The `ConnectionBuilder` constructor accepts three parameters. The first one is a
 
 The connection callback will be call with the following parameters :
 
-- `edges` An array of edges object implementing `Overblog\GraphQLBundle\Relay\Connection\EdgeInterface`
-- `pageInfo` a PageInfo object `Overblog\GraphQLBundle\Relay\Connection\Output\PageInfo`
+- `edges` An array of edges object implementing `Redeye\GraphQLBundle\Relay\Connection\EdgeInterface`
+- `pageInfo` a PageInfo object `Redeye\GraphQLBundle\Relay\Connection\Output\PageInfo`
 
-This callback MUST return an instance of `Overblog\GraphQLBundle\Relay\Connection\ConnectionInterface`
+This callback MUST return an instance of `Redeye\GraphQLBundle\Relay\Connection\ConnectionInterface`
 
 
 The edge callback will be call with the following parameters :
@@ -311,7 +311,7 @@ The edge callback will be call with the following parameters :
 - `value` A value returned by the paginator data fetcher
 - `index` The index of the value
 
-This callback MUST return an instance of `Overblog\GraphQLBundle\Relay\Connection\EdgeInterface`
+This callback MUST return an instance of `Redeye\GraphQLBundle\Relay\Connection\EdgeInterface`
 
-If no callback are specified for the `ConnectionBuilder`, it'll generate instance of `Overblog\GraphQLBundle\Relay\Connection\Output\Connection` and `Overblog\GraphQLBundle\Relay\Connection\Output\Edge`
+If no callback are specified for the `ConnectionBuilder`, it'll generate instance of `Redeye\GraphQLBundle\Relay\Connection\Output\Connection` and `Redeye\GraphQLBundle\Relay\Connection\Output\Edge`
 

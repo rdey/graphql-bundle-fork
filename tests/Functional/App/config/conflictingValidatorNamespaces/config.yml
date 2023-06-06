@@ -7,10 +7,10 @@ framework:
         enabled: true
         enable_annotations: true
 
-overblog_graphql:
+redeye_graphql:
     definitions:
         config_validation: false
-        class_namespace: "Overblog\\GraphQLBundle\\Validator\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\Validator\\__DEFINITIONS__"
         schema:
             query: Mutation
             mutation: Mutation
@@ -20,6 +20,6 @@ overblog_graphql:
                   dir: "%kernel.project_dir%/config/conflictingValidatorNamespaces/mapping"
 
 services:
-    Overblog\GraphQLBundle\Tests\Functional\App\Mutation\InputValidatorMutation:
+    Redeye\GraphQLBundle\Tests\Functional\App\Mutation\InputValidatorMutation:
         tags:
-            - { name: "overblog_graphql.mutation", alias: "mutation_mock", method: "mutationMock" }
+            - { name: "redeye_graphql.mutation", alias: "mutation_mock", method: "mutationMock" }

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Validator;
+namespace Redeye\GraphQLBundle\Tests\Validator;
 
 use ArrayObject;
 use GraphQL\Type\Definition\ResolveInfo;
-use Overblog\GraphQLBundle\Definition\Argument;
-use Overblog\GraphQLBundle\Definition\ResolverArgs;
-use Overblog\GraphQLBundle\Validator\InputValidatorFactory;
+use Redeye\GraphQLBundle\Definition\Argument;
+use Redeye\GraphQLBundle\Definition\ResolverArgs;
+use Redeye\GraphQLBundle\Validator\InputValidatorFactory;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\Validator\Validation;

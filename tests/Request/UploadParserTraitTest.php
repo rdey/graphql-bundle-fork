@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Request;
+namespace Redeye\GraphQLBundle\Tests\Request;
 
 use Generator;
-use Overblog\GraphQLBundle\Request\UploadParserTrait;
+use Redeye\GraphQLBundle\Request\UploadParserTrait;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;

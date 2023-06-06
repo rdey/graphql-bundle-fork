@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\EventListener;
+namespace Redeye\GraphQLBundle\EventListener;
 
-use Overblog\GraphQLBundle\Event\ExecutorResultEvent;
+use Redeye\GraphQLBundle\Event\ExecutorResultEvent;
 use function memory_get_usage;
 use function microtime;
 use function round;

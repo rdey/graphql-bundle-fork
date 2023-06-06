@@ -2,11 +2,11 @@ imports:
     - { resource: ../config.yml }
     - { resource: services.yml }
 
-overblog_graphql:
+redeye_graphql:
     errors_handler:
         internal_error_message: "Mutation has failed."
     definitions:
-        class_namespace: "Overblog\\GraphQLBundle\\Mutation\\__DEFINITIONS__"
+        class_namespace: "Redeye\\GraphQLBundle\\Mutation\\__DEFINITIONS__"
         schema:
             query: RootMutation
             mutation: RootMutation

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Tests\Transformer;
+namespace Redeye\GraphQLBundle\Tests\Transformer;
 
 use Exception;
 use Generator;
@@ -13,9 +13,9 @@ use GraphQL\Type\Definition\NonNull;
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Schema;
-use Overblog\GraphQLBundle\Error\InvalidArgumentError;
-use Overblog\GraphQLBundle\Error\InvalidArgumentsError;
-use Overblog\GraphQLBundle\Transformer\ArgumentsTransformer;
+use Redeye\GraphQLBundle\Error\InvalidArgumentError;
+use Redeye\GraphQLBundle\Error\InvalidArgumentsError;
+use Redeye\GraphQLBundle\Transformer\ArgumentsTransformer;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
@@ -155,9 +155,9 @@ class ArgumentsTransformerTest extends TestCase
         $this->assertEquals(2, $res);
 
         $transformer = $this->getTransformer([
-            'InputType1' => ['type' => 'input', 'class' => 'Overblog\GraphQLBundle\Tests\Transformer\InputType1'],
-            'InputType2' => ['type' => 'input', 'class' => 'Overblog\GraphQLBundle\Tests\Transformer\InputType2'],
-            'Enum1' => ['type' => 'enum', 'class' => 'Overblog\GraphQLBundle\Tests\Transformer\Enum1'],
+            'InputType1' => ['type' => 'input', 'class' => 'Redeye\GraphQLBundle\Tests\Transformer\InputType1'],
+            'InputType2' => ['type' => 'input', 'class' => 'Redeye\GraphQLBundle\Tests\Transformer\InputType2'],
+            'Enum1' => ['type' => 'enum', 'class' => 'Redeye\GraphQLBundle\Tests\Transformer\Enum1'],
         ]);
 
         $res = $transformer->getInstanceAndValidate('Enum1', 2, $info, 'enum1');
@@ -194,8 +194,8 @@ class ArgumentsTransformerTest extends TestCase
     {
         $violation = new ConstraintViolation('validation_error', 'validation_error', [], 'invalid', 'field2', 'invalid');
         $builder = $this->getTransformer([
-            'InputType1' => ['type' => 'input', 'class' => 'Overblog\GraphQLBundle\Tests\Transformer\InputType1'],
-            'InputType2' => ['type' => 'input', 'class' => 'Overblog\GraphQLBundle\Tests\Transformer\InputType2'],
+            'InputType1' => ['type' => 'input', 'class' => 'Redeye\GraphQLBundle\Tests\Transformer\InputType1'],
+            'InputType2' => ['type' => 'input', 'class' => 'Redeye\GraphQLBundle\Tests\Transformer\InputType2'],
         ], new ConstraintViolationList([$violation]));
 
         $mapping = ['input1' => 'InputType1', 'input2' => 'InputType2'];
@@ -206,7 +206,7 @@ class ArgumentsTransformerTest extends TestCase
 
         try {
             $res = $builder->getArguments($mapping, $data, $this->getResolveInfo(self::getTypes()));
-            $this->fail("When input data validation fail, it should raise an Overblog\GraphQLBundle\Error\InvalidArgumentsError exception");
+            $this->fail("When input data validation fail, it should raise an Redeye\GraphQLBundle\Error\InvalidArgumentsError exception");
         } catch (Exception $e) {
             $this->assertInstanceOf(InvalidArgumentsError::class, $e);
             $first = $e->getErrors()[0];
@@ -259,8 +259,8 @@ class ArgumentsTransformerTest extends TestCase
             new ConstraintViolationList([$violation2])
         );
         $builder = new ArgumentsTransformer($validator, [
-            'InputType1' => ['type' => 'input', 'class' => 'Overblog\GraphQLBundle\Tests\Transformer\InputType1'],
-            'InputType2' => ['type' => 'input', 'class' => 'Overblog\GraphQLBundle\Tests\Transformer\InputType2'],
+            'InputType1' => ['type' => 'input', 'class' => 'Redeye\GraphQLBundle\Tests\Transformer\InputType1'],
+            'InputType2' => ['type' => 'input', 'class' => 'Redeye\GraphQLBundle\Tests\Transformer\InputType2'],
         ]);
 
         $mapping = ['input1' => '[InputType1]', 'input2' => '[InputType2]'];
@@ -271,7 +271,7 @@ class ArgumentsTransformerTest extends TestCase
 
         try {
             $res = $builder->getArguments($mapping, $data, $this->getResolveInfo(self::getTypes()));
-            $this->fail("When input data validation fail, it should raise an Overblog\GraphQLBundle\Error\InvalidArgumentsError exception");
+            $this->fail("When input data validation fail, it should raise an Redeye\GraphQLBundle\Error\InvalidArgumentsError exception");
         } catch (Exception $e) {
             $this->assertInstanceOf(InvalidArgumentsError::class, $e);
             /** @var InvalidArgumentsError $e */

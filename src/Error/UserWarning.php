@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Error;
+namespace Redeye\GraphQLBundle\Error;
 
 use GraphQL\Error\ClientAware;
 use RuntimeException;

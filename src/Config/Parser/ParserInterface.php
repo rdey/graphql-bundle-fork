@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Overblog\GraphQLBundle\Config\Parser;
+namespace Redeye\GraphQLBundle\Config\Parser;
 
 use SplFileInfo;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
