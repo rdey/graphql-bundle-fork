@@ -8,25 +8,14 @@ RedeyeGraphQLBundle
 [![Latest Unstable Version](https://poser.pugx.org/redeye/graphql-bundle/v/unstable)](https://packagist.org/packages/redeye/graphql-bundle)
 [![Total Downloads](https://poser.pugx.org/redeye/graphql-bundle/downloads)](https://packagist.org/packages/redeye/graphql-bundle)
 
+This is a fork of [overblog/graphql-bundle](https://github.com/overblog/graphql-bundle). For now, you're probably better off using that.
+
 This Symfony bundle provides integration of [GraphQL](https://facebook.github.io/graphql/) using [webonyx/graphql-php](https://github.com/webonyx/graphql-php)
 and [GraphQL Relay](https://facebook.github.io/relay/docs/en/graphql-server-specification.html).
 It also supports:
 * batching with [ReactRelayNetworkLayer](https://github.com/nodkz/react-relay-network-layer)
 * batching with [Apollo GraphQL](https://www.apollographql.com/docs/react/api/link/apollo-link-batch-http/)
 * upload and batching upload with [apollo-upload-client](https://github.com/jaydenseric/apollo-upload-client)
-
-Browse your version documentation:
-
-* [1.0 (DEV)](https://github.com/redeye/GraphQLBundle/blob/master/README.md)
-* [0.14 (STABLE)](https://github.com/redeye/GraphQLBundle/blob/0.14/README.md)
-* [0.13 (STABLE)](https://github.com/redeye/GraphQLBundle/blob/0.13/README.md)
-* [0.12 (DEPRECATE)](https://github.com/redeye/GraphQLBundle/blob/0.12/README.md)
-* [0.11 (OBSOLETE)](https://github.com/redeye/GraphQLBundle/blob/0.11/README.md)
-* [0.10 (OBSOLETE)](https://github.com/redeye/GraphQLBundle/blob/0.10/README.md)
-* [0.9  (OBSOLETE)](https://github.com/redeye/GraphQLBundle/blob/0.9/README.md)
-* [0.8  (OBSOLETE)](https://github.com/redeye/GraphQLBundle/blob/0.8/README.md)
-
-[Versions requirements](docs/index.md#versions-requirements)
 
 Proof of Concept
 -----------------
