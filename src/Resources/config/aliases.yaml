@@ -13,10 +13,6 @@ services:
     redeye_graphql.request_batch_parser: '@Redeye\GraphQLBundle\Request\BatchParser'
     redeye_graphql.arguments_transformer: '@Redeye\GraphQLBundle\Transformer\ArgumentsTransformer'
 
-    redeye_graphql.schema_builder:
-        alias: 'Redeye\GraphQLBundle\Definition\Builder\SchemaBuilder'
-        public: false
-
     redeye_graphql.type_factory:
         alias: 'Redeye\GraphQLBundle\Definition\Builder\TypeFactory'
         public: false

@@ -9,6 +9,21 @@ services:
     Redeye\GraphQLBundle\Executor\Promise\Adapter\ReactPromiseAdapter: ~
     Redeye\GraphQLBundle\Resolver\FieldResolver: ~
 
+    Redeye\GraphQLBundle\Federation\EntityTypeResolver\ChainEntityTypeResolver:
+        arguments:
+            $entityTypeResolvers: !tagged { tag: 'redeye_graphql.entity_type_resolver' }
+
+    Redeye\GraphQLBundle\Command\DumpFederatedSchemaCommand:
+        arguments:
+            $requestExecutor: '@redeye_graphql.request_executor'
+        tags:
+            - { name: 'console.command', command: "redeye:graphql:dump-federated" }
+
+    Redeye\GraphQLBundle\Federation\FederatedSchemaBuilder:
+        arguments:
+            $typeResolver: '@Redeye\GraphQLBundle\Resolver\TypeResolver'
+            $entityTypeResolver: '@Redeye\GraphQLBundle\Federation\EntityTypeResolver\ChainEntityTypeResolver'
+
     Redeye\GraphQLBundle\Definition\GraphQLServices:
         tags: ['container.service_locator']
 

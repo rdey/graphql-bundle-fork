@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Redeye\GraphQLBundle\Federation;
 
-use Redeye\GraphQLBundle\Definition\Type\ExtensibleSchema;
 use Redeye\GraphQLBundle\Federation\Types\AnyType;
-use GraphQL\Type\Schema;
+use Redeye\GraphQLBundle\Federation\Types\ServiceDefinitionType;
 use GraphQL\Type\Definition\Directive;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
@@ -14,14 +13,15 @@ use GraphQL\Utils\TypeInfo;
 use GraphQL\Utils\Utils;
 
 use Redeye\GraphQLBundle\Federation\Types\EntityObjectType;
+use Redeye\GraphQLBundle\Definition\Type\ExtensibleSchema;
+use Redeye\GraphQLBundle\Federation\EntityTypeResolver\EntityTypeResolverInterface;
 use Redeye\GraphQLBundle\Federation\Types\EntityUnionType;
-use Redeye\GraphQLBundle\Federation\Types\ServiceDefinitionType;
 
 /**
  * A federated GraphQL schema definition (see [related docs](https://www.apollographql.com/docs/apollo-server/federation/introduction))
  *
  * A federated schema defines a self-contained GraphQL service that can be merged with
- * other services by the [Redeye\GraphQLBundle Gateway](https://www.apollographql.com/docs/intro/platform/#gateway)
+ * other services by the [Apollo Gateway](https://www.apollographql.com/docs/intro/platform/#gateway)
  * to produce a single schema clients can consume without being aware of the underlying
  * service structure. It and supports defining entity types which can be referenced by
  * other services and resolved by the gateway and annotate types and fields with specialized
@@ -29,7 +29,7 @@ use Redeye\GraphQLBundle\Federation\Types\ServiceDefinitionType;
  *
  * Usage example:
  *
- *     $userType = new Redeye\GraphQLBundle\Federation\Types\EntityObjectType([
+ *     $userType = new Apollo\Federation\Types\EntityObjectType([
  *       'name' => 'User',
  *       'fields' => [
  *         'id' => [...],
@@ -50,7 +50,7 @@ use Redeye\GraphQLBundle\Federation\Types\ServiceDefinitionType;
  *       ]
  *     ]);
  *
- *     $schema = new Redeye\GraphQLBundle\Federation\FederatedSchema([
+ *     $schema = new Apollo\Federation\FederatedSchema([
  *       'query' => $queryType
  *     ]);
  */
@@ -66,19 +66,15 @@ class FederatedSchema extends ExtensibleSchema
     protected EntityUnionType $entityUnionType;
     protected AnyType $anyType;
 
-    /**
-     *
-     * We will provide the parts that we need to operate against.
-     *
-     * @param array{?entityTypes: array<EntityObjectType>, ?typeLoader: callable, query: array} $config
-     */
-    public function __construct($config)
+    protected EntityTypeResolverInterface $entityTypeResolver;
+
+    public function __construct($config, EntityTypeResolverInterface $entityTypeResolver)
     {
         $this->entityTypes = $config['entityTypes'] ?? $this->lazyEntityTypeExtractor($config);
         $this->entityDirectives = array_merge(Directives::getDirectives(), Directive::getInternalDirectives());
 
         $this->serviceDefinitionType = new ServiceDefinitionType($this);
-        $this->entityUnionType = new EntityUnionType($this->entityTypes);
+        $this->entityUnionType = new EntityUnionType($this->entityTypes, $entityTypeResolver);
         $this->anyType = new AnyType();
 
         $config = array_merge($config,
@@ -88,6 +84,7 @@ class FederatedSchema extends ExtensibleSchema
         );
 
         parent::__construct($config);
+
     }
 
     /**

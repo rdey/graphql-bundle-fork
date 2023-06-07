@@ -22,6 +22,7 @@ use Redeye\GraphQLBundle\EventListener\ClassLoaderListener;
 use Redeye\GraphQLBundle\EventListener\DebugListener;
 use Redeye\GraphQLBundle\EventListener\ErrorHandlerListener;
 use Redeye\GraphQLBundle\EventListener\ErrorLoggerListener;
+use Redeye\GraphQLBundle\Federation\FederatedSchemaBuilder;
 use Redeye\GraphQLBundle\Request\Executor;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -41,6 +42,12 @@ class RedeyeGraphQLExtension extends Extension
         $this->loadConfigFiles($container);
         $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
+
+        if ($config['federation']) {
+            $container->setAlias('redeye_graphql.schema_builder', FederatedSchemaBuilder::class);
+        } else {
+            $container->setAlias('redeye_graphql.schema_builder', SchemaBuilder::class);
+        }
 
         $this->setBatchingMethod($config, $container);
         $this->setServicesAliases($config, $container);

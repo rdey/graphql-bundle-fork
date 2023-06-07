@@ -65,6 +65,8 @@ class GraphQLParser implements ParserInterface
                  */
                 $class = sprintf('\\%s\\GraphQL\\ASTConverter\\%sNode', __NAMESPACE__, ucfirst(self::DEFINITION_TYPE_MAPPING[$typeDef->kind]));
                 $typesConfig[$typeDef->name->value] = call_user_func([$class, 'toConfig'], $typeDef);
+            } else if (isset($typeDef->kind) && $typeDef->kind == NodeKind::DIRECTIVE_DEFINITION && isset($typeDef->name) && $typeDef->name->value == 'resolve') {
+                // Allow a directive named resolve
             } else {
                 self::throwUnsupportedDefinitionNode($typeDef);
             }
@@ -78,8 +80,9 @@ class GraphQLParser implements ParserInterface
         $path = explode('\\', get_class($typeDef));
         throw new InvalidArgumentException(
             sprintf(
-                '%s definition is not supported right now.',
-                preg_replace('@DefinitionNode$@', '', array_pop($path))
+                '%s definition is not supported right now, attempting to define %s.',
+                preg_replace('@DefinitionNode$@', '', array_pop($path)),
+                $typeDef->name
             )
         );
     }
