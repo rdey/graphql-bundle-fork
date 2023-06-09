@@ -22,6 +22,11 @@ class KeyDirective extends Directive
                 new FieldArgument([
                     'name' => 'fields',
                     'type' => Type::nonNull(Type::string())
+                ]),
+                new FieldArgument([
+                    'name' => 'resolvable',
+                    'type' => Type::nonNull(Type::boolean()),
+                    'defaultValue' => true,
                 ])
             ]
         ]);

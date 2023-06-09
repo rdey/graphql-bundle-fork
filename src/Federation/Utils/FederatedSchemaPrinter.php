@@ -97,7 +97,7 @@ class FederatedSchemaPrinter
 
     public static function isFederatedDirective($type): bool
     {
-        return in_array($type->name, ['key', 'provides', 'requires', 'external']);
+        return in_array($type->name, ['key', 'provides', 'requires', 'external', 'shareable', 'override']);
     }
 
     /**
@@ -363,14 +363,25 @@ class FederatedSchemaPrinter
                 )
             : '';
 
+        $federationDirectives = '';
+
+        if (isset($type->config['shareable']) && $type->config['shareable'] === true) {
+            $federationDirectives .= ' @shareable';
+        }
+
+        if (isset($type->config['isExternal']) && $type->config['isExternal'] === true) {
+            $federationDirectives .= ' @external';
+        }
+
         $queryExtends = $type->name === 'Query' || $type->name === 'Mutation' ? 'extend ' : '';
 
         return self::printDescription($options, $type) .
             sprintf(
-                "%stype %s%s {\n%s\n}",
+                "%stype %s%s%s {\n%s\n}",
                 $queryExtends,
                 $type->name,
                 $implementedInterfaces,
+                $federationDirectives,
                 self::printFields($options, $type)
             );
     }
@@ -391,13 +402,25 @@ class FederatedSchemaPrinter
                 )
             : '';
 
-        $keyDirective = '';
+        $federationDirectives = '';
 
         foreach ($type->getKeyFields() as $keyField) {
-            $keyDirective = $keyDirective . sprintf(' @key(fields: "%s")', $keyField);
+            $federationDirectives .= sprintf(
+                ' @key(fields: "%s"%s)',
+                $keyField,
+                $type instanceof EntityRefObjectType ? ', resolvable: false' : ''
+            );
         }
 
-        $isEntityRef = $type instanceof EntityRefObjectType;
+        if (isset($type->config['shareable']) && $type->config['shareable'] === true) {
+            $federationDirectives .= ' @shareable';
+        }
+
+        if (isset($type->config['isExternal']) && $type->config['isExternal'] === true) {
+            $federationDirectives .= ' @external';
+        }
+
+        $isEntityRef = false; //$type instanceof EntityRefObjectType;
         $extends = $isEntityRef ? 'extend ' : '';
 
         return self::printDescription($options, $type) .
@@ -406,7 +429,7 @@ class FederatedSchemaPrinter
                 $extends,
                 $type->name,
                 $implementedInterfaces,
-                $keyDirective,
+                $federationDirectives,
                 self::printFields($options, $type)
             );
     }
@@ -465,12 +488,20 @@ class FederatedSchemaPrinter
             array_push($directives, '@external');
         }
 
+        if (isset($field->config['shareable']) && $field->config['shareable'] === true) {
+            array_push($directives, '@shareable');
+        }
+
         if (isset($field->config['provides'])) {
             array_push($directives, sprintf('@provides(fields: "%s")', $field->config['provides']));
         }
 
         if (isset($field->config['requires'])) {
             array_push($directives, sprintf('@requires(fields: "%s")', $field->config['requires']));
+        }
+
+        if (isset($field->config['override'])) {
+            array_push($directives, sprintf('@override(from: "%s")', $field->config['override']));
         }
 
         return implode(' ', $directives);

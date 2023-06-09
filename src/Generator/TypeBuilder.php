@@ -29,6 +29,8 @@ use Redeye\GraphQLBundle\Definition\Type\CustomScalarType;
 use Redeye\GraphQLBundle\Definition\Type\GeneratedTypeInterface;
 use Redeye\GraphQLBundle\Error\ResolveErrors;
 use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionLanguage as EL;
+use Redeye\GraphQLBundle\Federation\Types\EntityObjectType;
+use Redeye\GraphQLBundle\Federation\Types\EntityRefObjectType;
 use Redeye\GraphQLBundle\Generator\Converter\ExpressionConverter;
 use Redeye\GraphQLBundle\Generator\Exception\GeneratorException;
 use Redeye\GraphQLBundle\Validator\InputValidator;
@@ -66,6 +68,8 @@ class TypeBuilder
 
     protected const EXTENDS = [
         'object' => ObjectType::class,
+        'entity-object' => EntityObjectType::class,
+        'entity-ref-object' => EntityRefObjectType::class,
         'input-object' => InputObjectType::class,
         'interface' => InterfaceType::class,
         'union' => UnionType::class,
@@ -308,6 +312,22 @@ class TypeBuilder
             $configLoader->addItem('validation', $this->buildValidationRules($c->validation));
         }
 
+        if (!empty($c->keyFields)) {
+            $configLoader->addItem('keyFields', $c->keyFields);
+        }
+
+        if (!empty($c->shareable)) {
+            $configLoader->addItem('shareable', $c->shareable);
+        }
+
+        if (!empty($c->external)) {
+            $configLoader->addItem('isExternal', $c->external);
+        }
+
+        if (!empty($c->resolveReference)) {
+            $configLoader->addItem('__resolveReference', $this->buildResolveReference($c->resolveReference));
+        }
+
         // only by object, input-object and interface types
         if (!empty($c->fields)) {
             $configLoader->addItem('fields', ArrowFunction::new(
@@ -498,6 +518,26 @@ class TypeBuilder
         }
 
         return ArrowFunction::new($resolve);
+    }
+
+    public function buildResolveReference($resolveReference)
+    {
+        if (is_callable($resolveReference) && is_array($resolveReference)) {
+            return Collection::numeric($resolveReference);
+        }
+
+        // TODO: before creating an input validator, check if any validation rules are defined
+        if (EL::isStringWithTrigger($resolveReference)) {
+            $closure = Closure::new()
+                ->addArguments('ref', 'context', 'info')
+                ->bindVar(TypeGenerator::GRAPHQL_SERVICES);
+
+            $closure->append('return ', $this->expressionConverter->convert($resolveReference));
+
+            return $closure;
+        }
+
+        return ArrowFunction::new($resolveReference);
     }
 
     /**
@@ -752,6 +792,26 @@ class TypeBuilder
 
         if (!empty($c->access) && is_string($c->access) && EL::expressionContainsVar('object', $c->access)) {
             $field->addItem('useStrictAccess', false);
+        }
+
+        if (isset($c->shareable) && $c->shareable === true) {
+            $field->addItem('shareable', true);
+        }
+
+        if (isset($c->external) && $c->external === true) {
+            $field->addItem('isExternal', true);
+        }
+
+        if (isset($c->override)) {
+            $field->addItem('override', $c->override);
+        }
+
+        if (isset($c->provides)) {
+            $field->addItem('provides', $c->provides);
+        }
+
+        if (isset($c->requires)) {
+            $field->addItem('requires', $c->requires);
         }
 
         if ('input-object' === $this->type) {

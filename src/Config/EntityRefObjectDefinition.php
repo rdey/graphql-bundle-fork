@@ -1,18 +1,16 @@
 <?php
-
 declare(strict_types=1);
 
 namespace Redeye\GraphQLBundle\Config;
 
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
-use function array_key_exists;
 
-class ObjectTypeDefinition extends TypeWithOutputFieldsDefinition
+class EntityRefObjectDefinition extends TypeWithOutputFieldsDefinition
 {
     public function getDefinition(): ArrayNodeDefinition
     {
-        $builder = new TreeBuilder('_object_config', 'array');
+        $builder = new TreeBuilder('_entity_ref_object_config', 'array');
 
         /** @var ArrayNodeDefinition $node */
         $node = $builder->getRootNode();
@@ -20,24 +18,29 @@ class ObjectTypeDefinition extends TypeWithOutputFieldsDefinition
         /** @phpstan-ignore-next-line */
         $node
             ->children()
-                ->append($this->validationSection(self::VALIDATION_LEVEL_CLASS))
-                ->append($this->nameSection())
-                ->append($this->outputFieldsSection())
-                ->append($this->fieldsBuilderSection())
-                ->append($this->descriptionSection())
-                ->booleanNode('shareable')->defaultFalse()->end()
-                ->booleanNode('external')->defaultFalse()->end()
-                ->arrayNode('interfaces')
-                    ->prototype('scalar')->info('One of internal or custom interface types.')->end()
-                ->end()
-                ->variableNode('isTypeOf')->end()
-                ->variableNode('resolveField')->end()
-                ->variableNode('fieldsDefaultAccess')
-                    ->info('Default access control to fields (expression language can be use here)')
-                ->end()
-                ->variableNode('fieldsDefaultPublic')
-                    ->info('Default public control to fields (expression language can be use here)')
-                ->end()
+            ->append($this->validationSection(self::VALIDATION_LEVEL_CLASS))
+            ->append($this->nameSection())
+            ->append($this->outputFieldsSection())
+            ->append($this->fieldsBuilderSection())
+            ->append($this->descriptionSection())
+            ->booleanNode('shareable')->defaultFalse()->end()
+            ->booleanNode('external')->defaultFalse()->end()
+            ->arrayNode('keyFields')
+                ->prototype('scalar')->info('The @key fields')->end()
+                ->isRequired()
+                ->requiresAtLeastOneElement()
+            ->end()
+            ->arrayNode('interfaces')
+            ->prototype('scalar')->info('One of internal or custom interface types.')->end()
+            ->end()
+            ->variableNode('isTypeOf')->end()
+            ->variableNode('resolveField')->end()
+            ->variableNode('fieldsDefaultAccess')
+            ->info('Default access control to fields (expression language can be use here)')
+            ->end()
+            ->variableNode('fieldsDefaultPublic')
+            ->info('Default public control to fields (expression language can be use here)')
+            ->end()
             ->end();
 
         $this->treatFieldsDefaultAccess($node);
@@ -64,7 +67,7 @@ class ObjectTypeDefinition extends TypeWithOutputFieldsDefinition
 
                 return $v;
             })
-        ->end();
+            ->end();
     }
 
     /**
@@ -84,6 +87,6 @@ class ObjectTypeDefinition extends TypeWithOutputFieldsDefinition
 
                 return $v;
             })
-        ->end();
+            ->end();
     }
 }

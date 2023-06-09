@@ -23,6 +23,8 @@ class TypesConfiguration implements ConfigurationInterface
 {
     private static array $types = [
         'object',
+        'entity-object',
+        'entity-ref-object',
         'enum',
         'interface',
         'union',
@@ -95,6 +97,8 @@ class TypesConfiguration implements ConfigurationInterface
                     ->end()
                     ->booleanNode('decorator')->info('Decorator will not be generated.')->defaultFalse()->end()
                     ->append(Config\ObjectTypeDefinition::create()->getDefinition())
+                    ->append(Config\EntityObjectDefinition::create()->getDefinition())
+                    ->append(Config\EntityRefObjectDefinition::create()->getDefinition())
                     ->append(Config\EnumTypeDefinition::create()->getDefinition())
                     ->append(Config\InterfaceTypeDefinition::create()->getDefinition())
                     ->append(Config\UnionTypeDefinition::create()->getDefinition())

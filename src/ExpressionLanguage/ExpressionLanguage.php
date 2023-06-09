@@ -16,7 +16,7 @@ use function substr;
 final class ExpressionLanguage extends BaseExpressionLanguage
 {
     // TODO (murtukov): make names conditional
-    public const KNOWN_NAMES = ['value', 'args', 'context', 'info', 'object', 'validator', 'errors', 'childrenComplexity', 'typeName', 'fieldName'];
+    public const KNOWN_NAMES = ['value', 'args', 'context', 'info', 'object', 'validator', 'errors', 'childrenComplexity', 'typeName', 'fieldName', 'ref'];
     public const EXPRESSION_TRIGGER = '@=';
 
     public array $globalNames = [];

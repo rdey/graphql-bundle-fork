@@ -6,12 +6,14 @@ namespace Redeye\GraphQLBundle\Config\Parser;
 
 use Exception;
 use GraphQL\Language\AST\DefinitionNode;
+use GraphQL\Language\AST\DirectiveDefinitionNode;
 use GraphQL\Language\AST\EnumTypeDefinitionNode;
 use GraphQL\Language\AST\InputObjectTypeDefinitionNode;
 use GraphQL\Language\AST\NodeKind;
 use GraphQL\Language\AST\ObjectTypeDefinitionNode;
 use GraphQL\Language\Parser;
 use Redeye\GraphQLBundle\Config\Parser\GraphQL\ASTConverter\NodeInterface;
+use Redeye\GraphQLBundle\Federation\Directives;
 use SplFileInfo;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -57,7 +59,7 @@ class GraphQLParser implements ParserInterface
 
         foreach ($ast->definitions as $typeDef) {
             /**
-             * @var ObjectTypeDefinitionNode|InputObjectTypeDefinitionNode|EnumTypeDefinitionNode $typeDef
+             * @var ObjectTypeDefinitionNode|InputObjectTypeDefinitionNode|EnumTypeDefinitionNode|DirectiveDefinitionNode $typeDef
              */
             if (isset($typeDef->kind) && in_array($typeDef->kind, array_keys(self::DEFINITION_TYPE_MAPPING))) {
                 /**
@@ -65,7 +67,7 @@ class GraphQLParser implements ParserInterface
                  */
                 $class = sprintf('\\%s\\GraphQL\\ASTConverter\\%sNode', __NAMESPACE__, ucfirst(self::DEFINITION_TYPE_MAPPING[$typeDef->kind]));
                 $typesConfig[$typeDef->name->value] = call_user_func([$class, 'toConfig'], $typeDef);
-            } else if (isset($typeDef->kind) && $typeDef->kind == NodeKind::DIRECTIVE_DEFINITION && isset($typeDef->name) && $typeDef->name->value == 'resolve') {
+            } else if (self::isAllowedDirectiveDefinition($typeDef)) {
                 // Allow a directive named resolve
             } else {
                 self::throwUnsupportedDefinitionNode($typeDef);
@@ -73,6 +75,28 @@ class GraphQLParser implements ParserInterface
         }
 
         return $typesConfig;
+    }
+
+    /**
+     * @param ObjectTypeDefinitionNode|InputObjectTypeDefinitionNode|EnumTypeDefinitionNode $typeDef
+     */
+    private static function isAllowedDirectiveDefinition($typeDef): bool
+    {
+        if (!(isset($typeDef->kind) && $typeDef->kind == NodeKind::DIRECTIVE_DEFINITION && isset($typeDef->name))) {
+            return false;
+        }
+
+        if (in_array($typeDef->name->value, ['resolve', 'resolveReference'])) {
+            return true;
+        }
+
+        foreach (Directives::getDirectives() as $directive) {
+            if ($directive->name === $typeDef->name->value) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private static function throwUnsupportedDefinitionNode(DefinitionNode $typeDef): void

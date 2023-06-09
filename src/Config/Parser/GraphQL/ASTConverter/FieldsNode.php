@@ -33,6 +33,26 @@ class FieldsNode implements NodeInterface
                     $fieldConfig['resolve'] = $directiveConfig['resolve'];
                 }
 
+                if (isset($directiveConfig['shareable'])) {
+                    $fieldConfig['shareable'] = $directiveConfig['shareable'];
+                }
+
+                if (isset($directiveConfig['external'])) {
+                    $fieldConfig['external'] = $directiveConfig['external'];
+                }
+
+                if (isset($directiveConfig['requires'])) {
+                    $fieldConfig['requires'] = $directiveConfig['requires'];
+                }
+
+                if (isset($directiveConfig['provides'])) {
+                    $fieldConfig['provides'] = $directiveConfig['provides'];
+                }
+
+                if (isset($directiveConfig['override'])) {
+                    $fieldConfig['override'] = $directiveConfig['override'];
+                }
+
                 $config[$definition->name->value] = $fieldConfig;
             }
         }
