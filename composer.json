@@ -81,6 +81,11 @@
         "overblog/graphql-bundle": "*",
         "skillshare/apollo-federation-php": "*"
     },
+    "extra": {
+      "branch-alias": {
+        "dev-main": "0.1.x-dev"
+      }
+    },
     "scripts": {
         "test": "bin/phpunit --color=always --coverage-clover=build/logs/clover.xml",
         "static-analysis": [
