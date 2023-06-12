@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Redeye\GraphQLBundle\DependencyInjection;
 
-use GraphQL\Executor\Promise\Adapter\SyncPromiseAdapter;
 use GraphQL\Validator\Rules\QueryComplexity;
 use GraphQL\Validator\Rules\QueryDepth;
+use Redeye\GraphQLBundle\DataLoader\Promise\Adapter\Webonyx\GraphQL\SyncPromiseAdapter;
 use Redeye\GraphQLBundle\Definition\Argument;
 use Redeye\GraphQLBundle\DependencyInjection\Compiler\ConfigParserPass;
 use Redeye\GraphQLBundle\Error\ErrorHandler;

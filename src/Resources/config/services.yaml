@@ -24,6 +24,14 @@ services:
             $typeResolver: '@Redeye\GraphQLBundle\Resolver\TypeResolver'
             $entityTypeResolver: '@Redeye\GraphQLBundle\Federation\EntityTypeResolver\ChainEntityTypeResolver'
 
+    Redeye\GraphQLBundle\DataLoader\Promise\Adapter\Webonyx\GraphQL\SyncPromiseAdapter: ~
+
+    Redeye\GraphQLBundle\PromiseAdapter\Adapter\WebonyxGraphQLSyncPromiseAdapter:
+        arguments:
+            - '@Redeye\GraphQLBundle\DataLoader\Promise\Adapter\Webonyx\GraphQL\SyncPromiseAdapter'
+
+    Redeye\GraphQLBundle\PromiseAdapter\PromiseAdapterInterface: '@Redeye\GraphQLBundle\PromiseAdapter\Adapter\WebonyxGraphQLSyncPromiseAdapter'
+
     Redeye\GraphQLBundle\Definition\GraphQLServices:
         tags: ['container.service_locator']
 
