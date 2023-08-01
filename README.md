@@ -17,6 +17,17 @@ It also supports:
 * batching with [Apollo GraphQL](https://www.apollographql.com/docs/react/api/link/apollo-link-batch-http/)
 * upload and batching upload with [apollo-upload-client](https://github.com/jaydenseric/apollo-upload-client)
 
+Upgrading from overblog/graphql-bundle
+--------------------------------------
+
+1. Change the dependencies in composer.json (it replaces overblog/graphql-bundle, overblog/dataloader-php, overblog/dataloader-bundle, redeye/graphql-federation-bundle and some aspects of redeye/graphql-extras-bundle)
+2. Change bundle classes in `bundles.php`
+3. Change config key from `overblog_graphql` to `redeye_graphql` in your config file.
+4. If using Federation, set `federation: true` in your config
+5. Change the bundle reference in your routing config
+6. Do a search across your project for Overblog (case insensitive). In most cases you just need to replace these with Redeye (same case)
+
+
 Proof of Concept
 -----------------
 
