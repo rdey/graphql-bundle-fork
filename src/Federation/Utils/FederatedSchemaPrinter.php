@@ -113,8 +113,16 @@ class FederatedSchemaPrinter
         ksort($types);
         $types = array_filter($types, $typeFilter);
 
+        $federationVersion = <<<DIR
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.0",
+        import: ["@key", "@provides", "@requires", "@external", "@shareable", "@override"])
+DIR;
+
+
         return sprintf(
-            "%s\n",
+            "%s\n\n%s\n",
+            $federationVersion,
             implode(
                 "\n\n",
                 array_filter(
