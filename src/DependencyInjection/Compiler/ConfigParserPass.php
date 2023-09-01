@@ -187,7 +187,7 @@ class ConfigParserPass implements CompilerPassInterface
         if ($mappingConfig['auto_discover']['built_in']) {
             $typesMappings[] = [
                 'dir' => $this->bundleDir(RedeyeGraphQLBundle::class).'/Resources/config/graphql',
-                'types' => ['yaml'],
+                'types' => ['graphql'],
             ];
         }
 
