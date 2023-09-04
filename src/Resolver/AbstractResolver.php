@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Redeye\GraphQLBundle\Resolver;
 
+use Redeye\GraphQLBundle\Tracer\TracerInterface;
 use function array_keys;
 
 abstract class AbstractResolver implements FluentResolverInterface
@@ -12,6 +13,7 @@ abstract class AbstractResolver implements FluentResolverInterface
     private array $aliases = [];
     private array $solutionOptions = [];
     private array $fullyLoadedSolutions = [];
+    protected array $tracers = [];
 
     public function addSolution(string $id, callable $factory, array $aliases = [], array $options = []): self
     {
@@ -22,6 +24,11 @@ abstract class AbstractResolver implements FluentResolverInterface
         $this->solutionOptions[$id] = $options;
 
         return $this;
+    }
+
+    public function addTracers(TracerInterface $tracer): self
+    {
+        $this->tracers[] = $tracer;
     }
 
     public function hasSolution(string $id): bool
@@ -36,7 +43,38 @@ abstract class AbstractResolver implements FluentResolverInterface
      */
     public function getSolution(string $id)
     {
-        return $this->loadSolution($id);
+        $solution = $this->loadSolution($id);
+
+        return new class($solution, $this->tracers) {
+            public function __construct(
+                private mixed $solution,
+                private array $tracers
+            ) {
+            }
+
+            /**
+             * @param array<array-key, mixed> $args
+             *
+             * @return mixed
+             */
+            public function __call(string $method, $args)
+            {
+                /** @var callable $callable */
+                $callable = [$this->solution, $method];
+
+                foreach ($tracers as $tracer) {
+                    $tracer->beforeResolver($callable, $args);
+                }
+
+                try {
+                    return $callable(...$args);
+                } finally {
+                    foreach ($tracers as $tracer) {
+                        $tracer->afterResolver($callable, $args);
+                    }
+                }
+            }
+        };
     }
 
     public function getSolutions(): array
