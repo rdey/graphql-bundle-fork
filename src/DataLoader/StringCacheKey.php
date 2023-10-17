@@ -37,7 +37,7 @@ final class StringCacheKey
         }
 
         if (is_object($key)) {
-            return spl_object_hash($key);
+            return sha1(serialize($key));
         }
 
         if (is_resource($key)) {

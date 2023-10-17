@@ -44,7 +44,7 @@ class Option
             'batch' => true,
             'maxBatchSize' => null,
             'cache' => true,
-            'cacheKeyFn' => null,
+            'cacheKeyFn' => [StringCacheKey::class, 'key'],
             'cacheMap' => new CacheMap()
         ];
 
