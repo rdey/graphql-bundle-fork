@@ -124,6 +124,7 @@ class FederatedSchema extends ExtensibleSchema
     private function getQueryTypeConfig(array $config): array
     {
         $queryTypeConfig = $config['query']->config;
+        dump($config);
         if (is_callable($queryTypeConfig['fields'])) {
             $queryTypeConfig['fields'] = $queryTypeConfig['fields']();
         }

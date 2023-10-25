@@ -65,6 +65,10 @@ class TypeResolver extends AbstractResolver
             );
         }
 
+        if (! $type   instanceof Type) {
+            dump($alias, $type);
+        }
+
         return $type;
     }
 

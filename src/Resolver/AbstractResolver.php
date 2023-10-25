@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Redeye\GraphQLBundle\Resolver;
 
 use Redeye\GraphQLBundle\Tracer\TracerInterface;
+use GraphQL\Type\Definition\Type;
 use function array_keys;
 
 abstract class AbstractResolver implements FluentResolverInterface
@@ -45,7 +46,9 @@ abstract class AbstractResolver implements FluentResolverInterface
     {
         $solution = $this->loadSolution($id);
 
-        return new class($solution, $this->tracers) {
+        return $solution;
+
+        return new class($solution, $this->tracers) extends  Type {
             public function __construct(
                 private mixed $solution,
                 private array $tracers
@@ -74,6 +77,40 @@ abstract class AbstractResolver implements FluentResolverInterface
                     }
                 }
             }
+
+            public function __get(string $name)
+            {
+                dump($this->solution->$name);
+                return $this->solution->$name;
+            }
+
+            public function __isset(string $name): bool
+            {
+                return isset($this->solution->$name);
+            }
+
+
+            public function assertValid()
+            {
+                return $this->__call(__METHOD__, func_get_args());
+            }
+
+            #[ReturnTypeWillChange] public function jsonSerialize()
+            {
+                return $this->__call(__METHOD__, func_get_args());
+            }
+
+            public function toString()
+            {
+                return $this->__call(__METHOD__, func_get_args());
+
+            }
+
+            public function __toString()
+            {
+                return $this->__call(__METHOD__, func_get_args());
+            }
+
         };
     }
 
