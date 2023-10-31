@@ -45,8 +45,9 @@ abstract class AbstractDataLoader extends DataLoader
     }
 
     /**
-     * @param T $v
-     * @return Promise<T>
+     * @template TFullfilled
+     * @param TFullfilled $v
+     * @return Promise<TFullfilled>
      */
     public function fulfilledPromise($v): Promise
     {
