@@ -17,9 +17,6 @@ use GraphQL\Executor\Promise\Adapter\SyncPromiseAdapter;
 use GraphQL\Executor\Promise\Promise;
 use Redeye\GraphQLBundle\PromiseAdapter\PromiseAdapterInterface;
 
-/**
- * @implements PromiseAdapterInterface<Promise>
- */
 class WebonyxGraphQLSyncPromiseAdapter implements PromiseAdapterInterface
 {
     /** @var callable[] */
@@ -67,7 +64,9 @@ class WebonyxGraphQLSyncPromiseAdapter implements PromiseAdapterInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @template T
+     * @param T|Promise<T> $promiseOrValue
+     * @return Promise<T>
      */
     public function createFulfilled($promiseOrValue = null)
     {

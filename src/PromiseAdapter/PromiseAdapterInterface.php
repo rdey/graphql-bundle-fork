@@ -11,9 +11,6 @@
 
 namespace Redeye\GraphQLBundle\PromiseAdapter;
 
-/**
- * @template TPromise
- */
 interface PromiseAdapterInterface
 {
     /**
@@ -22,17 +19,11 @@ interface PromiseAdapterInterface
      * @param $resolve
      * @param $reject
      * @param callable $canceller
-     *
-     * @return TPromise a Promise
      */
     public function create(&$resolve = null, &$reject = null, callable $canceller = null);
 
     /**
      * Creates a full filed Promise for a value if the value is not a promise.
-     *
-     * @param mixed $promiseOrValue
-     *
-     * @return TPromise a full filed Promise
      */
     public function createFulfilled($promiseOrValue = null);
 
@@ -41,8 +32,6 @@ interface PromiseAdapterInterface
      * the provided reason is a promise, then it is returned as-is.
      *
      * @param mixed $reason
-     *
-     * @return TPromise a rejected promise
      */
     public function createRejected($reason);
 
@@ -51,8 +40,6 @@ interface PromiseAdapterInterface
      * items in the array are fulfilled.
      *
      * @param mixed $promisesOrValues Promises or values.
-     *
-     * @return TPromise a Promise
      */
     public function createAll($promisesOrValues);
 
@@ -68,14 +55,11 @@ interface PromiseAdapterInterface
 
     /**
      * Cancel a promise
-     *
-     * @param TPromise $promise
      */
     public function cancel($promise);
 
     /**
      * wait for Promise to complete
-     * @param TPromise $promise
      * @param bool     $unwrap
      *
      * @return mixed
