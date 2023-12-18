@@ -113,6 +113,15 @@ class GraphController
     {
         $params = $this->requestParser->parse($request);
 
+        if (class_exists('Sentry\State\Scope') ) {
+            \Sentry\configureScope(function (\Sentry\State\Scope $scope): void {
+                $scope->setContext('graphql_query', [
+                    'query' => $params[\Redeye\GraphQLBundle\Request\ParserInterface::PARAM_QUERY] ?? null,
+                    'operationName' => $request[\Redeye\GraphQLBundle\Request\ParserInterface::PARAM_OPERATION_NAME] ?? null,
+                ]);
+            });
+        }
+
         return $this->requestExecutor->execute($schemaName, $params)->toArray();
     }
 }
