@@ -4,7 +4,6 @@ namespace Redeye\GraphQLBundle\Federation\Directives;
 
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\Directive;
-use GraphQL\Type\Definition\FieldArgument;
 use GraphQL\Language\DirectiveLocation;
 
 class OverrideDirective extends Directive
@@ -15,10 +14,9 @@ class OverrideDirective extends Directive
             'name' => 'override',
             'locations' => [DirectiveLocation::FIELD_DEFINITION],
             'args' => [
-                new FieldArgument([
-                    'name' => 'from',
+                "from" => [
                     'type' => Type::nonNull(Type::string())
-                ])
+                ]
             ]
         ]);
     }

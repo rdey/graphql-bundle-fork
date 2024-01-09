@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Redeye\GraphQLBundle\Federation\Types;
 
+use GraphQL\Error\InvariantViolation;
 use GraphQL\Utils\Utils;
 use GraphQL\Type\Definition\ObjectType;
 
@@ -103,16 +104,22 @@ class EntityObjectType extends ObjectType
 
     private function validateReferenceResolver()
     {
-        Utils::invariant(isset($this->referenceResolver), 'No reference resolver was set in the configuration.');
+        if (!isset($this->referenceResolver)) {
+            throw new InvariantViolation('No reference resolver was set in the configuration.');
+        }
     }
 
     private function validateReferenceKeys($ref)
     {
-        Utils::invariant(isset($ref['__typename']), 'Type name must be provided in the reference.');
+        if (!isset($ref['__typename'])) {
+            throw new InvariantViolation('Type name must be provided in the reference.');
+        }
     }
 
     public static function validateResolveReference(array $config)
     {
-        Utils::invariant(is_callable($config['__resolveReference']), 'Reference resolver has to be callable.');
+        if (!is_callable($config['__resolveReference'])) {
+            throw new InvariantViolation('Reference resolver has to be callable.');
+        }
     }
 }

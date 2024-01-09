@@ -4,7 +4,6 @@ namespace Redeye\GraphQLBundle\Federation\Directives;
 
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\Directive;
-use GraphQL\Type\Definition\FieldArgument;
 use GraphQL\Language\DirectiveLocation;
 
 /**
@@ -19,15 +18,13 @@ class KeyDirective extends Directive
             'name' => 'key',
             'locations' => [DirectiveLocation::OBJECT, DirectiveLocation::IFACE],
             'args' => [
-                new FieldArgument([
-                    'name' => 'fields',
+                'fields' => [
                     'type' => Type::nonNull(Type::string())
-                ]),
-                new FieldArgument([
-                    'name' => 'resolvable',
+                ],
+                'resolvable' => [
                     'type' => Type::nonNull(Type::boolean()),
                     'defaultValue' => true,
-                ])
+                ]
             ]
         ]);
     }

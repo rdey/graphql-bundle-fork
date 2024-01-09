@@ -4,7 +4,7 @@ namespace Redeye\GraphQLBundle\Federation\Directives;
 
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\Directive;
-use GraphQL\Type\Definition\FieldArgument;
+use GraphQL\Type\Definition\Argument;
 use GraphQL\Language\DirectiveLocation;
 
 /**
@@ -19,10 +19,9 @@ class ProvidesDirective extends Directive
             'name' => 'provides',
             'locations' => [DirectiveLocation::FIELD_DEFINITION],
             'args' => [
-                new FieldArgument([
-                    'name' => 'fields',
+                'fields' => [
                     'type' => Type::nonNull(Type::string())
-                ])
+                ]
             ]
         ]);
     }
