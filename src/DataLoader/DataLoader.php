@@ -338,7 +338,12 @@ class DataLoader implements DataLoaderInterface
 
         // Call the provided batchLoadFn for this loader with the loader queue's keys.
         $batchLoadFn = $this->batchLoadFn;
-        $batchPromise = $batchLoadFn($keys);
+        try {
+            $batchPromise = $batchLoadFn($keys);
+        } catch (\Throwable $t) {
+            $this->failedDispatch($queue, $t);
+            return;
+        }
 
         // Assert the expected response from batchLoadFn
         if (!$batchPromise || !is_callable([$batchPromise, 'then'])) {
