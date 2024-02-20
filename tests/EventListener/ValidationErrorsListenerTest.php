@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Redeye\GraphQLBundle\Tests\EventListener;
 
 use GraphQL\Error\Error;
+use PHPUnit\Framework\TestCase;
 use Redeye\GraphQLBundle\Error\InvalidArgumentError;
 use Redeye\GraphQLBundle\Error\InvalidArgumentsError;
 use Redeye\GraphQLBundle\Event\ErrorFormattingEvent;
 use Redeye\GraphQLBundle\EventListener\ValidationErrorsListener;
-use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Validator\Validation;
@@ -35,6 +35,6 @@ class ValidationErrorsListenerTest extends TestCase
         $event = new ErrorFormattingEvent(Error::createLocatedError($invalidArguments), $formattedError);
         $this->listener->onErrorFormatting($event);
 
-        $this->assertEquals($event->getFormattedError()->getArrayCopy(), ['state' => ['invalid' => [0 => ['path' => 'prop1', 'message' => 'message', 'code' => null]]]]);
+        $this->assertEquals(['extensions' => ['state' => ['invalid' => [0 => ['path' => 'prop1', 'message' => 'message', 'code' => null]]]]], $event->getFormattedError()->getArrayCopy());
     }
 }

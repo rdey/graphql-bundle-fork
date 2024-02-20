@@ -185,7 +185,7 @@ class ArgumentsTransformer
         }
 
         if (!empty($exceptions)) {
-            throw new InvalidArgumentsError($exceptions);
+            throw new InvalidArgumentsError($exceptions, 'Validation error');
         }
 
         return $args;
