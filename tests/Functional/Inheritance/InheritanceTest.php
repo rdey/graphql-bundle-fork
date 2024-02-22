@@ -34,17 +34,25 @@ class InheritanceTest extends TestCase
                     'fields' => [
                         'sayHello' => [
                             'type' => 'String',
+                            'shareable' => false,
+                            'external' => false,
                         ],
                         'period' => [
                             'type' => 'Period',
+                            'shareable' => false,
+                            'external' => false,
                         ],
                         'bar' => [
                             'type' => 'String',
+                            'shareable' => false,
+                            'external' => false,
                         ],
                     ],
                     'name' => 'Query',
                     'interfaces' => ['QueryHelloWord'],
                     'builders' => [],
+                    'shareable' => false,
+                    'external' => false,
                 ],
             ],
             $this->config['Query']
@@ -115,25 +123,39 @@ class InheritanceTest extends TestCase
                     'fields' => [
                         'a' => [
                             'type' => 'String',
+                            'shareable' => false,
+                            'external' => false,
                         ],
                         'aa' => [
                             'type' => 'String',
+                            'shareable' => false,
+                            'external' => false,
                         ],
                         'b' => [
                             'type' => 'String',
+                            'shareable' => false,
+                            'external' => false,
                         ],
                         'c' => [
                             'type' => 'String',
+                            'shareable' => false,
+                            'external' => false,
                         ],
                         'd' => [
                             'type' => 'String',
+                            'shareable' => false,
+                            'external' => false,
                         ],
                         'e' => [
                             'type' => 'String',
+                            'shareable' => false,
+                            'external' => false,
                         ],
                     ],
                     'name' => 'ABCDE',
                     'builders' => [],
+                    'shareable' => false,
+                    'external' => false,
                 ],
             ],
             $this->config['ABCDE']

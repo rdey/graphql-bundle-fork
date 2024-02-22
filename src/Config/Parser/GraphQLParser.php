@@ -23,7 +23,6 @@ use function array_pop;
 use function call_user_func;
 use function explode;
 use function file_get_contents;
-use function get_class;
 use function in_array;
 use function preg_replace;
 use function sprintf;
@@ -62,12 +61,10 @@ class GraphQLParser implements ParserInterface
              * @var ObjectTypeDefinitionNode|InputObjectTypeDefinitionNode|EnumTypeDefinitionNode|DirectiveDefinitionNode $typeDef
              */
             if (isset($typeDef->kind) && in_array($typeDef->kind, array_keys(self::DEFINITION_TYPE_MAPPING))) {
-                /**
-                 * @var class-string<NodeInterface> $class
-                 */
+                /** @var class-string<NodeInterface> $class */
                 $class = sprintf('\\%s\\GraphQL\\ASTConverter\\%sNode', __NAMESPACE__, ucfirst(self::DEFINITION_TYPE_MAPPING[$typeDef->kind]));
                 $typesConfig[$typeDef->name->value] = call_user_func([$class, 'toConfig'], $typeDef);
-            } else if (self::isAllowedDirectiveDefinition($typeDef)) {
+            } elseif (self::isAllowedDirectiveDefinition($typeDef)) {
                 // Allow a directive named resolve
             } else {
                 self::throwUnsupportedDefinitionNode($typeDef);
@@ -82,7 +79,7 @@ class GraphQLParser implements ParserInterface
      */
     private static function isAllowedDirectiveDefinition($typeDef): bool
     {
-        if (!(isset($typeDef->kind) && $typeDef->kind == NodeKind::DIRECTIVE_DEFINITION && isset($typeDef->name))) {
+        if (!(isset($typeDef->kind) && NodeKind::DIRECTIVE_DEFINITION == $typeDef->kind && isset($typeDef->name))) {
             return false;
         }
 
@@ -101,13 +98,7 @@ class GraphQLParser implements ParserInterface
 
     private static function throwUnsupportedDefinitionNode(DefinitionNode $typeDef): void
     {
-        $path = explode('\\', get_class($typeDef));
-        throw new InvalidArgumentException(
-            sprintf(
-                '%s definition is not supported right now, attempting to define %s.',
-                preg_replace('@DefinitionNode$@', '', array_pop($path)),
-                $typeDef->name
-            )
-        );
+        $path = explode('\\', $typeDef::class);
+        throw new InvalidArgumentException(sprintf('%s definition is not supported right now.', preg_replace('@DefinitionNode$@', '', array_pop($path))));
     }
 }

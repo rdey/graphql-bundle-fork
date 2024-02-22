@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Redeye\GraphQLBundle\Tests\DependencyInjection\Compiler;
 
 use GraphQL\Error\UserError;
+use PHPUnit\Framework\TestCase;
 use Redeye\GraphQLBundle\Config\Processor\InheritanceProcessor;
 use Redeye\GraphQLBundle\DependencyInjection\Compiler\ConfigParserPass;
 use Redeye\GraphQLBundle\DependencyInjection\RedeyeGraphQLExtension;
@@ -16,7 +17,6 @@ use Redeye\GraphQLBundle\Tests\DependencyInjection\Builder\MutationField;
 use Redeye\GraphQLBundle\Tests\DependencyInjection\Builder\PagerArgs;
 use Redeye\GraphQLBundle\Tests\DependencyInjection\Builder\RawIdField;
 use Redeye\GraphQLBundle\Tests\DependencyInjection\Builder\TimestampFields;
-use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
@@ -46,7 +46,7 @@ class ConfigParserPassTest extends TestCase
     public function testBrokenYmlOnPrepend(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessageMatches('#The file "(.*)'.preg_quote(DIRECTORY_SEPARATOR).'broken.types.yml" does not contain valid YAML\.#');
+        $this->expectExceptionMessageMatches('#The file "(.*)' . preg_quote(DIRECTORY_SEPARATOR) . 'broken.types.yml" does not contain valid YAML\.#');
         $this->processCompilerPass($this->getMappingConfig('yaml'));
     }
 
@@ -66,7 +66,7 @@ class ConfigParserPassTest extends TestCase
     public function testInternalConfigKeysShouldNotBeUsed(string $internalConfigKey): void
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Don\'t use internal config keys _object_config, _enum_config, _interface_config, _union_config, _input_object_config, _custom_scalar_config, replace it by "config" instead.');
+        $this->expectExceptionMessage('Don\'t use internal config keys _object_config, _entity_object_config, _entity_ref_object_config, _enum_config, _interface_config, _union_config, _input_object_config, _custom_scalar_config, replace it by "config" instead.');
         $configs = [
             ['bar' => [$internalConfigKey => []]],
         ];
@@ -244,21 +244,29 @@ class ConfigParserPassTest extends TestCase
                                 'description' => 'The creation date of the object',
                                 'type' => 'Int!',
                                 'resolve' => '@=value.createdAt',
+                                'shareable' => false,
+                                'external' => false,
                             ],
                             'updatedAt' => [
                                 'description' => 'The update date of the object',
                                 'type' => 'Int!',
                                 'resolve' => '@=value.updatedAt',
+                                'shareable' => false,
+                                'external' => false,
                             ],
                             'rawIDWithDescriptionOverride' => [
                                 'description' => 'rawIDWithDescriptionOverride description',
                                 'type' => 'Int!',
                                 'resolve' => '@=value.id',
+                                'shareable' => false,
+                                'external' => false,
                             ],
                             'rawID' => [
                                 'description' => 'The raw ID of an object',
                                 'type' => 'Int!',
                                 'resolve' => '@=value.id',
+                                'shareable' => false,
+                                'external' => false,
                             ],
                             'rawIDs' => [
                                 'type' => '[RawID!]!',
@@ -272,6 +280,8 @@ class ConfigParserPassTest extends TestCase
                                         'defaultValue' => 0,
                                     ],
                                 ],
+                                'shareable' => false,
+                                'external' => false,
                             ],
                             'categories' => [
                                 'type' => '[String!]!',
@@ -285,6 +295,8 @@ class ConfigParserPassTest extends TestCase
                                         'defaultValue' => 0,
                                     ],
                                 ],
+                                'shareable' => false,
+                                'external' => false,
                             ],
                             'categories2' => [
                                 'type' => '[String!]!',
@@ -298,10 +310,14 @@ class ConfigParserPassTest extends TestCase
                                         'defaultValue' => 0,
                                     ],
                                  ],
+                                'shareable' => false,
+                                'external' => false,
                             ],
                         ],
                         'name' => 'foo',
                         'builders' => [],
+                        'shareable' => false,
+                        'external' => false,
                         'interfaces' => [],
                     ],
                 ],
@@ -312,11 +328,21 @@ class ConfigParserPassTest extends TestCase
                     'decorator' => false,
                     'config' => [
                         'fields' => [
-                            'foo' => ['type' => 'FooBox!'],
-                            'bar' => ['type' => 'BarBox!'],
+                            'foo' => [
+                                'type' => 'FooBox!',
+                                'shareable' => false,
+                                'external' => false,
+                            ],
+                            'bar' => [
+                                'type' => 'BarBox!',
+                                'shareable' => false,
+                                'external' => false,
+                            ],
                         ],
                         'name' => 'Boxes',
                         'builders' => [],
+                        'shareable' => false,
+                        'external' => false,
                         'interfaces' => [],
                     ],
                 ],
@@ -333,10 +359,14 @@ class ConfigParserPassTest extends TestCase
                                 'args' => [
                                     'input' => ['type' => 'FooInput!'],
                                 ],
+                                'shareable' => false,
+                                'external' => false,
                             ],
                         ],
                         'name' => 'Mutation',
                         'builders' => [],
+                        'shareable' => false,
+                        'external' => false,
                         'interfaces' => [],
                     ],
                 ],
@@ -347,11 +377,21 @@ class ConfigParserPassTest extends TestCase
                     'decorator' => false,
                     'config' => [
                         'fields' => [
-                            'isEmpty' => ['type' => 'Boolean!'],
-                            'item' => ['type' => 'Foo'],
+                            'isEmpty' => [
+                                'type' => 'Boolean!',
+                                'shareable' => false,
+                                'external' => false,
+                            ],
+                            'item' => [
+                                'type' => 'Foo',
+                                'shareable' => false,
+                                'external' => false,
+                            ],
                         ],
                         'name' => 'FooBox',
                         'builders' => [],
+                        'shareable' => false,
+                        'external' => false,
                         'interfaces' => [],
                     ],
                 ],
@@ -362,11 +402,21 @@ class ConfigParserPassTest extends TestCase
                     'decorator' => false,
                     'config' => [
                         'fields' => [
-                            'isEmpty' => ['type' => 'Boolean!'],
-                            'item' => ['type' => 'Bar'],
+                            'isEmpty' => [
+                                'type' => 'Boolean!',
+                                'shareable' => false,
+                                'external' => false,
+                            ],
+                            'item' => [
+                                'type' => 'Bar',
+                                'shareable' => false,
+                                'external' => false,
+                            ],
                         ],
                         'name' => 'BarBox',
                         'builders' => [],
+                        'shareable' => false,
+                        'external' => false,
                         'interfaces' => [],
                     ],
                 ],
@@ -400,10 +450,16 @@ class ConfigParserPassTest extends TestCase
                     'decorator' => false,
                     'config' => [
                         'fields' => [
-                            'fooString' => ['type' => 'String!'],
+                            'fooString' => [
+                                'type' => 'String!',
+                                'shareable' => false,
+                                'external' => false,
+                            ],
                         ],
                         'name' => 'FooSuccessPayload',
                         'builders' => [],
+                        'shareable' => false,
+                        'external' => false,
                         'interfaces' => [],
                     ],
                 ],
@@ -414,11 +470,21 @@ class ConfigParserPassTest extends TestCase
                     'decorator' => false,
                     'config' => [
                         'fields' => [
-                            '_error' => ['type' => 'String'],
-                            'bar' => ['type' => 'String'],
+                            '_error' => [
+                                'type' => 'String',
+                                'shareable' => false,
+                                'external' => false,
+                            ],
+                            'bar' => [
+                                'type' => 'String',
+                                'shareable' => false,
+                                'external' => false,
+                            ],
                         ],
                         'name' => 'FooFailurePayload',
                         'builders' => [],
+                        'shareable' => false,
+                        'external' => false,
                         'interfaces' => [],
                     ],
                 ],
@@ -446,7 +512,7 @@ class ConfigParserPassTest extends TestCase
                     'types' => [
                         [
                             'types' => [$type],
-                            'dir' => __DIR__.'/../mapping/'.$type,
+                            'dir' => __DIR__ . '/../mapping/' . $type,
                         ],
                     ],
                 ],
