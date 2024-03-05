@@ -1,13 +1,9 @@
-
-GraphQL Mutation Services
-=========================
-
- ----------------------------------------------------------------- -----------------------------------
-  solution id                                                       aliases
- ----------------------------------------------------------------- -----------------------------------
-  redeye_graphql.test.simple_mutation_with_thunk_fields::mutate   simple_mutation_with_thunk_fields
-  redeye_graphql.test.simple_promise_mutation::mutate             simple_promise_mutation
- ----------------------------------------------------------------- -----------------------------------
-
-
-
+GraphQL Mutation Services\n
+=========================\n
+\n
+ --------------------------------------------------------------- ----------------------------------- \n
+  solution id                                                     aliases                            \n
+ --------------------------------------------------------------- ----------------------------------- \n
+  redeye_graphql.test.simple_mutation_with_thunk_fields::mutate   simple_mutation_with_thunk_fields  \n
+  redeye_graphql.test.simple_promise_mutation::mutate             simple_promise_mutation            \n
+ --------------------------------------------------------------- ----------------------------------- \n

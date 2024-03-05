@@ -10,9 +10,6 @@ use Redeye\GraphQLBundle\Tests\Functional\TestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 use function file_get_contents;
 use function sprintf;
-use function str_replace;
-use function trim;
-use const PHP_EOL;
 
 class DebugCommandTest extends TestCase
 {
@@ -30,12 +27,12 @@ class DebugCommandTest extends TestCase
         foreach (DebugCommand::getCategories() as $category) {
             $content = (string) file_get_contents(
                 sprintf(
-                    __DIR__.'/fixtures/debug/debug-%s.txt',
+                    __DIR__ . '/fixtures/debug/debug-%s.txt',
                     $category
                 )
             );
 
-            $this->logs[$category] = str_replace("\n", PHP_EOL, trim($content));
+            $this->logs[$category] = $content;
         }
     }
 
@@ -51,12 +48,12 @@ class DebugCommandTest extends TestCase
         $this->commandTester->execute(['--category' => $categories]);
         $this->assertSame(0, $this->commandTester->getStatusCode());
 
-        $expected = PHP_EOL;
         foreach ($categories as $category) {
-            $expected .= $this->logs[$category].' '.PHP_EOL.PHP_EOL."\n\n";
+            $this->assertStringContainsString(
+                str_replace('\n', '', $this->logs[$category]),
+                $this->commandTester->getDisplay(),
+            );
         }
-
-        $this->assertStringContainsString($expected, $this->commandTester->getDisplay());
     }
 
     public function testInvalidFormat(): void

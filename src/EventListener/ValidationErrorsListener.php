@@ -15,7 +15,7 @@ final class ValidationErrorsListener
 
         if ($previous && $previous instanceof InvalidArgumentsError) {
             $formattedError = $event->getFormattedError();
-            $formattedError['state'] = $previous->toState();
+            $formattedError['extensions']['state'] = $previous->toState();
         }
     }
 }
