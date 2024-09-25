@@ -22,10 +22,14 @@ Upgrading from overblog/graphql-bundle
 
 1. Change the dependencies in composer.json (it replaces overblog/graphql-bundle, overblog/dataloader-php, overblog/dataloader-bundle, redeye/graphql-federation-bundle and some aspects of redeye/graphql-extras-bundle)
 2. Change bundle classes in `bundles.php`
-3. Change config key from `overblog_graphql` to `redeye_graphql` in your config file.
+3. Change config key from `overblog_graphql` to `redeye_graphql` in your config file. (restore config files if removed by composer)
 4. If using Federation, set `federation: true` in your config
 5. Change the bundle reference in your routing config
-6. Do a search across your project for Overblog (case insensitive). In most cases you just need to replace these with Redeye (same case)
+6. Do a search across your project for `Overblog\PromiseAdapter` and replace with `Redeye\GraphQLBundle\PromiseAdapter`
+7. Do a search across your project for `Overblog\DataLoader` and replace with `Redeye\GraphQLBundle\DataLoader`
+8. Do a search across your project for `Redeye\GraphqlExtrasBundle\DataLoader` and replace with `Redeye\GraphQLBundle\DataLoader`
+9. Do a search across your project for use `Apollo\Federation` and replace with `Redeye\GraphQLBundle\Federation`
+10. Do a search across your project for `Overblog` (case insensitive). In most cases you just need to replace these with `Redeye` (same case)
 
 
 Proof of Concept
