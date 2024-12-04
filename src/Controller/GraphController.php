@@ -113,26 +113,39 @@ class GraphController
     {
         $params = $this->requestParser->parse($request);
 
-        if (class_exists('Sentry\State\Scope') ) {
+        if (class_exists('Sentry\State\Scope')) {
             \Sentry\configureScope(function (\Sentry\State\Scope $scope) use ($params, $request): void {
                 $opName = $params[\Redeye\GraphQLBundle\Request\ParserInterface::PARAM_OPERATION_NAME] ?? null;
                 if ($opName === '') {
                     $opName = null;
                 }
 
+                $representations = null;
+                if ($this->isFederationEntitiesQuery($params)) {
+                    $opName = $opName ?? 'FederationEntitiesQuery';
+                    $representations = $params[\Redeye\GraphQLBundle\Request\ParserInterface::PARAM_VARIABLES]['representations'] ?? null;
+                }
+
                 $scope->setContext('graphql_query', [
                     'query' => $params[\Redeye\GraphQLBundle\Request\ParserInterface::PARAM_QUERY] ?? null,
                     'operationName' => $opName,
+                    'representations' => $representations,
                 ]);
 
                 $normalizedOpName = $opName ?? 'UnnamedOperation';
 
-                $name = $request->getMethod(). ' GraphQL Op: ' . $normalizedOpName;
+                $name = $request->getMethod() . ' GraphQL Op: ' . $normalizedOpName;
 
                 $scope->getTransaction()->setName($name);
             });
         }
 
         return $this->requestExecutor->execute($schemaName, $params)->toArray();
+    }
+
+    private function isFederationEntitiesQuery(array $params): bool
+    {
+        return isset($params[\Redeye\GraphQLBundle\Request\ParserInterface::PARAM_QUERY])
+            && false !== strpos($params[\Redeye\GraphQLBundle\Request\ParserInterface::PARAM_QUERY], '_entities');
     }
 }
