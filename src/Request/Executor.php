@@ -19,6 +19,7 @@ use Redeye\GraphQLBundle\Event\ExecutorArgumentsEvent;
 use Redeye\GraphQLBundle\Event\ExecutorContextEvent;
 use Redeye\GraphQLBundle\Event\ExecutorResultEvent;
 use Redeye\GraphQLBundle\Executor\ExecutorInterface;
+use Redeye\GraphQLBundle\Executor\TracingReferenceExecutor;
 use RuntimeException;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -133,10 +134,7 @@ class Executor
      */
     public function execute(?string $schemaName, array $request, $rootValue = null): ExecutionResult
     {
-        // TODO: remove following if-block in 1.0
-        if (method_exists(GraphQL::class, 'useExperimentalExecutor')) {
-            $this->useExperimentalExecutor ? GraphQL::useExperimentalExecutor() : GraphQL::useReferenceExecutor();
-        }
+        \GraphQL\Executor\Executor::setImplementationFactory([TracingReferenceExecutor::class, 'create']);
 
         $schema = $this->getSchema($schemaName);
         /** @var string $schemaName */
