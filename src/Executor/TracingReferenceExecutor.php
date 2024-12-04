@@ -101,8 +101,8 @@ class TracingReferenceExecutor extends ReferenceExecutor
 
     private function shouldTraceFieldArgument(FieldArgument $arg): bool
     {
-        // @Todo fix me
-        return true;
+        // @todo Do something smarter here
+        return false;
     }
 
     private function configureContext()
