@@ -27,13 +27,15 @@ class TracingReferenceExecutor extends ReferenceExecutor
     {
         $referenceExecutor = parent::create($promiseAdapter, $schema, $documentNode, $rootValue, $contextValue, $variableValues, $operationName, $fieldResolver);
 
-        Assert::isInstanceOf($referenceExecutor, TracingReferenceExecutor::class);
+        if ($referenceExecutor instanceof TracingReferenceExecutor) {
+            $referenceExecutor->sentryContext = [
+                'query' => Printer::doPrint($documentNode),
+                'operationName' => $operationName,
+            ];
+            $referenceExecutor->configureContext();
 
-        $referenceExecutor->sentryContext = [
-            'query' => Printer::doPrint($documentNode),
-            'operationName' => $operationName,
-        ];
-        $referenceExecutor->configureContext();
+            return $referenceExecutor;
+        }
 
         return $referenceExecutor;
     }
