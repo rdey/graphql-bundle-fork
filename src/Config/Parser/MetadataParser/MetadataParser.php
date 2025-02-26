@@ -441,7 +441,11 @@ abstract class MetadataParser implements PreParserInterface
             $valueConfig = self::getDescriptionConfiguration(static::getMetadatas($reflectionConstant), true);
 
             $enumValueAnnotation = current(array_filter($enumValues, fn ($enumValueAnnotation) => $enumValueAnnotation->name === $name));
-            $valueConfig['value'] = $value;
+            $valueConfig['value'] =  match (true) {
+                $value instanceof \BackedEnum => $value->value,
+                $value instanceof \UnitEnum => $value->name,
+                default => $value
+            };
 
             if (false !== $enumValueAnnotation) {
                 if (isset($enumValueAnnotation->description)) {
