@@ -18,9 +18,7 @@ abstract class AutomaticEnumType extends EnumType implements AliasedInterface
     private bool $native = false;
     private bool $myclabs = false;
 
-    /**
-     * @var class-string<\BackedEnum|Enum>
-     */
+    /** @var class-string<\BackedEnum|Enum> */
     private string $enumClass;
 
     /**
@@ -36,7 +34,7 @@ abstract class AutomaticEnumType extends EnumType implements AliasedInterface
                 $values = [];
 
                 foreach ($enumClass::cases() as $case) {
-                    $values[$case->value] = ['value' => $case];
+                    $values[$case->name] = ['value' => $case->value];
                 }
             }
         } elseif (class_exists(Enum::class) && is_subclass_of($enumClass, Enum::class, true)) {
@@ -47,7 +45,9 @@ abstract class AutomaticEnumType extends EnumType implements AliasedInterface
                 $values[$case->getValue()] = ['value' => $case];
             }
         } else {
-            throw new \InvalidArgumentException('Enum class must either be a native string-backed Enum, or a MyCLabs enum');
+            throw new \InvalidArgumentException(
+                'Enum class must either be a native string-backed Enum, or a MyCLabs enum',
+            );
         }
 
         $config = [
@@ -60,6 +60,10 @@ abstract class AutomaticEnumType extends EnumType implements AliasedInterface
 
     public function serialize($value)
     {
+        if ($this->native && $value instanceof \BackedEnum) {
+            return $value->value;
+        }
+
         return (string) $value;
     }
 
