@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Redeye\GraphQLBundle\Config\Parser\GraphQL\ASTConverter;
 
-use GraphQL\Language\AST\DirectiveNode as ASTDirectiveNode;
 use GraphQL\Language\AST\Node;
 use GraphQL\Type\Definition\Directive;
 
@@ -45,6 +44,10 @@ class DirectiveNode implements NodeInterface
 
             if ('override' === $directiveDef->name->value) {
                 $config['override'] = $directiveDef->arguments[0]->value->value;
+            }
+
+            if ('access' === $directiveDef->name->value) {
+                $config['access'] = $directiveDef->arguments[0]->value->value;
             }
         }
 
