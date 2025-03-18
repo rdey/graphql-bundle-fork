@@ -53,6 +53,10 @@ class FieldsNode implements NodeInterface
                     $fieldConfig['override'] = $directiveConfig['override'];
                 }
 
+                if (isset($directiveConfig['access'])) {
+                    $fieldConfig['access'] = $directiveConfig['access'];
+                }
+
                 $config[$definition->name->value] = $fieldConfig;
             }
         }
