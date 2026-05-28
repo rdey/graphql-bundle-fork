@@ -136,7 +136,10 @@ class GraphController
 
                 $name = $request->getMethod() . ' GraphQL Op: ' . $normalizedOpName;
 
-                $scope->getTransaction()->setName($name);
+                $transaction = $scope->getTransaction();
+                if (null !== $transaction) {
+                    $transaction->setName($name);
+                }
             });
         }
 
