@@ -24,6 +24,8 @@ After installation
 
 Define your [GraphQL schema](definitions/index.md).
 
+Serving an Apollo Federation subgraph? See [inline tracing (FTV1)](federation/inline-trace.md).
+
 Symfony Flex installation
 ------------
 

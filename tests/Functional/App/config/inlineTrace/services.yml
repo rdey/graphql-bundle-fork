@@ -1,0 +1,8 @@
+services:
+    redeye_graphql.test.resolver.inline_trace:
+        class: Redeye\GraphQLBundle\Tests\Functional\App\Resolver\InlineTraceResolver
+        tags:
+            - { name: "redeye_graphql.query", alias: "inline_trace_me", method: "resolveMe" }
+            - { name: "redeye_graphql.query", alias: "inline_trace_users", method: "resolveUsers" }
+            - { name: "redeye_graphql.query", alias: "inline_trace_slow_name", method: "resolveSlowName" }
+            - { name: "redeye_graphql.query", alias: "inline_trace_broken", method: "resolveBroken" }

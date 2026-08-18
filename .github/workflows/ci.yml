@@ -100,6 +100,28 @@ jobs:
       - name: "Check coding standard"
         run: composer check-cs
 
+  generated-protobuf:
+    runs-on: ubuntu-22.04
+    name: Generated Protobuf
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2"
+
+      # Pinned: protoc's PHP generator changes its output between releases, so an
+      # unpinned compiler would report drift that isn't there. Keep this version in
+      # step with the one recorded in proto/reports.proto.
+      - name: "Install protoc 29.3"
+        run: |
+          curl -sSLo /tmp/protoc.zip https://github.com/protocolbuffers/protobuf/releases/download/v29.3/protoc-29.3-linux-x86_64.zip
+          sudo unzip -o -q /tmp/protoc.zip -d /usr/local
+          protoc --version
+
+      - name: "Regenerate and check for drift"
+        run: |
+          composer proto
+          git diff --exit-code proto/gen \
+            || (echo "::error::proto/gen is out of date with proto/reports.proto -- run 'composer proto' and commit the result" && exit 1)
+
   static-analysis:
     runs-on: ubuntu-22.04
     name: "Static analysis"

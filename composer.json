@@ -12,7 +12,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Redeye\\GraphQLBundle\\": "src/"
+            "Redeye\\GraphQLBundle\\": "src/",
+            "Redeye\\GraphQLBundle\\Federation\\Tracing\\Proto\\": "proto/gen/Redeye/GraphQLBundle/Federation/Tracing/Proto/"
         }
     },
     "autoload-dev": {
@@ -30,6 +31,7 @@
     "require": {
         "php": "^8.0",
         "ext-json": "*",
+        "google/protobuf": "^3.25",
         "murtukov/php-code-generator": "^0.1.5",
         "phpdocumentor/reflection-docblock": "^5.2",
         "phpdocumentor/type-resolver": ">1.4.0,<1.6.0",
@@ -46,6 +48,7 @@
         "webonyx/graphql-php": "^14.5"
     },
     "suggest": {
+        "ext-protobuf": "For much faster serialization of Apollo Federation inline traces (ftv1)",
         "sentry/sentry": "To trace individual field resolution as Sentry spans.",
         "nelmio/cors-bundle": "For more flexibility when using CORS prefight",
         "react/promise": "To use ReactPHP promise adapter",
@@ -89,6 +92,7 @@
     },
     "scripts": {
         "test": "bin/phpunit --color=always --coverage-clover=build/logs/clover.xml",
+        "proto": "protoc -I proto --php_out=proto/gen proto/reports.proto",
         "static-analysis": [
             "phpstan analyse --ansi --memory-limit=1G"
         ],
