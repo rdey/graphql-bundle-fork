@@ -46,6 +46,7 @@
         "webonyx/graphql-php": "^14.5"
     },
     "suggest": {
+        "sentry/sentry": "To trace individual field resolution as Sentry spans.",
         "nelmio/cors-bundle": "For more flexibility when using CORS prefight",
         "react/promise": "To use ReactPHP promise adapter",
         "symfony/translation": "If you want validation error messages to be translated."

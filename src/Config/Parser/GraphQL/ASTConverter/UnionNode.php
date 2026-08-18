@@ -20,6 +20,8 @@ class UnionNode implements NodeInterface
             $config['types'] = $types;
         }
 
+        $config += CacheDirectivesNode::toConfig($node);
+
         return [
             'type' => 'union',
             'config' => $config,

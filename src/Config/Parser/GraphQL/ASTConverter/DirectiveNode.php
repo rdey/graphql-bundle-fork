@@ -19,7 +19,10 @@ class DirectiveNode implements NodeInterface
                     $directiveDef->arguments[0]->value->value : Directive::DEFAULT_DEPRECATION_REASON;
 
                 $config['deprecationReason'] = $reason;
-                break;
+
+                // Not `break`: a node may carry further directives after @deprecated, and
+                // abandoning the loop here silently drops every one of them.
+                continue;
             }
 
             if ('resolve' === $directiveDef->name->value) {
@@ -51,6 +54,6 @@ class DirectiveNode implements NodeInterface
             }
         }
 
-        return $config;
+        return $config + CacheDirectivesNode::toConfig($node);
     }
 }

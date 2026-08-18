@@ -63,6 +63,7 @@ class RedeyeGraphQLExtension extends Extension
         $this->setCompilerCacheWarmer($config, $container);
         $this->registerForAutoconfiguration($container);
         $this->setDefaultFieldResolver($config, $container);
+        $this->setCacheControlParameters($config, $container);
 
         $container->setParameter($this->getAlias().'.config', $config);
         $container->setParameter($this->getAlias().'.resources_dir', realpath(__DIR__.'/../Resources'));
@@ -156,6 +157,13 @@ class RedeyeGraphQLExtension extends Extension
     private function setBatchingMethod(array $config, ContainerBuilder $container): void
     {
         $container->setParameter($this->getAlias().'.batching_method', $config['batching_method']);
+    }
+
+    private function setCacheControlParameters(array $config, ContainerBuilder $container): void
+    {
+        foreach ($config['cache_control'] as $key => $value) {
+            $container->setParameter(sprintf('%s.cache_control.%s', $this->getAlias(), $key), $value);
+        }
     }
 
     private function setDebugListener(array $config, ContainerBuilder $container): void

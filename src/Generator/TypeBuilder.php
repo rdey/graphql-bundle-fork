@@ -108,6 +108,8 @@ class TypeBuilder
      *     serialize?:    callable,
      *     parseValue?:   callable,
      *     parseLiteral?: callable,
+     *     cacheControl?: array,
+     *     cacheTags?:    array,
      * } $config
      *
      * @throws GeneratorException
@@ -326,6 +328,14 @@ class TypeBuilder
 
         if (!empty($c->resolveReference)) {
             $configLoader->addItem('__resolveReference', $this->buildResolveReference($c->resolveReference));
+        }
+
+        if (!empty($c->cacheControl)) {
+            $configLoader->addItem('cacheControl', $c->cacheControl);
+        }
+
+        if (!empty($c->cacheTags)) {
+            $configLoader->addItem('cacheTags', $c->cacheTags);
         }
 
         // only by object, input-object and interface types
@@ -733,6 +743,8 @@ class TypeBuilder
      *     complexity?:       string,
      *     deprecatedReason?: string,
      *     validation?:       array,
+     *     cacheControl?:     array,
+     *     cacheTags?:        array,
      * } $fieldConfig
      *
      * @internal
@@ -812,6 +824,14 @@ class TypeBuilder
 
         if (isset($c->requires)) {
             $field->addItem('requires', $c->requires);
+        }
+
+        if (!empty($c->cacheControl)) {
+            $field->addItem('cacheControl', $c->cacheControl);
+        }
+
+        if (!empty($c->cacheTags)) {
+            $field->addItem('cacheTags', $c->cacheTags);
         }
 
         if ('input-object' === $this->type) {

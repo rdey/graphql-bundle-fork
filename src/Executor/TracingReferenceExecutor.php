@@ -14,10 +14,12 @@ use GraphQL\Type\Definition\FieldArgument;
 use GraphQL\Type\Definition\FieldDefinition;
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Schema;
+use Redeye\GraphQLBundle\CacheControl\CacheControlRecorder;
 use Sentry\SentrySdk;
 use Sentry\Tracing\SpanContext;
 use Sentry\State\Scope;
-use Webmozart\Assert\Assert;
+use ArrayObject;
+use function is_array;
 
 class TracingReferenceExecutor extends ReferenceExecutor
 {
@@ -42,6 +44,10 @@ class TracingReferenceExecutor extends ReferenceExecutor
 
     protected function resolveFieldValueOrError(FieldDefinition $fieldDef, FieldNode $fieldNode, callable $resolveFn, $rootValue, ResolveInfo $info)
     {
+        // Deliberately first: this is the equivalent of Apollo's willResolveField, and it must not
+        // depend on the Sentry block below having worked.
+        $this->recordCacheControl($info);
+
         $argumentNodes = $fieldNode->arguments ?? [];
         foreach ($argumentNodes as $argumentNode) {
             if (!$argumentNode->value instanceof VariableNode) {
@@ -65,9 +71,7 @@ class TracingReferenceExecutor extends ReferenceExecutor
         $span = null;
         $parent = null;
 
-        if (class_exists('Sentry\SentrySdk') ) {
-            $parent = SentrySdk::getCurrentHub()->getSpan();
-
+        if (class_exists('Sentry\SentrySdk') && null !== $parent = SentrySdk::getCurrentHub()->getSpan()) {
             $context = new SpanContext();
             $context->setOp('graphql.resolve_field');
             $context->setDescription(implode('.', $info->path));
@@ -87,6 +91,29 @@ class TracingReferenceExecutor extends ReferenceExecutor
                 // Restore the current span back to the parent span
                 SentrySdk::getCurrentHub()->setSpan($parent);
             }
+        }
+    }
+
+    /**
+     * Feeds the field into the recorder for the operation being executed, if there is one.
+     *
+     * The recorder travels in the GraphQL context value rather than being injected, because this
+     * class is built by a static factory inside graphql-php and so has no access to the container.
+     * A schema executed outside this bundle's request executor simply has no recorder and records
+     * nothing.
+     */
+    private function recordCacheControl(ResolveInfo $info): void
+    {
+        $context = $this->exeContext->contextValue;
+
+        if (!$context instanceof ArrayObject && !is_array($context)) {
+            return;
+        }
+
+        $recorder = $context[CacheControlRecorder::CONTEXT_KEY] ?? null;
+
+        if ($recorder instanceof CacheControlRecorder) {
+            $recorder->recordField($info);
         }
     }
 

@@ -25,6 +25,9 @@
 
     <php>
       <ini name="error_reporting" value="-1" />
+      <!-- The suite boots a kernel per functional test case and sat at ~124M of the 128M default
+           before the cache-control cases were added. -->
+      <ini name="memory_limit" value="512M" />
       <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[direct]=999999" />
       <env name="USE_EXPERIMENTAL_EXECUTOR" value="0" />
     </php>

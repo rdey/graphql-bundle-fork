@@ -76,6 +76,8 @@ class ObjectNode implements NodeInterface
             $config['resolveReference'] = $expr->value;
         }
 
+        $config += CacheDirectivesNode::toConfig($node);
+
         return [
             'type' => self::typeName($hasKeyDirective, $isResolvable),
             'config' => $config,
@@ -96,14 +98,7 @@ class ObjectNode implements NodeInterface
      */
     private static function directivesNamed(Node $node, string $directiveName): array
     {
-        $directives = [];
-        foreach ($node->directives as $directive) {
-            if ($directive->name->value === $directiveName) {
-                $directives[] = $directive;
-            }
-        }
-
-        return $directives;
+        return DirectiveArguments::named($node, $directiveName);
     }
 
     /**
@@ -113,16 +108,6 @@ class ObjectNode implements NodeInterface
      */
     private static function directiveArgumentValue(ASTDirectiveNode $directive, string $argumentName, string $valueNodeClass): ?Node
     {
-        foreach ($directive->arguments as $argument) {
-            if ($argument->name->value === $argumentName) {
-                if ($argument->value instanceof $valueNodeClass) {
-                    return $argument->value;
-                } else {
-                    throw new \RuntimeException("Expected value type to be $valueNodeClass, but was ".get_class($argument->value));
-                }
-            }
-        }
-
-        return null;
+        return DirectiveArguments::typedArg($directive, $argumentName, $valueNodeClass);
     }
 }

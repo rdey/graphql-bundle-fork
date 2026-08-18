@@ -1,0 +1,28 @@
+type Query {
+    "Field hint overrides the maxAge declared on Post."
+    posts: [Post!]! @cacheControl(maxAge: 60)
+
+    "No field hint, so the hint on Post applies."
+    featured: Post
+
+    "Field hint replaces both maxAge and scope."
+    me: User @cacheControl(maxAge: 30, scope: PRIVATE)
+
+    shortLived: String @cacheControl(maxAge: 30)
+
+    "Unannotated root field: uncacheable by default."
+    uncached: String
+
+    "Cacheable on paper, but its resolver throws."
+    boom: String @cacheControl(maxAge: 60)
+}
+
+type Post @cacheControl(maxAge: 120) {
+    id: ID!
+    title: String!
+}
+
+type User @cacheControl(maxAge: 120) {
+    id: ID!
+    email: String!
+}

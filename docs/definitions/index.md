@@ -17,6 +17,7 @@
 -   [Debug](debug/index.md)
 -   [GraphiQL](graphiql/index.md)
 -   [Upload files](upload-files.md)
+-   [HTTP caching (`@cacheControl` / `@cacheTag`)](cache-control.md)
 -   [Annotations](annotations/index.md)
 
 Next step [Data fetching](../data-fetching/index.md).

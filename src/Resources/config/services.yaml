@@ -111,6 +111,19 @@ services:
             - '@Redeye\GraphQLBundle\Request\Parser'
             - "%redeye_graphql.handle_cors%"
             - "%redeye_graphql.batching_method%"
+            - '@Redeye\GraphQLBundle\CacheControl\CacheControlAccumulator'
+
+    Redeye\GraphQLBundle\CacheControl\CacheHintResolver: ~
+
+    Redeye\GraphQLBundle\CacheControl\CacheControlAccumulator:
+        arguments:
+            - '@Redeye\GraphQLBundle\CacheControl\CacheHintResolver'
+            - "%redeye_graphql.cache_control.enabled%"
+            - "%redeye_graphql.cache_control.default_max_age%"
+            - "%redeye_graphql.cache_control.calculate_http_headers%"
+        tags:
+            # Only matters under a worker runtime, where the container outlives the request.
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 512 }
 
     Redeye\GraphQLBundle\Definition\ConfigProcessor:
         arguments:

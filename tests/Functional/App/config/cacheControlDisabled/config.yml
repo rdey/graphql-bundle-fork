@@ -1,0 +1,8 @@
+imports:
+    - { resource: ../cacheControl/config.yml }
+
+redeye_graphql:
+    cache_control:
+        enabled: false
+    definitions:
+        class_namespace: "Redeye\\GraphQLBundle\\CacheControlDisabledApp\\__DEFINITIONS__"
