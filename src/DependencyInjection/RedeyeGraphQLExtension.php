@@ -22,7 +22,9 @@ use Redeye\GraphQLBundle\EventListener\ClassLoaderListener;
 use Redeye\GraphQLBundle\EventListener\DebugListener;
 use Redeye\GraphQLBundle\EventListener\ErrorHandlerListener;
 use Redeye\GraphQLBundle\EventListener\ErrorLoggerListener;
+use Redeye\GraphQLBundle\EventListener\InlineTraceListener;
 use Redeye\GraphQLBundle\Federation\FederatedSchemaBuilder;
+use Redeye\GraphQLBundle\Federation\Tracing\TraceErrorFilter;
 use Redeye\GraphQLBundle\Request\Executor;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -54,6 +56,7 @@ class RedeyeGraphQLExtension extends Extension
         $this->setSchemaBuilderArguments($config, $container);
         $this->setSchemaArguments($config, $container);
         $this->setErrorHandler($config, $container);
+        $this->setInlineTrace($config, $container);
         $this->setSecurity($config, $container);
         $this->setConfigBuilders($config, $container);
         $this->setDebugListener($config, $container);
@@ -173,6 +176,43 @@ class RedeyeGraphQLExtension extends Extension
             $definition->addTag('kernel.event_listener', ['event' => Events::PRE_EXECUTOR, 'method' => 'onPreExecutor']);
             $definition->addTag('kernel.event_listener', ['event' => Events::POST_EXECUTOR, 'method' => 'onPostExecutor']);
         }
+    }
+
+    /**
+     * Wires Apollo Federation inline tracing (ftv1).
+     *
+     * Must run after setErrorHandler(): the `unmodified` error policy reports the client-visible
+     * message, which means it needs the configured internal error message.
+     *
+     * @see docs/federation/inline-trace.md
+     */
+    private function setInlineTrace(array $config, ContainerBuilder $container): void
+    {
+        $container->setParameter($this->getAlias().'.inline_trace', $config['inline_trace']['enabled']);
+
+        if (!$config['inline_trace']['enabled']) {
+            return;
+        }
+
+        $transformer = $config['inline_trace']['transformer_service'];
+
+        $container->register(TraceErrorFilter::class)
+            ->setArguments([
+                $config['inline_trace']['include_errors'],
+                $config['errors_handler']['internal_error_message'],
+                null === $transformer ? null : new Reference($transformer),
+            ]);
+
+        $container->register(InlineTraceListener::class)
+            ->setArguments([
+                new Reference('request_stack'),
+                new Reference(TraceErrorFilter::class),
+            ])
+            ->addTag('kernel.event_listener', ['event' => Events::PRE_EXECUTOR, 'method' => 'onPreExecutor'])
+            // Ahead of ErrorHandlerListener, DebugListener and GraphQLCollector, which all sit at
+            // the default priority of 0. ErrorHandler rebuilds errors and drops their extensions,
+            // so the trace has to see them first.
+            ->addTag('kernel.event_listener', ['event' => Events::POST_EXECUTOR, 'method' => 'onPostExecutor', 'priority' => 100]);
     }
 
     private function setConfigBuilders(array $config, ContainerBuilder $container): void

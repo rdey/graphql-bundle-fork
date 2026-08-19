@@ -1,0 +1,23 @@
+Query:
+    type: object
+    config:
+        fields:
+            me:
+                type: "User!"
+                resolve: '@=query("inline_trace_me")'
+            users:
+                type: "[User]"
+                resolve: '@=query("inline_trace_users")'
+
+User:
+    type: object
+    config:
+        fields:
+            name:
+                type: String
+            slowName:
+                type: String
+                resolve: '@=query("inline_trace_slow_name", value)'
+            broken:
+                type: String
+                resolve: '@=query("inline_trace_broken")'

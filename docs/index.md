@@ -10,7 +10,7 @@ Versions requirements
 
 | Version                                                         | PHP        | Symfony          | Support        |
 | --------------------------------------------------------------: | ---------: | ---------------: | -------------: |
-| [`1.0`](https://github.com/redeye/GraphQLBundle/tree/master)  | `>= 8.0`   | `>= 5.3.7`       | DEV            |
+| [`1.0`](https://github.com/redeye/GraphQLBundle/tree/master)  | `>= 8.2`   | `>= 5.3.7`       | DEV            |
 | [`0.14`](https://github.com/redeye/GraphQLBundle/tree/0.14)   | `>= 7.4`   | `>= 4.4.30`      | Active support |
 | [`0.13`](https://github.com/redeye/GraphQLBundle/tree/0.13)   | `>= 7.2`   | `>= 4.3`         | Active support |
 | [`0.12`](https://github.com/redeye/GraphQLBundle/tree/0.12)   | `>= 7.1`   | `>= 3.4, <4.4`   | Security       |
@@ -23,6 +23,8 @@ After installation
 ------------
 
 Define your [GraphQL schema](definitions/index.md).
+
+Serving an Apollo Federation subgraph? See [inline tracing (FTV1)](federation/inline-trace.md).
 
 Symfony Flex installation
 ------------
