@@ -6,8 +6,8 @@
 namespace Redeye\GraphQLBundle\Federation\Tracing\Proto;
 
 use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
+use Google\Protobuf\RepeatedField;
 
 /**
  * Generated from protobuf message <code>Trace</code>
@@ -102,9 +102,8 @@ class Trace extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Timestamp $var
      * @return $this
      */
-    public function setEndTime($var)
+    public function setEndTime(\Google\Protobuf\Timestamp|null $var)
     {
-        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->end_time = $var;
 
         return $this;
@@ -138,9 +137,8 @@ class Trace extends \Google\Protobuf\Internal\Message
      * @param \Google\Protobuf\Timestamp $var
      * @return $this
      */
-    public function setStartTime($var)
+    public function setStartTime(\Google\Protobuf\Timestamp|null $var)
     {
-        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->start_time = $var;
 
         return $this;
@@ -166,7 +164,7 @@ class Trace extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setDurationNs($var)
+    public function setDurationNs(int|string $var)
     {
         GPBUtil::checkUint64($var);
         $this->duration_ns = $var;
@@ -202,9 +200,8 @@ class Trace extends \Google\Protobuf\Internal\Message
      * @param \Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Node $var
      * @return $this
      */
-    public function setRoot($var)
+    public function setRoot(\Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Node|null $var)
     {
-        GPBUtil::checkMessage($var, \Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Node::class);
         $this->root = $var;
 
         return $this;
@@ -232,9 +229,8 @@ class Trace extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setFieldExecutionWeight($var)
+    public function setFieldExecutionWeight(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->field_execution_weight = $var;
 
         return $this;

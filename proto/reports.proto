@@ -17,7 +17,7 @@ syntax = "proto3";
 //
 // Regenerate with: composer proto
 //
-// Generated with protoc 29.3. protoc's PHP backend changes its output between
+// Generated with protoc 35.1. protoc's PHP backend changes its output between
 // releases, so use that version (CI pins it) or expect a large, spurious diff.
 
 import "google/protobuf/timestamp.proto";

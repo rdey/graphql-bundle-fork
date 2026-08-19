@@ -6,8 +6,8 @@
 namespace Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace;
 
 use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
+use Google\Protobuf\RepeatedField;
 
 /**
  * We store information on each resolver execution as a Node on a tree. The structure
@@ -71,8 +71,8 @@ class Node extends \Google\Protobuf\Internal\Message
      *           relative to the trace's start_time, in ns
      *     @type int|string $end_time
      *           relative to the trace's start_time, in ns
-     *     @type array<\Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Error>|\Google\Protobuf\Internal\RepeatedField $error
-     *     @type array<\Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Node>|\Google\Protobuf\Internal\RepeatedField $child
+     *     @type \Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Error[] $error
+     *     @type \Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Node[] $child
      *     @type string $parent_type
      *           The field's parent type; e.g. "User" for User.email: String!
      *     @type string $original_field_name
@@ -102,9 +102,9 @@ class Node extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setResponseName($var)
+    public function setResponseName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->writeOneof(1, $var);
 
         return $this;
@@ -129,7 +129,7 @@ class Node extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setIndex($var)
+    public function setIndex(int $var)
     {
         GPBUtil::checkUint32($var);
         $this->writeOneof(2, $var);
@@ -155,9 +155,9 @@ class Node extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setType($var)
+    public function setType(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->type = $var;
 
         return $this;
@@ -181,7 +181,7 @@ class Node extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setStartTime($var)
+    public function setStartTime(int|string $var)
     {
         GPBUtil::checkUint64($var);
         $this->start_time = $var;
@@ -207,7 +207,7 @@ class Node extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setEndTime($var)
+    public function setEndTime(int|string $var)
     {
         GPBUtil::checkUint64($var);
         $this->end_time = $var;
@@ -217,7 +217,7 @@ class Node extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>repeated .Trace.Error error = 11;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
+     * @return RepeatedField<\Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Error>
      */
     public function getError()
     {
@@ -226,10 +226,10 @@ class Node extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>repeated .Trace.Error error = 11;</code>
-     * @param array<\Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Error>|\Google\Protobuf\Internal\RepeatedField $var
+     * @param \Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Error[] $var
      * @return $this
      */
-    public function setError($var)
+    public function setError(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Error::class);
         $this->error = $arr;
@@ -239,7 +239,7 @@ class Node extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>repeated .Trace.Node child = 12;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
+     * @return RepeatedField<\Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Node>
      */
     public function getChild()
     {
@@ -248,10 +248,10 @@ class Node extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>repeated .Trace.Node child = 12;</code>
-     * @param array<\Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Node>|\Google\Protobuf\Internal\RepeatedField $var
+     * @param \Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Node[] $var
      * @return $this
      */
-    public function setChild($var)
+    public function setChild(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Node::class);
         $this->child = $arr;
@@ -277,9 +277,9 @@ class Node extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setParentType($var)
+    public function setParentType(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->parent_type = $var;
 
         return $this;
@@ -299,9 +299,9 @@ class Node extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setOriginalFieldName($var)
+    public function setOriginalFieldName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->original_field_name = $var;
 
         return $this;

@@ -6,8 +6,8 @@
 namespace Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace;
 
 use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
+use Google\Protobuf\RepeatedField;
 
 /**
  * Generated from protobuf message <code>Trace.Location</code>
@@ -52,7 +52,7 @@ class Location extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setLine($var)
+    public function setLine(int $var)
     {
         GPBUtil::checkUint32($var);
         $this->line = $var;
@@ -74,7 +74,7 @@ class Location extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setColumn($var)
+    public function setColumn(int $var)
     {
         GPBUtil::checkUint32($var);
         $this->column = $var;

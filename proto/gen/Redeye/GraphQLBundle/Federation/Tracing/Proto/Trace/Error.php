@@ -6,8 +6,8 @@
 namespace Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace;
 
 use Google\Protobuf\Internal\GPBType;
-use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
+use Google\Protobuf\RepeatedField;
 
 /**
  * Generated from protobuf message <code>Trace.Error</code>
@@ -38,7 +38,7 @@ class Error extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $message
-     *     @type array<\Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Location>|\Google\Protobuf\Internal\RepeatedField $location
+     *     @type \Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Location[] $location
      *     @type int|string $time_ns
      *     @type string $json
      * }
@@ -62,9 +62,9 @@ class Error extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setMessage($var)
+    public function setMessage(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->message = $var;
 
         return $this;
@@ -72,7 +72,7 @@ class Error extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>repeated .Trace.Location location = 2;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
+     * @return RepeatedField<\Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Location>
      */
     public function getLocation()
     {
@@ -81,10 +81,10 @@ class Error extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>repeated .Trace.Location location = 2;</code>
-     * @param array<\Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Location>|\Google\Protobuf\Internal\RepeatedField $var
+     * @param \Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Location[] $var
      * @return $this
      */
-    public function setLocation($var)
+    public function setLocation(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Redeye\GraphQLBundle\Federation\Tracing\Proto\Trace\Location::class);
         $this->location = $arr;
@@ -106,7 +106,7 @@ class Error extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setTimeNs($var)
+    public function setTimeNs(int|string $var)
     {
         GPBUtil::checkUint64($var);
         $this->time_ns = $var;
@@ -128,9 +128,9 @@ class Error extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setJson($var)
+    public function setJson(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->json = $var;
 
         return $this;

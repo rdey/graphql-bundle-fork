@@ -7,7 +7,8 @@ namespace Redeye\GraphQLBundle\CacheControl;
 /**
  * The values of the `CacheControlScope` enum used by the `@cacheControl` directive.
  *
- * A plain constant holder rather than a native enum: this bundle supports PHP 8.0.
+ * A plain constant holder rather than a native enum. That was originally forced by the PHP 8.0
+ * floor; the floor is 8.2 now, so this could be converted to a native enum.
  */
 final class CacheScope
 {

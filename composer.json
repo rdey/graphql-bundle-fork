@@ -29,9 +29,9 @@
         }
     },
     "require": {
-        "php": "^8.0",
+        "php": "^8.2",
         "ext-json": "*",
-        "google/protobuf": "^3.25",
+        "google/protobuf": "^5.35.1",
         "murtukov/php-code-generator": "^0.1.5",
         "phpdocumentor/reflection-docblock": "^5.2",
         "phpdocumentor/type-resolver": ">1.4.0,<1.6.0",
