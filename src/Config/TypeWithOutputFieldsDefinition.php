@@ -37,7 +37,7 @@ abstract class TypeWithOutputFieldsDefinition extends TypeDefinition
                         unset($value['args']);
                     }
 
-                    return $value;
+                    return self::unsetEmptyCacheTags($value);
                 })
             ->end()
             ->children()
@@ -76,6 +76,8 @@ abstract class TypeWithOutputFieldsDefinition extends TypeDefinition
                 ->scalarNode('requires')->end()
                 ->scalarNode('provides')->end()
                 ->booleanNode('external')->defaultFalse()->end()
+                ->append($this->cacheControlSection())
+                ->append($this->cacheTagsSection())
                 ->append($this->descriptionSection())
                 ->append($this->deprecationReasonSection())
                 ->variableNode('access')

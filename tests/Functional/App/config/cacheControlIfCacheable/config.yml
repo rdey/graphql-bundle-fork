@@ -1,0 +1,8 @@
+imports:
+    - { resource: ../cacheControl/config.yml }
+
+redeye_graphql:
+    cache_control:
+        calculate_http_headers: if-cacheable
+    definitions:
+        class_namespace: "Redeye\\GraphQLBundle\\CacheControlIfCacheableApp\\__DEFINITIONS__"

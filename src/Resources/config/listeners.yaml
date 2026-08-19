@@ -11,6 +11,14 @@ services:
         tags:
             - { name: kernel.event_listener, event: graphql.type_loaded, method: onTypeLoaded }
 
+    Redeye\GraphQLBundle\EventListener\CacheControlListener:
+        arguments:
+            - '@Redeye\GraphQLBundle\CacheControl\CacheControlAccumulator'
+        tags:
+            - { name: kernel.event_listener, event: graphql.executor.context, method: onExecutorContext }
+            # Runs after the error-handling listeners so it sees the final error list.
+            - { name: kernel.event_listener, event: graphql.post_executor, method: onPostExecutor, priority: -256 }
+
     Redeye\GraphQLBundle\EventListener\ValidationErrorsListener:
         tags:
             - name: kernel.event_listener

@@ -1,0 +1,23 @@
+imports:
+    - { resource: ../config.yml }
+
+redeye_graphql:
+    cache_control:
+        enabled: true
+        default_max_age: 0
+    definitions:
+        class_namespace: "Redeye\\GraphQLBundle\\CacheControlApp\\__DEFINITIONS__"
+        schema:
+            default:
+                query: Query
+        mappings:
+            types:
+                -
+                    type: graphql
+                    dir: "%kernel.project_dir%/config/cacheControl/mapping"
+                    suffix: ~
+
+services:
+    Redeye\GraphQLBundle\Tests\Functional\App\Resolver\CacheControlQueryResolverMap:
+        tags:
+            - { name: redeye_graphql.resolver_map, schema: default }

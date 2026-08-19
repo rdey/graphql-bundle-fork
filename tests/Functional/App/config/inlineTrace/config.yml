@@ -1,0 +1,16 @@
+imports:
+    - { resource: ../config.yml }
+    - { resource: services.yml }
+
+redeye_graphql:
+    inline_trace: true
+    definitions:
+        class_namespace: 'Redeye\GraphQLBundle\InlineTrace\__DEFINITIONS__'
+        schema:
+            query: Query
+            mutation: ~
+        mappings:
+            types:
+                -
+                    type: yaml
+                    dir: '%kernel.project_dir%/config/inlineTrace/mapping'

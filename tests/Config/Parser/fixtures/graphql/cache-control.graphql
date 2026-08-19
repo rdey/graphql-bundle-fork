@@ -1,0 +1,27 @@
+directive @cacheControl(maxAge: Int, scope: CacheControlScope, inheritMaxAge: Boolean) on FIELD_DEFINITION | OBJECT | INTERFACE | UNION
+
+directive @cacheTag(format: String!) repeatable on FIELD_DEFINITION | OBJECT
+
+type Query {
+    posts: [Post!]! @cacheControl(maxAge: 60) @cacheTag(format: "posts")
+    me: User @cacheControl(scope: PRIVATE, maxAge: 10)
+    legacy: String @deprecated(reason: "Use posts instead") @cacheControl(maxAge: 5)
+    quoted: String @cacheControl(scope: "PRIVATE")
+}
+
+type Post @cacheControl(maxAge: 120) @cacheTag(format: "post-{$key.id}") @cacheTag(format: "post") {
+    id: ID!
+    title: String!
+    author: User @cacheControl(inheritMaxAge: true)
+}
+
+type User @cacheControl(inheritMaxAge: true, scope: PRIVATE) {
+    id: ID!
+    name: String!
+}
+
+interface Node @cacheControl(maxAge: 30) {
+    id: ID!
+}
+
+union SearchResult @cacheControl(maxAge: 15) = Post | User

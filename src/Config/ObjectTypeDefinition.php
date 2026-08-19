@@ -25,6 +25,8 @@ class ObjectTypeDefinition extends TypeWithOutputFieldsDefinition
                 ->append($this->outputFieldsSection())
                 ->append($this->fieldsBuilderSection())
                 ->append($this->descriptionSection())
+                ->append($this->cacheControlSection())
+                ->append($this->cacheTagsSection())
                 ->booleanNode('shareable')->defaultFalse()->end()
                 ->booleanNode('external')->defaultFalse()->end()
                 ->arrayNode('interfaces')
@@ -42,6 +44,8 @@ class ObjectTypeDefinition extends TypeWithOutputFieldsDefinition
 
         $this->treatFieldsDefaultAccess($node);
         $this->treatFieldsDefaultPublic($node);
+
+        $node->validate()->always(fn ($v) => self::unsetEmptyCacheTags($v))->end();
 
         return $node;
     }

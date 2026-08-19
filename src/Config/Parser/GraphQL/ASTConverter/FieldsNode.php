@@ -57,6 +57,12 @@ class FieldsNode implements NodeInterface
                     $fieldConfig['access'] = $directiveConfig['access'];
                 }
 
+                foreach ([CacheDirectivesNode::CACHE_CONTROL, CacheDirectivesNode::CACHE_TAGS] as $cacheKey) {
+                    if (isset($directiveConfig[$cacheKey])) {
+                        $fieldConfig[$cacheKey] = $directiveConfig[$cacheKey];
+                    }
+                }
+
                 $config[$definition->name->value] = $fieldConfig;
             }
         }

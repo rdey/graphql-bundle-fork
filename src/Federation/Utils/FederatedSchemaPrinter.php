@@ -36,6 +36,7 @@ use GraphQL\Error\Error;
 use GraphQL\Language\Printer;
 use GraphQL\Type\Definition\Directive;
 use GraphQL\Type\Definition\EnumType;
+use GraphQL\Type\Definition\FieldDefinition;
 use GraphQL\Type\Definition\InputObjectType;
 use GraphQL\Type\Definition\InterfaceType;
 use GraphQL\Type\Definition\ObjectType;
@@ -47,6 +48,7 @@ use GraphQL\Type\Schema;
 use GraphQL\Utils\AST;
 use GraphQL\Utils\Utils;
 
+use Redeye\GraphQLBundle\Federation\Types\CacheControlScopeType;
 use Redeye\GraphQLBundle\Federation\Types\EntityObjectType;
 use Redeye\GraphQLBundle\Federation\Types\EntityRefObjectType;
 
@@ -89,15 +91,25 @@ class FederatedSchemaPrinter
                 return !Directive::isSpecifiedDirective($type) && !self::isFederatedDirective($type);
             },
             static function ($type) {
-                return !Type::isBuiltInType($type);
+                // CacheControlScope reaches the type map through the @cacheControl argument, but
+                // the prelude already declares it; printing it again is a duplicate definition.
+                return !Type::isBuiltInType($type) && CacheControlScopeType::getTypeName() !== $type->name;
             },
             $options
         );
     }
 
+    /**
+     * Directives whose definition must not be printed into the SDL.
+     *
+     * The federation ones arrive through the `@link` import, and printing a definition alongside
+     * the import is a composition error. `@cacheControl` is in here for a different reason: it is
+     * declared by hand in the prelude, so that its `CacheControlScope` argument type is guaranteed
+     * to be declared too.
+     */
     public static function isFederatedDirective($type): bool
     {
-        return in_array($type->name, ['key', 'provides', 'requires', 'external', 'shareable', 'override']);
+        return in_array($type->name, ['key', 'provides', 'requires', 'external', 'shareable', 'override', 'cacheTag', 'cacheControl']);
     }
 
     /**
@@ -113,10 +125,21 @@ class FederatedSchemaPrinter
         ksort($types);
         $types = array_filter($types, $typeFilter);
 
+        // @cacheTag is a federation-spec directive as of v2.12, so it arrives through the @link
+        // import and must not be given a local definition. @cacheControl is not part of the spec —
+        // the router only ever reads the Cache-Control header for it — so it is declared here,
+        // together with the enum its `scope` argument refers to.
         $federationVersion = <<<DIR
 extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.0",
-        import: ["@key", "@provides", "@requires", "@external", "@shareable", "@override"])
+  @link(url: "https://specs.apollo.dev/federation/v2.12",
+        import: ["@key", "@provides", "@requires", "@external", "@shareable", "@override", "@cacheTag"])
+
+enum CacheControlScope {
+  PUBLIC
+  PRIVATE
+}
+
+directive @cacheControl(maxAge: Int, scope: CacheControlScope, inheritMaxAge: Boolean) on FIELD_DEFINITION | OBJECT | INTERFACE | UNION
 DIR;
 
 
@@ -381,6 +404,8 @@ DIR;
             $federationDirectives .= ' @external';
         }
 
+        $federationDirectives .= self::spaced(self::printCacheDirectives($type));
+
         $queryExtends = $type->name === 'Query' || $type->name === 'Mutation' ? 'extend ' : '';
 
         return self::printDescription($options, $type) .
@@ -427,6 +452,8 @@ DIR;
         if (isset($type->config['isExternal']) && $type->config['isExternal'] === true) {
             $federationDirectives .= ' @external';
         }
+
+        $federationDirectives .= self::spaced(self::printCacheDirectives($type));
 
         $isEntityRef = false; //$type instanceof EntityRefObjectType;
         $extends = $isEntityRef ? 'extend ' : '';
@@ -512,7 +539,58 @@ DIR;
             array_push($directives, sprintf('@override(from: "%s")', $field->config['override']));
         }
 
+        $cacheDirectives = self::printCacheDirectives($field);
+        if ('' !== $cacheDirectives) {
+            array_push($directives, $cacheDirectives);
+        }
+
         return implode(' ', $directives);
+    }
+
+    /**
+     * Prints the `@cacheControl` and `@cacheTag` applications on a field or a type.
+     *
+     * @param FieldDefinition|Type $definition
+     */
+    private static function printCacheDirectives($definition): string
+    {
+        $directives = [];
+
+        if (isset($definition->config['cacheControl'])) {
+            $args = [];
+            $cacheControl = $definition->config['cacheControl'];
+
+            if (isset($cacheControl['maxAge'])) {
+                $args[] = sprintf('maxAge: %d', $cacheControl['maxAge']);
+            }
+
+            if (isset($cacheControl['scope'])) {
+                // An enum value, so it is printed bare rather than quoted.
+                $args[] = sprintf('scope: %s', $cacheControl['scope']);
+            }
+
+            if (isset($cacheControl['inheritMaxAge'])) {
+                $args[] = sprintf('inheritMaxAge: %s', $cacheControl['inheritMaxAge'] ? 'true' : 'false');
+            }
+
+            if (!empty($args)) {
+                $directives[] = sprintf('@cacheControl(%s)', implode(', ', $args));
+            }
+        }
+
+        foreach ($definition->config['cacheTags'] ?? [] as $format) {
+            $directives[] = sprintf('@cacheTag(format: %s)', Printer::doPrint(AST::astFromValue($format, Type::string())));
+        }
+
+        return implode(' ', $directives);
+    }
+
+    /**
+     * Prefixes a directive list with a space so it can be appended to a type name.
+     */
+    private static function spaced(string $directives): string
+    {
+        return '' === $directives ? '' : ' '.$directives;
     }
 
     /**
@@ -521,7 +599,12 @@ DIR;
     private static function printInterface(InterfaceType $type, array $options): string
     {
         return self::printDescription($options, $type) .
-            sprintf("interface %s {\n%s\n}", $type->name, self::printFields($options, $type));
+            sprintf(
+                "interface %s%s {\n%s\n}",
+                $type->name,
+                self::spaced(self::printCacheDirectives($type)),
+                self::printFields($options, $type)
+            );
     }
 
     /**
@@ -529,8 +612,14 @@ DIR;
      */
     private static function printUnion(UnionType $type, array $options): string
     {
+        // Directives on a union go before the `=`.
         return self::printDescription($options, $type) .
-            sprintf('union %s = %s', $type->name, implode(' | ', $type->getTypes()));
+            sprintf(
+                'union %s%s = %s',
+                $type->name,
+                self::spaced(self::printCacheDirectives($type)),
+                implode(' | ', $type->getTypes())
+            );
     }
 
     /**

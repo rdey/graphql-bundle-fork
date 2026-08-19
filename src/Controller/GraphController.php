@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Redeye\GraphQLBundle\Controller;
 
+use Redeye\GraphQLBundle\CacheControl\CacheControlAccumulator;
 use Redeye\GraphQLBundle\Request\BatchParser;
 use Redeye\GraphQLBundle\Request\Executor;
 use Redeye\GraphQLBundle\Request\Parser;
@@ -19,19 +20,22 @@ class GraphController
     private Parser $requestParser;
     private bool $shouldHandleCORS;
     private bool $useApolloBatchingMethod;
+    private CacheControlAccumulator $cacheControl;
 
     public function __construct(
         BatchParser $batchParser,
         Executor $requestExecutor,
         Parser $requestParser,
         bool $shouldHandleCORS,
-        string $graphQLBatchingMethod
+        string $graphQLBatchingMethod,
+        CacheControlAccumulator $cacheControl
     ) {
         $this->batchParser = $batchParser;
         $this->requestExecutor = $requestExecutor;
         $this->requestParser = $requestParser;
         $this->shouldHandleCORS = $shouldHandleCORS;
         $this->useApolloBatchingMethod = 'apollo' === $graphQLBatchingMethod;
+        $this->cacheControl = $cacheControl;
     }
 
     /**
@@ -61,8 +65,14 @@ class GraphController
             if (!in_array($request->getMethod(), ['POST', 'GET'])) {
                 return new JsonResponse('', 405);
             }
+            // Every operation of this request accumulates into one policy, so start from a clean
+            // slate. Only observable under a worker runtime, but cheap either way.
+            $this->cacheControl->reset();
+
             $payload = $this->processQuery($request, $schemaName, $batched);
             $response = new JsonResponse($payload, 200);
+
+            $this->cacheControl->applyTo($response);
         }
         $this->addCORSHeadersIfNeeded($response, $request);
 

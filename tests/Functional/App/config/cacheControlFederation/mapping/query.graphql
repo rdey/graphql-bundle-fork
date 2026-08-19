@@ -1,0 +1,30 @@
+type Query {
+    posts: [Post!]! @cacheControl(maxAge: 60) @cacheTag(format: "posts")
+    uncached: String
+    content: Content
+    timestamped: Timestamped
+}
+
+type Post implements Timestamped
+    @key(fields: "id")
+    @resolveReference(expression: "@=service('test.cache_control_reference_resolver').resolve(ref)")
+    @cacheControl(maxAge: 120)
+    @cacheTag(format: "post-{$key.id}")
+    @cacheTag(format: "post")
+{
+    id: ID!
+    title: String!
+    updatedAt: String!
+    author: Author @cacheControl(inheritMaxAge: true)
+}
+
+type Author @cacheControl(maxAge: 300, scope: PRIVATE) {
+    id: ID!
+    name: String!
+}
+
+interface Timestamped @cacheControl(maxAge: 45) {
+    updatedAt: String!
+}
+
+union Content @cacheControl(maxAge: 15) = Post | Author

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Redeye\GraphQLBundle\Config;
 
+use Redeye\GraphQLBundle\CacheControl\CacheScope;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\ScalarNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -140,6 +141,82 @@ abstract class TypeDefinition
         $node->info('Text describing why this field is deprecated. When not empty - field will not be returned by introspection queries (unless forced)');
 
         return $node;
+    }
+
+    /**
+     * The `@cacheControl` directive, usable on a field or on an object, interface or union type.
+     *
+     * Deliberately has neither `addDefaultsIfNotSet()` nor per-child defaults: the caching
+     * algorithm distinguishes "this annotation did not mention maxAge" from "maxAge is 0", and
+     * defaults here would silently annotate every type in the schema.
+     */
+    protected function cacheControlSection(): ArrayNodeDefinition
+    {
+        /** @var ArrayNodeDefinition $node */
+        $node = self::createNode('cacheControl');
+
+        /** @phpstan-ignore-next-line */
+        $node
+            ->info('HTTP cache hint for this field or type.')
+            ->children()
+                ->integerNode('maxAge')
+                    ->min(0)
+                    ->info('How long, in seconds, a response containing this may be cached.')
+                ->end()
+                ->enumNode('scope')
+                    ->values(CacheScope::ALL)
+                    ->info('PRIVATE marks the value as specific to a single user.')
+                ->end()
+                ->booleanNode('inheritMaxAge')
+                    ->info('Inherit the parent\'s maxAge instead of defaulting to uncacheable.')
+                ->end()
+            ->end()
+            ->validate()
+                ->ifTrue(fn ($value) => isset($value['maxAge']) && !empty($value['inheritMaxAge']))
+                ->thenInvalid('"cacheControl" cannot set both "maxAge" and "inheritMaxAge".')
+            ->end();
+
+        return $node;
+    }
+
+    /**
+     * The `@cacheTag` directive. Repeatable, so this is a list of format strings.
+     */
+    protected function cacheTagsSection(): ArrayNodeDefinition
+    {
+        /** @var ArrayNodeDefinition $node */
+        $node = self::createNode('cacheTags');
+
+        /** @phpstan-ignore-next-line */
+        $node
+            ->info('Cache tags, passed through to the federated SDL for the router to interpret.')
+            ->beforeNormalization()
+                ->castToArray()
+            ->end()
+            ->scalarPrototype()->end();
+
+        return $node;
+    }
+
+    /**
+     * Drops an empty `cacheTags` entry from a config array.
+     *
+     * A prototyped array node always reports a default of `[]`, and Symfony applies defaults
+     * without running the node's own validators, so the key has to be removed from the parent —
+     * the same way this class's `validationGroups` and `args` are handled. Left in place it would
+     * add a meaningless empty array to every field and type in every schema.
+     *
+     * @param array<string, mixed> $config
+     *
+     * @return array<string, mixed>
+     */
+    protected static function unsetEmptyCacheTags(array $config): array
+    {
+        if (empty($config['cacheTags'])) {
+            unset($config['cacheTags']);
+        }
+
+        return $config;
     }
 
     protected function typeSection(bool $isRequired = false): ScalarNodeDefinition

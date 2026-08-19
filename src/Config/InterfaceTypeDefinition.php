@@ -20,6 +20,7 @@ class InterfaceTypeDefinition extends TypeWithOutputFieldsDefinition
                 ->append($this->outputFieldsSection())
                 ->append($this->resolveTypeSection())
                 ->append($this->descriptionSection())
+                ->append($this->cacheControlSection())
                 ->arrayNode('interfaces')
                     ->prototype('scalar')->info('One of internal or custom interface types.')->end()
                 ->end()

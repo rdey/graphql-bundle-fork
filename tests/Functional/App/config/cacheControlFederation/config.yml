@@ -1,0 +1,37 @@
+imports:
+    - { resource: ../config.yml }
+
+redeye_graphql:
+    federation: true
+    # Surface real exceptions rather than hiding them behind "Internal server Error".
+    errors_handler:
+        debug: true
+    cache_control:
+        enabled: true
+        default_max_age: 0
+    definitions:
+        class_namespace: "Redeye\\GraphQLBundle\\CacheControlFederationApp\\__DEFINITIONS__"
+        schema:
+            default:
+                query: Query
+        mappings:
+            types:
+                -
+                    type: graphql
+                    dir: "%kernel.project_dir%/config/cacheControlFederation/mapping"
+                    suffix: ~
+
+services:
+    # Aliased to a plain id: a namespaced class name inside an expression-language string would
+    # have its backslashes mangled.
+    test.cache_control_reference_resolver:
+        class: Redeye\GraphQLBundle\Tests\Functional\App\Resolver\CacheControlReferenceResolver
+        public: true
+
+    Redeye\GraphQLBundle\Tests\Functional\App\Resolver\CacheControlFederationResolverMap:
+        tags:
+            - { name: redeye_graphql.resolver_map, schema: default }
+
+    Redeye\GraphQLBundle\Tests\Functional\App\Resolver\CacheControlEntityTypeResolver:
+        tags:
+            - { name: redeye_graphql.entity_type_resolver }

@@ -23,6 +23,8 @@ class EntityRefObjectDefinition extends TypeWithOutputFieldsDefinition
             ->append($this->outputFieldsSection())
             ->append($this->fieldsBuilderSection())
             ->append($this->descriptionSection())
+            ->append($this->cacheControlSection())
+            ->append($this->cacheTagsSection())
             ->booleanNode('shareable')->defaultFalse()->end()
             ->booleanNode('external')->defaultFalse()->end()
             ->arrayNode('keyFields')
@@ -45,6 +47,8 @@ class EntityRefObjectDefinition extends TypeWithOutputFieldsDefinition
 
         $this->treatFieldsDefaultAccess($node);
         $this->treatFieldsDefaultPublic($node);
+
+        $node->validate()->always(fn ($v) => self::unsetEmptyCacheTags($v))->end();
 
         return $node;
     }

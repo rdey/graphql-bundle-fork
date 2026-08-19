@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Redeye\GraphQLBundle\Federation;
 
+use Redeye\GraphQLBundle\Federation\Directives\CacheControlDirective;
+use Redeye\GraphQLBundle\Federation\Directives\CacheTagDirective;
 use Redeye\GraphQLBundle\Federation\Directives\KeyDirective;
 use Redeye\GraphQLBundle\Federation\Directives\ExternalDirective;
 use Redeye\GraphQLBundle\Federation\Directives\OverrideDirective;
@@ -68,6 +70,22 @@ class Directives
     }
 
     /**
+     * Gets the @cacheControl directive
+     */
+    public static function cacheControl(): CacheControlDirective
+    {
+        return self::getDirectives()['cacheControl'];
+    }
+
+    /**
+     * Gets the @cacheTag directive
+     */
+    public static function cacheTag(): CacheTagDirective
+    {
+        return self::getDirectives()['cacheTag'];
+    }
+
+    /**
      * Gets the directives that can be used on federated entity types
      */
     public static function getDirectives(): array
@@ -80,6 +98,8 @@ class Directives
                 'provides' => new ProvidesDirective(),
                 'shareable' => new ShareableDirective(),
                 'override' => new OverrideDirective(),
+                'cacheControl' => new CacheControlDirective(),
+                'cacheTag' => new CacheTagDirective(),
             ];
         }
 

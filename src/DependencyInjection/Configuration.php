@@ -6,6 +6,7 @@ namespace Redeye\GraphQLBundle\DependencyInjection;
 
 use GraphQL\Validator\Rules\QueryComplexity;
 use GraphQL\Validator\Rules\QueryDepth;
+use Redeye\GraphQLBundle\CacheControl\CacheControlAccumulator;
 use Redeye\GraphQLBundle\DataLoader\Promise\Adapter\Webonyx\GraphQL\SyncPromiseAdapter;
 use Redeye\GraphQLBundle\Definition\Argument;
 use Redeye\GraphQLBundle\DependencyInjection\Compiler\ConfigParserPass;
@@ -13,6 +14,8 @@ use Redeye\GraphQLBundle\Error\ErrorHandler;
 use Redeye\GraphQLBundle\EventListener\ErrorLoggerListener;
 use Redeye\GraphQLBundle\Executor\Executor;
 use Redeye\GraphQLBundle\ExpressionLanguage\ExpressionLanguage;
+use Redeye\GraphQLBundle\Federation\Tracing\TraceErrorFilter;
+use Redeye\GraphQLBundle\Federation\Tracing\TraceErrorTransformerInterface;
 use Redeye\GraphQLBundle\Resolver\FieldResolver;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\EnumNodeDefinition;
@@ -22,6 +25,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\HttpKernel\Kernel;
 use function array_keys;
 use function is_array;
+use function is_bool;
 use function is_int;
 use function is_numeric;
 use function is_string;
@@ -49,10 +53,24 @@ class Configuration implements ConfigurationInterface
 
         // @phpstan-ignore-next-line
         $rootNode
+            ->validate()
+                ->always(function (array $v): array {
+                    // `inline_trace.enabled: null` means "inherit from the `federation` sibling".
+                    // This has to happen here rather than in a beforeNormalization: Symfony
+                    // normalizes each config fragment on its own and only merges afterwards, so
+                    // this is the first point at which both keys are known.
+                    if (null === $v['inline_trace']['enabled']) {
+                        $v['inline_trace']['enabled'] = $v['federation'];
+                    }
+
+                    return $v;
+                })
+            ->end()
             ->children()
                 ->booleanNode('federation')
                     ->defaultFalse()
                 ->end()
+                ->append($this->inlineTraceSection())
                 ->append($this->batchingMethodSection())
                 ->append($this->definitionsSection())
                 ->append($this->errorsHandlerSection())
@@ -60,9 +78,86 @@ class Configuration implements ConfigurationInterface
                 ->append($this->securitySection())
                 ->append($this->doctrineSection())
                 ->append($this->profilerSection())
+                ->append($this->cacheControlSection())
             ->end();
 
         return $treeBuilder;
+    }
+
+    private function cacheControlSection(): ArrayNodeDefinition
+    {
+        $builder = new TreeBuilder('cache_control');
+
+        /** @var ArrayNodeDefinition $node */
+        $node = $builder->getRootNode();
+
+        // @phpstan-ignore-next-line
+        $node
+            ->info('Turns @cacheControl annotations into a Cache-Control response header.')
+            ->treatFalseLike(['enabled' => false])
+            ->treatTrueLike(['enabled' => true])
+            ->treatNullLike(['enabled' => true])
+            ->addDefaultsIfNotSet()
+            ->children()
+                // Opt-in: switching this on gives a Cache-Control header to responses that
+                // previously had none, including no-store for anything unannotated.
+                ->booleanNode('enabled')->defaultFalse()->end()
+                ->integerNode('default_max_age')
+                    ->min(0)
+                    ->defaultValue(0)
+                    ->info('maxAge applied to root fields and composite-returning fields that carry no hint.')
+                ->end()
+                ->enumNode('calculate_http_headers')
+                    ->values([
+                        CacheControlAccumulator::HEADERS_ALWAYS,
+                        CacheControlAccumulator::HEADERS_IF_CACHEABLE,
+                        CacheControlAccumulator::HEADERS_NEVER,
+                    ])
+                    ->defaultValue(CacheControlAccumulator::HEADERS_ALWAYS)
+                    ->beforeNormalization()
+                        ->ifTrue(fn ($v) => is_bool($v))
+                        ->then(fn ($v) => $v ? CacheControlAccumulator::HEADERS_ALWAYS : CacheControlAccumulator::HEADERS_NEVER)
+                    ->end()
+                    ->info('"if-cacheable" leaves the header untouched instead of emitting no-store.')
+                ->end()
+            ->end();
+
+        return $node;
+    }
+
+    private function inlineTraceSection(): ArrayNodeDefinition
+    {
+        $builder = new TreeBuilder('inline_trace');
+
+        /** @var ArrayNodeDefinition $node */
+        $node = $builder->getRootNode();
+
+        // @phpstan-ignore-next-line
+        $node
+            ->info('Apollo Federation inline tracing (ftv1). See docs/federation/inline-trace.md.')
+            ->treatFalseLike(['enabled' => false])
+            ->treatTrueLike(['enabled' => true])
+            ->treatNullLike(['enabled' => true])
+            ->addDefaultsIfNotSet()
+            ->children()
+                // Tri-state rather than canBeEnabled(): that hard-codes defaultFalse(), which
+                // would make an explicit `false` indistinguishable from the default.
+                ->booleanNode('enabled')
+                    ->info('Defaults to the value of "federation".')
+                    ->defaultNull()
+                ->end()
+                ->enumNode('include_errors')
+                    ->info('"masked" replaces error messages with "<masked>" (the Apollo Server default); "unmodified" reports the client-visible message.')
+                    ->values([TraceErrorFilter::MASKED, TraceErrorFilter::UNMODIFIED])
+                    ->defaultValue(TraceErrorFilter::MASKED)
+                ->end()
+                ->scalarNode('transformer_service')
+                    ->info('Service id implementing '.TraceErrorTransformerInterface::class.'. Overrides include_errors.')
+                    ->defaultNull()
+                ->end()
+            ->end();
+
+        return $node;
     }
 
     private function batchingMethodSection(): EnumNodeDefinition

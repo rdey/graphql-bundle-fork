@@ -16,6 +16,9 @@ use Redeye\GraphQLBundle\Federation\Types\EntityObjectType;
 use Redeye\GraphQLBundle\Definition\Type\ExtensibleSchema;
 use Redeye\GraphQLBundle\Federation\EntityTypeResolver\EntityTypeResolverInterface;
 use Redeye\GraphQLBundle\Federation\Types\EntityUnionType;
+use Redeye\GraphQLBundle\CacheControl\CacheControlRecorder;
+use ArrayObject;
+use function is_array;
 
 /**
  * A federated GraphQL schema definition (see [related docs](https://www.apollographql.com/docs/apollo-server/federation/introduction))
@@ -188,6 +191,10 @@ class FederatedSchema extends ExtensibleSchema
         return [
             '_entities' => [
                 'type' => Type::listOf($this->entityUnionType),
+                // _entities is a root field, so the usual defaulting would pin it at maxAge 0 and
+                // no entity fetch could ever be cached. Its hint comes from the concrete type of
+                // each representation instead, applied in self::resolve().
+                CacheControlRecorder::SELF_HINTED_CONFIG_KEY => true,
                 'args' => [
                     'representations' => [
                         'type' => Type::nonNull(Type::listOf(Type::nonNull($this->anyType)))
@@ -212,6 +219,8 @@ class FederatedSchema extends ExtensibleSchema
             $typeName = $ref['__typename'];
             $type = $info->schema->getType($typeName);
 
+            self::recordCacheControl($context, $type);
+
             Utils::invariant(
                 $type && $type instanceof EntityObjectType,
                 sprintf(
@@ -227,6 +236,29 @@ class FederatedSchema extends ExtensibleSchema
             $r = $type->resolveReference($ref, $context, $info);
             return $r;
         }, $args['representations']);
+    }
+
+    /**
+     * Applies the cache hint of a concrete entity type to the operation being executed.
+     *
+     * The `_entities` field is declared as returning the `_Entity` union, so nothing in the schema
+     * statically connects it to the type actually being fetched. Apollo resolves this the same way:
+     * the concrete type is looked up while resolving and its hint applied in place of the default.
+     *
+     * @param mixed $context
+     * @param mixed $type
+     */
+    private static function recordCacheControl($context, $type): void
+    {
+        if (!$type instanceof Type || (!$context instanceof ArrayObject && !is_array($context))) {
+            return;
+        }
+
+        $recorder = $context[CacheControlRecorder::CONTEXT_KEY] ?? null;
+
+        if ($recorder instanceof CacheControlRecorder) {
+            $recorder->recordType($type);
+        }
     }
 
     /**
