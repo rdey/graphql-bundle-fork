@@ -45,7 +45,7 @@
         "symfony/http-kernel": "^5.4 || ^6.0",
         "symfony/options-resolver": "^5.4 || ^6.0",
         "symfony/property-access": "^5.4 || ^6.0",
-        "webonyx/graphql-php": "^14.5"
+        "webonyx/graphql-php": "^15.6"
     },
     "suggest": {
         "ext-protobuf": "For much faster serialization of Apollo Federation inline traces (ftv1)",
